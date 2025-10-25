@@ -56,7 +56,7 @@ export function HandwrittenText({ text, className = "", size = "default" }: Hand
         span.style.fontFamily = "'Klee One', cursive"
         span.style.opacity = "0"
         if (isVisible) {
-          span.style.animation = `fadeInChar 0.8s ease-out forwards ${(lineIndex * chars.length + charIndex) * 0.1}s`
+          span.style.animation = `fadeInChar 0.8s ease-out forwards ${(lineIndex * chars.length + charIndex) * 0.06}s`
         }
         lineDiv.appendChild(span)
       })
