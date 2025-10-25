@@ -93,7 +93,7 @@ export default function ProcessSection() {
             {processSteps.map((step, index) => (
               <div key={index} ref={(el) => (processItemsRef.current[index] = el)} className="relative">
                 {/* 矢印 - モバイルのみ */}
-                {index < processSteps.length - 1 && (
+                {index === 3 && (
                   <div className="flex justify-center my-8 md:hidden">
                     <svg className="w-8 h-8 text-charcoal-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path
@@ -153,6 +153,20 @@ export default function ProcessSection() {
                     </div>
                   </div>
                 </div>
+
+                {/* 矢印 - モバイルのみ */}
+                {index < 3 && (
+                  <div className="flex justify-center my-8 md:hidden">
+                    <svg className="w-8 h-8 text-charcoal-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                      />
+                    </svg>
+                  </div>
+                )}
               </div>
             ))}
           </div>

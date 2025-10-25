@@ -222,10 +222,8 @@ export default function ServicesPage() {
                       <span className="bg-charcoal-light text-white text-xs px-2 py-1 rounded">{service.category}</span>
                     </div>
 
-                    {/* Hidden Title for Mobile */}
-                    <h3 className="text-xl font-bold mb-3 text-charcoal-light line-clamp-2 hidden md:block">
-                      {service.title}
-                    </h3>
+                    {/* Title for All Devices */}
+                    <h3 className="text-xl font-bold mb-3 text-charcoal-light line-clamp-2">{service.title}</h3>
 
                     <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">{service.description}</p>
 
