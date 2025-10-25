@@ -14,94 +14,76 @@ export function HandwrittenText({ text, className = "", size = "default" }: Hand
   const textRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    // GSAPが確実に読み込まれるまで待つ
-    if (typeof window === "undefined") return
-
     const container = containerRef.current
     const textElement = textRef.current
 
     if (!container || !textElement) return
 
-    // 少し遅延させてからアニメーションを開始
-    const timer = setTimeout(() => {
-      // テキストを改行で分割
-      const lines = text.split("\n")
-      textElement.innerHTML = ""
+    // テキストを改行で分割
+    const lines = text.split("\n")
+    textElement.innerHTML = ""
 
-      lines.forEach((line, lineIndex) => {
-        const lineDiv = document.createElement("div")
-        lineDiv.className = "handwritten-line"
-        lineDiv.style.marginBottom = lineIndex < lines.length - 1 ? "0.2em" : "0"
+    lines.forEach((line, lineIndex) => {
+      const lineDiv = document.createElement("div")
+      lineDiv.className = "handwritten-line"
+      lineDiv.style.marginBottom = lineIndex < lines.length - 1 ? "0.2em" : "0"
 
-        const chars = line.split("")
-        chars.forEach((char, charIndex) => {
-          const span = document.createElement("span")
-          span.textContent = char === " " ? "\u00A0" : char
-          span.style.opacity = "0"
-          span.style.transform = "translateX(-20px) rotate(-5deg)"
-          span.style.display = "inline-block"
-          span.style.fontFamily = "'Klee One', cursive"
-          span.dataset.line = lineIndex.toString()
-          span.dataset.char = charIndex.toString()
-          lineDiv.appendChild(span)
-        })
-
-        textElement.appendChild(lineDiv)
+      const chars = line.split("")
+      chars.forEach((char, charIndex) => {
+        const span = document.createElement("span")
+        span.textContent = char === " " ? "\u00A0" : char
+        span.style.opacity = "0"
+        span.style.transform = "translateX(-20px) rotate(-5deg)"
+        span.style.display = "inline-block"
+        span.style.fontFamily = "'Klee One', cursive"
+        span.dataset.line = lineIndex.toString()
+        span.dataset.char = charIndex.toString()
+        lineDiv.appendChild(span)
       })
 
-      // アニメーションの実行
-      const spans = textElement.querySelectorAll("span")
+      textElement.appendChild(lineDiv)
+    })
 
-      // gsapが使用可能か確認
-      if (typeof gsap !== "undefined") {
-        gsap.fromTo(
-          spans,
-          {
-            opacity: 0,
-            x: -30,
-            rotation: -8,
-            scale: 0.8,
-          },
-          {
-            opacity: 1,
-            x: 0,
-            rotation: 0,
-            scale: 1,
-            duration: 0.8,
-            ease: "back.out(1.7)",
-            stagger: {
-              amount: 2.5,
-              from: "start",
-            },
-            delay: 1,
-          },
-        )
+    // アニメーションの実行
+    const spans = textElement.querySelectorAll("span")
 
-        // 風に揺れるような効果を追加
-        gsap.to(spans, {
-          rotation: "random(-2, 2)",
-          y: "random(-3, 3)",
-          duration: 3,
-          ease: "sine.inOut",
-          repeat: -1,
-          yoyo: true,
-          stagger: {
-            amount: 1,
-            repeat: -1,
-          },
-          delay: 4,
-        })
-      } else {
-        // GSAPが読み込まれていない場合はシンプルに表示
-        spans.forEach((span) => {
-          ;(span as HTMLElement).style.opacity = "1"(span as HTMLElement).style.transform = "none"
-        })
-      }
-    }, 100)
+    gsap.fromTo(
+      spans,
+      {
+        opacity: 0,
+        x: -30,
+        rotation: -8,
+        scale: 0.8,
+      },
+      {
+        opacity: 1,
+        x: 0,
+        rotation: 0,
+        scale: 1,
+        duration: 0.8,
+        ease: "back.out(1.7)",
+        stagger: {
+          amount: 2.5,
+          from: "start",
+        },
+        delay: 1,
+      },
+    )
 
-    return () => {
-      clearTimeout(timer)
-    }
+    // 風に揺れるような効果を追加
+    gsap.to(spans, {
+      rotation: "random(-2, 2)",
+      y: "random(-3, 3)",
+      duration: 3,
+      ease: "sine.inOut",
+      repeat: -1,
+      yoyo: true,
+      stagger: {
+        amount: 1,
+        repeat: -1,
+      },
+      delay: 4,
+    })
   }, [text])
 
   // サイズに応じたクラス名を決定
