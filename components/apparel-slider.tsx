@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
-import { gsap } from "gsap"
 
 interface Product {
   id: number
@@ -113,18 +112,16 @@ export default function ApparelSlider() {
 
       if (animate) {
         setIsTransitioning(true)
-        gsap.to(slider, {
-          x: -scrollPosition,
-          duration: 0.8,
-          ease: "power2.inOut",
-          onComplete: () => {
-            setIsTransitioning(false)
-            // 無限ループの処理
-            handleInfiniteLoop(index)
-          },
-        })
+        slider.style.transition = "transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)"
+        slider.style.transform = `translateX(-${scrollPosition}px)`
+
+        setTimeout(() => {
+          setIsTransitioning(false)
+          handleInfiniteLoop(index)
+        }, 800)
       } else {
-        gsap.set(slider, { x: -scrollPosition })
+        slider.style.transition = "none"
+        slider.style.transform = `translateX(-${scrollPosition}px)`
         setIsTransitioning(false)
       }
     }
