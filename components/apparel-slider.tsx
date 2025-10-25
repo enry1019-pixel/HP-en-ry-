@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ChevronLeft, ChevronRight, ArrowRight } from "lucide-react"
 import { gsap } from "gsap"
+import { useGSAPInit } from "@/lib/gsap-init"
 
 interface Product {
   id: number
@@ -67,6 +68,8 @@ const products: Product[] = [
 ]
 
 export default function ApparelSlider() {
+  useGSAPInit()
+
   const sliderRef = useRef<HTMLDivElement>(null)
   const sliderWrapperRef = useRef<HTMLDivElement>(null)
   const [currentIndex, setCurrentIndex] = useState(0)

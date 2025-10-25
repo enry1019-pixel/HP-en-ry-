@@ -4,14 +4,15 @@ import { useEffect, useRef } from "react"
 import { Camera, Edit, Film, Monitor, Upload } from "lucide-react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useGSAPInit } from "@/lib/gsap-init"
 
 export default function MemorialFlowSection() {
+  useGSAPInit()
+
   const sectionRef = useRef<HTMLElement>(null)
   const flowItemsRef = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-
     const section = sectionRef.current
     if (section) {
       // タイトルのアニメーション

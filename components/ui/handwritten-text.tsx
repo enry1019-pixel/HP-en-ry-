@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from "react"
 import { gsap } from "gsap"
+import { useGSAPInit } from "@/lib/gsap-init"
 
 interface HandwrittenTextProps {
   text: string
@@ -10,6 +11,8 @@ interface HandwrittenTextProps {
 }
 
 export function HandwrittenText({ text, className = "", size = "default" }: HandwrittenTextProps) {
+  useGSAPInit()
+
   const containerRef = useRef<HTMLDivElement>(null)
   const textRef = useRef<HTMLDivElement>(null)
 

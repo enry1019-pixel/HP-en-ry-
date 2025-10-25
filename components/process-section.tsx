@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react"
 import { Lightbulb, Camera, Edit, Truck } from "lucide-react"
 import { gsap } from "gsap"
 import { ScrollTrigger } from "gsap/ScrollTrigger"
+import { useGSAPInit } from "@/lib/gsap-init"
 
 const processSteps = [
   {
@@ -37,12 +38,12 @@ const processSteps = [
 ]
 
 export default function ProcessSection() {
+  useGSAPInit()
+
   const sectionRef = useRef<HTMLElement>(null)
   const processItemsRef = useRef<(HTMLDivElement | null)[]>([])
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-
     const section = sectionRef.current
     if (section) {
       // タイトルのアニメーション

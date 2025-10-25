@@ -5,6 +5,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
 import { gsap } from "gsap"
+import { useGSAPInit } from "@/lib/gsap-init"
 
 const services = [
   {
@@ -38,6 +39,8 @@ const services = [
 ]
 
 export default function ServiceSlider() {
+  useGSAPInit()
+
   const sliderRef = useRef<HTMLDivElement>(null)
   const sliderWrapperRef = useRef<HTMLDivElement>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
