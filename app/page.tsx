@@ -274,23 +274,13 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-2">PORTFOLIO</h2>
-            <p className="text-lg text-gray-500 mb-4">制作実績</p>
+            <p className="text-lg text-gray-500 mb-4">制作実績(監督：田中慎太郎 作品)</p>
             <p className="text-gray-600 max-w-2xl mx-auto">
               これまでに制作した映像作品の一部をご紹介します。 様々な業界のクライアント様と協力して制作した作品です。
             </p>
           </div>
 
           <PortfolioSlider />
-
-          <div className="text-center mt-12">
-            <Link
-              href="/portfolio"
-              className="inline-flex items-center bg-black text-white px-6 py-3 hover:bg-gray-800 transition-colors"
-            >
-              すべての実績を見る
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Link>
-          </div>
         </div>
       </section>
 

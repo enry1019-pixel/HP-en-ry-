@@ -9,7 +9,7 @@ const services = [
     slug: "promotion-pr",
     description:
       "企業のブランド価値を最大化する戦略的な映像制作。商品・サービスの魅力を効果的に伝え、観光地の魅力をダイナミックに表現します。マーケティング効果を重視した企画から撮影、編集まで一貫してサポートいたします。",
-    image: "/placeholder.svg?height=600&width=800&text=プロモーション",
+    image: "/fukui-pr-thumbnail.jpg",
     features: [
       "企業ブランディング映像",
       "商品・サービスプロモーション",
@@ -319,7 +319,7 @@ export default function ServicePage({ params }: ServicePageProps) {
                 <div
                   className="absolute inset-0 bg-cover bg-center opacity-20"
                   style={{
-                    backgroundImage: "url('/japanese-business-office-meeting-corporate.jpg')",
+                    backgroundImage: "url('/fukui-pr-thumbnail.jpg')",
                   }}
                 />
                 <div className="relative z-10">

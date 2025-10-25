@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   generator: "v0.app",
 }
 
+// Force rebuild to clear module cache
 export default function RootLayout({
   children,
 }: Readonly<{

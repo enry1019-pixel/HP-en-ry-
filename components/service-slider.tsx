@@ -11,7 +11,7 @@ const services = [
     slug: "promotion-pr",
     description:
       "企業のブランド価値を最大化する戦略的な映像制作。商品・サービスの魅力を効果的に伝え、観光地の魅力をダイナミックに表現します。マーケティング効果を重視した企画から撮影、編集まで一貫してサポートいたします。",
-    image: "/japanese-business-office-meeting-corporate.jpg",
+    image: "/fukui-pr-thumbnail.jpg", // Updated to use the Fukui PR thumbnail image
   },
   {
     title: "メモリアルmovie制作",

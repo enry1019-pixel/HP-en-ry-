@@ -2,57 +2,89 @@
 
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
-import Link from "next/link"
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { ChevronLeft, ChevronRight, X, Play } from "lucide-react"
 
 const portfolioItems = [
   {
     id: 1,
-    title: "クライアント名 1",
-    slug: "client-1",
-    category: "企業PR映像",
+    title: "福井県　観光地PR動画",
+    category: "観光地PR",
+    role: "監督・脚本",
     year: "2023年",
-    image: "/placeholder.svg?height=300&width=400&text=クライアント1",
+    videoId: "OuF0gG07TKk",
+    thumbnail: `https://img.youtube.com/vi/OuF0gG07TKk/maxresdefault.jpg`,
   },
   {
     id: 2,
-    title: "クライアント名 2",
-    slug: "client-2",
-    category: "商品プロモーション",
+    title: "『アッパレビバディ』/Appare!",
+    category: "MV",
+    role: "監督",
     year: "2023年",
-    image: "/placeholder.svg?height=300&width=400&text=クライアント2",
+    videoId: "6C7P_0Qv3pc",
+    thumbnail: `https://img.youtube.com/vi/6C7P_0Qv3pc/maxresdefault.jpg`,
   },
   {
     id: 3,
-    title: "クライアント名 3",
-    slug: "client-3",
-    category: "イベント記録",
+    title: "夏恋バケーション/花いろは",
+    category: "MV",
+    role: "監督・編集",
     year: "2023年",
-    image: "/placeholder.svg?height=300&width=400&text=クライアント3",
+    videoId: "MCGkxEmxJWQ",
+    thumbnail: `https://img.youtube.com/vi/MCGkxEmxJWQ/maxresdefault.jpg`,
   },
   {
     id: 4,
-    title: "クライアント名 4",
-    slug: "client-4",
-    category: "企業PR映像",
+    title: "桃色ジュテーム/花いろは",
+    category: "MV",
+    role: "監督",
     year: "2023年",
-    image: "/placeholder.svg?height=300&width=400&text=クライアント4",
+    videoId: "8DLmTeGNtlE",
+    thumbnail: `https://img.youtube.com/vi/8DLmTeGNtlE/maxresdefault.jpg`,
   },
   {
     id: 5,
-    title: "クライアント名 5",
-    slug: "client-5",
-    category: "MV制作",
+    title: "いつか黄昏の空で/gusou十色",
+    category: "MV",
+    role: "監督・脚本・撮影・編集",
     year: "2023年",
-    image: "/placeholder.svg?height=300&width=400&text=クライアント5",
+    videoId: "Wt7nqe5ACIA",
+    thumbnail: `https://img.youtube.com/vi/Wt7nqe5ACIA/maxresdefault.jpg`,
   },
   {
     id: 6,
-    title: "クライアント名 6",
-    slug: "client-6",
-    category: "ドラマ制作",
+    title: "BIRTHDAY feat.掌幻/TONEMANIA",
+    category: "MV",
+    role: "監督",
     year: "2023年",
-    image: "/placeholder.svg?height=300&width=400&text=クライアント6",
+    videoId: "fIwdf8M9X0M",
+    thumbnail: `https://img.youtube.com/vi/fIwdf8M9X0M/maxresdefault.jpg`,
+  },
+  {
+    id: 7,
+    title: "さわげ！うたげーしょん！/UtaGe!",
+    category: "MV",
+    role: "監督",
+    year: "2023年",
+    videoId: "81eV5XW62Ww",
+    thumbnail: `https://img.youtube.com/vi/81eV5XW62Ww/maxresdefault.jpg`,
+  },
+  {
+    id: 8,
+    title: "劇薬",
+    category: "映画",
+    role: "監督・脚本・撮影・編集",
+    year: "2023年",
+    videoId: "CtSvHCdXivk",
+    thumbnail: `https://img.youtube.com/vi/CtSvHCdXivk/maxresdefault.jpg`,
+  },
+  {
+    id: 9,
+    title: "近くて遠い親子",
+    category: "映画",
+    role: "監督・脚本・編集",
+    year: "2023年",
+    videoId: "SPX7k8DsnIk",
+    thumbnail: `https://img.youtube.com/vi/SPX7k8DsnIk/maxresdefault.jpg`,
   },
 ]
 
@@ -62,11 +94,10 @@ export default function PortfolioSlider() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [selectedVideo, setSelectedVideo] = useState<(typeof portfolioItems)[0] | null>(null)
 
-  // 無限ループのために配列を3倍に拡張（前後に複製を追加）
   const extendedPortfolioItems = [...portfolioItems, ...portfolioItems, ...portfolioItems]
 
-  // 画面サイズの検出
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 768)
@@ -80,12 +111,22 @@ export default function PortfolioSlider() {
     }
   }, [])
 
-  // 初期表示時に中央のセット（portfolioItems.length番目）から開始
   useEffect(() => {
     const initialIndex = portfolioItems.length
     setCurrentIndex(initialIndex)
     scrollToIndex(initialIndex, false)
   }, [isMobile])
+
+  useEffect(() => {
+    if (selectedVideo) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "unset"
+    }
+    return () => {
+      document.body.style.overflow = "unset"
+    }
+  }, [selectedVideo])
 
   const scrollToIndex = (index: number, animate = true) => {
     const slider = sliderRef.current
@@ -116,14 +157,11 @@ export default function PortfolioSlider() {
   }
 
   const handleInfiniteLoop = (index: number) => {
-    // 最初のセット（0 ~ portfolioItems.length-1）にいる場合、中央のセットに移動
     if (index < portfolioItems.length) {
       const newIndex = index + portfolioItems.length
       setCurrentIndex(newIndex)
       scrollToIndex(newIndex, false)
-    }
-    // 最後のセット（portfolioItems.length*2 ~ portfolioItems.length*3-1）にいる場合、中央のセットに移動
-    else if (index >= portfolioItems.length * 2) {
+    } else if (index >= portfolioItems.length * 2) {
       const newIndex = index - portfolioItems.length
       setCurrentIndex(newIndex)
       scrollToIndex(newIndex, false)
@@ -144,131 +182,201 @@ export default function PortfolioSlider() {
     scrollToIndex(newIndex)
   }
 
-  // デスクトップ表示（グリッド）
+  const openVideoModal = (item: (typeof portfolioItems)[0]) => {
+    setSelectedVideo(item)
+  }
+
+  const closeVideoModal = () => {
+    setSelectedVideo(null)
+  }
+
   if (!isMobile) {
     return (
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {portfolioItems.map((item) => (
-          <div key={item.id} className="group relative overflow-hidden">
-            <div className="h-64 bg-gray-100 relative flex items-center justify-center">
-              <Image src={item.image || "/placeholder.svg"} alt={item.title} fill className="object-cover" />
+      <>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {portfolioItems.map((item) => (
+            <div
+              key={item.id}
+              className="group relative overflow-hidden cursor-pointer"
+              onClick={() => openVideoModal(item)}
+            >
+              <div className="h-64 bg-gray-100 relative flex items-center justify-center">
+                <Image src={item.thumbnail || "/placeholder.svg"} alt={item.title} fill className="object-cover" />
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                  <div className="bg-white/90 rounded-full p-4">
+                    <Play className="w-8 h-8 text-charcoal-light" fill="currentColor" />
+                  </div>
+                </div>
+              </div>
+              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                <div className="text-center text-white p-4">
+                  <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                  <p className="mb-2">
+                    {item.category} / {item.year}
+                  </p>
+                  <p className="text-sm">{item.role}</p>
+                </div>
+              </div>
             </div>
-            <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-              <div className="text-center text-white p-4">
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                <p className="mb-4">
-                  {item.category} / {item.year}
+          ))}
+        </div>
+
+        {selectedVideo && (
+          <div
+            className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
+            onClick={closeVideoModal}
+          >
+            <button
+              onClick={closeVideoModal}
+              className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
+              aria-label="閉じる"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            <div className="w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
+              <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+                <iframe
+                  className="absolute inset-0 w-full h-full"
+                  src={`https://www.youtube.com/embed/${selectedVideo.videoId}?autoplay=1`}
+                  title={selectedVideo.title}
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              </div>
+              <div className="mt-4 text-white text-center">
+                <h3 className="text-2xl font-bold mb-2">{selectedVideo.title}</h3>
+                <p className="text-gray-300">
+                  {selectedVideo.category} / {selectedVideo.role} / {selectedVideo.year}
                 </p>
-                <Link
-                  href={`/portfolio/${item.slug}`}
-                  className="inline-flex items-center text-white border border-white px-4 py-2 hover:bg-white hover:text-black transition-colors"
-                >
-                  詳細を見る
-                  <ArrowRight className="ml-2 w-4 h-4" />
-                </Link>
               </div>
             </div>
           </div>
-        ))}
-      </div>
+        )}
+      </>
     )
   }
 
-  // モバイル表示（スライダー）
   const actualIndex = currentIndex % portfolioItems.length
 
   return (
-    <div className="relative" ref={sliderWrapperRef}>
-      {/* 左矢印ボタン */}
-      <button
-        onClick={handlePrev}
-        disabled={isTransitioning}
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
-        aria-label="前へ"
-      >
-        <ChevronLeft className="w-5 h-5 text-charcoal-light" />
-      </button>
-
-      {/* スライダー */}
-      <div className="overflow-hidden py-4">
-        <div
-          ref={sliderRef}
-          className="flex gap-4"
-          style={{
-            willChange: "transform",
-            backfaceVisibility: "hidden",
-          }}
+    <>
+      <div className="relative" ref={sliderWrapperRef}>
+        <button
+          onClick={handlePrev}
+          disabled={isTransitioning}
+          className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+          aria-label="前へ"
         >
-          {extendedPortfolioItems.map((item, index) => {
-            const isCenter = index === currentIndex
-            return (
-              <div
-                key={`${item.title}-${index}`}
-                className={`bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md transition-all duration-700 ease-out ${
-                  isCenter
-                    ? "ring-2 ring-charcoal-light ring-opacity-30 shadow-xl transform scale-105 z-10"
-                    : "opacity-75 transform scale-95 hover:opacity-90"
-                }`}
-                style={{
-                  minWidth: "80%",
-                  width: "80%",
-                  flexShrink: 0,
-                  transformOrigin: "center",
-                  backfaceVisibility: "hidden",
-                }}
-              >
-                <div className="h-48 bg-gray-100 relative">
-                  <Image src={item.image || "/placeholder.svg"} alt={item.title} fill className="object-cover" />
+          <ChevronLeft className="w-5 h-5 text-charcoal-light" />
+        </button>
+
+        <div className="overflow-hidden py-4">
+          <div
+            ref={sliderRef}
+            className="flex gap-4"
+            style={{
+              willChange: "transform",
+              backfaceVisibility: "hidden",
+            }}
+          >
+            {extendedPortfolioItems.map((item, index) => {
+              const isCenter = index === currentIndex
+              return (
+                <div
+                  key={`${item.title}-${index}`}
+                  className={`bg-white border border-gray-200 rounded-lg overflow-hidden shadow-md transition-all duration-700 ease-out cursor-pointer ${
+                    isCenter
+                      ? "ring-2 ring-charcoal-light ring-opacity-30 shadow-xl transform scale-105 z-10"
+                      : "opacity-75 transform scale-95 hover:opacity-90"
+                  }`}
+                  style={{
+                    minWidth: "80%",
+                    width: "80%",
+                    flexShrink: 0,
+                    transformOrigin: "center",
+                    backfaceVisibility: "hidden",
+                  }}
+                  onClick={() => openVideoModal(item)}
+                >
+                  <div className="h-48 bg-gray-100 relative">
+                    <Image src={item.thumbnail || "/placeholder.svg"} alt={item.title} fill className="object-cover" />
+                    <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                      <div className="bg-white/90 rounded-full p-3">
+                        <Play className="w-6 h-6 text-charcoal-light" fill="currentColor" />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <h3 className="text-lg font-bold mb-2">{item.title}</h3>
+                    <p className="text-gray-600 mb-1">
+                      {item.category} / {item.year}
+                    </p>
+                    <p className="text-sm text-gray-500">{item.role}</p>
+                  </div>
                 </div>
-                <div className="p-4">
-                  <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                  <p className="text-gray-600 mb-4">
-                    {item.category} / {item.year}
-                  </p>
-                  <Link
-                    href={`/portfolio/${item.slug}`}
-                    className="inline-flex items-center text-charcoal-light hover:text-charcoal transition-colors"
-                  >
-                    詳細を見る
-                    <ArrowRight className="ml-2 w-4 h-4" />
-                  </Link>
-                </div>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
+        </div>
+
+        <button
+          onClick={handleNext}
+          disabled={isTransitioning}
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+          aria-label="次へ"
+        >
+          <ChevronRight className="w-5 h-5 text-charcoal-light" />
+        </button>
+
+        <div className="flex justify-center mt-6 gap-2">
+          {portfolioItems.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => {
+                if (isTransitioning) return
+                const newIndex = portfolioItems.length + index
+                setCurrentIndex(newIndex)
+                scrollToIndex(newIndex)
+              }}
+              className={`w-2 h-2 rounded-full transition-all duration-500 ${
+                actualIndex === index
+                  ? "bg-charcoal-light scale-125 shadow-md"
+                  : "bg-gray-300 hover:bg-gray-400 scale-100"
+              }`}
+              aria-label={`スライド ${index + 1} に移動`}
+            />
+          ))}
         </div>
       </div>
 
-      {/* 右矢印ボタン */}
-      <button
-        onClick={handleNext}
-        disabled={isTransitioning}
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
-        aria-label="次へ"
-      >
-        <ChevronRight className="w-5 h-5 text-charcoal-light" />
-      </button>
-
-      {/* インジケーター */}
-      <div className="flex justify-center mt-6 gap-2">
-        {portfolioItems.map((_, index) => (
+      {selectedVideo && (
+        <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4" onClick={closeVideoModal}>
           <button
-            key={index}
-            onClick={() => {
-              if (isTransitioning) return
-              const newIndex = portfolioItems.length + index // 中央のセットのインデックス
-              setCurrentIndex(newIndex)
-              scrollToIndex(newIndex)
-            }}
-            className={`w-2 h-2 rounded-full transition-all duration-500 ${
-              actualIndex === index
-                ? "bg-charcoal-light scale-125 shadow-md"
-                : "bg-gray-300 hover:bg-gray-400 scale-100"
-            }`}
-            aria-label={`スライド ${index + 1} に移動`}
-          />
-        ))}
-      </div>
-    </div>
+            onClick={closeVideoModal}
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
+            aria-label="閉じる"
+          >
+            <X className="w-8 h-8" />
+          </button>
+          <div className="w-full max-w-5xl" onClick={(e) => e.stopPropagation()}>
+            <div className="relative w-full" style={{ paddingBottom: "56.25%" }}>
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={`https://www.youtube.com/embed/${selectedVideo.videoId}?autoplay=1`}
+                title={selectedVideo.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              />
+            </div>
+            <div className="mt-4 text-white text-center">
+              <h3 className="text-xl font-bold mb-2">{selectedVideo.title}</h3>
+              <p className="text-gray-300 text-sm">
+                {selectedVideo.category} / {selectedVideo.role} / {selectedVideo.year}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   )
 }
