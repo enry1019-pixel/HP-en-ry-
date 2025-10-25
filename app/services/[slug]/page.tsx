@@ -279,84 +279,72 @@ export default function ServicePage({ params }: ServicePageProps) {
                 <h2 className="text-3xl font-bold mb-12 text-center text-charcoal-light">制作の流れ</h2>
 
                 {/* Desktop View */}
-                <div className="hidden lg:block">
-                  <div className="relative">
-                    {/* Process Flow with Side Labels */}
-                    <div className="relative pt-8">
-                      <div className="flex gap-4">
-                        {/* Side Labels */}
-                        <div className="relative py-4 w-28 flex-shrink-0" style={{ minHeight: "300px" }}>
-                          <div
-                            className="absolute bg-charcoal-light text-white px-4 py-2 rounded-lg font-bold text-sm text-center shadow-md whitespace-nowrap"
-                            style={{ top: "20px", left: "0" }}
-                          >
-                            お客様
-                          </div>
-                          <div
-                            className="absolute bg-charcoal-light text-white px-4 py-2 rounded-lg font-bold text-sm text-center shadow-md"
-                            style={{ bottom: "20px", left: "0" }}
-                          >
-                            弊社
-                          </div>
+                <div className="hidden lg:block overflow-x-auto">
+                  <div className="min-w-[1200px] max-w-6xl mx-auto px-4">
+                    <div className="flex gap-8 items-center">
+                      <div className="flex flex-col gap-[100px] flex-shrink-0">
+                        <div className="bg-charcoal-light text-white px-4 py-2 rounded-lg font-bold text-sm text-center whitespace-nowrap">
+                          お客様
                         </div>
-
-                        {/* Steps */}
-                        <div className="flex-1 relative">
-                          {/* Horizontal Lines */}
-                          {/* Client Line (Top) - 01から07まで全体 */}
-                          <div
-                            className="absolute border-t border-charcoal-light/30"
-                            style={{
-                              top: "40px",
-                              left: "0",
-                              right: "0",
-                              height: "1px",
-                            }}
-                          />
-                          {/* Company Line (Bottom) - 02の中央から06の中央まで */}
-                          <div
-                            className="absolute border-t border-charcoal-light/30"
-                            style={{
-                              bottom: "40px",
-                              left: "calc(10rem + 0.125rem)",
-                              right: "calc(8rem + 0.125rem)",
-                              height: "1px",
-                            }}
-                          />
-
-                          <div className="flex gap-0.5 items-start">
-                            {service.process.map((step, index) => {
-                              const isClient = step.actor === "client"
-                              const isCompany = step.actor === "company"
-                              const isBoth = step.actor === "both"
-
-                              const stepWidth = isClient || isBoth ? "w-40" : "w-32"
-
-                              return (
-                                <div
-                                  key={index}
-                                  className={`relative flex flex-col ${stepWidth} flex-shrink-0`}
-                                  style={{ minHeight: "300px" }}
-                                >
-                                  <div className={`${isClient || isBoth ? "mt-0" : "mt-auto"}`}>
-                                    <div className="relative rounded-lg p-3 shadow-lg hover:shadow-xl transition-all bg-gray-50 border-2 border-charcoal-light">
-                                      <div className="flex items-center mb-2 relative z-10">
-                                        <span className="w-7 h-7 rounded-full flex items-center justify-center text-white font-bold text-xs mr-2 flex-shrink-0 bg-charcoal-light">
-                                          {step.number}
-                                        </span>
-                                        <h4 className="font-bold text-xs leading-tight">{step.title}</h4>
-                                      </div>
-                                      <p className="text-[11px] text-gray-600 leading-relaxed relative z-10">
-                                        {step.description}
-                                      </p>
-                                    </div>
-                                  </div>
-                                </div>
-                              )
-                            })}
-                          </div>
+                        <div className="bg-charcoal-light text-white px-4 py-2 rounded-lg font-bold text-sm text-center whitespace-nowrap">
+                          en-ry
                         </div>
                       </div>
+
+                      <div className="flex-1 flex items-center gap-2">
+                        {service.process.map((step, index) => (
+                          <div key={index} className="flex items-center">
+                            {/* Step with indicators */}
+                            <div className="flex flex-col items-center">
+                              {/* Top indicator (Customer) */}
+                              <div className="h-6 flex items-center justify-center mb-2">
+                                {step.actor === "client" || step.actor === "both" ? (
+                                  <div className="w-3 h-3 rounded-full border-2 border-charcoal-light bg-white"></div>
+                                ) : (
+                                  <div className="text-sm text-charcoal-light/40">×</div>
+                                )}
+                              </div>
+
+                              <div className="w-[117px] h-[117px] rounded-lg border-2 border-charcoal-light bg-white flex flex-col items-center justify-center p-3 shadow-sm hover:shadow-md transition-shadow">
+                                <span className="text-2xl font-bold text-charcoal-light">{step.number}</span>
+                                <span className="text-xs text-center leading-tight text-gray-600 mt-2">
+                                  {step.title}
+                                </span>
+                              </div>
+
+                              <div className="h-6 flex items-center justify-center mt-2">
+                                {step.actor === "company" || step.actor === "both" || step.number === "01" ? (
+                                  <div className="w-3 h-3 rounded-full border-2 border-charcoal-light bg-white"></div>
+                                ) : (
+                                  <div className="text-sm text-charcoal-light/40">×</div>
+                                )}
+                              </div>
+                            </div>
+
+                            {index < service.process.length - 1 && (
+                              <div className="flex flex-col gap-[88px] mx-1">
+                                <div className="w-6 h-0.5 bg-charcoal-light"></div>
+                                <div className="w-6 h-0.5 bg-charcoal-light"></div>
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Step descriptions below */}
+                    <div className="mt-12 grid grid-cols-2 gap-4">
+                      {service.process.map((step, index) => (
+                        <div key={index} className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                          <div className="flex items-center mb-2">
+                            <span className="w-7 h-7 rounded-full bg-charcoal-light text-white flex items-center justify-center font-bold text-xs mr-2">
+                              {step.number}
+                            </span>
+                            <h4 className="font-bold text-sm text-charcoal-light">{step.title}</h4>
+                          </div>
+                          <p className="text-xs text-gray-600 ml-9">{step.description}</p>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 </div>
@@ -436,6 +424,7 @@ export default function ServicePage({ params }: ServicePageProps) {
                 </div>
               </div>
             )}
+
             {/* CTA */}
             <div className="text-center bg-lightgray p-12 rounded-lg">
               <h2 className="text-2xl font-bold mb-4 text-charcoal-light">お見積り・ご相談はお気軽に</h2>
