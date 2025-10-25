@@ -214,10 +214,6 @@ export default function ServicesPage() {
                       {service.title}
                     </h3>
 
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3 md:hidden">
-                      {service.description}
-                    </p>
-
                     <div className="md:hidden mb-4">
                       <div className="h-48 bg-gray-100 relative rounded-lg overflow-hidden">
                         <Image
@@ -231,6 +227,10 @@ export default function ServicesPage() {
                         </div>
                       </div>
                     </div>
+
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3 md:hidden">
+                      {service.description}
+                    </p>
 
                     <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3 hidden md:block">
                       {service.description}
