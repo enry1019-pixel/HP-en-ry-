@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useRef, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Menu, X, Volume2, VolumeX } from "lucide-react"
@@ -25,28 +25,48 @@ export default function Home() {
 
   const toggleMute = () => {
     if (videoRef.current) {
-      videoRef.current.muted = !isMuted
-      setIsMuted(!isMuted)
+      videoRef.current.muted = !videoRef.current.muted
+      setIsMuted(videoRef.current.muted)
     }
   }
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (videoRef.current) {
-        const heroSection = videoRef.current.closest("section")
-        if (heroSection) {
-          const rect = heroSection.getBoundingClientRect()
-          if (rect.bottom < 0 || rect.top > window.innerHeight) {
-            videoRef.current.pause()
-          } else {
-            videoRef.current.play()
-          }
-        }
+    const video = videoRef.current
+    if (!video) return
+
+    // Start muted
+    video.muted = true
+
+    const playVideo = async () => {
+      try {
+        await video.play()
+      } catch (error) {
+        console.log("Video autoplay failed:", error)
       }
     }
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+    playVideo()
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            video.play().catch((error) => {
+              console.log("Video play failed:", error)
+            })
+          } else {
+            video.pause()
+          }
+        })
+      },
+      { threshold: 0.5 },
+    )
+
+    observer.observe(video)
+
+    return () => {
+      observer.disconnect()
+    }
   }, [])
 
   return (
@@ -153,26 +173,40 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative h-screen bg-lightgray overflow-hidden">
-        <div className="absolute inset-0 z-0">
+      <section className="relative w-full lg:h-screen overflow-hidden bg-black">
+        <div className="relative w-full lg:h-full">
+          <div className="absolute inset-0 bg-black/10 z-10 lg:block hidden"></div>
           <video
             ref={videoRef}
-            src="https://res.cloudinary.com/djypwraed/video/upload/v1761027158/Hero_pis3ql.mp4"
             autoPlay
             loop
             playsInline
-            muted={isMuted}
-            className="w-full h-full object-cover"
-          />
-        </div>
+            preload="auto"
+            className="w-full h-auto lg:w-full lg:h-full lg:object-cover"
+            style={{
+              display: "block",
+            }}
+          >
+            <source
+              src="https://res.cloudinary.com/djypwraed/video/upload/v1761027158/Hero_pis3ql.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
 
-        <button
-          onClick={toggleMute}
-          className="absolute bottom-8 right-8 z-10 bg-black/30 backdrop-blur-sm hover:bg-black/50 text-white p-4 rounded-full transition-all duration-300 hover:scale-110"
-          aria-label={isMuted ? "音声をオンにする" : "音声をオフにする"}
-        >
-          {isMuted ? <VolumeX className="w-6 h-6" /> : <Volume2 className="w-6 h-6" />}
-        </button>
+          {/* Volume Control Button */}
+          <button
+            onClick={toggleMute}
+            className="absolute bottom-8 right-8 z-20 bg-black/40 backdrop-blur-sm hover:bg-black/60 rounded-full p-3 transition-all duration-300 hover:scale-105 group"
+            aria-label={isMuted ? "音声をオンにする" : "音声をオフにする"}
+          >
+            {isMuted ? (
+              <VolumeX className="w-5 h-5 text-white transition-transform duration-300 group-hover:scale-110" />
+            ) : (
+              <Volume2 className="w-5 h-5 text-white transition-transform duration-300 group-hover:scale-110" />
+            )}
+          </button>
+        </div>
       </section>
 
       {/* New Section - 手書き風テキスト */}

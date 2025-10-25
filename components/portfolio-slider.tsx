@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react"
+import { gsap } from "gsap"
 
 const portfolioItems = [
   {
@@ -92,24 +93,29 @@ export default function PortfolioSlider() {
     const wrapper = sliderWrapperRef.current
 
     if (slider && wrapper && isMobile) {
+      // 基本的なアイテムサイズ - より小さく調整
       const baseItemWidth = wrapper.clientWidth * 0.8
       const gap = 16
       const wrapperWidth = wrapper.clientWidth
+
+      // 中央に配置するための計算
       const centerOffset = wrapperWidth / 2 - baseItemWidth / 2
       const scrollPosition = index * (baseItemWidth + gap) - centerOffset
 
       if (animate) {
         setIsTransitioning(true)
-        slider.style.transition = "transform 0.8s cubic-bezier(0.4, 0, 0.2, 1)"
-        slider.style.transform = `translateX(-${scrollPosition}px)`
-
-        setTimeout(() => {
-          setIsTransitioning(false)
-          handleInfiniteLoop(index)
-        }, 800)
+        gsap.to(slider, {
+          x: -scrollPosition,
+          duration: 0.8,
+          ease: "power2.inOut",
+          onComplete: () => {
+            setIsTransitioning(false)
+            // 無限ループの処理
+            handleInfiniteLoop(index)
+          },
+        })
       } else {
-        slider.style.transition = "none"
-        slider.style.transform = `translateX(-${scrollPosition}px)`
+        gsap.set(slider, { x: -scrollPosition })
         setIsTransitioning(false)
       }
     }
