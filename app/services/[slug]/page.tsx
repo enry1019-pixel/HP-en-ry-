@@ -275,23 +275,23 @@ export default function ServicePage({ params }: ServicePageProps) {
             {service.slug === "memorial-movie" ? (
               <MemorialFlowSection />
             ) : (
-              <div className="mb-16">
-                <h2 className="text-3xl font-bold mb-12 text-center text-charcoal-light">制作の流れ</h2>
+              <div className="mb-16 -mx-4 md:-mx-8 lg:-mx-16">
+                <h2 className="text-3xl font-bold mb-12 text-center text-charcoal-light px-4">制作の流れ</h2>
 
                 {/* Desktop View */}
-                <div className="hidden lg:block overflow-x-auto">
-                  <div className="min-w-[1200px] max-w-6xl mx-auto px-4">
-                    <div className="flex gap-8 items-center">
+                <div className="hidden lg:block px-4 md:px-8">
+                  <div className="max-w-full mx-auto">
+                    <div className="flex gap-4 items-center justify-center">
                       <div className="flex flex-col gap-[100px] flex-shrink-0">
-                        <div className="bg-charcoal-light text-white px-4 py-2 rounded-lg font-bold text-sm text-center whitespace-nowrap">
+                        <div className="bg-charcoal-light text-white px-3 py-2 rounded-lg font-bold text-xs text-center whitespace-nowrap">
                           お客様
                         </div>
-                        <div className="bg-charcoal-light text-white px-4 py-2 rounded-lg font-bold text-sm text-center whitespace-nowrap">
+                        <div className="bg-charcoal-light text-white px-3 py-2 rounded-lg font-bold text-xs text-center whitespace-nowrap">
                           en-ry
                         </div>
                       </div>
 
-                      <div className="flex-1 flex items-center gap-2">
+                      <div className="flex items-center gap-1.5">
                         {service.process.map((step, index) => (
                           <div key={index} className="flex items-center">
                             {/* Step with indicators */}
@@ -305,13 +305,14 @@ export default function ServicePage({ params }: ServicePageProps) {
                                 )}
                               </div>
 
-                              <div className="w-[117px] h-[117px] rounded-lg border-2 border-charcoal-light bg-white flex flex-col items-center justify-center p-3 shadow-sm hover:shadow-md transition-shadow">
-                                <span className="text-2xl font-bold text-charcoal-light">{step.number}</span>
-                                <span className="text-xs text-center leading-tight text-gray-600 mt-2">
+                              <div className="w-[100px] h-[100px] rounded-lg border-2 border-charcoal-light bg-white flex flex-col items-center justify-center p-2 shadow-sm hover:shadow-md transition-shadow">
+                                <span className="text-xl font-bold text-charcoal-light">{step.number}</span>
+                                <span className="text-[10px] text-center leading-tight text-gray-600 mt-1">
                                   {step.title}
                                 </span>
                               </div>
 
+                              {/* Bottom indicator (en-ry) */}
                               <div className="h-6 flex items-center justify-center mt-2">
                                 {step.actor === "company" || step.actor === "both" || step.number === "01" ? (
                                   <div className="w-3 h-3 rounded-full border-2 border-charcoal-light bg-white"></div>
@@ -321,10 +322,11 @@ export default function ServicePage({ params }: ServicePageProps) {
                               </div>
                             </div>
 
+                            {/* Connecting lines */}
                             {index < service.process.length - 1 && (
-                              <div className="flex flex-col gap-[88px] mx-1">
-                                <div className="w-6 h-0.5 bg-charcoal-light"></div>
-                                <div className="w-6 h-0.5 bg-charcoal-light"></div>
+                              <div className="flex flex-col gap-[88px] mx-0.5">
+                                <div className="w-4 h-0.5 bg-charcoal-light"></div>
+                                <div className="w-4 h-0.5 bg-charcoal-light"></div>
                               </div>
                             )}
                           </div>
@@ -333,7 +335,7 @@ export default function ServicePage({ params }: ServicePageProps) {
                     </div>
 
                     {/* Step descriptions below */}
-                    <div className="mt-12 grid grid-cols-2 gap-4">
+                    <div className="mt-12 grid grid-cols-2 gap-4 max-w-6xl mx-auto">
                       {service.process.map((step, index) => (
                         <div key={index} className="bg-gray-50 p-4 rounded-lg border border-gray-200">
                           <div className="flex items-center mb-2">
