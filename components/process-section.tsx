@@ -6,29 +6,33 @@ import { Lightbulb, Camera, Edit, Truck } from "lucide-react"
 const processSteps = [
   {
     number: "01",
-    title: "企画・ヒアリング",
-    description: "お客様のご要望を詳しくお聞きし、最適な映像制作プランをご提案いたします。",
+    title: "ヒアリング・打ち合わせ",
+    subtitle: "お客様",
+    description: "ご予算・納期・ご要望を伺い、企画コンセプトを設計",
     icon: <Lightbulb className="w-8 h-8" />,
     details: ["目的・ターゲットの明確化", "予算・スケジュールの調整", "企画書・絵コンテの作成"],
   },
   {
     number: "02",
-    title: "撮影・収録",
-    description: "プロフェッショナルな機材と技術で、高品質な映像素材を撮影いたします。",
+    title: "撮影準備",
+    subtitle: "弊社",
+    description: "企画・脚本・絵コンテ・ロケハン・キャスティング・スケジュール調整",
     icon: <Camera className="w-8 h-8" />,
     details: ["ロケーション撮影", "スタジオ撮影", "インタビュー収録", "ドローン撮影"],
   },
   {
     number: "03",
-    title: "編集・制作",
-    description: "撮影した素材を丁寧に編集し、お客様のイメージに合った映像作品に仕上げます。",
+    title: "撮影・収録",
+    subtitle: "お客様・弊社",
+    description: "映像・音声の収録",
     icon: <Edit className="w-8 h-8" />,
     details: ["映像編集", "音響調整", "カラーグレーディング", "エフェクト処理"],
   },
   {
     number: "04",
-    title: "納品・アフターサポート",
-    description: "完成した映像を各種フォーマットで納品し、必要に応じてアフターサポートを行います。",
+    title: "編集・加工",
+    subtitle: "弊社",
+    description: "映像・音声の編集、テロップ・BGM・効果音の挿入",
     icon: <Truck className="w-8 h-8" />,
     details: ["各種フォーマット対応", "配信プラットフォーム最適化", "修正対応", "運用サポート"],
   },
@@ -88,6 +92,20 @@ export default function ProcessSection() {
           <div className="space-y-16 md:space-y-24">
             {processSteps.map((step, index) => (
               <div key={index} ref={(el) => (processItemsRef.current[index] = el)} className="relative">
+                {/* 矢印 - モバイルのみ */}
+                {index < processSteps.length - 1 && (
+                  <div className="flex justify-center my-8 md:hidden">
+                    <svg className="w-8 h-8 text-charcoal-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"
+                      />
+                    </svg>
+                  </div>
+                )}
+
                 {/* コンテンツ - 左右交互に配置（デスクトップ）、中央配置（モバイル） */}
                 <div
                   className={`bg-white p-6 md:p-8 rounded-lg shadow-lg relative z-10 transition-all duration-700 hover:shadow-xl hover:-translate-y-1 ${
@@ -116,9 +134,11 @@ export default function ProcessSection() {
                     {step.icon}
                   </div>
 
-                  <h3 className={`text-xl font-bold mb-4 pt-2 ${index % 2 === 0 ? "pr-12" : "pr-12 md:pl-12 md:pr-0"}`}>
+                  {/* タイトルとサブタイトル */}
+                  <h3 className={`text-xl font-bold mb-2 pt-2 ${index % 2 === 0 ? "pr-12" : "pr-12 md:pl-12 md:pr-0"}`}>
                     {step.title}
                   </h3>
+                  <p className="text-sm text-gray-500 mb-3">{step.subtitle}</p>
                   <p className="text-gray-600 leading-relaxed mb-6">{step.description}</p>
 
                   <div className="space-y-2">

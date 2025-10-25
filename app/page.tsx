@@ -180,8 +180,8 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative h-screen bg-lightgray overflow-hidden">
-        <div className="absolute inset-0 z-0">
+      <section className="relative w-full bg-lightgray overflow-hidden md:h-screen">
+        <div className="relative w-full md:absolute md:inset-0 z-0" style={{ aspectRatio: "16/9" }}>
           <video
             ref={videoRef}
             src="https://res.cloudinary.com/djypwraed/video/upload/v1761027158/Hero_pis3ql.mp4"
@@ -203,7 +203,7 @@ export default function Home() {
       </section>
 
       {/* New Section - 手書き風テキスト */}
-      <section className="py-20 bg-white">
+      <section className="py-12 md:py-20 bg-white">
         <div className="container mx-auto px-4">
           <div
             ref={handwrittenTextRef}
