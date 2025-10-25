@@ -46,7 +46,7 @@ const services = [
       {
         number: "05",
         title: "仮完成動画のご確認",
-        description: "完成した動画をご確認いただきます",
+        description: "仮完成動画\nのご確認",
         actor: "client",
       },
       {
@@ -117,7 +117,7 @@ const services = [
       {
         number: "05",
         title: "仮完成動画のご確認",
-        description: "完成した動画をご確認いただきます",
+        description: "仮完成動画\nのご確認",
         actor: "client",
       },
       {
@@ -177,7 +177,7 @@ const services = [
       {
         number: "05",
         title: "仮完成動画のご確認",
-        description: "完成した動画をご確認いただきます",
+        description: "仮完成動画\nのご確認",
         actor: "client",
       },
       {
@@ -281,52 +281,52 @@ export default function ServicePage({ params }: ServicePageProps) {
                 {/* Desktop View */}
                 <div className="hidden lg:block px-4 md:px-8">
                   <div className="max-w-full mx-auto">
-                    <div className="flex gap-4 items-center justify-center">
-                      <div className="flex flex-col gap-[100px] flex-shrink-0">
-                        <div className="bg-charcoal-light text-white px-3 py-2 rounded-lg font-bold text-xs text-center whitespace-nowrap">
+                    <div className="flex gap-6 items-center justify-center">
+                      <div className="flex flex-col gap-[140px] flex-shrink-0">
+                        <div className="bg-charcoal-light text-white px-4 py-3 rounded-lg font-bold text-base text-center whitespace-nowrap">
                           お客様
                         </div>
-                        <div className="bg-charcoal-light text-white px-3 py-2 rounded-lg font-bold text-xs text-center whitespace-nowrap">
+                        <div className="bg-charcoal-light text-white px-4 py-3 rounded-lg font-bold text-base text-center whitespace-nowrap">
                           en-ry
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-1.5">
+                      <div className="flex items-center gap-2">
                         {service.process.map((step, index) => (
                           <div key={index} className="flex items-center">
                             {/* Step with indicators */}
                             <div className="flex flex-col items-center">
                               {/* Top indicator (Customer) */}
-                              <div className="h-6 flex items-center justify-center mb-2">
+                              <div className="h-8 flex items-center justify-center mb-3">
                                 {step.actor === "client" || step.actor === "both" ? (
-                                  <div className="w-3 h-3 rounded-full border-2 border-charcoal-light bg-white"></div>
+                                  <div className="w-5 h-5 rounded-full border-2 border-charcoal-light bg-white"></div>
                                 ) : (
-                                  <div className="text-sm text-charcoal-light/40">×</div>
+                                  <div className="text-lg text-charcoal-light/40 font-bold">×</div>
                                 )}
                               </div>
 
-                              <div className="w-[100px] h-[100px] rounded-lg border-2 border-charcoal-light bg-white flex flex-col items-center justify-center p-2 shadow-sm hover:shadow-md transition-shadow">
-                                <span className="text-xl font-bold text-charcoal-light">{step.number}</span>
-                                <span className="text-[10px] text-center leading-tight text-gray-600 mt-1">
-                                  {step.title}
+                              <div className="w-[130px] h-[130px] rounded-lg border-2 border-charcoal-light bg-white flex flex-col items-center justify-center p-3 shadow-sm hover:shadow-md transition-shadow">
+                                <span className="text-3xl font-bold text-charcoal-light">{step.number}</span>
+                                <span className="text-xs text-center leading-tight text-gray-600 mt-2 whitespace-pre-line">
+                                  {step.number === "05" ? "仮完成動画\nのご確認" : step.title}
                                 </span>
                               </div>
 
                               {/* Bottom indicator (en-ry) */}
-                              <div className="h-6 flex items-center justify-center mt-2">
+                              <div className="h-8 flex items-center justify-center mt-3">
                                 {step.actor === "company" || step.actor === "both" || step.number === "01" ? (
-                                  <div className="w-3 h-3 rounded-full border-2 border-charcoal-light bg-white"></div>
+                                  <div className="w-5 h-5 rounded-full border-2 border-charcoal-light bg-white"></div>
                                 ) : (
-                                  <div className="text-sm text-charcoal-light/40">×</div>
+                                  <div className="text-lg text-charcoal-light/40 font-bold">×</div>
                                 )}
                               </div>
                             </div>
 
                             {/* Connecting lines */}
                             {index < service.process.length - 1 && (
-                              <div className="flex flex-col gap-[88px] mx-0.5">
-                                <div className="w-4 h-0.5 bg-charcoal-light"></div>
-                                <div className="w-4 h-0.5 bg-charcoal-light"></div>
+                              <div className="flex flex-col gap-[122px] mx-1">
+                                <div className="w-6 h-0.5 bg-charcoal-light"></div>
+                                <div className="w-6 h-0.5 bg-charcoal-light"></div>
                               </div>
                             )}
                           </div>
