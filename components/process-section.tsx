@@ -1,7 +1,9 @@
 "use client"
 
-import { useRef } from "react"
+import { useEffect, useRef } from "react"
 import { Lightbulb, Camera, Edit, Truck } from "lucide-react"
+import { gsap } from "gsap"
+import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 const processSteps = [
   {
@@ -37,6 +39,57 @@ const processSteps = [
 export default function ProcessSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const processItemsRef = useRef<(HTMLDivElement | null)[]>([])
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger)
+
+    const section = sectionRef.current
+    if (section) {
+      // タイトルのアニメーション
+      gsap.from(".process-title", {
+        y: 50,
+        opacity: 0,
+        duration: 0.8,
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+        },
+      })
+
+      // 説明文のアニメーション
+      gsap.from(".process-description", {
+        y: 30,
+        opacity: 0,
+        duration: 0.8,
+        delay: 0.3,
+        scrollTrigger: {
+          trigger: section,
+          start: "top 80%",
+        },
+      })
+
+      // 各プロセスアイテムのアニメーション
+      processItemsRef.current.forEach((item, index) => {
+        if (item) {
+          gsap.from(item, {
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            delay: 0.2 + index * 0.2,
+            scrollTrigger: {
+              trigger: item,
+              start: "top 85%",
+              toggleActions: "play none none reverse",
+            },
+          })
+        }
+      })
+    }
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill())
+    }
+  }, [])
 
   return (
     <section ref={sectionRef} id="process" className="py-20 bg-gradient-to-b from-white to-lightgray overflow-hidden">
