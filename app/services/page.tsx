@@ -210,14 +210,6 @@ export default function ServicesPage() {
                       <span className="bg-charcoal-light text-white text-xs px-2 py-1 rounded">{service.category}</span>
                     </div>
 
-                    <h3 className="text-xl font-bold mb-3 text-charcoal-light line-clamp-2 hidden md:block">
-                      {service.title}
-                    </h3>
-
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3 hidden md:block">
-                      {service.description}
-                    </p>
-
                     <div className="md:hidden mb-4">
                       <div className="h-48 bg-gray-100 relative rounded-lg overflow-hidden">
                         <Image
@@ -232,9 +224,11 @@ export default function ServicesPage() {
                       </div>
                     </div>
 
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3 md:hidden">
-                      {service.description}
-                    </p>
+                    <h3 className="text-xl font-bold mb-3 text-charcoal-light line-clamp-2 hidden md:block">
+                      {service.title}
+                    </h3>
+
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">{service.description}</p>
 
                     <div className="mb-4">
                       <h4 className="font-bold text-sm mb-2 text-charcoal-light">主な制作内容</h4>
