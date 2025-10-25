@@ -206,7 +206,9 @@ export default function ServicesPage() {
                         className="object-cover"
                       />
                     </div>
-                    <h3 className="text-xl font-bold mb-3 text-charcoal-light line-clamp-2">{service.title}</h3>
+                    <div className="px-6 pt-6">
+                      <h3 className="text-xl font-bold mb-3 text-charcoal-light line-clamp-2">{service.title}</h3>
+                    </div>
                   </div>
 
                   <div className="h-48 bg-gray-100 relative hidden md:block">
@@ -223,8 +225,9 @@ export default function ServicesPage() {
                       <span className="bg-charcoal-light text-white text-xs px-2 py-1 rounded">{service.category}</span>
                     </div>
 
-                    {/* Title for All Devices */}
-                    <h3 className="text-xl font-bold mb-3 text-charcoal-light line-clamp-2">{service.title}</h3>
+                    <h3 className="hidden md:block text-xl font-bold mb-3 text-charcoal-light line-clamp-2">
+                      {service.title}
+                    </h3>
 
                     <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">{service.description}</p>
 
