@@ -25,7 +25,7 @@ const services = [
     title: "メモリアルmovie制作",
     slug: "memorial-movie",
     description:
-      "人生の大切な瞬間を美しく記録する感動的な映像制作。冠婚葬祭用ムービーから、故人を偲ぶメモリアルムービーまで、心に残る作品を丁寧に制作します。ご家族の想いを大切にした温かみのある映像をお届けします。",
+      "冠婚葬祭用ムービーから故人を偲ぶメモリアルムービーまで、人生の大切な瞬間を美しく記録します。記念日、誕生日、卒業・入学など、様々なライフイベントの映像制作を心を込めてサポートいたします。",
     image: "/placeholder.svg?height=400&width=600&text=メモリアル",
     price: "150,000円〜",
     duration: "1-2週間",
@@ -55,7 +55,7 @@ const services = [
     title: "映画・ドラマ制作",
     slug: "film-drama",
     description:
-      "制作会社や映画監督と連携した本格的な映像作品の企画・制作。脚本開発から撮影、ポストプロダクションまで、プロフェッショナルチームによる高品質な作品作りをサポート。監督の創造的ビジョンを忠実に映像化します。",
+      "短編・長編映画、ドラマシリーズ、ドキュメンタリーなど、本格的な映像作品の企画・制作をサポートします。制作会社や映画監督と連携し、プロフェッショナルチームによる高品質な作品作りを実現します。",
     image: "/placeholder.svg?height=400&width=600&text=映画制作",
     price: "1,000,000円〜",
     duration: "2-6ヶ月",
@@ -228,13 +228,7 @@ export default function ServicesPage() {
                       </div>
                     </div>
 
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3 md:hidden">
-                      {service.description}
-                    </p>
-
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3 hidden md:block">
-                      {service.description}
-                    </p>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">{service.description}</p>
 
                     <div className="mb-4">
                       <h4 className="font-bold text-sm mb-2 text-charcoal-light">主な制作内容</h4>
