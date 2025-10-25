@@ -11,28 +11,28 @@ const services = [
     slug: "promotion-pr",
     description:
       "企業のブランド価値を最大化する戦略的な映像制作。商品・サービスの魅力を効果的に伝え、観光地の魅力をダイナミックに表現します。マーケティング効果を重視した企画から撮影、編集まで一貫してサポートいたします。",
-    image: "/placeholder.svg?height=400&width=600&text=プロモーション",
+    image: "/japanese-business-office-meeting-corporate.jpg",
   },
   {
     title: "メモリアルmovie制作",
     slug: "memorial-movie",
     description:
       "人生の大切な瞬間を美しく記録する感動的な映像制作。冠婚葬祭用ムービーから、故人を偲ぶメモリアルムービーまで、心に残る作品を丁寧に制作します。ご家族の想いを大切にした温かみのある映像をお届けします。",
-    image: "/placeholder.svg?height=400&width=600&text=メモリアル",
+    image: "/japanese-wedding-family-celebration-memories.jpg",
   },
   {
     title: "MV制作・アーティスト映像",
     slug: "music-video",
     description:
       "ミュージシャン、アイドル、俳優、モデル、お笑い芸人など、様々なアーティストの世界観を映像で表現。楽曲の魅力を最大限に引き出す演出と、アーティストの個性を活かした創造性豊かなミュージックビデオを制作します。",
-    image: "/placeholder.svg?height=400&width=600&text=MV制作",
+    image: "/japanese-music-artist-performance-stage.jpg",
   },
   {
     title: "映画・ドラマ制作",
     slug: "film-drama",
     description:
       "制作会社や映画監督と連携した本格的な映像作品の企画・制作。脚本開発から撮影、ポストプロダクションまで、プロフェッショナルチームによる高品質な作品作りをサポート。監督の創造的ビジョンを忠実に映像化します。",
-    image: "/placeholder.svg?height=400&width=600&text=映画制作",
+    image: "/film-director-rear-view-no-face.jpg",
   },
 ]
 

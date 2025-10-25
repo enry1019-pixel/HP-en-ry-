@@ -256,7 +256,7 @@ export default function Home() {
 
           <div className="mt-12 text-center">
             <Link
-              href="/services"
+              href="/services/promotion-pr"
               className="inline-flex items-center bg-charcoal-light text-white px-6 py-3 hover:bg-charcoal transition-colors"
             >
               すべてのサービスを見る

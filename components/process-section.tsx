@@ -83,7 +83,7 @@ export default function ProcessSection() {
 
         <div className="relative max-w-5xl mx-auto">
           {/* 中央の線 - デスクトップのみ */}
-          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-charcoal-light to-lightgray-dark transform -translate-x-1/2"></div>
+          <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gray-300 transform -translate-x-1/2"></div>
 
           <div className="space-y-16 md:space-y-24">
             {processSteps.map((step, index) => (
@@ -100,11 +100,7 @@ export default function ProcessSection() {
                 >
                   {/* 数字アイコン - モバイルは左上、デスクトップは左右交互 */}
                   <div
-                    className={`absolute z-20 -top-3 ${
-                      // モバイル: 常に左上
-                      // デスクトップ: 偶数（0,2）は左上、奇数（1,3）は右上
-                      index % 2 === 0 ? "-left-3" : "-left-3 md:-right-3 md:-left-auto"
-                    }`}
+                    className={`absolute z-20 -top-3 ${index % 2 === 0 ? "-left-3" : "-left-3 md:left-auto md:-right-3"}`}
                   >
                     <div className="flex items-center justify-center w-12 h-12 md:w-14 md:h-14 rounded-full bg-charcoal-light text-white text-lg md:text-xl font-bold shadow-lg transform transition-transform duration-300 hover:scale-110">
                       {step.number}
@@ -112,9 +108,17 @@ export default function ProcessSection() {
                   </div>
 
                   {/* アイコン - 右上に配置 */}
-                  <div className="absolute top-6 right-6 text-charcoal-light">{step.icon}</div>
+                  <div
+                    className={`absolute top-6 text-charcoal-light ${
+                      index % 2 === 0 ? "right-6" : "right-6 md:left-6 md:right-auto"
+                    }`}
+                  >
+                    {step.icon}
+                  </div>
 
-                  <h3 className="text-xl font-bold mb-4 pr-12 pt-2">{step.title}</h3>
+                  <h3 className={`text-xl font-bold mb-4 pt-2 ${index % 2 === 0 ? "pr-12" : "pr-12 md:pl-12 md:pr-0"}`}>
+                    {step.title}
+                  </h3>
                   <p className="text-gray-600 leading-relaxed mb-6">{step.description}</p>
 
                   <div className="space-y-2">
@@ -139,9 +143,9 @@ export default function ProcessSection() {
           <div className="bg-white p-8 rounded-lg shadow-md max-w-2xl mx-auto">
             <h3 className="text-xl font-bold mb-4 text-charcoal-light">制作の流れについてご質問がございましたら</h3>
             <p className="text-gray-600 mb-6">
-              詳しい制作プロセスや、お客様のプロジェクトに最適なプランについて、お気軽にご相談ください。
+              詳しい制作プロセスや、お客様のプロジェクトに最適なプランについて、お気軽にご相談ください。お見積りは無料です。お客様のご要望に合わせた最適なプランをご提案させていただきます。
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <div className="flex justify-center">
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLSdf35MRg59aC8PLeeNP3F7HCldqZF6YkM4cQi8J5jbMedF8EQ/viewform?usp=dialog"
                 target="_blank"
@@ -149,12 +153,6 @@ export default function ProcessSection() {
                 className="inline-flex items-center bg-charcoal-light text-white px-6 py-3 rounded hover:bg-charcoal transition-colors"
               >
                 お問い合わせ
-              </a>
-              <a
-                href="/services"
-                className="inline-flex items-center border border-charcoal-light text-charcoal-light px-6 py-3 rounded hover:bg-charcoal-light hover:text-white transition-colors"
-              >
-                サービス詳細
               </a>
             </div>
           </div>

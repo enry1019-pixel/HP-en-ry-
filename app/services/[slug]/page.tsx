@@ -1,8 +1,7 @@
 import { notFound } from "next/navigation"
-import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
-import MemorialFlowSection from "@/components/memorial-flow-section"
+import ScrollToTop from "@/components/scroll-to-top"
 
 const services = [
   {
@@ -78,7 +77,50 @@ const services = [
       "記念日・誕生日映像",
       "卒業・入学記念映像",
     ],
-    process: [],
+    process: [
+      {
+        number: "01",
+        title: "ヒアリング・打ち合わせ",
+        description: "ご予算・納期・ご要望を伺い、企画コンセプトを設計",
+        actor: "client",
+      },
+      {
+        number: "02",
+        title: "撮影準備",
+        description: "企画・脚本・絵コンテ・ロケハン・キャスティング・スケジュール調整",
+        actor: "company",
+      },
+      {
+        number: "03",
+        title: "撮影・収録",
+        description: "映像・音声の収録",
+        actor: "both",
+      },
+      {
+        number: "04",
+        title: "編集・加工",
+        description: "映像編集、BGM・ナレーション・テロップ追加",
+        actor: "company",
+      },
+      {
+        number: "05",
+        title: "仮完成動画のご確認",
+        description: "仮完成動画\nのご確認",
+        actor: "client",
+      },
+      {
+        number: "06",
+        title: "修正対応",
+        description: "ご要望に合わせてブラッシュアップ",
+        actor: "company",
+      },
+      {
+        number: "07",
+        title: "完成・納品",
+        description: "データ納品／DVD／クラウド共有など",
+        actor: "both",
+      },
+    ],
     price: "150,000円〜",
     duration: "1-2週間",
   },
@@ -211,8 +253,33 @@ export default function ServicePage({ params }: ServicePageProps) {
     notFound()
   }
 
+  const serviceCategories = [
+    {
+      title: "企業PR",
+      slug: "promotion-pr",
+      description: "企業のブランド価値を最大化する戦略的な映像制作",
+    },
+    {
+      title: "メモリアル",
+      slug: "memorial-movie",
+      description: "人生の大切な瞬間を美しく記録する感動的な映像",
+    },
+    {
+      title: "MV",
+      slug: "music-video",
+      description: "アーティストの世界観を映像で表現するMV制作",
+    },
+    {
+      title: "映画・ドラマ",
+      slug: "film-drama",
+      description: "本格的な映像作品の企画・制作をサポート",
+    },
+  ]
+
   return (
     <div className="min-h-screen bg-white">
+      <ScrollToTop />
+
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -231,68 +298,136 @@ export default function ServicePage({ params }: ServicePageProps) {
       <section className="py-20 bg-gradient-to-r from-charcoal-light to-charcoal text-white">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">{service.title}</h1>
-            <p className="text-xl md:text-2xl opacity-90 leading-relaxed">{service.description}</p>
+            <h1 className="text-4xl md:text-5xl font-bold mb-6">サービス一覧</h1>
+            <p className="text-xl md:text-2xl opacity-90 leading-relaxed">
+              企業PR、メモリアル、MV、映画・ドラマなど、幅広い映像制作サービスをご提供しています。お客様のニーズに合わせた最適な映像をご提案いたします。
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
       <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-              {/* Image */}
-              <div className="h-96 bg-gray-100 relative rounded-lg overflow-hidden">
-                <Image src={service.image || "/placeholder.svg"} alt={service.title} fill className="object-cover" />
+            {/* Scattered Grid Layout */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+              {/* Top Left - 企業PR Box */}
+              <Link
+                href="/services/promotion-pr"
+                className="relative overflow-hidden bg-gradient-to-br from-charcoal-light to-charcoal text-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 flex flex-col justify-between min-h-[250px]"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-20"
+                  style={{
+                    backgroundImage: "url('/japanese-business-office-meeting-corporate.jpg')",
+                  }}
+                />
+                <div className="relative z-10">
+                  <h3 className="text-3xl font-bold mb-3">企業PR</h3>
+                  <p className="text-white/90 mb-4">{serviceCategories[0].description}</p>
+                </div>
+              </Link>
+
+              {/* Top Right - Text Content */}
+              <div className="space-y-4 flex flex-col justify-center">
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  企業のブランディングから商品プロモーション、観光地のPR動画まで、マーケティング効果を重視した戦略的な映像制作を行います。SNS向けショート動画から本格的な企業紹介映像まで、幅広く対応いたします。
+                </p>
               </div>
 
-              {/* Service Info */}
-              <div className="space-y-8">
-                <div>
-                  <h2 className="text-2xl font-bold mb-4 text-charcoal-light">サービス概要</h2>
-                  <div className="bg-lightgray p-4 rounded-lg inline-block">
-                    <h3 className="font-bold mb-2">制作期間</h3>
-                    <p className="text-charcoal-light font-semibold">{service.duration}</p>
-                  </div>
-                </div>
-
-                <div>
-                  <h2 className="text-2xl font-bold mb-4 text-charcoal-light">主な制作内容</h2>
-                  <ul className="space-y-2">
-                    {service.features.map((feature, index) => (
-                      <li key={index} className="flex items-center">
-                        <div className="w-2 h-2 bg-charcoal-light rounded-full mr-3"></div>
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              {/* Middle Left - Text Content */}
+              <div className="space-y-4 flex flex-col justify-center">
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  冠婚葬祭用ムービーから故人を偲ぶメモリアルムービーまで、人生の大切な瞬間を美しく記録します。記念日、誕生日、卒業・入学など、様々なライフイベントの映像制作を心を込めてサポートいたします。
+                </p>
               </div>
+
+              {/* Middle Right - メモリアル Box */}
+              <Link
+                href="/services/memorial-movie"
+                className="relative overflow-hidden bg-gradient-to-br from-charcoal-light to-charcoal text-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 flex flex-col justify-between min-h-[250px]"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-20"
+                  style={{
+                    backgroundImage: "url('/japanese-wedding-family-celebration-memories.jpg')",
+                  }}
+                />
+                <div className="relative z-10">
+                  <h3 className="text-3xl font-bold mb-3">メモリアル</h3>
+                  <p className="text-white/90 mb-4">{serviceCategories[1].description}</p>
+                </div>
+              </Link>
+
+              {/* Bottom Left - MV Box */}
+              <Link
+                href="/services/music-video"
+                className="relative overflow-hidden bg-gradient-to-br from-charcoal-light to-charcoal text-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 flex flex-col justify-between min-h-[250px]"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-20"
+                  style={{
+                    backgroundImage: "url('/japanese-music-artist-performance-stage.jpg')",
+                  }}
+                />
+                <div className="relative z-10">
+                  <h3 className="text-3xl font-bold mb-3">MV</h3>
+                  <p className="text-white/90 mb-4">{serviceCategories[2].description}</p>
+                </div>
+              </Link>
+
+              {/* Bottom Middle - Text Content */}
+              <div className="space-y-4 flex flex-col justify-center">
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  ミュージシャン、アイドル、俳優など、アーティストの個性を活かしたミュージックビデオを制作します。楽曲の魅力を引き出す演出と創造性豊かな映像表現で、ライブ映像やプロフィール映像も承ります。
+                </p>
+              </div>
+
+              {/* Extra Text Content */}
+              <div className="space-y-4 flex flex-col justify-center">
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  短編・長編映画、ドラマシリーズ、ドキュメンタリーなど、本格的な映像作品の企画・制作をサポートします。制作会社や映画監督と連携し、プロフェッショナルチームによる高品質な作品作りを実現します。
+                </p>
+              </div>
+
+              {/* Bottom Right - 映画・ドラマ Box */}
+              <Link
+                href="/services/film-drama"
+                className="relative overflow-hidden bg-gradient-to-br from-charcoal-light to-charcoal text-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 flex flex-col justify-between min-h-[250px]"
+              >
+                <div
+                  className="absolute inset-0 bg-cover bg-center opacity-20"
+                  style={{
+                    backgroundImage: "url('/film-director-rear-view-no-face.jpg')",
+                  }}
+                />
+                <div className="relative z-10">
+                  <h3 className="text-3xl font-bold mb-3">映画・ドラマ</h3>
+                  <p className="text-white/90 mb-4">{serviceCategories[3].description}</p>
+                </div>
+              </Link>
             </div>
 
             {/* Process */}
-            {service.slug === "memorial-movie" ? (
-              <MemorialFlowSection />
-            ) : (
-              <div className="mb-16 -mx-4 md:-mx-8 lg:-mx-16">
-                <h2 className="text-3xl font-bold mb-12 text-center text-charcoal-light px-4">制作の流れ</h2>
+            <div className="mb-16 -mx-4 md:-mx-8 lg:-mx-16">
+              <h2 className="text-3xl font-bold mb-12 text-center text-charcoal-light px-4">制作の流れ</h2>
 
-                {/* Desktop View */}
-                <div className="hidden lg:block px-4 md:px-8">
-                  <div className="max-w-full mx-auto">
-                    <div className="flex gap-6 items-center justify-center">
-                      <div className="flex flex-col gap-[140px] flex-shrink-0">
-                        <div className="bg-charcoal-light text-white px-4 py-3 rounded-lg font-bold text-base text-center whitespace-nowrap">
-                          お客様
-                        </div>
-                        <div className="bg-charcoal-light text-white px-4 py-3 rounded-lg font-bold text-base text-center whitespace-nowrap">
-                          en-ry
-                        </div>
+              {/* Desktop View */}
+              <div className="hidden lg:block px-4 md:px-8">
+                <div className="max-w-full mx-auto">
+                  <div className="flex gap-6 items-center justify-center">
+                    <div className="flex flex-col gap-[140px] flex-shrink-0">
+                      <div className="bg-charcoal-light text-white px-4 py-3 rounded-lg font-bold text-base text-center whitespace-nowrap">
+                        お客様
                       </div>
+                      <div className="bg-charcoal-light text-white px-4 py-3 rounded-lg font-bold text-base text-center whitespace-nowrap">
+                        en-ry
+                      </div>
+                    </div>
 
-                      <div className="flex items-center gap-2">
-                        {service.process.map((step, index) => (
+                    <div className="flex items-center gap-2">
+                      {service.process.length > 0 ? (
+                        service.process.map((step, index) => (
                           <div key={index} className="flex items-center">
                             {/* Step with indicators */}
                             <div className="flex flex-col items-center">
@@ -330,11 +465,15 @@ export default function ServicePage({ params }: ServicePageProps) {
                               </div>
                             )}
                           </div>
-                        ))}
-                      </div>
+                        ))
+                      ) : (
+                        <p className="text-gray-500">制作の流れは個別にご相談ください</p>
+                      )}
                     </div>
+                  </div>
 
-                    {/* Step descriptions below */}
+                  {/* Step descriptions below */}
+                  {service.process.length > 0 && (
                     <div className="mt-12 grid grid-cols-2 gap-4 max-w-6xl mx-auto">
                       {service.process.map((step, index) => (
                         <div key={index} className="bg-gray-50 p-4 rounded-lg border border-gray-200">
@@ -348,13 +487,15 @@ export default function ServicePage({ params }: ServicePageProps) {
                         </div>
                       ))}
                     </div>
-                  </div>
+                  )}
                 </div>
+              </div>
 
-                {/* Tablet View */}
-                <div className="hidden md:block lg:hidden">
-                  <div className="space-y-8">
-                    {service.process.map((step, index) => {
+              {/* Tablet View */}
+              <div className="hidden md:block lg:hidden">
+                <div className="space-y-8">
+                  {service.process.length > 0 ? (
+                    service.process.map((step, index) => {
                       const isLastStep = index === service.process.length - 1
 
                       return (
@@ -386,13 +527,17 @@ export default function ServicePage({ params }: ServicePageProps) {
                           )}
                         </div>
                       )
-                    })}
-                  </div>
+                    })
+                  ) : (
+                    <p className="text-center text-gray-500">制作の流れは個別にご相談ください</p>
+                  )}
                 </div>
+              </div>
 
-                {/* Mobile View */}
-                <div className="md:hidden space-y-6">
-                  {service.process.map((step, index) => {
+              {/* Mobile View */}
+              <div className="md:hidden space-y-6">
+                {service.process.length > 0 ? (
+                  service.process.map((step, index) => {
                     const isLastStep = index === service.process.length - 1
 
                     return (
@@ -422,18 +567,20 @@ export default function ServicePage({ params }: ServicePageProps) {
                         )}
                       </div>
                     )
-                  })}
-                </div>
+                  })
+                ) : (
+                  <p className="text-center text-gray-500">制作の流れは個別にご相談ください</p>
+                )}
               </div>
-            )}
+            </div>
 
             {/* CTA */}
             <div className="text-center bg-lightgray p-12 rounded-lg">
               <h2 className="text-2xl font-bold mb-4 text-charcoal-light">お見積り・ご相談はお気軽に</h2>
               <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-                プロジェクトの詳細をお聞かせください。お客様のご要望に合わせた最適なプランをご提案いたします。
+                お見積りは無料です。お客様のご要望に合わせた最適なプランをご提案させていただきます。
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <div className="flex justify-center">
                 <a
                   href="https://docs.google.com/forms/d/e/1FAIpQLSdf35MRg59aC8PLeeNP3F7HCldqZF6YkM4cQi8J5jbMedF8EQ/viewform?usp=dialog"
                   target="_blank"
@@ -443,12 +590,6 @@ export default function ServicePage({ params }: ServicePageProps) {
                   お問い合わせ
                   <ArrowLeft className="ml-2 w-4 h-4" />
                 </a>
-                <Link
-                  href="/#services"
-                  className="inline-flex items-center border border-charcoal-light text-charcoal-light px-8 py-3 rounded hover:bg-charcoal-light hover:text-white transition-colors"
-                >
-                  他のサービスを見る
-                </Link>
               </div>
             </div>
           </div>
