@@ -1,6 +1,6 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 interface HandwrittenTextProps {
   text: string
@@ -11,6 +11,30 @@ interface HandwrittenTextProps {
 export function HandwrittenText({ text, className = "", size = "default" }: HandwrittenTextProps) {
   const containerRef = useRef<HTMLDivElement>(null)
   const textRef = useRef<HTMLDivElement>(null)
+  const [isVisible, setIsVisible] = useState(false)
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !isVisible) {
+            setIsVisible(true)
+          }
+        })
+      },
+      { threshold: 0.2 },
+    )
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current)
+    }
+
+    return () => {
+      if (containerRef.current) {
+        observer.unobserve(containerRef.current)
+      }
+    }
+  }, [isVisible])
 
   useEffect(() => {
     const textElement = textRef.current
@@ -30,13 +54,16 @@ export function HandwrittenText({ text, className = "", size = "default" }: Hand
         span.textContent = char === " " ? "\u00A0" : char
         span.style.display = "inline-block"
         span.style.fontFamily = "'Klee One', cursive"
-        span.style.animation = `fadeInChar 0.8s ease-out forwards ${(lineIndex * chars.length + charIndex) * 0.05}s`
+        span.style.opacity = "0"
+        if (isVisible) {
+          span.style.animation = `fadeInChar 0.8s ease-out forwards ${(lineIndex * chars.length + charIndex) * 0.1}s`
+        }
         lineDiv.appendChild(span)
       })
 
       textElement.appendChild(lineDiv)
     })
-  }, [text])
+  }, [text, isVisible])
 
   const getSizeClasses = () => {
     if (size === "desktop-small") {

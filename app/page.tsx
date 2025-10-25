@@ -14,6 +14,8 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMuted, setIsMuted] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
+  const handwrittenTextRef = useRef<HTMLDivElement>(null)
+  const [isHandwrittenVisible, setIsHandwrittenVisible] = useState(false)
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -47,6 +49,31 @@ export default function Home() {
 
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: "0px 0px -100px 0px",
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target === handwrittenTextRef.current) {
+            setIsHandwrittenVisible(true)
+          }
+        }
+      })
+    }, observerOptions)
+
+    if (handwrittenTextRef.current) {
+      observer.observe(handwrittenTextRef.current)
+    }
+
+    return () => {
+      observer.disconnect()
+    }
   }, [])
 
   return (
@@ -178,7 +205,12 @@ export default function Home() {
       {/* New Section - 手書き風テキスト */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center justify-center min-h-[400px]">
+          <div
+            ref={handwrittenTextRef}
+            className={`flex flex-col items-center justify-center min-h-[400px] transition-all duration-1000 ${
+              isHandwrittenVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
+            }`}
+          >
             <div className="text-center mb-8">
               <HandwrittenText
                 text={`幸せな今を\n縁"en"が導く━未来の記憶"memory"に`}

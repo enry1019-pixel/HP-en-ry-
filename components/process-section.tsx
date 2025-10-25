@@ -1,6 +1,6 @@
 "use client"
 
-import { useRef } from "react"
+import { useRef, useState, useEffect } from "react"
 import { Lightbulb, Camera, Edit, Truck } from "lucide-react"
 
 const processSteps = [
@@ -37,6 +37,37 @@ const processSteps = [
 export default function ProcessSection() {
   const sectionRef = useRef<HTMLElement>(null)
   const processItemsRef = useRef<(HTMLDivElement | null)[]>([])
+  const [visibleItems, setVisibleItems] = useState<boolean[]>([false, false, false, false])
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.2,
+      rootMargin: "0px 0px -50px 0px",
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const index = processItemsRef.current.findIndex((ref) => ref === entry.target)
+          if (index !== -1) {
+            setVisibleItems((prev) => {
+              const newVisible = [...prev]
+              newVisible[index] = true
+              return newVisible
+            })
+          }
+        }
+      })
+    }, observerOptions)
+
+    processItemsRef.current.forEach((ref) => {
+      if (ref) observer.observe(ref)
+    })
+
+    return () => {
+      observer.disconnect()
+    }
+  }, [])
 
   return (
     <section ref={sectionRef} id="process" className="py-20 bg-gradient-to-b from-white to-lightgray overflow-hidden">
@@ -59,8 +90,12 @@ export default function ProcessSection() {
               <div key={index} ref={(el) => (processItemsRef.current[index] = el)} className="relative">
                 {/* コンテンツ - 左右交互に配置（デスクトップ）、中央配置（モバイル） */}
                 <div
-                  className={`bg-white p-6 md:p-8 rounded-lg shadow-lg relative z-10 transform transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+                  className={`bg-white p-6 md:p-8 rounded-lg shadow-lg relative z-10 transition-all duration-700 hover:shadow-xl hover:-translate-y-1 ${
                     index % 2 === 0 ? "md:ml-auto md:mr-[5%] md:w-[45%]" : "md:mr-auto md:ml-[5%] md:w-[45%]"
+                  } ${
+                    visibleItems[index]
+                      ? "opacity-100 translate-y-0"
+                      : `opacity-0 ${index % 2 === 0 ? "translate-x-10" : "-translate-x-10"}`
                   }`}
                 >
                   {/* 数字アイコン - モバイルは左上、デスクトップは左右交互 */}
