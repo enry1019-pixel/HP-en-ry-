@@ -197,14 +197,15 @@ export default function ServicesPage() {
                   )}
 
                   {/* Mobile Image and Title above Description */}
-                  <div className="md:hidden flex flex-col items-center mb-4">
-                    <Image
-                      src={service.image || "/placeholder.svg"}
-                      alt={service.title}
-                      width={300}
-                      height={200}
-                      className="object-cover"
-                    />
+                  <div className="md:hidden">
+                    <div className="h-48 bg-gray-100 relative">
+                      <Image
+                        src={service.image || "/placeholder.svg"}
+                        alt={service.title}
+                        fill
+                        className="object-cover"
+                      />
+                    </div>
                     <h3 className="text-xl font-bold mb-3 text-charcoal-light line-clamp-2">{service.title}</h3>
                   </div>
 

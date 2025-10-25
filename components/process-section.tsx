@@ -92,20 +92,6 @@ export default function ProcessSection() {
           <div className="space-y-16 md:space-y-24">
             {processSteps.map((step, index) => (
               <div key={index} ref={(el) => (processItemsRef.current[index] = el)} className="relative">
-                {/* 矢印 - モバイルのみ */}
-                {index === 3 && (
-                  <div className="flex justify-center my-8 md:hidden">
-                    <svg className="w-8 h-8 text-charcoal-light" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                      />
-                    </svg>
-                  </div>
-                )}
-
                 {/* コンテンツ - 左右交互に配置（デスクトップ）、中央配置（モバイル） */}
                 <div
                   className={`bg-white p-6 md:p-8 rounded-lg shadow-lg relative z-10 transition-all duration-700 hover:shadow-xl hover:-translate-y-1 ${
