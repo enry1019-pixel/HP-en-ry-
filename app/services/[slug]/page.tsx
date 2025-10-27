@@ -314,7 +314,7 @@ export default function ServicePage({ params }: ServicePageProps) {
               {/* Top Left - 企業PR Box */}
               <Link
                 href="/services/promotion-pr"
-                className="relative overflow-hidden bg-gradient-to-br from-charcoal-light to-charcoal text-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 flex flex-col justify-between min-h-[250px]"
+                className="relative overflow-hidden bg-gradient-to-br from-charcoal-light to-charcoal text-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 flex flex-col justify-between min-h-[250px] order-1"
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -329,23 +329,16 @@ export default function ServicePage({ params }: ServicePageProps) {
               </Link>
 
               {/* Top Right - Text Content */}
-              <div className="space-y-4 flex flex-col justify-center">
+              <div className="space-y-4 flex flex-col justify-center order-2">
                 <p className="text-gray-700 leading-relaxed text-lg">
                   企業のブランディングから商品プロモーション、観光地のPR動画まで、マーケティング効果を重視した戦略的な映像制作を行います。SNS向けショート動画から本格的な企業紹介映像まで、幅広く対応いたします。
-                </p>
-              </div>
-
-              {/* Middle Left - Text Content */}
-              <div className="space-y-4 flex flex-col justify-center">
-                <p className="text-gray-700 leading-relaxed text-lg">
-                  冠婚葬祭用ムービーから故人を偲ぶメモリアルムービーまで、人生の大切な瞬間を美しく記録します。記念日、誕生日、卒業・入学など、様々なライフイベントの映像制作を心を込めてサポートいたします。
                 </p>
               </div>
 
               {/* Middle Right - メモリアル Box */}
               <Link
                 href="/services/memorial-movie"
-                className="relative overflow-hidden bg-gradient-to-br from-charcoal-light to-charcoal text-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 flex flex-col justify-between min-h-[250px]"
+                className="relative overflow-hidden bg-gradient-to-br from-charcoal-light to-charcoal text-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 flex flex-col justify-between min-h-[250px] order-3 md:order-4"
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -359,10 +352,17 @@ export default function ServicePage({ params }: ServicePageProps) {
                 </div>
               </Link>
 
+              {/* Middle Left - Text Content */}
+              <div className="space-y-4 flex flex-col justify-center order-4 md:order-3">
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  冠婚葬祭用ムービーから故人を偲ぶメモリアルムービーまで、人生の大切な瞬間を美しく記録します。記念日、誕生日、卒業・入学など、様々なライフイベントの映像制作を心を込めてサポートいたします。
+                </p>
+              </div>
+
               {/* Bottom Left - MV Box */}
               <Link
                 href="/services/music-video"
-                className="relative overflow-hidden bg-gradient-to-br from-charcoal-light to-charcoal text-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 flex flex-col justify-between min-h-[250px]"
+                className="relative overflow-hidden bg-gradient-to-br from-charcoal-light to-charcoal text-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 flex flex-col justify-between min-h-[250px] order-5"
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -377,23 +377,16 @@ export default function ServicePage({ params }: ServicePageProps) {
               </Link>
 
               {/* Bottom Middle - Text Content */}
-              <div className="space-y-4 flex flex-col justify-center">
+              <div className="space-y-4 flex flex-col justify-center order-6">
                 <p className="text-gray-700 leading-relaxed text-lg">
                   ミュージシャン、アイドル、俳優など、アーティストの個性を活かしたミュージックビデオを制作します。楽曲の魅力を引き出す演出と創造性豊かな映像表現で、ライブ映像やプロフィール映像も承ります。
-                </p>
-              </div>
-
-              {/* Extra Text Content */}
-              <div className="space-y-4 flex flex-col justify-center">
-                <p className="text-gray-700 leading-relaxed text-lg">
-                  短編・長編映画、ドラマシリーズ、ドキュメンタリーなど、本格的な映像作品の企画・制作をサポートします。制作会社や映画監督と連携し、プロフェッショナルチームによる高品質な作品作りを実現します。
                 </p>
               </div>
 
               {/* Bottom Right - 映画・ドラマ Box */}
               <Link
                 href="/services/film-drama"
-                className="relative overflow-hidden bg-gradient-to-br from-charcoal-light to-charcoal text-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 flex flex-col justify-between min-h-[250px]"
+                className="relative overflow-hidden bg-gradient-to-br from-charcoal-light to-charcoal text-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all hover:scale-105 flex flex-col justify-between min-h-[250px] order-7 md:order-8"
               >
                 <div
                   className="absolute inset-0 bg-cover bg-center opacity-20"
@@ -406,6 +399,13 @@ export default function ServicePage({ params }: ServicePageProps) {
                   <p className="text-white/90 mb-4">{serviceCategories[3].description}</p>
                 </div>
               </Link>
+
+              {/* Extra Text Content */}
+              <div className="space-y-4 flex flex-col justify-center order-8 md:order-7">
+                <p className="text-gray-700 leading-relaxed text-lg">
+                  短編・長編映画、ドラマシリーズ、ドキュメンタリーなど、本格的な映像作品の企画・制作をサポートします。制作会社や映画監督と連携し、プロフェッショナルチームによる高品質な作品作りを実現します。
+                </p>
+              </div>
             </div>
 
             {/* Process */}
