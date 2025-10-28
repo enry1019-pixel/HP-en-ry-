@@ -255,22 +255,22 @@ export default function ServicePage({ params }: ServicePageProps) {
 
   const serviceCategories = [
     {
-      title: "企業PR",
+      title: "広告・プロモーション・企業観光PR動画",
       slug: "promotion-pr",
       description: "企業のブランド価値を最大化する戦略的な映像制作",
     },
     {
-      title: "メモリアル",
+      title: "メモリアルmovie制作",
       slug: "memorial-movie",
       description: "人生の大切な瞬間を美しく記録する感動的な映像",
     },
     {
-      title: "MV",
+      title: "MV制作・アーティスト映像",
       slug: "music-video",
       description: "アーティストの世界観を映像で表現するMV制作",
     },
     {
-      title: "映画・ドラマ",
+      title: "映画・ドラマ制作",
       slug: "film-drama",
       description: "本格的な映像作品の企画・制作をサポート",
     },
@@ -323,7 +323,7 @@ export default function ServicePage({ params }: ServicePageProps) {
                   }}
                 />
                 <div className="relative z-10">
-                  <h3 className="text-3xl font-bold mb-3">企業PR</h3>
+                  <h3 className="text-3xl font-bold mb-3">広告・プロモーション・企業観光PR動画</h3>
                   <p className="text-white/90 mb-4">{serviceCategories[0].description}</p>
                 </div>
               </Link>
@@ -347,7 +347,7 @@ export default function ServicePage({ params }: ServicePageProps) {
                   }}
                 />
                 <div className="relative z-10">
-                  <h3 className="text-3xl font-bold mb-3">メモリアル</h3>
+                  <h3 className="text-3xl font-bold mb-3">メモリアルmovie制作</h3>
                   <p className="text-white/90 mb-4">{serviceCategories[1].description}</p>
                 </div>
               </Link>
@@ -371,7 +371,7 @@ export default function ServicePage({ params }: ServicePageProps) {
                   }}
                 />
                 <div className="relative z-10">
-                  <h3 className="text-3xl font-bold mb-3">MV</h3>
+                  <h3 className="text-3xl font-bold mb-3">MV制作・アーティスト映像</h3>
                   <p className="text-white/90 mb-4">{serviceCategories[2].description}</p>
                 </div>
               </Link>
@@ -395,7 +395,7 @@ export default function ServicePage({ params }: ServicePageProps) {
                   }}
                 />
                 <div className="relative z-10">
-                  <h3 className="text-3xl font-bold mb-3">映画・ドラマ</h3>
+                  <h3 className="text-3xl font-bold mb-3">映画・ドラマ制作</h3>
                   <p className="text-white/90 mb-4">{serviceCategories[3].description}</p>
                 </div>
               </Link>

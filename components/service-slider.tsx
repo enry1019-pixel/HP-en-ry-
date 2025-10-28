@@ -130,6 +130,14 @@ export default function ServiceSlider() {
   // インジケーター用の実際のインデックス（0-3の範囲）
   const actualIndex = currentIndex % services.length
 
+  const handleCardClick = (index: number) => {
+    if (isTransitioning) return
+    if (index === currentIndex) return // Already centered
+
+    setCurrentIndex(index)
+    scrollToIndex(index)
+  }
+
   return (
     <div className="relative" ref={sliderWrapperRef}>
       {/* 左矢印ボタン */}
@@ -158,7 +166,8 @@ export default function ServiceSlider() {
             return (
               <div
                 key={`${service.title}-${index}`}
-                className={`bg-white border border-gray-200 p-5 hover:shadow-xl transition-all duration-700 ease-out rounded-lg ${
+                onClick={() => handleCardClick(index)}
+                className={`bg-white border border-gray-200 p-5 hover:shadow-xl transition-all duration-700 ease-out rounded-lg cursor-pointer ${
                   isCenter
                     ? "ring-2 ring-charcoal-light ring-opacity-30 shadow-xl transform scale-105 z-10"
                     : "opacity-75 transform scale-95 hover:opacity-90"
@@ -193,6 +202,7 @@ export default function ServiceSlider() {
                 </p>
                 <Link
                   href={`/services/${service.slug}`}
+                  onClick={(e) => e.stopPropagation()}
                   className={`text-charcoal-light inline-flex items-center transition-all duration-700 ease-out hover:text-charcoal group ${
                     isCenter ? "font-semibold text-sm" : "text-xs"
                   }`}
