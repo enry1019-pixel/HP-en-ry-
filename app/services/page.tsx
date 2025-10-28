@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowLeft, ArrowRight, Clock, Users, Award, CheckCircle } from "lucide-react"
+import { RedThreadBackground } from "@/components/red-thread-background"
 
 const services = [
   {
@@ -99,7 +100,9 @@ const categories = ["すべて", "企業向け", "個人向け", "エンター�
 
 export default function ServicesPage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-white relative">
+      <RedThreadBackground />
+
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -300,10 +303,21 @@ export default function ServicesPage() {
       <footer className="bg-charcoal-light text-white py-12">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <Link href="/" className="text-2xl font-bold mb-4 inline-block">
-              en-ry
-            </Link>
-            <p className="text-gray-300 mb-4">映像を通して「縁」と思い出を紡いでいく</p>
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="flex items-center">
+                <Image
+                  src="/logo-final.png"
+                  alt="en-ry logo"
+                  width={28}
+                  height={28}
+                  className="object-contain invert"
+                />
+              </div>
+              <Link href="/" className="text-2xl font-bold">
+                en-ry
+              </Link>
+            </div>
+            <p className="text-gray-300 mb-4">幸せな今を縁"en"が導く─未来の記憶"memory"に</p>
             <p>&copy; 2023 en-ry All Rights Reserved.</p>
           </div>
         </div>

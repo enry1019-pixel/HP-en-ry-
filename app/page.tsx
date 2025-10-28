@@ -8,7 +8,7 @@ import ServiceSlider from "@/components/service-slider"
 import ProcessSection from "@/components/process-section"
 import PortfolioSlider from "@/components/portfolio-slider"
 import ApparelSlider from "@/components/apparel-slider"
-import { HandwrittenText } from "@/components/ui/handwritten-text"
+import { RedThreadBackground } from "@/components/red-thread-background"
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -77,15 +77,18 @@ export default function Home() {
   }, [])
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col relative">
+      {/* Red Thread Background */}
+      <RedThreadBackground />
+
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-end gap-2">
-            <h1 className="text-2xl font-bold">en-ry</h1>
+          <Link href="/" className="flex items-center gap-2">
             <div className="flex items-center">
               <Image src="/logo-final.png" alt="en-ry logo" width={32} height={32} className="object-contain" />
             </div>
+            <h1 className="text-2xl font-bold">en-ry</h1>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
@@ -180,8 +183,8 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative w-full bg-lightgray overflow-hidden md:h-screen">
-        <div className="relative w-full md:absolute md:inset-0 z-0" style={{ aspectRatio: "16/9" }}>
+      <section className="relative w-full overflow-hidden h-screen">
+        <div className="absolute inset-0 z-0">
           <video
             ref={videoRef}
             src="https://res.cloudinary.com/djypwraed/video/upload/v1761027158/Hero_pis3ql.mp4"
@@ -202,24 +205,46 @@ export default function Home() {
         </button>
       </section>
 
-      {/* New Section - 手書き風テキスト */}
-      <section className="py-12 md:py-20 bg-white">
+      {/* New Section - Tagline with Logo */}
+      <section className="py-12 md:py-20 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4">
-          <div
-            ref={handwrittenTextRef}
-            className={`flex flex-col items-center justify-center min-h-[400px] transition-all duration-1000 ${
-              isHandwrittenVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
-          >
-            <div className="text-center mb-8">
-              <HandwrittenText
-                text={`幸せな今を\n縁"en"が導く━未来の記憶"memory"に`}
-                className="text-charcoal-light"
-                size="desktop-small"
-              />
+          <div className="flex flex-col items-center justify-center min-h-[400px] md:min-h-[500px] relative">
+            <div className="absolute top-0 left-8 md:left-48 lg:left-56 w-48 h-96 md:w-64 md:h-[500px]">
+              <svg viewBox="0 0 200 500" className="w-full h-full" preserveAspectRatio="xMinYMin meet">
+                {/* Long line from top-left to bottom-right */}
+                <line x1="10" y1="0" x2="90" y2="350" stroke="#DC143C" strokeWidth="2" />
+                {/* Short line from top-right to bottom-left at steeper angle */}
+                <line x1="130" y1="0" x2="-60" y2="200" stroke="#DC143C" strokeWidth="2" />
+              </svg>
             </div>
 
-            <div className="text-center max-w-3xl px-4 mt-12">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 lg:gap-20 relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8">
+              {/* Left text */}
+              <div className="text-center md:text-right flex-shrink-0 w-full md:w-48 lg:w-56">
+                <p className="text-lg md:text-xl font-light tracking-wide">幸せな今を</p>
+              </div>
+
+              {/* Center logo */}
+              <div className="flex flex-col items-center flex-shrink-0">
+                <Image
+                  src="/logo-black.png"
+                  alt="en-ry logo"
+                  width={280}
+                  height={280}
+                  className="object-contain mb-4"
+                />
+              </div>
+
+              <div className="text-center md:text-left flex-shrink-0 w-full md:w-64 lg:w-72">
+                <p className="text-lg md:text-xl font-light tracking-wide">
+                  <span className="whitespace-nowrap">縁"en"が導く</span>
+                  <br />
+                  <span className="whitespace-nowrap">―未来の記憶"memory"に</span>
+                </p>
+              </div>
+            </div>
+
+            <div className="text-center max-w-3xl px-4 mt-16 md:mt-20">
               <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-8">
                 株式会社en-ryは、「縁(en)」と「memory(メモリー)」を掛け合わせた社名のもと、
                 <br className="hidden md:block" />
@@ -274,13 +299,23 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-2">PORTFOLIO</h2>
-            <p className="text-lg text-gray-500 mb-4">制作実績(監督：田中慎太郎 作品)</p>
+            <p className="text-lg text-gray-500 mb-4">制作実績</p>
             <p className="text-gray-600 max-w-2xl mx-auto">
               これまでに制作した映像作品の一部をご紹介します。 様々な業界のクライアント様と協力して制作した作品です。
             </p>
           </div>
 
           <PortfolioSlider />
+
+          <div className="mt-12 text-center">
+            <Link
+              href="/portfolio"
+              className="inline-flex items-center bg-charcoal-light text-white px-6 py-3 hover:bg-charcoal transition-colors"
+            >
+              制作実績一覧
+              <ArrowRight className="ml-2 w-4 h-4" />
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -304,8 +339,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
             <div className="md:col-span-2">
-              <div className="flex items-end gap-2 mb-4">
-                <h3 className="text-xl font-bold">en-ry</h3>
+              <div className="flex items-center gap-2 mb-4">
                 <div className="flex items-center">
                   <Image
                     src="/logo-final.png"
@@ -315,9 +349,11 @@ export default function Home() {
                     className="object-contain invert"
                   />
                 </div>
+                <h3 className="text-xl font-bold">en-ry</h3>
               </div>
               <div className="space-y-2 text-sm">
                 <p className="font-semibold">会社概要</p>
+                <p>会社名: 株式会社 en-ry</p>
                 <p>設立: 2025.10.16</p>
                 <p>代表: 田中 慎太郎</p>
                 <p>取締役: 小楠 啓展</p>
@@ -464,10 +500,7 @@ export default function Home() {
                 <ArrowRight className="ml-2 w-4 h-4" />
               </a>
             </div>
-            <div className="flex items-end justify-center gap-2 mb-4">
-              <Link href="/" className="text-2xl font-bold">
-                en-ry
-              </Link>
+            <div className="flex items-center justify-center gap-2 mb-4">
               <div className="flex items-center">
                 <Image
                   src="/logo-final.png"
@@ -477,8 +510,11 @@ export default function Home() {
                   className="object-contain invert"
                 />
               </div>
+              <Link href="/" className="text-2xl font-bold">
+                en-ry
+              </Link>
             </div>
-            <p className="text-gray-300 mb-4">映像を通して「縁」と思い出を紡いでいく</p>
+            <p className="text-gray-300 mb-4">幸せな今を縁"en"が導く─未来の記憶"memory"に</p>
             <p>&copy; 2025 en-ry All Rights Reserved.</p>
           </div>
         </div>

@@ -7,84 +7,76 @@ import { ChevronLeft, ChevronRight, X, Play } from "lucide-react"
 const portfolioItems = [
   {
     id: 1,
-    title: "福井県　観光地PR動画",
-    category: "観光地PR",
-    role: "監督・脚本",
-    year: "2023年",
-    videoId: "OuF0gG07TKk",
-    thumbnail: `https://img.youtube.com/vi/OuF0gG07TKk/maxresdefault.jpg`,
+    title: "私たちの東京ストーリー",
+    category: "TVドラマ",
+    role: "現場執行監督",
+    year: "2025年",
+    videoId: "mUIHsU9DUAY",
+    thumbnail: `https://img.youtube.com/vi/mUIHsU9DUAY/hqdefault.jpg`,
   },
   {
     id: 2,
-    title: "『アッパレビバディ』/Appare!",
-    category: "MV",
-    role: "監督",
-    year: "2023年",
-    videoId: "6C7P_0Qv3pc",
-    thumbnail: `https://img.youtube.com/vi/6C7P_0Qv3pc/maxresdefault.jpg`,
+    title: "おっさんの夏休み",
+    category: "短編映画",
+    role: "監督・脚本・撮影・編集",
+    year: "2025年",
+    description: "U-NEXTにて配信中",
+    videoId: "Xk6PZaU43JE",
+    thumbnail: `https://img.youtube.com/vi/Xk6PZaU43JE/maxresdefault.jpg`,
   },
   {
     id: 3,
-    title: "夏恋バケーション/花いろは",
+    title: "田中慎太郎 MV",
     category: "MV",
     role: "監督・編集",
-    year: "2023年",
-    videoId: "MCGkxEmxJWQ",
-    thumbnail: `https://img.youtube.com/vi/MCGkxEmxJWQ/maxresdefault.jpg`,
+    year: "2025年",
+    videoId: "vnwuWPM-JVw",
+    thumbnail: `https://img.youtube.com/vi/vnwuWPM-JVw/maxresdefault.jpg`,
   },
   {
     id: 4,
-    title: "桃色ジュテーム/花いろは",
-    category: "MV",
-    role: "監督",
-    year: "2023年",
-    videoId: "8DLmTeGNtlE",
-    thumbnail: `https://img.youtube.com/vi/8DLmTeGNtlE/maxresdefault.jpg`,
+    title: "震災ドキュメンタリー番組",
+    category: "ドキュメンタリー",
+    role: "構成・演出・編集",
+    year: "2021年",
+    videoId: "EADBDIOrMX0",
+    thumbnail: `https://img.youtube.com/vi/EADBDIOrMX0/hqdefault.jpg`,
   },
   {
     id: 5,
-    title: "いつか黄昏の空で/gusou十色",
-    category: "MV",
-    role: "監督・脚本・撮影・編集",
+    title: "『絶対零度のオアシス』",
+    category: "違法薬物撲滅ドラマ",
+    role: "監督",
     year: "2023年",
-    videoId: "Wt7nqe5ACIA",
-    thumbnail: `https://img.youtube.com/vi/Wt7nqe5ACIA/maxresdefault.jpg`,
+    videoId: "fhbUDHyBVW8",
+    thumbnail: `https://img.youtube.com/vi/fhbUDHyBVW8/maxresdefault.jpg`,
   },
   {
     id: 6,
-    title: "BIRTHDAY feat.掌幻/TONEMANIA",
-    category: "MV",
-    role: "監督",
-    year: "2023年",
-    videoId: "fIwdf8M9X0M",
-    thumbnail: `https://img.youtube.com/vi/fIwdf8M9X0M/maxresdefault.jpg`,
-  },
-  {
-    id: 7,
-    title: "さわげ！うたげーしょん！/UtaGe!",
-    category: "MV",
-    role: "監督",
-    year: "2023年",
-    videoId: "81eV5XW62Ww",
-    thumbnail: `https://img.youtube.com/vi/81eV5XW62Ww/maxresdefault.jpg`,
-  },
-  {
-    id: 8,
-    title: "劇薬",
-    category: "映画",
-    role: "監督・脚本・撮影・編集",
-    year: "2023年",
-    videoId: "CtSvHCdXivk",
-    thumbnail: `https://img.youtube.com/vi/CtSvHCdXivk/maxresdefault.jpg`,
-  },
-  {
-    id: 9,
     title: "近くて遠い親子",
     category: "映画",
     role: "監督・脚本・編集",
     year: "2023年",
     videoId: "SPX7k8DsnIk",
     thumbnail: `https://img.youtube.com/vi/SPX7k8DsnIk/maxresdefault.jpg`,
+  },
+  {
+    id: 7,
+    title: "いつか黄昏の空で/gusou十色",
+    category: "MV",
+    role: "監督・脚本・撮影・編集",
+    year: "2022年",
+    videoId: "Wt7nqe5ACIA",
+    thumbnail: `https://img.youtube.com/vi/Wt7nqe5ACIA/maxresdefault.jpg`,
+  },
+  {
+    id: 8,
+    title: "『アッパレビバディ』/Appare!",
+    category: "MV",
+    role: "監督",
+    year: "2022年",
+    videoId: "6C7P_0Qv3pc",
+    thumbnail: `https://img.youtube.com/vi/6C7P_0Qv3pc/maxresdefault.jpg`,
   },
 ]
 
@@ -193,7 +185,7 @@ export default function PortfolioSlider() {
   if (!isMobile) {
     return (
       <>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {portfolioItems.map((item) => (
             <div
               key={item.id}
@@ -214,6 +206,7 @@ export default function PortfolioSlider() {
                   <p className="mb-2">
                     {item.category} / {item.year}
                   </p>
+                  {item.description && <p className="text-sm mb-1">{item.description}</p>}
                   <p className="text-sm">{item.role}</p>
                 </div>
               </div>
@@ -311,6 +304,7 @@ export default function PortfolioSlider() {
                     <p className="text-gray-600 mb-1">
                       {item.category} / {item.year}
                     </p>
+                    {item.description && <p className="text-xs text-gray-500 mb-1">{item.description}</p>}
                     <p className="text-sm text-gray-500">{item.role}</p>
                   </div>
                 </div>
