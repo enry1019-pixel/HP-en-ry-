@@ -1,9 +1,9 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, Play, X } from "lucide-react"
+import { ArrowLeft, Play, X, Instagram, Youtube } from "lucide-react"
 import { RedThreadBackground } from "@/components/red-thread-background"
 
 const portfolioItems = [
@@ -152,11 +152,24 @@ const portfolioItems = [
     videoId: "TF-l_F6VXg0",
     thumbnail: `https://img.youtube.com/vi/TF-l_F6VXg0/maxresdefault.jpg`,
   },
+  {
+    id: 17,
+    title: "株式会社en-ry　PV（long ver.）",
+    category: "企業PR",
+    role: "監督・編集",
+    year: "2025年",
+    videoId: "Wi0mrLzSN5o",
+    thumbnail: `https://img.youtube.com/vi/Wi0mrLzSN5o/maxresdefault.jpg`,
+  },
 ]
 
 export default function PortfolioPage() {
   const [selectedVideo, setSelectedVideo] = useState<(typeof portfolioItems)[0] | null>(null)
   const [selectedCategory, setSelectedCategory] = useState<string>("すべて")
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
   const categories = ["すべて", ...Array.from(new Set(portfolioItems.map((item) => item.category)))]
 
@@ -175,12 +188,16 @@ export default function PortfolioPage() {
     <div className="min-h-screen flex flex-col bg-lightgray relative">
       <RedThreadBackground />
 
-      {/* Header */}
-      <header className="sticky top-0 z-40 bg-white shadow-sm">
-        <div className="container mx-auto px-4 py-4">
-          <Link href="/" className="inline-flex items-center text-charcoal-light hover:text-black transition-colors">
-            <ArrowLeft className="w-5 h-5 mr-2" />
-            <span className="font-bold">ホームに戻る</span>
+      <header className="sticky top-0 z-40 bg-white border-b border-gray-200">
+        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+          <Link href="/" className="flex items-center gap-2">
+            <Image src="/logo-final.png" alt="en-ry logo" width={28} height={28} className="object-contain" />
+            <h1 className="text-2xl font-bold">en-ry</h1>
+          </Link>
+
+          <Link href="/#works" className="inline-flex items-center text-gray-600 hover:text-black transition-colors">
+            <ArrowLeft className="w-4 h-4 mr-2" />
+            ホームに戻る
           </Link>
         </div>
       </header>
@@ -278,6 +295,49 @@ export default function PortfolioPage() {
           </div>
         </div>
       )}
+
+      <footer className="bg-charcoal-light text-white py-12">
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <div className="flex items-center">
+                <Image
+                  src="/logo-final.png"
+                  alt="en-ry logo"
+                  width={28}
+                  height={28}
+                  className="object-contain invert"
+                />
+              </div>
+              <Link href="/" className="text-2xl font-bold">
+                en-ry
+              </Link>
+            </div>
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <a
+                href="https://www.instagram.com/en_ry1023/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-8 h-8" />
+              </a>
+              <a
+                href="https://www.youtube.com/@en-ry1023"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+                aria-label="YouTube"
+              >
+                <Youtube className="w-8 h-8" />
+              </a>
+            </div>
+            <p className="text-gray-300 mb-4">幸せな今を縁"en"が導く─未来の記憶"memory"に</p>
+            <p>&copy; 2023 en-ry All Rights Reserved.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   )
 }

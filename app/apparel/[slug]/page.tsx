@@ -188,11 +188,12 @@ export default function ApparelPage({ params }: ApparelPageProps) {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-2">
+            <Image src="/logo-final.png" alt="en-ry logo" width={32} height={32} className="object-contain" />
             <h1 className="text-2xl font-bold">en-ry</h1>
           </Link>
 
-          <Link href="/#apparel" className="inline-flex items-center text-gray-600 hover:text-black transition-colors">
+          <Link href="/apparel" className="inline-flex items-center text-gray-600 hover:text-black transition-colors">
             <ArrowLeft className="w-4 h-4 mr-2" />
             アパレル一覧に戻る
           </Link>
@@ -374,7 +375,7 @@ export default function ApparelPage({ params }: ApparelPageProps) {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link
-                  href="/#apparel"
+                  href="/apparel"
                   className="inline-flex items-center bg-charcoal-light text-white px-8 py-3 rounded hover:bg-charcoal transition-colors"
                 >
                   アパレル一覧に戻る
@@ -398,11 +399,14 @@ export default function ApparelPage({ params }: ApparelPageProps) {
       <footer className="bg-charcoal-light text-white py-12">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <Link href="/" className="text-2xl font-bold mb-4 inline-block">
-              en-ry
-            </Link>
-            <p className="text-gray-300 mb-4">映像を通して「縁」と思い出を紡いでいく</p>
-            <p>&copy; 2023 en-ry All Rights Reserved.</p>
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Image src="/logo-final.png" alt="en-ry logo" width={28} height={28} className="object-contain invert" />
+              <Link href="/" className="text-2xl font-bold">
+                en-ry
+              </Link>
+            </div>
+            <p className="text-gray-300 mb-4">幸せな今を縁"en"が導く─未来の記憶"memory"に</p>
+            <p>&copy; 2025 en-ry All Rights Reserved.</p>
           </div>
         </div>
       </footer>

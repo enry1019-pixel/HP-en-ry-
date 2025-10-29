@@ -44,12 +44,12 @@ const portfolioItems = [
   },
   {
     id: 5,
-    title: "『絶対零度のオアシス』",
-    category: "違法薬物撲滅ドラマ",
-    role: "監督",
-    year: "2023年",
-    videoId: "fhbUDHyBVW8",
-    thumbnail: `https://img.youtube.com/vi/fhbUDHyBVW8/maxresdefault.jpg`,
+    title: "株式会社en-ry　PV（long ver.）",
+    category: "企業PR",
+    role: "監督・編集",
+    year: "2025年",
+    videoId: "Wi0mrLzSN5o",
+    thumbnail: `https://img.youtube.com/vi/Wi0mrLzSN5o/maxresdefault.jpg`,
   },
   {
     id: 6,
@@ -192,15 +192,22 @@ export default function PortfolioSlider() {
               className="group relative overflow-hidden cursor-pointer"
               onClick={() => openVideoModal(item)}
             >
-              <div className="h-64 bg-gray-100 relative flex items-center justify-center">
-                <Image src={item.thumbnail || "/placeholder.svg"} alt={item.title} fill className="object-cover" />
-                <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="h-64 bg-gray-900 relative flex items-center justify-center overflow-hidden">
+                {/* Solid background layer */}
+                <div className="absolute inset-0 bg-gray-900 z-0" />
+                <Image
+                  src={item.thumbnail || "/placeholder.svg"}
+                  alt={item.title}
+                  fill
+                  className="object-cover relative z-10"
+                />
+                <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity z-20">
                   <div className="bg-white/90 rounded-full p-4">
                     <Play className="w-8 h-8 text-charcoal-light" fill="currentColor" />
                   </div>
                 </div>
               </div>
-              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+              <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-30">
                 <div className="text-center text-white p-4">
                   <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                   <p className="mb-2">
@@ -291,9 +298,16 @@ export default function PortfolioSlider() {
                   }}
                   onClick={() => openVideoModal(item)}
                 >
-                  <div className="h-48 bg-gray-100 relative">
-                    <Image src={item.thumbnail || "/placeholder.svg"} alt={item.title} fill className="object-cover" />
-                    <div className="absolute inset-0 bg-black/20 flex items-center justify-center">
+                  <div className="h-48 bg-gray-900 relative overflow-hidden">
+                    {/* Solid background layer */}
+                    <div className="absolute inset-0 bg-gray-900 z-0" />
+                    <Image
+                      src={item.thumbnail || "/placeholder.svg"}
+                      alt={item.title}
+                      fill
+                      className="object-cover relative z-10"
+                    />
+                    <div className="absolute inset-0 bg-black/20 flex items-center justify-center z-20">
                       <div className="bg-white/90 rounded-full p-3">
                         <Play className="w-6 h-6 text-charcoal-light" fill="currentColor" />
                       </div>

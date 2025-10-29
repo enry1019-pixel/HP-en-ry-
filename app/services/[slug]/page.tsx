@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation"
 import Link from "next/link"
+import Image from "next/image"
 import { ArrowLeft } from "lucide-react"
 import ScrollToTop from "@/components/scroll-to-top"
 
@@ -23,24 +24,28 @@ const services = [
         title: "ヒアリング・打ち合わせ",
         description: "ご予算・納期・ご要望を伺い、企画コンセプトを設計",
         actor: "client",
+        details: ["目的・ターゲットの明確化", "予算・スケジュールの調整", "企画書・絵コンテの作成"],
       },
       {
         number: "02",
         title: "撮影準備",
         description: "企画・脚本・絵コンテ・ロケハン・キャスティング・スケジュール調整",
         actor: "company",
+        details: ["ロケーション撮影", "スタジオ撮影", "インタビュー収録", "ドローン撮影"],
       },
       {
         number: "03",
         title: "撮影・収録",
         description: "映像・音声の収録",
         actor: "both",
+        details: ["映像編集", "音響調整", "カラーグレーディング", "エフェクト処理"],
       },
       {
         number: "04",
         title: "編集・加工",
-        description: "映像編集、BGM・ナレーション・テロップ追加",
+        description: "映像・音声の編集、テロップ・BGM・効果音の挿入",
         actor: "company",
+        details: ["各種フォーマット対応", "配信プラットフォーム最適化", "修正対応", "運用サポート"],
       },
       {
         number: "05",
@@ -83,24 +88,28 @@ const services = [
         title: "ヒアリング・打ち合わせ",
         description: "ご予算・納期・ご要望を伺い、企画コンセプトを設計",
         actor: "client",
+        details: ["目的・ターゲットの明確化", "予算・スケジュールの調整", "企画書・絵コンテの作成"],
       },
       {
         number: "02",
         title: "撮影準備",
         description: "企画・脚本・絵コンテ・ロケハン・キャスティング・スケジュール調整",
         actor: "company",
+        details: ["ロケーション撮影", "スタジオ撮影", "インタビュー収録", "ドローン撮影"],
       },
       {
         number: "03",
         title: "撮影・収録",
         description: "映像・音声の収録",
         actor: "both",
+        details: ["映像編集", "音響調整", "カラーグレーディング", "エフェクト処理"],
       },
       {
         number: "04",
         title: "編集・加工",
-        description: "映像編集、BGM・ナレーション・テロップ追加",
+        description: "映像・音声の編集、テロップ・BGM・効果音の挿入",
         actor: "company",
+        details: ["各種フォーマット対応", "配信プラットフォーム最適化", "修正対応", "運用サポート"],
       },
       {
         number: "05",
@@ -137,24 +146,28 @@ const services = [
         title: "ヒアリング・打ち合わせ",
         description: "ご予算・納期・ご要望を伺い、企画コンセプトを設計",
         actor: "client",
+        details: ["目的・ターゲットの明確化", "予算・スケジュールの調整", "企画書・絵コンテの作成"],
       },
       {
         number: "02",
         title: "撮影準備",
         description: "企画・脚本・絵コンテ・ロケハン・キャスティング・スケジュール調整",
         actor: "company",
+        details: ["ロケーション撮影", "スタジオ撮影", "インタビュー収録", "ドローン撮影"],
       },
       {
         number: "03",
         title: "撮影・収録",
         description: "映像・音声の収録",
         actor: "both",
+        details: ["映像編集", "音響調整", "カラーグレーディング", "エフェクト処理"],
       },
       {
         number: "04",
         title: "編集・加工",
-        description: "映像編集、BGM・ナレーション・テロップ追加",
+        description: "映像・音声の編集、テロップ・BGM・効果音の挿入",
         actor: "company",
+        details: ["各種フォーマット対応", "配信プラットフォーム最適化", "修正対応", "運用サポート"],
       },
       {
         number: "05",
@@ -197,24 +210,28 @@ const services = [
         title: "ヒアリング・打ち合わせ",
         description: "ご予算・納期・ご要望を伺い、企画コンセプトを設計",
         actor: "client",
+        details: ["目的・ターゲットの明確化", "予算・スケジュールの調整", "企画書・絵コンテの作成"],
       },
       {
         number: "02",
         title: "撮影準備",
         description: "企画・脚本・絵コンテ・ロケハン・キャスティング・スケジュール調整",
         actor: "company",
+        details: ["ロケーション撮影", "スタジオ撮影", "インタビュー収録", "ドローン撮影"],
       },
       {
         number: "03",
         title: "撮影・収録",
         description: "映像・音声の収録",
         actor: "both",
+        details: ["映像編集", "音響調整", "カラーグレーディング", "エフェクト処理"],
       },
       {
         number: "04",
         title: "編集・加工",
-        description: "映像編集、BGM・ナレーション・テロップ追加",
+        description: "映像・音声の編集、テロップ・BGM・効果音の挿入",
         actor: "company",
+        details: ["各種フォーマット対応", "配信プラットフォーム最適化", "修正対応", "運用サポート"],
       },
       {
         number: "05",
@@ -283,7 +300,8 @@ export default function ServicePage({ params }: ServicePageProps) {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center">
+          <Link href="/" className="flex items-center gap-2">
+            <Image src="/logo-final.png" alt="en-ry logo" width={32} height={32} className="object-contain" />
             <h1 className="text-2xl font-bold">en-ry</h1>
           </Link>
 
@@ -483,7 +501,20 @@ export default function ServicePage({ params }: ServicePageProps) {
                             </span>
                             <h4 className="font-bold text-sm text-charcoal-light">{step.title}</h4>
                           </div>
-                          <p className="text-xs text-gray-600 ml-9">{step.description}</p>
+                          <p className="text-xs text-gray-600 ml-9 mb-3">{step.description}</p>
+                          {step.details && step.details.length > 0 && (
+                            <div className="ml-9">
+                              <h5 className="font-semibold text-xs text-charcoal-light mb-2">主な作業内容</h5>
+                              <ul className="space-y-1">
+                                {step.details.map((detail, detailIndex) => (
+                                  <li key={detailIndex} className="flex items-start text-xs text-gray-600">
+                                    <span className="mr-2">・</span>
+                                    <span>{detail}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
                         </div>
                       ))}
                     </div>
@@ -517,7 +548,22 @@ export default function ServicePage({ params }: ServicePageProps) {
                                   </span>
                                 </div>
                               </div>
-                              <p className="text-sm text-gray-600 leading-relaxed relative z-10">{step.description}</p>
+                              <p className="text-sm text-gray-600 leading-relaxed relative z-10 mb-3">
+                                {step.description}
+                              </p>
+                              {step.details && step.details.length > 0 && (
+                                <div className="relative z-10">
+                                  <h5 className="font-semibold text-sm text-charcoal-light mb-2">主な作業内容</h5>
+                                  <ul className="space-y-1">
+                                    {step.details.map((detail, detailIndex) => (
+                                      <li key={detailIndex} className="flex items-start text-sm text-gray-600">
+                                        <span className="mr-2">・</span>
+                                        <span>{detail}</span>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              )}
                             </div>
                           </div>
                           {!isLastStep && (
@@ -558,7 +604,20 @@ export default function ServicePage({ params }: ServicePageProps) {
                               </span>
                             </div>
                           </div>
-                          <p className="text-sm text-gray-600 leading-relaxed relative z-10">{step.description}</p>
+                          <p className="text-sm text-gray-600 leading-relaxed relative z-10 mb-3">{step.description}</p>
+                          {step.details && step.details.length > 0 && (
+                            <div className="relative z-10">
+                              <h5 className="font-semibold text-sm text-charcoal-light mb-2">主な作業内容</h5>
+                              <ul className="space-y-1">
+                                {step.details.map((detail, detailIndex) => (
+                                  <li key={detailIndex} className="flex items-start text-sm text-gray-600">
+                                    <span className="mr-2">・</span>
+                                    <span>{detail}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
                         </div>
                         {!isLastStep && (
                           <div className="flex justify-center my-4">
@@ -600,10 +659,13 @@ export default function ServicePage({ params }: ServicePageProps) {
       <footer className="bg-charcoal-light text-white py-12">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <Link href="/" className="text-2xl font-bold mb-4 inline-block">
-              en-ry
-            </Link>
-            <p className="text-gray-300 mb-4">映像を通して「縁」と思い出を紡いでいく</p>
+            <div className="flex items-center justify-center gap-2 mb-4">
+              <Image src="/logo-final.png" alt="en-ry logo" width={32} height={32} className="object-contain invert" />
+              <Link href="/" className="text-2xl font-bold">
+                en-ry
+              </Link>
+            </div>
+            <p className="text-gray-300 mb-4">幸せな今を縁"en"が導く─未来の記憶"memory"に</p>
             <p>&copy; 2025 en-ry All Rights Reserved.</p>
           </div>
         </div>

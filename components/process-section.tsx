@@ -74,8 +74,12 @@ export default function ProcessSection() {
   }, [])
 
   return (
-    <section ref={sectionRef} id="process" className="py-20 bg-gradient-to-b from-white to-lightgray overflow-hidden">
-      <div className="container mx-auto px-4">
+    <section
+      ref={sectionRef}
+      id="process"
+      className="py-20 bg-gradient-to-b from-white to-lightgray overflow-hidden relative"
+    >
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="process-title text-3xl font-bold mb-2">PROCESS</h2>
           <p className="text-lg text-gray-500 mb-4">制作の流れ</p>

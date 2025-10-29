@@ -3,19 +3,20 @@
 import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Menu, X, Volume2, VolumeX } from "lucide-react"
+import { ArrowRight, Menu, X, Volume2, VolumeX, Instagram, Youtube } from "lucide-react"
 import ServiceSlider from "@/components/service-slider"
-import ProcessSection from "@/components/process-section"
 import PortfolioSlider from "@/components/portfolio-slider"
-import ApparelSlider from "@/components/apparel-slider"
 import { RedThreadBackground } from "@/components/red-thread-background"
+import NewsSection from "@/components/news-section"
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMuted, setIsMuted] = useState(true)
   const videoRef = useRef<HTMLVideoElement>(null)
   const handwrittenTextRef = useRef<HTMLDivElement>(null)
+  const taglineSectionRef = useRef<HTMLDivElement>(null)
   const [isHandwrittenVisible, setIsHandwrittenVisible] = useState(false)
+  const [isTaglineVisible, setIsTaglineVisible] = useState(false)
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -63,12 +64,18 @@ export default function Home() {
           if (entry.target === handwrittenTextRef.current) {
             setIsHandwrittenVisible(true)
           }
+          if (entry.target === taglineSectionRef.current) {
+            setIsTaglineVisible(true)
+          }
         }
       })
     }, observerOptions)
 
     if (handwrittenTextRef.current) {
       observer.observe(handwrittenTextRef.current)
+    }
+    if (taglineSectionRef.current) {
+      observer.observe(taglineSectionRef.current)
     }
 
     return () => {
@@ -78,9 +85,6 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col relative">
-      {/* Red Thread Background */}
-      <RedThreadBackground />
-
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
@@ -92,17 +96,14 @@ export default function Home() {
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
+            <Link href="#news" className="text-gray-700 hover:text-black font-bold">
+              NEWS
+            </Link>
             <Link href="#services" className="text-gray-700 hover:text-black font-bold">
               SERVICES
             </Link>
-            <Link href="#process" className="text-gray-700 hover:text-black font-bold">
-              PROCESS
-            </Link>
             <Link href="#works" className="text-gray-700 hover:text-black font-bold">
               PORTFOLIO
-            </Link>
-            <Link href="#apparel" className="text-gray-700 hover:text-black font-bold">
-              APPAREL
             </Link>
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSdf35MRg59aC8PLeeNP3F7HCldqZF6YkM4cQi8J5jbMedF8EQ/viewform?usp=dialog"
@@ -125,6 +126,16 @@ export default function Home() {
             <div className="container mx-auto px-4 py-4">
               <nav className="flex flex-col space-y-4">
                 <Link
+                  href="#news"
+                  className="text-gray-700 hover:text-black font-bold py-3 border-b border-gray-100"
+                  onClick={closeMobileMenu}
+                >
+                  <div className="flex flex-col">
+                    <span className="text-base">NEWS</span>
+                    <span className="text-sm text-gray-500 font-normal">ニュース</span>
+                  </div>
+                </Link>
+                <Link
                   href="#services"
                   className="text-gray-700 hover:text-black font-bold py-3 border-b border-gray-100"
                   onClick={closeMobileMenu}
@@ -135,16 +146,6 @@ export default function Home() {
                   </div>
                 </Link>
                 <Link
-                  href="#process"
-                  className="text-gray-700 hover:text-black font-bold py-3 border-b border-gray-100"
-                  onClick={closeMobileMenu}
-                >
-                  <div className="flex flex-col">
-                    <span className="text-base">PROCESS</span>
-                    <span className="text-sm text-gray-500 font-normal">制作の流れ</span>
-                  </div>
-                </Link>
-                <Link
                   href="#works"
                   className="text-gray-700 hover:text-black font-bold py-3 border-b border-gray-100"
                   onClick={closeMobileMenu}
@@ -152,16 +153,6 @@ export default function Home() {
                   <div className="flex flex-col">
                     <span className="text-base">PORTFOLIO</span>
                     <span className="text-sm text-gray-500 font-normal">制作実績</span>
-                  </div>
-                </Link>
-                <Link
-                  href="#apparel"
-                  className="text-gray-700 hover:text-black font-bold py-3 border-b border-gray-100"
-                  onClick={closeMobileMenu}
-                >
-                  <div className="flex flex-col">
-                    <span className="text-base">APPAREL</span>
-                    <span className="text-sm text-gray-500 font-normal">アパレル</span>
                   </div>
                 </Link>
                 <a
@@ -206,52 +197,52 @@ export default function Home() {
       </section>
 
       {/* New Section - Tagline with Logo */}
-      <section className="py-12 md:py-20 bg-white relative overflow-hidden">
+      <section id="tagline-section" ref={taglineSectionRef} className="py-12 md:py-20 relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center justify-center min-h-[400px] md:min-h-[500px] relative">
-            <div className="absolute top-0 left-8 md:left-48 lg:left-56 w-48 h-96 md:w-64 md:h-[500px]">
-              <svg viewBox="0 0 200 500" className="w-full h-full" preserveAspectRatio="xMinYMin meet">
-                {/* Long line from top-left to bottom-right */}
-                <line x1="10" y1="0" x2="90" y2="350" stroke="#DC143C" strokeWidth="2" />
-                {/* Short line from top-right to bottom-left at steeper angle */}
-                <line x1="130" y1="0" x2="-60" y2="200" stroke="#DC143C" strokeWidth="2" />
-              </svg>
+            <div className="text-center max-w-4xl mx-auto relative z-10">
+              <div className="text-2xl md:text-4xl lg:text-5xl font-serif tracking-wide leading-relaxed">
+                <div className="mb-4">
+                  {isTaglineVisible &&
+                    '幸せな今を縁"en"が導く'.split("").map((char, index) => (
+                      <span
+                        key={index}
+                        className="inline-block opacity-0 animate-fade-in"
+                        style={{
+                          animationDelay: `${index * 0.08}s`,
+                          animationFillMode: "forwards",
+                        }}
+                      >
+                        {char}
+                      </span>
+                    ))}
+                </div>
+                <div>
+                  {isTaglineVisible &&
+                    '―未来の記憶"memory"に'.split("").map((char, index) => (
+                      <span
+                        key={index}
+                        className="inline-block opacity-0 animate-fade-in"
+                        style={{
+                          animationDelay: `${(index + 17) * 0.08}s`,
+                          animationFillMode: "forwards",
+                        }}
+                      >
+                        {char}
+                      </span>
+                    ))}
+                </div>
+              </div>
             </div>
 
-            <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-16 lg:gap-20 relative z-10 w-full max-w-7xl mx-auto px-4 md:px-8">
-              {/* Left text */}
-              <div className="text-center md:text-right flex-shrink-0 w-full md:w-48 lg:w-56">
-                <p className="text-lg md:text-xl font-light tracking-wide">幸せな今を</p>
-              </div>
-
-              {/* Center logo */}
-              <div className="flex flex-col items-center flex-shrink-0">
-                <Image
-                  src="/logo-black.png"
-                  alt="en-ry logo"
-                  width={280}
-                  height={280}
-                  className="object-contain mb-4"
-                />
-              </div>
-
-              <div className="text-center md:text-left flex-shrink-0 w-full md:w-64 lg:w-72">
-                <p className="text-lg md:text-xl font-light tracking-wide">
-                  <span className="whitespace-nowrap">縁"en"が導く</span>
-                  <br />
-                  <span className="whitespace-nowrap">―未来の記憶"memory"に</span>
-                </p>
-              </div>
-            </div>
-
-            <div className="text-center max-w-3xl px-4 mt-16 md:mt-20">
-              <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-8">
+            <div className="text-center max-w-3xl px-4 mt-16 md:mt-20 relative z-10">
+              <p className="text-gray-700 leading-relaxed text-base md:text-lg mb-8">
                 株式会社en-ryは、「縁(en)」と「memory(メモリー)」を掛け合わせた社名のもと、
                 <br className="hidden md:block" />
                 人と人の出会いや大切な瞬間を、永遠に残る物語として映像に刻み、未来へと紡いでいくことを使命としています。
               </p>
 
-              <p className="text-gray-600 leading-relaxed text-base md:text-lg">
+              <p className="text-gray-700 leading-relaxed text-base md:text-lg">
                 映像は単なる記録ではなく、心を動かし、人をつなぐ力を持っています。
                 <br className="hidden md:block" />
                 現役映画監督による確かな表現力と幅広い経験を活かし、
@@ -265,9 +256,12 @@ export default function Home() {
         </div>
       </section>
 
+      {/* News Section */}
+      <NewsSection />
+
       {/* Services Section with Auto-scrolling Images */}
-      <section id="services" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section id="services" className="py-20 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-2">SERVICES</h2>
             <p className="text-lg text-gray-500 mb-4">サービス</p>
@@ -288,14 +282,30 @@ export default function Home() {
               <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
           </div>
+
+          <div className="text-center mt-16">
+            <div className="bg-lightgray p-8 rounded-lg shadow-md max-w-2xl mx-auto">
+              <h3 className="text-xl font-bold mb-4 text-charcoal-light">サービス内容についてご質問がございましたら</h3>
+              <p className="text-gray-600 mb-6">
+                詳しい制作プロセスや、お客様のプロジェクトに最適なプランについて、お気軽にご相談ください。お見積りは無料です。お客様のご要望に合わせた最適なプランをご提案させていただきます。
+              </p>
+              <div className="flex justify-center">
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdf35MRg59aC8PLeeNP3F7HCldqZF6YkM4cQi8J5jbMedF8EQ/viewform?usp=dialog"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center bg-charcoal-light text-white px-6 py-3 rounded hover:bg-charcoal transition-colors"
+                >
+                  お問い合わせ
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Process Section */}
-      <ProcessSection />
-
       {/* Portfolio Section */}
-      <section id="works" className="py-20 bg-lightgray">
+      <section id="works" className="py-20 bg-lightgray relative overflow-hidden">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-2">PORTFOLIO</h2>
@@ -319,164 +329,148 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Apparel Section */}
-      <section id="apparel" className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-2">APPAREL</h2>
-            <p className="text-lg text-gray-500 mb-4">アパレル</p>
-            <p className="text-gray-600 max-w-2xl mx-auto">
-              en-ryオリジナルアパレル商品をお楽しみください。 高品質な素材とデザインにこだわった商品を取り揃えています。
-            </p>
-          </div>
-
-          <ApparelSlider />
-        </div>
-      </section>
-
       {/* Footer */}
-      <footer className="bg-charcoal-light text-white py-12">
+      <footer id="footer" className="bg-charcoal-light text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
-            <div className="md:col-span-2">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="flex items-center">
-                  <Image
-                    src="/logo-final.png"
-                    alt="en-ry logo"
-                    width={28}
-                    height={28}
-                    className="object-contain invert"
-                  />
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12">
+            <div className="md:col-span-2 md:pl-8">
+              <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-12">
+                {/* Company Info */}
+                <div>
+                  <div className="flex items-center gap-2 mb-4">
+                    <div className="flex items-center">
+                      <Image
+                        src="/logo-final.png"
+                        alt="en-ry logo"
+                        width={28}
+                        height={28}
+                        className="object-contain invert"
+                      />
+                    </div>
+                    <h3 className="text-xl font-bold">en-ry</h3>
+                  </div>
+                  <div className="space-y-2 text-sm">
+                    <p className="font-semibold">会社概要</p>
+                    <p>会社名: 株式会社 en-ry</p>
+                    <p>設立: 2025.10.16</p>
+                    <p>代表: 田中 慎太郎</p>
+                    <p>取締役: 小楠 啓展</p>
+                    <p>事業内容: 映像関連総合事業</p>
+                    <p>従業員数: 2名</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-bold">en-ry</h3>
-              </div>
-              <div className="space-y-2 text-sm">
-                <p className="font-semibold">会社概要</p>
-                <p>会社名: 株式会社 en-ry</p>
-                <p>設立: 2025.10.16</p>
-                <p>代表: 田中 慎太郎</p>
-                <p>取締役: 小楠 啓展</p>
-                <p>事業内容: 映像関連総合事業</p>
-                <p>従業員数: 2名</p>
-                <p className="pt-2">
-                  住所: 〒160-0022
-                  <br />
-                  東京都新宿区新宿2丁目12番13号
-                  <br />
-                  新宿アントレサロンビル2階
-                </p>
+
+                {/* Social Media - with consistent gap spacing */}
+                <div className="flex flex-col gap-4">
+                  <a
+                    href="https://www.instagram.com/en_ry1023/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+                    aria-label="Instagram"
+                  >
+                    <Instagram className="w-8 h-8" />
+                    <span className="text-sm font-medium">Instagram</span>
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@en-ry1023"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+                    aria-label="YouTube"
+                  >
+                    <Youtube className="w-8 h-8" />
+                    <span className="text-sm font-medium">Youtube</span>
+                  </a>
+                </div>
               </div>
             </div>
 
+            {/* Services Section */}
             <div>
               <h4 className="font-bold mb-4">SERVICES</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#services" className="hover:underline">
+                  <Link href="/services/promotion-pr" className="hover:underline">
                     企業PR映像
                   </Link>
                 </li>
                 <li>
-                  <Link href="#services" className="hover:underline">
+                  <Link href="/services/promotion-pr" className="hover:underline">
                     商品プロモーション
                   </Link>
                 </li>
                 <li>
-                  <Link href="#services" className="hover:underline">
+                  <Link href="/services/memorial-movie" className="hover:underline">
                     メモリアル映像
                   </Link>
                 </li>
                 <li>
-                  <Link href="#services" className="hover:underline">
+                  <Link href="/services/music-video" className="hover:underline">
                     MV制作
                   </Link>
                 </li>
                 <li>
-                  <Link href="#services" className="hover:underline">
+                  <Link href="/services/film-drama" className="hover:underline">
                     映画・ドラマ制作
                   </Link>
                 </li>
               </ul>
             </div>
 
-            <div>
-              <h4 className="font-bold mb-4">PROCESS</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="#process" className="hover:underline">
-                    企画・ヒアリング
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#process" className="hover:underline">
-                    撮影・収録
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#process" className="hover:underline">
-                    編集・制作
-                  </Link>
-                </li>
-                <li>
-                  <Link href="#process" className="hover:underline">
-                    納品・アフターサポート
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
+            {/* Portfolio Section */}
             <div>
               <h4 className="font-bold mb-4">PORTFOLIO</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#works" className="hover:underline">
+                  <Link href="/portfolio" className="hover:underline">
                     企業PR映像
                   </Link>
                 </li>
                 <li>
-                  <Link href="#works" className="hover:underline">
+                  <Link href="/portfolio" className="hover:underline">
                     商品プロモーション
                   </Link>
                 </li>
                 <li>
-                  <Link href="#works" className="hover:underline">
+                  <Link href="/portfolio" className="hover:underline">
                     イベント記録
                   </Link>
                 </li>
                 <li>
-                  <Link href="#works" className="hover:underline">
+                  <Link href="/portfolio" className="hover:underline">
                     MV制作
                   </Link>
                 </li>
                 <li>
-                  <Link href="#works" className="hover:underline">
+                  <Link href="/portfolio" className="hover:underline">
                     ドラマ制作
                   </Link>
                 </li>
               </ul>
             </div>
 
+            {/* Apparel Section */}
             <div>
               <h4 className="font-bold mb-4">APPAREL</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="#apparel" className="hover:underline">
+                  <Link href="/apparel?category=tshirt" className="hover:underline">
                     Tシャツ
                   </Link>
                 </li>
                 <li>
-                  <Link href="#apparel" className="hover:underline">
+                  <Link href="/apparel?category=cap" className="hover:underline">
                     キャップ
                   </Link>
                 </li>
                 <li>
-                  <Link href="#apparel" className="hover:underline">
+                  <Link href="/apparel?category=handbag" className="hover:underline">
                     ハンドバッグ
                   </Link>
                 </li>
                 <li>
-                  <Link href="#apparel" className="hover:underline">
+                  <Link href="/apparel?category=shoulder-bag" className="hover:underline">
                     ショルダーバッグ
                   </Link>
                 </li>
@@ -519,6 +513,8 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      <RedThreadBackground />
     </div>
   )
 }

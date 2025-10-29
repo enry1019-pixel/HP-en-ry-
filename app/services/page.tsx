@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, ArrowRight, Clock, Users, Award, CheckCircle } from "lucide-react"
+import { ArrowLeft, ArrowRight, Clock, Users, Award, CheckCircle, Instagram, Youtube } from "lucide-react"
 import { RedThreadBackground } from "@/components/red-thread-background"
 
 const services = [
@@ -316,6 +316,26 @@ export default function ServicesPage() {
               <Link href="/" className="text-2xl font-bold">
                 en-ry
               </Link>
+            </div>
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <a
+                href="https://www.instagram.com/en_ry1023/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-8 h-8" />
+              </a>
+              <a
+                href="https://www.youtube.com/@en-ry1023"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:opacity-80 transition-opacity"
+                aria-label="YouTube"
+              >
+                <Youtube className="w-8 h-8" />
+              </a>
             </div>
             <p className="text-gray-300 mb-4">幸せな今を縁"en"が導く─未来の記憶"memory"に</p>
             <p>&copy; 2023 en-ry All Rights Reserved.</p>
