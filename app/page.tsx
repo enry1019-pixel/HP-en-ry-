@@ -6,7 +6,6 @@ import Link from "next/link"
 import { ArrowRight, Menu, X, Volume2, VolumeX, Instagram, Youtube } from "lucide-react"
 import ServiceSlider from "@/components/service-slider"
 import PortfolioSlider from "@/components/portfolio-slider"
-import { RedThreadBackground } from "@/components/red-thread-background"
 import NewsSection from "@/components/news-section"
 
 export default function Home() {
@@ -198,6 +197,18 @@ export default function Home() {
 
       {/* New Section - Tagline with Logo */}
       <section id="tagline-section" ref={taglineSectionRef} className="py-12 md:py-20 relative overflow-hidden">
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="relative w-full h-full max-w-4xl mx-auto">
+            <Image
+              src="/logo-final.png"
+              alt="en-ry background logo"
+              fill
+              className="object-contain opacity-5"
+              priority
+            />
+          </div>
+        </div>
+
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center justify-center min-h-[400px] md:min-h-[500px] relative">
             <div className="text-center max-w-4xl mx-auto relative z-10">
@@ -309,7 +320,7 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-2">PORTFOLIO</h2>
-            <p className="text-lg text-gray-500 mb-4">制作実績</p>
+            <p className="text-lg text-gray-500 mb-4">制作実績（田中慎太郎監督作品）</p>
             <p className="text-gray-600 max-w-2xl mx-auto">
               これまでに制作した映像作品の一部をご紹介します。 様々な業界のクライアント様と協力して制作した作品です。
             </p>
@@ -509,8 +520,6 @@ export default function Home() {
           </div>
         </div>
       </footer>
-
-      <RedThreadBackground />
     </div>
   )
 }

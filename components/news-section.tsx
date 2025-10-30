@@ -15,24 +15,25 @@ interface NewsItem {
 const newsItems: NewsItem[] = [
   {
     id: 1,
-    date: "2025.01.15",
+    date: "2025.10.24",
     category: "お知らせ",
-    title: "株式会社en-ry 公式ウェブサイトをリニューアルしました",
-    description: "より使いやすく、より分かりやすいウェブサイトへと生まれ変わりました。",
+    title: "株式会社en-ry　PV公開",
+    description: "弊社紹介動画をYoutubeにて公開いたしました。",
   },
   {
     id: 2,
-    date: "2025.01.10",
-    category: "制作実績",
-    title: "株式会社en-ry PV（long ver.）を公開しました",
-    description: "会社紹介動画を制作し、YouTubeにて公開いたしました。",
+    date: "2025.10.23",
+    category: "お知らせ",
+    title: "株式会社en-ry 設立",
+    description: "株式会社en-ryを設立いたしました。",
   },
   {
     id: 3,
-    date: "2024.12.20",
+    date: "2025.10.17",
     category: "お知らせ",
-    title: "年末年始休業のお知らせ",
-    description: "2024年12月28日〜2025年1月5日まで年末年始休業とさせていただきます。",
+    title: "弊社代表取締役・田中監督作品「おっさんの夏休み」ノミネート。",
+    description:
+      "田中監督作品「おっさんの夏休み」ゆうばり国際ファンタスティック映画祭2025短編部門にノミネートされました。",
   },
 ]
 
