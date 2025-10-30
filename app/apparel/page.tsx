@@ -238,8 +238,9 @@ export default function ApparelPage() {
       {/* Footer */}
       <footer className="bg-charcoal-light text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-6 gap-4">
-            <div className="md:col-span-2">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-10">
+            {/* Company Info */}
+            <div>
               <div className="flex items-center gap-2 mb-4">
                 <Image
                   src="/logo-final.png"
@@ -253,35 +254,39 @@ export default function ApparelPage() {
               <div className="space-y-2 text-sm">
                 <p className="font-semibold">会社概要</p>
                 <p>会社名: 株式会社 en-ry</p>
-                <p>設立: 2025.10.16</p>
-                <p>代表: 田中 慎太郎</p>
+                <p>設立: 2025.10.23</p>
+                <p>代表取締役: 田中 慎太郎</p>
                 <p>取締役: 小楠 啓展</p>
                 <p>事業内容: 映像関連総合事業</p>
                 <p>従業員数: 2名</p>
               </div>
             </div>
 
-            <div className="flex md:flex-col items-center md:items-start justify-center md:justify-start gap-4 md:gap-6">
+            {/* Social Media */}
+            <div className="flex flex-col gap-4">
               <a
                 href="https://www.instagram.com/en_ry1023/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
+                className="flex items-center gap-2 hover:opacity-80 transition-opacity"
                 aria-label="Instagram"
               >
-                <Instagram className="w-10 h-10" />
+                <Instagram className="w-8 h-8" />
+                <span className="text-sm font-medium">Instagram</span>
               </a>
               <a
                 href="https://www.youtube.com/@en-ry1023"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:opacity-80 transition-opacity"
+                className="flex items-center gap-2 hover:opacity-80 transition-opacity"
                 aria-label="YouTube"
               >
-                <Youtube className="w-10 h-10" />
+                <Youtube className="w-8 h-8" />
+                <span className="text-sm font-medium">Youtube</span>
               </a>
             </div>
 
+            {/* Services Section */}
             <div>
               <h4 className="font-bold mb-4">SERVICES</h4>
               <ul className="space-y-2">
@@ -313,6 +318,7 @@ export default function ApparelPage() {
               </ul>
             </div>
 
+            {/* Portfolio Section */}
             <div>
               <h4 className="font-bold mb-4">PORTFOLIO</h4>
               <ul className="space-y-2">
@@ -344,6 +350,7 @@ export default function ApparelPage() {
               </ul>
             </div>
 
+            {/* Apparel Section */}
             <div>
               <h4 className="font-bold mb-4">APPAREL</h4>
               <ul className="space-y-2">

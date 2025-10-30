@@ -332,58 +332,54 @@ export default function Home() {
       {/* Footer */}
       <footer id="footer" className="bg-charcoal-light text-white py-12">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-12">
-            <div className="md:col-span-2 md:pl-8">
-              <div className="flex flex-col md:flex-row md:items-start gap-8 md:gap-12">
-                {/* Company Info */}
-                <div>
-                  <div className="flex items-center gap-2 mb-4">
-                    <div className="flex items-center">
-                      <Image
-                        src="/logo-final.png"
-                        alt="en-ry logo"
-                        width={28}
-                        height={28}
-                        className="object-contain invert"
-                      />
-                    </div>
-                    <h3 className="text-xl font-bold">en-ry</h3>
-                  </div>
-                  <div className="space-y-2 text-sm">
-                    <p className="font-semibold">会社概要</p>
-                    <p>会社名: 株式会社 en-ry</p>
-                    <p>設立: 2025.10.16</p>
-                    <p>代表: 田中 慎太郎</p>
-                    <p>取締役: 小楠 啓展</p>
-                    <p>事業内容: 映像関連総合事業</p>
-                    <p>従業員数: 2名</p>
-                  </div>
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-10">
+            {/* Company Info */}
+            <div>
+              <div className="flex items-center gap-2 mb-4">
+                <div className="flex items-center">
+                  <Image
+                    src="/logo-final.png"
+                    alt="en-ry logo"
+                    width={28}
+                    height={28}
+                    className="object-contain invert"
+                  />
                 </div>
-
-                {/* Social Media - with consistent gap spacing */}
-                <div className="flex flex-col gap-4">
-                  <a
-                    href="https://www.instagram.com/en_ry1023/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="w-8 h-8" />
-                    <span className="text-sm font-medium">Instagram</span>
-                  </a>
-                  <a
-                    href="https://www.youtube.com/@en-ry1023"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-                    aria-label="YouTube"
-                  >
-                    <Youtube className="w-8 h-8" />
-                    <span className="text-sm font-medium">Youtube</span>
-                  </a>
-                </div>
+                <h3 className="text-xl font-bold">en-ry</h3>
               </div>
+              <div className="space-y-2 text-sm">
+                <p className="font-semibold">会社概要</p>
+                <p>会社名: 株式会社 en-ry</p>
+                <p>設立: 2025.10.23</p>
+                <p>代表取締役: 田中 慎太郎</p>
+                <p>取締役: 小楠 啓展</p>
+                <p>事業内容: 映像関連総合事業</p>
+                <p>従業員数: 2名</p>
+              </div>
+            </div>
+
+            {/* Social Media */}
+            <div className="flex flex-col gap-4">
+              <a
+                href="https://www.instagram.com/en_ry1023/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-8 h-8" />
+                <span className="text-sm font-medium">Instagram</span>
+              </a>
+              <a
+                href="https://www.youtube.com/@en-ry1023"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+                aria-label="YouTube"
+              >
+                <Youtube className="w-8 h-8" />
+                <span className="text-sm font-medium">Youtube</span>
+              </a>
             </div>
 
             {/* Services Section */}
