@@ -195,11 +195,6 @@ export default function ServiceSlider() {
                 >
                   {service.title}
                 </h3>
-                <p
-                  className={`text-gray-600 mb-4 transition-all duration-700 ease-out leading-relaxed line-clamp-4 ${isCenter ? "text-sm" : "text-xs"}`}
-                >
-                  {service.description}
-                </p>
                 <Link
                   href={`/services/${service.slug}`}
                   onClick={(e) => e.stopPropagation()}
