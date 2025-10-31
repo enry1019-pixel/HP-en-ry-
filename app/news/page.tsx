@@ -130,7 +130,7 @@ export default function NewsPage() {
                         href={item.detailUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-blue-600 hover:text-blue-800 hover:underline transition-colors"
+                        className="inline-flex items-center text-gray-700 hover:text-charcoal-light hover:underline transition-colors"
                       >
                         Youtube動画はこちら→
                       </a>
