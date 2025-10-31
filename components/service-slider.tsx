@@ -25,7 +25,7 @@ const services = [
     slug: "music-video",
     description:
       "ミュージシャン、アイドル、俳優、モデル、お笑い芸人など、様々なアーティストの世界観を映像で表現。楽曲の魅力を最大限に引き出す演出と、アーティストの個性を活かした創造性豊かなミュージックビデオを制作します。",
-    image: "/japanese-music-artist-performance-stage.jpg",
+    image: "/mv-production-female-artist-filming.jpg", // Updated MV service image to show female artist being filmed
   },
   {
     title: "映画・ドラマ制作",

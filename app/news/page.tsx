@@ -13,6 +13,7 @@ interface NewsItem {
   title: string
   description: string
   image?: string
+  detailUrl?: string
 }
 
 const newsItems: NewsItem[] = [
@@ -23,6 +24,7 @@ const newsItems: NewsItem[] = [
     title: "株式会社en-ry　PV公開",
     description: "弊社紹介動画をYoutubeにて公開いたしました。",
     image: "/company-promotional-video-youtube.jpg",
+    detailUrl: "https://youtu.be/Wi0mrLzSN5o?si=iL-DR__-pVE0k8fN",
   },
   {
     id: "2",
@@ -40,6 +42,7 @@ const newsItems: NewsItem[] = [
     description:
       "田中監督作品「おっさんの夏休み」ゆうばり国際ファンタスティック映画祭2025短編部門にノミネートされました。",
     image: "/film-festival-nomination-award.jpg",
+    detailUrl: "https://youtu.be/Xk6PZaU43JE?si=tx9cbqaagUaj88Ip",
   },
 ]
 
@@ -102,10 +105,9 @@ export default function NewsPage() {
           {/* News List */}
           <div className="max-w-4xl mx-auto space-y-6">
             {filteredItems.map((item) => (
-              <Link
+              <div
                 key={item.id}
-                href={`/news/${item.id}`}
-                className="block bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"
+                className="block bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
               >
                 <div className="p-6">
                   <div className="flex flex-wrap items-center gap-3 mb-4">
@@ -120,15 +122,22 @@ export default function NewsPage() {
                       </span>
                     </div>
                   </div>
-                  <h2 className="text-xl font-bold text-charcoal-light mb-3 group-hover:text-charcoal transition-colors">
-                    {item.title}
-                  </h2>
-                  <p className="text-gray-600 leading-relaxed">{item.description}</p>
-                  <div className="mt-4 text-charcoal-light font-medium text-sm group-hover:translate-x-2 transition-transform inline-block">
-                    続きを読む →
-                  </div>
+                  <h2 className="text-xl font-bold text-charcoal-light mb-3">{item.title}</h2>
+                  <p className="text-gray-600 leading-relaxed mb-3">{item.description}</p>
+                  {item.detailUrl && (
+                    <div className="mt-4">
+                      <a
+                        href={item.detailUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-blue-600 hover:text-blue-800 hover:underline transition-colors"
+                      >
+                        Youtube動画はこちら→
+                      </a>
+                    </div>
+                  )}
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
 
