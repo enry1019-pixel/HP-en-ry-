@@ -9,29 +9,25 @@ const services = [
   {
     title: "広告・プロモーション・企業観光PR動画",
     slug: "promotion-pr",
-    description:
-      "企業のブランド価値を最大化する戦略的な映像制作。商品・サービスの魅力を効果的に伝え、観光地の魅力をダイナミックに表現します。マーケティング効果を重視した企画から撮影、編集まで一貫してサポートいたします。",
-    image: "/fukui-pr-thumbnail.jpg", // Updated to use the Fukui PR thumbnail image
+    description: "企業のブランド価値を最大化する戦略的な映像制作をご提供致します。",
+    image: "/fukui-pr-thumbnail.jpg",
   },
   {
     title: "メモリアルmovie制作",
     slug: "memorial-movie",
-    description:
-      "人生の大切な瞬間を美しく記録する感動的な映像制作。冠婚葬祭用ムービーから、故人を偲ぶメモリアルムービーまで、心に残る作品を丁寧に制作します。ご家族の想いを大切にした温かみのある映像をお届けします。",
+    description: "冠婚葬祭など人生の大切な瞬間を美しく記録する感動的な映像制作をご提供致します。",
     image: "/japanese-wedding-family-celebration-memories.jpg",
   },
   {
     title: "MV制作・アーティスト映像",
     slug: "music-video",
-    description:
-      "ミュージシャン、アイドル、俳優、モデル、お笑い芸人など、様々なアーティストの世界観を映像で表現。楽曲の魅力を最大限に引き出す演出と、アーティストの個性を活かした創造性豊かなミュージックビデオを制作します。",
-    image: "/mv-production-female-artist-filming.jpg", // Updated MV service image to show female artist being filmed
+    description: "アーティスト自身や楽曲の魅力をMV映像で最大限引き出します。",
+    image: "/mv-production-female-artist-filming.jpg",
   },
   {
     title: "映画・ドラマ制作",
     slug: "film-drama",
-    description:
-      "制作会社や映画監督と連携した本格的な映像作品の企画・制作。脚本開発から撮影、ポストプロダクションまで、プロフェッショナルチームによる高品質な作品作りをサポート。監督の創造的ビジョンを忠実に映像化します。",
+    description: "制作会社や映画監督と連携した本格的な映画やドラマ作品の企画・制作をご提供致します。",
     image: "/film-director-rear-view-no-face.jpg",
   },
 ]
@@ -195,6 +191,11 @@ export default function ServiceSlider() {
                 >
                   {service.title}
                 </h3>
+                <p
+                  className={`text-gray-600 mb-4 transition-all duration-700 ease-out leading-relaxed line-clamp-4 ${isCenter ? "text-sm" : "text-xs"}`}
+                >
+                  {service.description}
+                </p>
                 <Link
                   href={`/services/${service.slug}`}
                   onClick={(e) => e.stopPropagation()}
