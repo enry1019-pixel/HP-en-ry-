@@ -188,7 +188,7 @@ export default function Home() {
 
         <button
           onClick={toggleMute}
-          className="absolute bottom-8 right-8 z-10 bg-black/30 backdrop-blur-sm hover:bg-black/50 text-white p-2 md:p-4 rounded-full transition-all duration-300 hover:scale-110"
+          className="absolute bottom-4 right-4 md:bottom-8 md:right-8 z-10 bg-black/30 backdrop-blur-sm hover:bg-black/50 text-white p-2 md:p-4 rounded-full transition-all duration-300 hover:scale-110"
           aria-label={isMuted ? "音声をオンにする" : "音声をオフにする"}
         >
           {isMuted ? <VolumeX className="w-4 h-4 md:w-6 md:h-6" /> : <Volume2 className="w-4 h-4 md:w-6 md:h-6" />}
