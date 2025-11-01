@@ -588,40 +588,44 @@ export default function ServicePage({ params }: ServicePageProps) {
 
                     return (
                       <div key={index} className="relative">
-                        <div className="p-6 rounded-lg shadow-lg bg-gray-50 border-2 border-charcoal-light">
-                          <div className="flex items-center mb-3 relative z-10">
-                            <span className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mr-3 bg-charcoal-light">
-                              {step.number}
-                            </span>
-                            <div>
-                              <h4 className="font-bold">{step.title}</h4>
-                              <span className="text-xs text-gray-500">
-                                {step.actor === "client"
-                                  ? "お客様"
-                                  : step.actor === "company"
-                                    ? "弊社"
-                                    : "お客様・弊社"}
+                        <div className="px-4">
+                          <div className="p-6 rounded-lg shadow-lg bg-gray-50 border-2 border-charcoal-light">
+                            <div className="flex items-center mb-3 relative z-10">
+                              <span className="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold mr-3 bg-charcoal-light">
+                                {step.number}
                               </span>
+                              <div>
+                                <h4 className="font-bold">{step.title}</h4>
+                                <span className="text-xs text-gray-500">
+                                  {step.actor === "client"
+                                    ? "お客様"
+                                    : step.actor === "company"
+                                      ? "弊社"
+                                      : "お客様・弊社"}
+                                </span>
+                              </div>
                             </div>
+                            <p className="text-sm text-gray-600 leading-relaxed relative z-10 mb-3">
+                              {step.description}
+                            </p>
+                            {step.details && step.details.length > 0 && (
+                              <div className="relative z-10">
+                                <h5 className="font-semibold text-sm text-charcoal-light mb-2">主な作業内容</h5>
+                                <ul className="space-y-1">
+                                  {step.details.map((detail, detailIndex) => (
+                                    <li key={detailIndex} className="flex items-start text-sm text-gray-600">
+                                      <span className="mr-2">・</span>
+                                      <span>{detail}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
                           </div>
-                          <p className="text-sm text-gray-600 leading-relaxed relative z-10 mb-3">{step.description}</p>
-                          {step.details && step.details.length > 0 && (
-                            <div className="relative z-10">
-                              <h5 className="font-semibold text-sm text-charcoal-light mb-2">主な作業内容</h5>
-                              <ul className="space-y-1">
-                                {step.details.map((detail, detailIndex) => (
-                                  <li key={detailIndex} className="flex items-start text-sm text-gray-600">
-                                    <span className="mr-2">・</span>
-                                    <span>{detail}</span>
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
                         </div>
                         {!isLastStep && (
                           <div className="flex justify-center my-4">
-                            <ArrowLeft className={`w-6 h-6 transform rotate-90 text-charcoal-light`} />
+                            <ArrowLeft className={`w-6 h-6 transform rotate-[-90deg] text-charcoal-light`} />
                           </div>
                         )}
                       </div>

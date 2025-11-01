@@ -182,7 +182,11 @@ export default function Home() {
             loop
             playsInline
             muted={isMuted}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover md:object-cover object-[50%_50%] md:object-center"
+            style={{
+              objectFit: "cover",
+              objectPosition: "center",
+            }}
           />
         </div>
 
