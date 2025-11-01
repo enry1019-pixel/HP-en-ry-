@@ -173,8 +173,8 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative w-full overflow-hidden h-screen">
-        <div className="absolute inset-0 z-0">
+      <section className="relative w-full overflow-hidden h-auto md:h-screen">
+        <div className="relative w-full aspect-[16/9] md:aspect-auto md:absolute md:inset-0 z-0">
           <video
             ref={videoRef}
             src="https://res.cloudinary.com/djypwraed/video/upload/v1761027158/Hero_pis3ql.mp4"
@@ -182,11 +182,7 @@ export default function Home() {
             loop
             playsInline
             muted={isMuted}
-            className="w-full h-full object-cover md:object-cover object-[50%_50%] md:object-center"
-            style={{
-              objectFit: "cover",
-              objectPosition: "center",
-            }}
+            className="w-full h-full object-contain md:object-cover"
           />
         </div>
 
