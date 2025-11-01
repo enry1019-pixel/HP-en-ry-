@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
@@ -38,11 +40,12 @@ export default function ServiceSlider() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isMobile, setIsMobile] = useState(false)
   const [isTransitioning, setIsTransitioning] = useState(false)
+  const [touchStart, setTouchStart] = useState(0)
+  const [touchEnd, setTouchEnd] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
 
-  // 無限ループのために配列を3倍に拡張（前後に複製を追加）
   const extendedServices = [...services, ...services, ...services]
 
-  // 画面サイズの検出
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth < 768)
@@ -56,7 +59,6 @@ export default function ServiceSlider() {
     }
   }, [])
 
-  // 初期表示時に中央のセット（services.length番目）から開始
   useEffect(() => {
     const initialIndex = services.length
     setCurrentIndex(initialIndex)
@@ -68,12 +70,10 @@ export default function ServiceSlider() {
     const wrapper = sliderWrapperRef.current
 
     if (slider && wrapper) {
-      // 基本的なアイテムサイズ - より小さく調整
       const baseItemWidth = isMobile ? wrapper.clientWidth * 0.8 : 260
       const gap = 20
       const wrapperWidth = wrapper.clientWidth
 
-      // 中央に配置するための計算
       const centerOffset = wrapperWidth / 2 - baseItemWidth / 2
       const scrollPosition = index * (baseItemWidth + gap) - centerOffset
 
@@ -95,14 +95,11 @@ export default function ServiceSlider() {
   }
 
   const handleInfiniteLoop = (index: number) => {
-    // 最初のセット（0 ~ services.length-1）にいる場合、中央のセットに移動
     if (index < services.length) {
       const newIndex = index + services.length
       setCurrentIndex(newIndex)
       scrollToIndex(newIndex, false)
-    }
-    // 最後のセット（services.length*2 ~ services.length*3-1）にいる場合、中央のセットに移動
-    else if (index >= services.length * 2) {
+    } else if (index >= services.length * 2) {
       const newIndex = index - services.length
       setCurrentIndex(newIndex)
       scrollToIndex(newIndex, false)
@@ -123,20 +120,46 @@ export default function ServiceSlider() {
     scrollToIndex(newIndex)
   }
 
-  // インジケーター用の実際のインデックス（0-3の範囲）
   const actualIndex = currentIndex % services.length
 
   const handleCardClick = (index: number) => {
     if (isTransitioning) return
-    if (index === currentIndex) return // Already centered
+    if (index === currentIndex) return
 
     setCurrentIndex(index)
     scrollToIndex(index)
   }
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!isMobile) return
+    setTouchStart(e.targetTouches[0].clientX)
+    setTouchEnd(e.targetTouches[0].clientX)
+    setIsDragging(true)
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isMobile || !isDragging) return
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (!isMobile || !isDragging) return
+    setIsDragging(false)
+
+    const swipeDistance = touchStart - touchEnd
+    const minSwipeDistance = 50
+
+    if (Math.abs(swipeDistance) > minSwipeDistance) {
+      if (swipeDistance > 0) {
+        handleNext()
+      } else {
+        handlePrev()
+      }
+    }
+  }
+
   return (
     <div className="relative" ref={sliderWrapperRef}>
-      {/* 左矢印ボタン */}
       <button
         onClick={handlePrev}
         disabled={isTransitioning}
@@ -146,8 +169,12 @@ export default function ServiceSlider() {
         <ChevronLeft className="w-5 h-5 text-charcoal-light" />
       </button>
 
-      {/* スライダー */}
-      <div className="overflow-hidden py-4">
+      <div
+        className="overflow-hidden py-4"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+      >
         <div
           ref={sliderRef}
           className="flex gap-5 items-center"
@@ -212,7 +239,6 @@ export default function ServiceSlider() {
         </div>
       </div>
 
-      {/* 右矢印ボタン */}
       <button
         onClick={handleNext}
         disabled={isTransitioning}
@@ -222,14 +248,13 @@ export default function ServiceSlider() {
         <ChevronRight className="w-5 h-5 text-charcoal-light" />
       </button>
 
-      {/* インジケーター */}
       <div className="flex justify-center mt-6 gap-2">
         {services.map((_, index) => (
           <button
             key={index}
             onClick={() => {
               if (isTransitioning) return
-              const newIndex = services.length + index // 中央のセットのインデックス
+              const newIndex = services.length + index
               setCurrentIndex(newIndex)
               scrollToIndex(newIndex)
             }}

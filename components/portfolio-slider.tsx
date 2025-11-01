@@ -1,5 +1,7 @@
 "use client"
 
+import type React from "react"
+
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight, X, Play } from "lucide-react"
@@ -87,6 +89,9 @@ export default function PortfolioSlider() {
   const [isMobile, setIsMobile] = useState(false)
   const [isTransitioning, setIsTransitioning] = useState(false)
   const [selectedVideo, setSelectedVideo] = useState<(typeof portfolioItems)[0] | null>(null)
+  const [touchStart, setTouchStart] = useState(0)
+  const [touchEnd, setTouchEnd] = useState(0)
+  const [isDragging, setIsDragging] = useState(false)
 
   const extendedPortfolioItems = [...portfolioItems, ...portfolioItems, ...portfolioItems]
 
@@ -182,6 +187,36 @@ export default function PortfolioSlider() {
     setSelectedVideo(null)
   }
 
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (!isMobile) return
+    setTouchStart(e.targetTouches[0].clientX)
+    setTouchEnd(e.targetTouches[0].clientX)
+    setIsDragging(true)
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!isMobile || !isDragging) return
+    setTouchEnd(e.targetTouches[0].clientX)
+  }
+
+  const handleTouchEnd = () => {
+    if (!isMobile || !isDragging) return
+    setIsDragging(false)
+
+    const swipeDistance = touchStart - touchEnd
+    const minSwipeDistance = 50 // Minimum distance to trigger swipe
+
+    if (Math.abs(swipeDistance) > minSwipeDistance) {
+      if (swipeDistance > 0) {
+        // Swiped left - go to next
+        handleNext()
+      } else {
+        // Swiped right - go to previous
+        handlePrev()
+      }
+    }
+  }
+
   if (!isMobile) {
     return (
       <>
@@ -270,7 +305,12 @@ export default function PortfolioSlider() {
           <ChevronLeft className="w-5 h-5 text-charcoal-light" />
         </button>
 
-        <div className="overflow-hidden py-4">
+        <div
+          className="overflow-hidden py-4"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <div
             ref={sliderRef}
             className="flex gap-4"
