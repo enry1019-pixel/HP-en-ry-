@@ -7,7 +7,7 @@ import { ErrorHandler } from "@/components/error-handler"
 const inter = Inter({ subsets: ["latin"] })
 
 const baseUrl = "https://en-ry.vercel.app"
-const isProduction = process.env.VERCEL_ENV === "production"
+const isProduction = process.env.VERCEL_ENV === "production" || process.env.NODE_ENV === "production"
 
 export const metadata: Metadata = {
   metadataBase: new URL(baseUrl),
@@ -20,14 +20,25 @@ export const metadata: Metadata = {
   authors: [{ name: "株式会社en-ry" }],
   creator: "株式会社en-ry",
   publisher: "株式会社en-ry",
-  robots: {
-    index: isProduction,
-    follow: isProduction,
-    googleBot: {
-      index: isProduction,
-      follow: isProduction,
-    },
-  },
+  robots: isProduction
+    ? {
+        index: true,
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-video-preview": -1,
+          "max-image-preview": "large",
+          "max-snippet": -1,
+        },
+      }
+    : {
+        index: false,
+        follow: false,
+        noarchive: true,
+        nosnippet: true,
+        noimageindex: true,
+      },
   alternates: {
     canonical: "/",
   },

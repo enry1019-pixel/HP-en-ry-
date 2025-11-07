@@ -28,9 +28,9 @@ const portfolioItems = [
   },
   {
     id: 3,
-    title: "田中慎太郎 MV",
+    title: "苺キャンディ",
     category: "MV",
-    role: "監督・編集",
+    role: "監督・脚本・編集",
     year: "2025年",
     videoId: "vnwuWPM-JVw",
     thumbnail: `https://img.youtube.com/vi/vnwuWPM-JVw/maxresdefault.jpg`,
