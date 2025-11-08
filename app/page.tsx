@@ -89,7 +89,13 @@ export default function Home() {
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2">
             <div className="flex items-center">
-              <Image src="/logo-final.png" alt="en-ry logo" width={32} height={32} className="object-contain" />
+              <Image
+                src="/logo-final.png"
+                alt="株式会社en-ry（エンリー）"
+                width={32}
+                height={32}
+                className="object-contain"
+              />
             </div>
             <h1 className="text-2xl font-bold">en-ry</h1>
           </Link>
@@ -201,7 +207,7 @@ export default function Home() {
           <div className="relative w-full h-full max-w-4xl mx-auto">
             <Image
               src="/logo-final.png"
-              alt="en-ry background logo"
+              alt="株式会社en-ry（エンリー） background logo"
               fill
               className="object-contain opacity-5"
               priority
@@ -350,7 +356,7 @@ export default function Home() {
                 <div className="flex items-center">
                   <Image
                     src="/logo-final.png"
-                    alt="en-ry logo"
+                    alt="株式会社en-ry（エンリー） logo"
                     width={28}
                     height={28}
                     className="object-contain invert"
@@ -505,7 +511,7 @@ export default function Home() {
               <div className="flex items-center">
                 <Image
                   src="/logo-final.png"
-                  alt="en-ry logo"
+                  alt="株式会社en-ry（エンリー） logo"
                   width={28}
                   height={28}
                   className="object-contain invert"

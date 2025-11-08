@@ -28,7 +28,7 @@ const portfolioItems = [
   },
   {
     id: 3,
-    title: "苺キャンディ",
+    title: "苝キャンディ",
     category: "MV",
     role: "監督・脚本・編集",
     year: "2025年",
@@ -191,7 +191,13 @@ export default function PortfolioPage() {
       <header className="sticky top-0 z-40 bg-white border-b border-gray-200">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2">
-            <Image src="/logo-final.png" alt="en-ry logo" width={32} height={32} className="object-contain" />
+            <Image
+              src="/logo-final.png"
+              alt="株式会社en-ry（エンリー）"
+              width={32}
+              height={32}
+              className="object-contain"
+            />
             <h1 className="text-2xl font-bold">en-ry</h1>
           </Link>
 
@@ -303,7 +309,7 @@ export default function PortfolioPage() {
               <div className="flex items-center">
                 <Image
                   src="/logo-final.png"
-                  alt="en-ry logo"
+                  alt="株式会社en-ry（エンリー）"
                   width={28}
                   height={28}
                   className="object-contain invert"
