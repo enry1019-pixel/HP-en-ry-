@@ -66,8 +66,21 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "株式会社en-ry",
+    alternateName: ["en-ry", "エンリー", "えんりー"],
+    url: "https://en-ry.vercel.app/",
+    logo: "https://en-ry.vercel.app/logo.png",
+    description: "企業PR、商品プロモーション、イベント記録など、あらゆる映像制作を代行します。",
+  }
+
   return (
     <html lang="ja" suppressHydrationWarning>
+      <head>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+      </head>
       <body className={inter.className}>
         <ErrorHandler />
         {children}
