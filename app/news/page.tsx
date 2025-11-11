@@ -47,7 +47,7 @@ const newsItems: NewsItem[] = [
     id: "3",
     date: "2025.10.17",
     category: "お知らせ",
-    title: "弊社代表取締役・田中監督作品「おっさんの夏休み」ノミネート。",
+    title: "田中監督作品「おっさんの夏休み」ノミネート。",
     description:
       "田中監督作品「おっさんの夏休み」ゆうばり国際ファンタスティック映画祭2025短編部門にノミネートされました。",
     image: "/film-festival-nomination-award.jpg",
