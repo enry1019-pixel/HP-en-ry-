@@ -14,6 +14,13 @@ interface NewsItem {
 
 const newsItems: NewsItem[] = [
   {
+    id: 4,
+    date: "2025.11.10",
+    category: "お知らせ",
+    title: "田中監督作品・短編映画「兄が仕事をやめた」がU-NEXTにて公開。",
+    description: "田中監督作品・短編映画「兄が仕事をやめた」がU-NEXTにて公開されました。",
+  },
+  {
     id: 1,
     date: "2025.10.24",
     category: "お知らせ",

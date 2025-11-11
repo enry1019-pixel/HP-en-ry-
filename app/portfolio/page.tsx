@@ -28,7 +28,7 @@ const portfolioItems = [
   },
   {
     id: 3,
-    title: "苝キャンディ",
+    title: "苺キャンディ",
     category: "MV",
     role: "監督・脚本・編集",
     year: "2025年",
