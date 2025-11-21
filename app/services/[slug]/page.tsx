@@ -6,17 +6,22 @@ import ScrollToTop from "@/components/scroll-to-top"
 
 const services = [
   {
-    title: "広告・プロモーション・企業観光PR動画",
+    title: "広告プロモーション・企業・商品・観光PR",
     slug: "promotion-pr",
     description:
-      "企業のブランド価値を最大化する戦略的な映像制作。商品・サービスの魅力を効果的に伝え、観光地の魅力をダイナミックに表現します。マーケティング効果を重視した企画から撮影、編集まで一貫してサポートいたします。",
+      "■ 制作内容\n・企業PR動画　→採用募集、インナーブランディング、サービス紹介、アニバーサリーなど\n・商品PR・サービス紹介\n・観光地PR・自治体プロモーション\n・SNS向けショート動画（Instagram／TikTok／YouTube）\n・Web広告用動画\n\n■ 年間サブスク動画（定額制サービス）\n単発ではなく 年間で動画を定期制作できる新サービス\n・選べる４プラン\n・年10本の継続制作\n・好きなタイミングで動画制作\n・品質の安定化\n・コスト最適化\n・SNS・採用・広報・HP更新に最適\n\n■ 特徴\n・映画監督が企画・演出を監修\n・SNS対応も可能\n・多彩なジャンル表現",
     image: "/fukui-pr-thumbnail.jpg",
+    price: "300,000円〜",
+    duration: "2-4週間",
     features: [
-      "企業ブランディング映像",
-      "商品・サービスプロモーション",
-      "観光地PR動画",
-      "イベント告知映像",
-      "SNS向けショート動画",
+      "企業PR動画（採用募集、インナーブランディング、サービス紹介、アニバーサリーなど）",
+      "商品PR・サービス紹介",
+      "観光地PR・自治体プロモーション",
+      "SNS向けショート動画（Instagram／TikTok／YouTube）",
+      "Web広告用動画",
+      "年間サブスク動画（年10本の継続制作、好きなタイミングで動画制作、コスト最適化）",
+      "映画監督が企画・演出を監修",
+      "多彩なジャンル表現",
     ],
     process: [
       {
@@ -66,21 +71,21 @@ const services = [
         actor: "both",
       },
     ],
-    price: "300,000円〜",
-    duration: "2-4週間",
   },
   {
-    title: "メモリアルmovie制作",
+    title: "メモリアルムービー ＋ 電子卒業アルバム",
     slug: "memorial-movie",
     description:
-      "人生の大切な瞬間を美しく記録する感動的な映像制作。冠婚葬祭用ムービーから、故人を偲ぶメモリアルムービーまで、心に残る作品を丁寧に制作します。ご家族の想いを大切にした温かみのある映像をお届けします。",
-    image: "/placeholder.svg?height=600&width=800&text=メモリアル",
+      "■ 制作内容\n・冠婚葬祭ムービー（結婚式・お別れ会）\n・家族・赤ちゃん記念ムービー\n・ペットメモリアル\n・個人ヒストリー映像\n・学校・地域行事の記録映像\n・卒園・卒業ムービー\n\n■ 電子卒業アルバム\n写真・動画・メッセージを融合した デジタル卒アル\n・完全電子卒業アルバム\n・行事動画・メッセージ動画なども収録\n・紙の卒アルに QRコードで動画を追加するハイブリッド対応も可\n・長期保存・スマホ閲覧が可能\n・学校PRにも活用できる映像制作とセット提案可能\n・既存の紙媒体よりもコスト減小\n\n■ 特徴\n・想いを丁寧に描くストーリームービー\n・記録＋作品として未来に残せる形",
+    image: "/japanese-wedding-family-celebration-memories.jpg",
     features: [
-      "冠婚葬祭用ムービー",
-      "メモリアルムービー",
-      "家族の記録映像",
-      "記念日・誕生日映像",
-      "卒業・入学記念映像",
+      "冠婚葬祭ムービー（結婚式・お別れ会）",
+      "家族・赤ちゃん記念ムービー",
+      "ペットメモリアル",
+      "個人ヒストリー映像",
+      "学校・地域行事の記録映像",
+      "卒園・卒業ムービー",
+      "電子卒業アルバム（完全電子卒業アルバム、行事動画・メッセージ動画収録、QRコードで動画追加可）",
     ],
     process: [
       {
@@ -134,12 +139,18 @@ const services = [
     duration: "1-2週間",
   },
   {
-    title: "MV制作・アーティスト映像",
+    title: "MV・PR映像（アーティスト・ダンサー・パフォーマー）",
     slug: "music-video",
     description:
-      "ミュージシャン、アイドル、俳優、モデル、お笑い芸人など、様々なアーティストの世界観を映像で表現。楽曲の魅力を最大限に引き出す演出と、アーティストの個性を活かした創造性豊かなミュージックビデオを制作します。",
+      "■ 制作内容\n・ミュージックビデオ（MV）\n・ダンサー・アーティストPRムービー\n・パフォーマンス撮影\n・SNS用ショートMV（縦型対応）\n・楽曲ストーリーに合わせた映画的企画\n■ 特徴\n・映画のような構図\n・照明\n・演出\n・世界観\n・物語性重視の映像表現",
     image: "/mv-production-female-artist-filming.jpg",
-    features: ["ミュージックビデオ制作", "アーティストPV", "ライブ映像制作", "プロフィール映像", "コンセプト映像"],
+    features: [
+      "ミュージックビデオ（MV）",
+      "ダンサー・アーティストPRムービー",
+      "パフォーマンス撮影",
+      "SNS用ショートMV（縦型対応）",
+      "楽曲ストーリーに合わせた映画的企画",
+    ],
     process: [
       {
         number: "01",
@@ -192,17 +203,17 @@ const services = [
     duration: "3-6週間",
   },
   {
-    title: "映画・ドラマ制作",
+    title: "ドラマ・映画制作",
     slug: "film-drama",
     description:
-      "制作会社や映画監督と連携した本格的な映像作品の企画・制作。脚本開発から撮影、ポストプロダクションまで、プロフェッショナルチームによる高品質な作品作りをサポート。監督の創造的ビジョンを忠実に映像化します。",
-    image: "/placeholder.svg?height=600&width=800&text=映画制作",
+      "■ 制作内容\n・ショートドラマ制作\n・オリジナル映画作品\n・企業×ドラマのタイアップ企画\n・PRドラマ映像\n・シナリオ・キャスティング・演出・編集まで一貫制作\n\n■ 特徴\n・映画監督による本格演出\n・物語性を重視した高い制作品質\n・企業・地域とのコラボ作品制作も可能",
+    image: "/film-director-rear-view-no-face.jpg",
     features: [
-      "短編・長編映画制作",
-      "ドラマ・シリーズ制作",
-      "ドキュメンタリー制作",
-      "企業ドラマ制作",
-      "教育・研修映像",
+      "ショートドラマ制作",
+      "オリジナル映画作品",
+      "企業×ドラマのタイアップ企画",
+      "PRドラマ映像",
+      "シナリオ・キャスティング・演出・編集まで一貫制作",
     ],
     process: [
       {
@@ -272,24 +283,26 @@ export default function ServicePage({ params }: ServicePageProps) {
 
   const serviceCategories = [
     {
-      title: "広告・プロモーション・企業観光PR動画",
+      title: "広告プロモーション・企業・商品・観光PR",
       slug: "promotion-pr",
-      description: "企業のブランド価値を最大化する戦略的な映像制作",
+      description:
+        '企業・行政・商品・観光地の魅力を最大化するプロモーション映像を、"映画クオリティ"で制作。さらに 年間サブスク動画（定額制） で、企業の動画発信を仕組み化します。',
     },
     {
-      title: "メモリアルmovie制作",
+      title: "メモリアルムービー ＋ 電子卒業アルバム",
       slug: "memorial-movie",
-      description: "人生の大切な瞬間を美しく記録する感動的な映像",
+      description:
+        '"縁を記憶に、未来へ。"人生の節目や家族の大切な瞬間を映像で残すサービス。さらに学校向けには 電子卒業アルバム による新しい形の思い出保存も提供します。',
     },
     {
-      title: "MV制作・アーティスト映像",
+      title: "MV・PR映像（アーティスト・ダンサー・パフォーマー）",
       slug: "music-video",
-      description: "アーティストの世界観を映像で表現するMV制作",
+      description: "音楽・表現者の世界観を映像で最大化し、作品性の高いMVやPR動画を制作します。",
     },
     {
-      title: "映画・ドラマ制作",
+      title: "ドラマ・映画制作",
       slug: "film-drama",
-      description: "本格的な映像作品の企画・制作をサポート",
+      description: "en-ryの核となる「映画制作」の技術を活かし、短編ドラマから映画作品まで幅広く対応。",
     },
   ]
 
@@ -347,16 +360,16 @@ export default function ServicePage({ params }: ServicePageProps) {
                   }}
                 />
                 <div className="relative z-10">
-                  <h3 className="text-3xl font-bold mb-3">広告・プロモーション・企業観光PR動画</h3>
+                  <h3 className="text-3xl font-bold mb-3">広告プロモーション・企業・商品・観光PR</h3>
                   <p className="text-white/90 mb-4">{serviceCategories[0].description}</p>
                 </div>
               </Link>
 
               {/* Top Right - Text Content */}
               <div className="space-y-4 flex flex-col justify-center order-2">
-                <p className="text-gray-700 leading-relaxed text-lg">
-                  企業のブランディングから商品プロモーション、観光地のPR動画まで、マーケティング効果を重視した戦略的な映像制作を行います。SNS向けショート動画から本格的な企業紹介映像まで、幅広く対応いたします。
-                </p>
+                <div className="text-gray-700 leading-relaxed text-lg whitespace-pre-wrap">
+                  {services.find((s) => s.slug === "promotion-pr")?.description}
+                </div>
               </div>
 
               {/* Middle Right - メモリアル Box */}
@@ -371,16 +384,16 @@ export default function ServicePage({ params }: ServicePageProps) {
                   }}
                 />
                 <div className="relative z-10">
-                  <h3 className="text-3xl font-bold mb-3">メモリアルmovie制作</h3>
+                  <h3 className="text-3xl font-bold mb-3">メモリアルムービー ＋ 電子卒業アルバム</h3>
                   <p className="text-white/90 mb-4">{serviceCategories[1].description}</p>
                 </div>
               </Link>
 
               {/* Middle Left - Text Content */}
               <div className="space-y-4 flex flex-col justify-center order-4 md:order-3">
-                <p className="text-gray-700 leading-relaxed text-lg">
-                  冠婚葬祭用ムービーから故人を偲ぶメモリアルムービーまで、人生の大切な瞬間を美しく記録します。記念日、誕生日、卒業・入学など、様々なライフイベントの映像制作を心を込めてサポートいたします。
-                </p>
+                <div className="text-gray-700 leading-relaxed text-lg whitespace-pre-wrap">
+                  {services.find((s) => s.slug === "memorial-movie")?.description}
+                </div>
               </div>
 
               {/* Bottom Left - MV Box */}
@@ -395,16 +408,16 @@ export default function ServicePage({ params }: ServicePageProps) {
                   }}
                 />
                 <div className="relative z-10">
-                  <h3 className="text-3xl font-bold mb-3">MV制作・アーティスト映像</h3>
+                  <h3 className="text-3xl font-bold mb-3">MV・PR映像（アーティスト・ダンサー・パフォーマー）</h3>
                   <p className="text-white/90 mb-4">{serviceCategories[2].description}</p>
                 </div>
               </Link>
 
               {/* Bottom Middle - Text Content */}
               <div className="space-y-4 flex flex-col justify-center order-6">
-                <p className="text-gray-700 leading-relaxed text-lg">
-                  ミュージシャン、アイドル、俳優など、アーティストの個性を活かしたミュージックビデオを制作します。楽曲の魅力を引き出す演出と創造性豊かな映像表現で、ライブ映像やプロフィール映像も承ります。
-                </p>
+                <div className="text-gray-700 leading-relaxed text-lg whitespace-pre-wrap">
+                  {services.find((s) => s.slug === "music-video")?.description}
+                </div>
               </div>
 
               {/* Bottom Right - 映画・ドラマ Box */}
@@ -419,16 +432,16 @@ export default function ServicePage({ params }: ServicePageProps) {
                   }}
                 />
                 <div className="relative z-10">
-                  <h3 className="text-3xl font-bold mb-3">映画・ドラマ制作</h3>
+                  <h3 className="text-3xl font-bold mb-3">ドラマ・映画制作</h3>
                   <p className="text-white/90 mb-4">{serviceCategories[3].description}</p>
                 </div>
               </Link>
 
               {/* Extra Text Content */}
               <div className="space-y-4 flex flex-col justify-center order-8 md:order-7">
-                <p className="text-gray-700 leading-relaxed text-lg">
-                  短編・長編映画、ドラマシリーズ、ドキュメンタリーなど、本格的な映像作品の企画・制作をサポートします。制作会社や映画監督と連携し、プロフェッショナルチームによる高品質な作品作りを実現します。
-                </p>
+                <div className="text-gray-700 leading-relaxed text-lg whitespace-pre-wrap">
+                  {services.find((s) => s.slug === "film-drama")?.description}
+                </div>
               </div>
             </div>
 
