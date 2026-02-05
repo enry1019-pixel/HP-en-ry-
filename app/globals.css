@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 324 7% 22%;
+    --card: 0 0% 100%;
+    --card-foreground: 324 7% 22%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 324 7% 22%;
+    --primary: 324 7% 22%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 324 7% 22%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 324 7% 29%;
+    --accent: 0 0% 96%;
+    --accent-foreground: 324 7% 22%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 324 7% 22%;
+    --radius: 0.5rem;
+    --charcoal-light: 324 7% 29%;
+    --charcoal: 324 7% 22%;
+    --lightgray: 0 0% 96%;
+    --lightgray-dark: 0 0% 90%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Adding fade-in animation for character-by-character text reveal */
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.8s ease-out;
+}
