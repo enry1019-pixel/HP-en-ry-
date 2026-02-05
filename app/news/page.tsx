@@ -17,7 +17,14 @@ interface NewsItem {
 }
 
 const newsItems: NewsItem[] = [
-  {
+  {  
+    id: "5",
+ 　 date: "2026.01.04",
+  　category: "お知らせ",
+ 　 title: "俳優ショーリール動画サービス「EN-REEL」制作開始",
+ 　 description: "映像名刺必須の時代にあなただけのプロフィール動画を制作いたします。",
+ 　 pdfUrl: "/en-reel-service.pdf",
+},
     id: "4",
     date: "2025.11.10",
     category: "お知らせ",
@@ -150,7 +157,18 @@ export default function NewsPage() {
                         Youtube動画はこちら→
                       </a>
                     </div>
-                  )}
+                  )} 
+                  {item.pdfUrl && (
+  　　　　　　　　　　　<div className="mt-2">
+   　　　　　　　　　　　 <a
+      　　　　　　　　　　　href={item.pdfUrl}
+      　　　　　　　　　　　download
+      　　　　　　　　　　　className="inline-flex items-center text-gray-700 hover:text-charcoal-light hover:underline transition-colors"
+    　　　　　　　　　　　>
+      　　　　　　　　　　　PDFダウンロードはこちら
+    </a>
+  </div>
+)}
                 </div>
               </div>
             ))}
