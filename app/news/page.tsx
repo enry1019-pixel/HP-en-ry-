@@ -14,6 +14,7 @@ interface NewsItem {
   description: string
   image?: string
   detailUrl?: string
+  pdfUrl?: string
 }
 
 const newsItems: NewsItem[] = [
@@ -25,6 +26,7 @@ const newsItems: NewsItem[] = [
  　 description: "映像名刺必須の時代にあなただけのプロフィール動画を制作いたします。",
  　 pdfUrl: "/en-reel-service.pdf",
 },
+  {
     id: "4",
     date: "2025.11.10",
     category: "お知らせ",
