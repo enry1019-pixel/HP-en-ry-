@@ -25,3 +25,7 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+コード等/
+
+# iCloud Drive placeholders
+*.icloud
