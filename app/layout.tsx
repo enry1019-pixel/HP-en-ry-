@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     description: "企業PR、商品プロモーション、イベント記録など、あらゆる映像制作を代行します。",
   },
   verification: {
-    google: ["f4J5Vj8wWl-d_0T90g0XvqGjTaYTMnULAMnJ7kvWmx8", "4sWHGzqhPEj_X9bIfkmEsJUtIxfMz5mHtAdDXWksym0"],
+    google: "da1yVZzPPO_dR6kuzPj4NI5q7ExR9AYEhRkvUw_egjg",
   },
   generator: "v0.app",
 }
