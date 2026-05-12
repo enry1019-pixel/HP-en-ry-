@@ -18,14 +18,14 @@ interface NewsItem {
 }
 
 const newsItems: NewsItem[] = [
-  {  
+  {
     id: "5",
- 　 date: "2026.01.04",
-  　category: "お知らせ",
- 　 title: "俳優ショーリール動画サービス「EN-REEL」制作開始",
- 　 description: "映像名刺必須の時代にあなただけのプロフィール動画を制作いたします。",
- 　 pdfUrl: "/en-reel-service.pdf",
-},
+    date: "2026.01.04",
+    category: "お知らせ",
+    title: "俳優ショーリール動画サービス「EN-REEL」制作開始",
+    description: "映像名刺必須の時代にあなただけのプロフィール動画を制作いたします。",
+    pdfUrl: "/en-reel-service.pdf",
+  },
   {
     id: "4",
     date: "2025.11.10",
@@ -161,7 +161,7 @@ export default function NewsPage() {
                     </div>
                   )}
                   {item.pdfUrl && (
-                    <div className="mt-2">
+                    <div className="mt-4">
                       <a
                         href={item.pdfUrl}
                         download
