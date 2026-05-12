@@ -80,12 +80,13 @@ export default function NewsSection() {
                 </div>
                 <div className="md:w-2/3">
                   <h3 className="text-lg font-bold text-charcoal-light mb-2">{item.title}</h3>
+                  <p className="text-gray-600 text-sm mb-2">{item.description}</p>
                   {item.detailUrl && (
                     <a
                       href={item.detailUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-sm text-gray-700 hover:text-charcoal-light hover:underline transition-colors mb-2"
+                      className="inline-flex items-center text-sm text-gray-700 hover:text-charcoal-light hover:underline transition-colors mr-4"
                     >
                       Youtube動画はこちら→
                     </a>
@@ -94,12 +95,11 @@ export default function NewsSection() {
                     <a
                       href={item.pdfUrl}
                       download
-                      className="inline-flex items-center text-sm text-gray-700 hover:text-charcoal-light hover:underline transition-colors mb-2"
+                      className="inline-flex items-center text-sm text-gray-700 hover:text-charcoal-light hover:underline transition-colors"
                     >
                       PDFダウンロードはこちら→
                     </a>
                   )}
-                  <p className="text-gray-600 text-sm">{item.description}</p>
                 </div>
               </div>
             </div>
