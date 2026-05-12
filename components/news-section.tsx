@@ -86,18 +86,18 @@ export default function NewsSection() {
                       href={item.detailUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-sm text-gray-700 hover:text-charcoal-light hover:underline transition-colors mr-4"
+                      className="inline-flex items-center text-sm text-blue-600 hover:text-blue-800 hover:underline transition-colors mr-4"
                     >
-                      Youtube動画はこちら→
+                      Youtube動画はこちら
                     </a>
                   )}
                   {item.pdfUrl && (
                     <a
                       href={item.pdfUrl}
                       download
-                      className="inline-flex items-center text-sm text-gray-700 hover:text-charcoal-light hover:underline transition-colors"
+                      className="inline-flex items-center text-sm text-blue-600 hover:text-blue-800 hover:underline transition-colors"
                     >
-                      PDFダウンロードはこちら→
+                      PDFダウンロードはこちら
                     </a>
                   )}
                 </div>
