@@ -10,10 +10,29 @@ interface NewsItem {
   title: string
   description: string
   detailUrl?: string
+  detailUrlText?: string
   pdfUrl?: string
 }
 
 const newsItems: NewsItem[] = [
+  {
+    id: 7,
+    date: "2026.05.02",
+    category: "お知らせ",
+    title: "田中慎太郎監督作映画「近くて遠い親子」が第24回中之島映画祭にノミネートいたしました",
+    description: "田中慎太郎監督作映画「近くて遠い親子」が第24回中之島映画祭にノミネートされました。",
+    detailUrl: "https://www.youtube.com/watch?v=SPX7k8DsnIk",
+    detailUrlText: "予告編はこちら",
+  },
+  {
+    id: 6,
+    date: "2026.03.29",
+    category: "お知らせ",
+    title: "Ma'Scar'Piece 12th Single『Showtime Ignition』ミュージックビデオを制作いたしました",
+    description: "ツインプラネット所属Ma'Scar'Piece 12th Single『Showtime Ignition』のミュージックビデオを弊社にて制作いたしました。",
+    detailUrl: "https://www.youtube.com/watch?v=8AO0rZnAdqw",
+    detailUrlText: "MVはこちら",
+  },
   {
     id: 5,
     date: "2026.01.04",
@@ -37,22 +56,6 @@ const newsItems: NewsItem[] = [
     title: "株式会社en-ry　PV公開",
     description: "弊社紹介動画をYoutubeにて公開いたしました。",
     detailUrl: "https://youtu.be/Wi0mrLzSN5o?si=iL-DR__-pVE0k8fN",
-  },
-  {
-    id: 2,
-    date: "2025.10.23",
-    category: "お知らせ",
-    title: "株式会社en-ry 設立",
-    description: "株式会社en-ryを設立いたしました。",
-  },
-  {
-    id: 3,
-    date: "2025.10.17",
-    category: "お知らせ",
-    title: "田中監督作品「おっさんの夏休み」ノミネート。",
-    description:
-      "田中監督作品「おっさんの夏休み」ゆうばり国際ファンタスティック映画祭2025短編部門にノミネートされました。",
-    detailUrl: "https://youtu.be/Xk6PZaU43JE?si=tx9cbqaagUaj88Ip",
   },
 ]
 
@@ -88,7 +91,7 @@ export default function NewsSection() {
                       rel="noopener noreferrer"
                       className="inline-flex items-center text-sm text-blue-600 hover:text-blue-800 hover:underline transition-colors mr-4"
                     >
-                      Youtube動画はこちら
+                      {item.detailUrlText || "Youtube動画はこちら"}
                     </a>
                   )}
                   {item.pdfUrl && (
