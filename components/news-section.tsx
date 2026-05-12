@@ -9,7 +9,8 @@ interface NewsItem {
   category: string
   title: string
   description: string
-  link?: string
+  detailUrl?: string
+  pdfUrl?: string
 }
 
 const newsItems: NewsItem[] = [
@@ -19,6 +20,7 @@ const newsItems: NewsItem[] = [
     category: "お知らせ",
     title: "俳優ショーリール動画サービス「EN-REEL」制作開始",
     description: "映像名刺必須の時代にあなただけのプロフィール動画を制作いたします。",
+    pdfUrl: "/en-reel-service.pdf",
   },
   {
     id: 4,
@@ -26,6 +28,7 @@ const newsItems: NewsItem[] = [
     category: "お知らせ",
     title: "田中監督作品・短編映画「兄が仕事をやめた」がU-NEXTにて公開。",
     description: "田中監督作品・短編映画「兄が仕事をやめた」がU-NEXTにて公開されました。",
+    detailUrl: "https://www.youtube.com/watch?v=uIzrZ83JMjc",
   },
   {
     id: 1,
@@ -33,6 +36,7 @@ const newsItems: NewsItem[] = [
     category: "お知らせ",
     title: "株式会社en-ry　PV公開",
     description: "弊社紹介動画をYoutubeにて公開いたしました。",
+    detailUrl: "https://youtu.be/Wi0mrLzSN5o?si=iL-DR__-pVE0k8fN",
   },
   {
     id: 2,
@@ -48,6 +52,7 @@ const newsItems: NewsItem[] = [
     title: "田中監督作品「おっさんの夏休み」ノミネート。",
     description:
       "田中監督作品「おっさんの夏休み」ゆうばり国際ファンタスティック映画祭2025短編部門にノミネートされました。",
+    detailUrl: "https://youtu.be/Xk6PZaU43JE?si=tx9cbqaagUaj88Ip",
   },
 ]
 
@@ -75,6 +80,25 @@ export default function NewsSection() {
                 </div>
                 <div className="md:w-2/3">
                   <h3 className="text-lg font-bold text-charcoal-light mb-2">{item.title}</h3>
+                  {item.detailUrl && (
+                    <a
+                      href={item.detailUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center text-sm text-gray-700 hover:text-charcoal-light hover:underline transition-colors mb-2"
+                    >
+                      Youtube動画はこちら→
+                    </a>
+                  )}
+                  {item.pdfUrl && (
+                    <a
+                      href={item.pdfUrl}
+                      download
+                      className="inline-flex items-center text-sm text-gray-700 hover:text-charcoal-light hover:underline transition-colors mb-2"
+                    >
+                      PDFダウンロードはこちら→
+                    </a>
+                  )}
                   <p className="text-gray-600 text-sm">{item.description}</p>
                 </div>
               </div>
