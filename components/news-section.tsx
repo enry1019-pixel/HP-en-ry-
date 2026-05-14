@@ -19,7 +19,7 @@ const newsItems: NewsItem[] = [
     id: 7,
     date: "2026.05.02",
     category: "お知らせ",
-    title: "田中慎太郎監督作映画「近くて遠い親子」が第24回中之島映画祭にノミネート。",
+    title: "田中慎太郎監督作映画「近くて遠い親子」が第24回中之島映画祭にノミネート",
     description: "田中慎太郎監督作映画「近くて遠い親子」が第24回中之島映画祭にノミネートされました。",
     detailUrl: "https://www.youtube.com/watch?v=SPX7k8DsnIk",
     detailUrlText: "予告編はこちら",
@@ -27,8 +27,8 @@ const newsItems: NewsItem[] = [
   {
     id: 6,
     date: "2026.03.29",
-    category: "お知らせ",
-    title: "Ma'Scar'Piece 12th Single『Showtime Ignition』ミュージックビデオを制作。",
+    category: "WORKS",
+    title: "Ma'Scar'Piece 12th Single『Showtime Ignition』ミュージックビデオを制作",
     description: "ツインプラネット所属Ma'Scar'Piece 12th Single『Showtime Ignition』のミュージックビデオを弊社にて制作いたしました。",
     detailUrl: "https://www.youtube.com/watch?v=8AO0rZnAdqw",
     detailUrlText: "MVはこちら",
@@ -45,7 +45,7 @@ const newsItems: NewsItem[] = [
     id: 4,
     date: "2025.11.10",
     category: "お知らせ",
-    title: "田中監督作品・短編映画「兄が仕事をやめた」がU-NEXTにて公開。",
+    title: "田中監督作品・短編映画「兄が仕事をやめた」がU-NEXTにて公開",
     description: "田中監督作品・短編映画「兄が仕事をやめた」がU-NEXTにて公開されました。",
     detailUrl: "https://www.youtube.com/watch?v=uIzrZ83JMjc",
   },
@@ -85,15 +85,15 @@ export default function NewsSection() {
               className="relative z-20 bg-white p-6 rounded-lg border border-[#e0d8ce] hover:border-[#c9a96e] hover:shadow-md transition-all duration-300"
             >
               <div className="flex flex-col md:flex-row md:items-center gap-4">
-                <div className="flex items-center gap-4 md:w-1/3">
+                <div className="flex items-center gap-4 md:w-1/3 shrink-0">
                   <time className="text-sm text-gray-500 font-medium whitespace-nowrap">{item.date}</time>
-                  <span className="inline-block bg-gray-800 text-white text-xs px-3 py-1 rounded-full whitespace-nowrap">
+                  <span className={`inline-block text-white text-xs px-3 py-1 rounded-full whitespace-nowrap ${item.category === "WORKS" ? "bg-[#7a1a24]" : "bg-gray-800"}`}>
                     {item.category}
                   </span>
                 </div>
-                <div className="md:w-2/3">
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
-                  <p className="text-gray-600 text-sm mb-2">{item.description}</p>
+                <div className="md:w-2/3 min-w-0">
+                  <h3 className="text-base font-bold text-gray-900 mb-1 truncate">{item.title}</h3>
+                  <p className="text-gray-600 text-sm mb-2 truncate">{item.description}</p>
                   {item.detailUrl && (
                     <a
                       href={item.detailUrl}

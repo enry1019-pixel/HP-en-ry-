@@ -23,7 +23,7 @@ const newsItems: NewsItem[] = [
     id: "7",
     date: "2026.05.02",
     category: "お知らせ",
-    title: "田中慎太郎監督作映画「近くて遠い親子」が第24回中之島映画祭にノミネート。",
+    title: "田中慎太郎監督作映画「近くて遠い親子」が第24回中之島映画祭にノミネート",
     description: "田中慎太郎監督作映画「近くて遠い親子」が第24回中之島映画祭にノミネートされました。",
     detailUrl: "https://www.youtube.com/watch?v=SPX7k8DsnIk",
     detailUrlText: "予告編はこちら",
@@ -31,8 +31,8 @@ const newsItems: NewsItem[] = [
   {
     id: "6",
     date: "2026.03.29",
-    category: "お知らせ",
-    title: "Ma'Scar'Piece 12th Single『Showtime Ignition』ミュージックビデオを制作。",
+    category: "WORKS",
+    title: "Ma'Scar'Piece 12th Single『Showtime Ignition』ミュージックビデオを制作",
     description: "ツインプラネット所属Ma'Scar'Piece 12th Single『Showtime Ignition』のミュージックビデオを弊社にて制作いたしました。",
     detailUrl: "https://www.youtube.com/watch?v=8AO0rZnAdqw",
     detailUrlText: "MVはこちら",
@@ -159,7 +159,7 @@ export default function NewsPage() {
                     </div>
                     <div className="flex items-center">
                       <Tag className="w-4 h-4 mr-1 text-charcoal-light" />
-                      <span className="inline-block bg-gray-800 text-white text-xs px-3 py-1 rounded-full">
+                      <span className={`inline-block text-white text-xs px-3 py-1 rounded-full ${item.category === "WORKS" ? "bg-[#7a1a24]" : "bg-gray-800"}`}>
                         {item.category}
                       </span>
                     </div>
