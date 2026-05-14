@@ -11,26 +11,30 @@ const services = [
   {
     title: "広告・プロモーション・企業観光PR動画",
     slug: "promotion-pr",
-    description: "企業のブランド価値を最大化する戦略的な映像制作をご提供致します。",
-    image: "/fukui-pr-thumbnail.jpg",
+    description:
+      "ブランドの想いを届けるプロモーションから採用・Web広告まで幅広く対応。年間サブスク制プランも。\n採用募集、インナーブランディング、サービス紹介、SNS向けショート動画など",
+    image: "/service-pr.jpg",
   },
   {
-    title: "メモリアルmovie制作",
-    slug: "memorial-movie",
-    description: "冠婚葬祭など人生の大切な瞬間を美しく記録する感動的な映像制作をご提供致します。",
-    image: "/japanese-wedding-family-celebration-memories.jpg",
+    title: "CM制作",
+    slug: "commercial",
+    description:
+      "15秒にブランドの真髄を凝縮。テレビCMからWeb動画広告まで対応。\nテレビCM、Web動画広告、ブランデッドムービーなど",
+    image: "/service-cm.jpg",
   },
   {
     title: "MV制作・アーティスト映像",
     slug: "music-video",
-    description: "アーティスト自身や楽曲の魅力をMV映像で最大限引き出します。",
-    image: "/mv-production-female-artist-filming.jpg",
+    description:
+      "楽曲・アーティストの世界観を映画的演出で最大限に表現。\nMV、ダンサーPR、パフォーマンス撮影、SNS縦型動画など",
+    image: "/service-mv.jpg",
   },
   {
     title: "映画・ドラマ制作",
     slug: "film-drama",
-    description: "制作会社や映画監督と連携した本格的な映画やドラマ作品の企画・制作をご提供致します。",
-    image: "/film-director-rear-view-no-face.jpg",
+    description:
+      "映画監督による本格演出でショートドラマから長編映画まで一貫制作。\n企業タイアップ、PRドラマ、オリジナル作品など",
+    image: "/service-film-drama.jpg",
   },
 ]
 
@@ -219,7 +223,7 @@ export default function ServiceSlider() {
                   {service.title}
                 </h3>
                 <p
-                  className={`text-gray-600 mb-4 transition-all duration-700 ease-out leading-relaxed line-clamp-4 ${isCenter ? "text-sm" : "text-xs"}`}
+                  className={`text-gray-600 mb-4 transition-all duration-700 ease-out leading-relaxed whitespace-pre-line ${isCenter ? "text-sm" : "text-xs"}`}
                 >
                   {service.description}
                 </p>

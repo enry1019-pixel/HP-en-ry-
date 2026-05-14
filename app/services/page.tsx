@@ -8,8 +8,8 @@ const services = [
     title: "広告プロモーション・企業・商品・観光PR",
     slug: "promotion-pr",
     description:
-      "■ 制作内容\n・企業PR動画　→採用募集、インナーブランディング、サービス紹介、アニバーサリーなど\n・商品PR・サービス紹介\n・観光地PR・自治体プロモーション\n・SNS向けショート動画（Instagram／TikTok／YouTube）\n・Web広告用動画\n\n■ 年間サブスク動画（定額制サービス）\n単発ではなく 年間で動画を定期制作できる新サービス\n・選べる４プラン\n・年10本の継続制作\n・好きなタイミングで動画制作\n・品質の安定化\n・コスト最適化\n・SNS・採用・広報・HP更新に最適\n\n■ 特徴\n・映画監督が企画・演出を監修\n・SNS対応も可能\n・多彩なジャンル表現",
-    image: "/placeholder.svg?height=400&width=600&text=プロモーション",
+      "ブランドの想いを届けるプロモーションから採用・Web広告まで幅広く対応。年間サブスク制プランも。\n採用募集、インナーブランディング、サービス紹介、SNS向けショート動画など",
+    image: "/service-pr.jpg",
     price: "300,000円〜",
     duration: "2-4週間",
     features: [
@@ -26,29 +26,25 @@ const services = [
     popular: true,
   },
   {
-    title: "メモリアルムービー ＋ 電子卒業アルバム",
-    slug: "memorial-movie",
+    title: “CM制作”,
+    slug: “commercial”,
     description:
-      "“縁を記憶に、未来へ。” 人生の節目や家族の大切な瞬間を映像で残すサービス。さらに学校向けには電子卒業アルバムによる新しい形の思い出保存も提供します。",
-    image: "/placeholder.svg?height=400&width=600&text=メモリアル",
-    price: "150,000円〜",
-    duration: "1-2週間",
+      “15秒にブランドの真髄を凝縮。テレビCMからWeb動画広告まで対応。映画制作で培った演出力で、商品の魅力やサービスの核心を記憶に残る体験として描き出します。”,
+    image: “/service-cm.jpg”,
+    price: “500,000円〜”,
+    duration: “3-6週間”,
     features: [
-      "冠婚葬祭ムービー（結婚式・お別れ会）",
-      "家族・赤ちゃん記念ムービー",
-      "ペットメモリアル",
-      "個人ヒストリー映像",
-      "学校・地域行事の記録映像",
-      "卒園・卒業ムービー",
-      "電子卒業アルバム（完全電子卒業アルバム、行事動画・メッセージ動画収録、QRコードで動画追加可）",
+      “テレビCM・Web動画広告”,
+      “ブランデッドムービー”,
+      “戦略的演出・映画監督による企画提案”,
     ],
-    category: "個人向け",
+    category: “企業向け”,
     popular: false,
   },
   {
     title: "MV・PR映像（アーティスト・ダンサー・パフォーマー）",
     slug: "music-video",
-    description: "音楽・表現者の世界観を映像で最大化し、作品性の高いMVやPR動画を制作します。",
+    description: "楽曲・アーティストの世界観を映画的演出で最大限に表現。\nMV、ダンサーPR、パフォーマンス撮影、SNS縦型動画など",
     image: "/mv-production-female-artist-filming.jpg",
     price: "500,000円〜",
     duration: "3-6週間",
@@ -65,8 +61,8 @@ const services = [
   {
     title: "ドラマ・映画制作",
     slug: "film-drama",
-    description: "en-ryの核となる「映画制作」の技術を活かし、短編ドラマから映画作品まで幅広く対応。",
-    image: "/placeholder.svg?height=400&width=600&text=映画制作",
+    description: "映画監督による本格演出でショートドラマから長編映画まで一貫制作。\n企業タイアップ、PRドラマ、オリジナル作品など",
+    image: "/service-film-drama.jpg",
     price: "1,000,000円〜",
     duration: "2-6ヶ月",
     features: [
@@ -81,7 +77,7 @@ const services = [
   },
 ]
 
-const categories = ["すべて", "企業向け", "個人向け", "エンターテイメント"]
+const categories = ["すべて", "企業向け", "エンターテイメント"]
 
 export default function ServicesPage() {
   return (
@@ -223,7 +219,7 @@ export default function ServicesPage() {
                       {service.title}
                     </h3>
 
-                    <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3">{service.description}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4 line-clamp-3 whitespace-pre-line">{service.description}</p>
 
                     <div className="mb-4">
                       <h4 className="font-bold text-sm mb-2 text-charcoal-light">主な制作内容</h4>

@@ -7,28 +7,28 @@ const services = [
   {
     id: "01",
     title: "映画・ドラマ",
-    description: "現役映画監督が手がける本格的な映像表現。あなたの物語を銀幕に刻みます。",
+    description: "企画・脚本から編集まで制作。\n映画、テレビドラマ、企業タイアップやPRドラマなど",
     image: "/service-film-drama.jpg",
     grade: "brightness(0.78)",
   },
   {
     id: "02",
     title: "CM",
-    description: "ブランドの核心を一瞬に凝縮。視聴者の記憶に刻まれるコマーシャルを制作します。",
+    description: "ブランドの真髄を凝縮する。テレビCMからWeb動画広告まで対応。\nテレビCM・Web広告、ブランデッドムービーなど",
     image: "/service-cm.jpg",
     grade: "contrast(1.15) brightness(0.68) saturate(1.1) sepia(0.25)",
   },
   {
     id: "03",
     title: "企業PR",
-    description: "企業の想いと実績を力強く伝える、戦略的なプロモーション映像をお届けします。",
+    description: "ブランドの想いを届けるプロモーションから採用・Web広告まで幅広く対応。年間サブスク制プランも。\n採用募集、インナーブランディング、サービス紹介、SNSショート動画など",
     image: "/service-pr.jpg",
     grade: "brightness(0.72)",
   },
   {
     id: "04",
     title: "MV",
-    description: "アーティストの世界観を最大限に引き出す、唯一無二のミュージックビデオを。",
+    description: "楽曲の世界観を最大限に表現。\nアーティスト、アイドル、パフォーマンス撮影、SNS縦型動画など",
     image: "/service-mv.jpg",
     grade: "contrast(1.1) brightness(0.75) saturate(1.35) sepia(0.15)",
   },
@@ -279,7 +279,7 @@ export default function ServiceFilm() {
                 {service.title}
               </h3>
               <p
-                className="text-[11px] text-gray-300/80 leading-relaxed tracking-wider"
+                className="text-[11px] text-gray-300/80 leading-relaxed tracking-wider whitespace-pre-line"
                 style={{
                   opacity: contentVisible ? 1 : 0,
                   transform: contentVisible ? "translateY(0)" : "translateY(10px)",
