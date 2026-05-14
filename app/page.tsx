@@ -206,39 +206,43 @@ export default function Home() {
         {/* オーバーレイ全体 */}
         {!heroHidden && (
           <div
-            className="hidden md:block absolute inset-0 z-10 pointer-events-none transition-opacity duration-1000"
+            className="hidden md:flex absolute inset-0 z-10 pointer-events-none flex-col items-center justify-center transition-opacity duration-1000"
             style={{ opacity: heroFading ? 0 : 1 }}
           >
-            {/* グラデーション */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
+            {/* 背景を少し暗くしてテキストを読みやすく */}
+            <div className="absolute inset-0 bg-black/30" />
 
-            {/* テキスト */}
-            <div className="absolute bottom-16 left-14 flex flex-col text-white">
-              <p
-                className="text-[11px] tracking-[0.65em] font-light text-gray-300 mb-6 uppercase"
-                style={{ animation: "hero-slide-up 1s ease-out 0.4s both" }}
-              >
-                Film &amp; Video Production
-              </p>
-              <div
-                className="w-20 h-px bg-white/50 mb-7 origin-left"
-                style={{ animation: "hero-line-expand 0.9s ease-out 1s both" }}
-              />
-              <h2 className="font-serif leading-[1.2]">
+            {/* 映像制作 ラベル */}
+            <div className="relative flex items-center gap-4 mb-8">
+              {"映像制作".split("").map((char, i) => (
                 <span
-                  className="block text-5xl font-bold tracking-[0.2em] drop-shadow-lg"
-                  style={{ animation: "hero-slide-up 1s ease-out 1.2s both" }}
+                  key={i}
+                  className="text-[11px] tracking-[0.8em] font-light text-gray-300"
+                  style={{ animation: `hero-slide-up 0.7s ease-out ${0.3 + i * 0.08}s both` }}
                 >
-                  映像で、
+                  {char}
                 </span>
-                <span
-                  className="block text-5xl font-bold tracking-[0.2em] drop-shadow-lg"
-                  style={{ animation: "hero-slide-up 1s ease-out 1.6s both" }}
-                >
-                  記憶を残す。
-                </span>
-              </h2>
+              ))}
             </div>
+
+            {/* ライン */}
+            <div
+              className="relative w-24 h-px bg-white/50 mb-10"
+              style={{ animation: "hero-line-expand 0.9s ease-out 0.8s both", transformOrigin: "center" }}
+            />
+
+            {/* 想いを映像に。 */}
+            <h2 className="relative flex text-white drop-shadow-lg">
+              {"想いを映像に。".split("").map((char, i) => (
+                <span
+                  key={i}
+                  className="text-6xl font-bold tracking-[0.15em]"
+                  style={{ animation: `hero-slide-up 0.9s ease-out ${1.1 + i * 0.1}s both` }}
+                >
+                  {char}
+                </span>
+              ))}
+            </h2>
           </div>
         )}
 
