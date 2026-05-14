@@ -530,7 +530,7 @@ export default function Home() {
       <section
         id="works"
         ref={portfolioSectionRef}
-        className={`py-20 bg-lightgray relative overflow-hidden section-reveal ${isPortfolioSectionVisible ? "visible" : ""}`}
+        className={`py-20 relative overflow-hidden section-reveal ${isPortfolioSectionVisible ? "visible" : ""}`}
       >
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
