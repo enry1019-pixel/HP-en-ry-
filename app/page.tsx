@@ -206,43 +206,70 @@ export default function Home() {
         {/* オーバーレイ全体 */}
         {!heroHidden && (
           <div
-            className="hidden md:flex absolute inset-0 z-10 pointer-events-none flex-col items-center justify-center transition-opacity duration-1000"
+            className="hidden md:block absolute inset-0 z-10 pointer-events-none transition-opacity duration-1000"
             style={{ opacity: heroFading ? 0 : 1 }}
           >
-            {/* 背景を少し暗くしてテキストを読みやすく */}
-            <div className="absolute inset-0 bg-black/30" />
-
-            {/* 映像制作 ラベル */}
-            <div className="relative flex items-center gap-4 mb-8">
-              {"映像制作".split("").map((char, i) => (
-                <span
-                  key={i}
-                  className="text-[11px] tracking-[0.8em] font-light text-gray-300"
-                  style={{ animation: `hero-slide-up 0.7s ease-out ${0.3 + i * 0.08}s both` }}
-                >
-                  {char}
-                </span>
-              ))}
-            </div>
-
-            {/* ライン */}
+            {/* ボトムバンド */}
             <div
-              className="relative w-24 h-px bg-white/50 mb-10"
-              style={{ animation: "hero-line-expand 0.9s ease-out 0.8s both", transformOrigin: "center" }}
-            />
-
-            {/* 想いを映像に。 */}
-            <h2 className="relative flex text-white drop-shadow-lg">
-              {"想いを映像に。".split("").map((char, i) => (
-                <span
-                  key={i}
-                  className="text-6xl font-bold tracking-[0.15em]"
-                  style={{ animation: `hero-slide-up 0.9s ease-out ${1.1 + i * 0.1}s both` }}
+              className="absolute bottom-0 left-0 right-0"
+              style={{ animation: "band-slide-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both" }}
+            >
+              {/* 編みかけ（クロスハッチ）テクスチャ付きバンド */}
+              <div
+                className="relative px-14 py-10 border-t border-white/20"
+                style={{
+                  backgroundColor: "rgba(0,0,0,0.72)",
+                  backgroundImage: `
+                    repeating-linear-gradient(-45deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 10px),
+                    repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 10px)
+                  `,
+                }}
+              >
+                {/* 映像制作 */}
+                <h2
+                  className="text-7xl font-bold text-white tracking-[0.2em] mb-3"
+                  style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both" }}
                 >
-                  {char}
-                </span>
-              ))}
-            </h2>
+                  映像制作
+                </h2>
+
+                {/* 想いを映像に */}
+                <p
+                  className="text-lg font-light text-gray-300 tracking-[0.35em] mb-6"
+                  style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 1.1s both" }}
+                >
+                  想いを映像に。
+                </p>
+
+                {/* 区切り線 */}
+                <div
+                  className="w-full h-px bg-white/20 mb-6 origin-left"
+                  style={{ animation: "hero-line-expand 0.8s ease-out 1.4s both" }}
+                />
+
+                {/* サービス一覧 */}
+                <div className="flex items-center gap-0">
+                  {["映画・ドラマ", "MV", "CM", "企業PR"].map((service, i) => (
+                    <span key={service} className="flex items-center">
+                      <span
+                        className="text-xl text-white tracking-[0.25em] font-light"
+                        style={{ animation: `hero-slide-up 0.7s ease-out ${1.7 + i * 0.15}s both` }}
+                      >
+                        {service}
+                      </span>
+                      {i < 3 && (
+                        <span
+                          className="mx-6 text-white/30"
+                          style={{ animation: `hero-slide-up 0.7s ease-out ${1.75 + i * 0.15}s both` }}
+                        >
+                          |
+                        </span>
+                      )}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         )}
 
