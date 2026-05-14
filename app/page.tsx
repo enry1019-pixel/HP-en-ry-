@@ -13,8 +13,7 @@ export default function Home() {
   const [isMuted, setIsMuted] = useState(true)
   const [phase1Fading, setPhase1Fading] = useState(false)
   const [phase2Visible, setPhase2Visible] = useState(false)
-  const [heroFading, setHeroFading] = useState(false)
-  const [heroHidden, setHeroHidden] = useState(false)
+  const [bandShrunk, setBandShrunk] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
   const handwrittenTextRef = useRef<HTMLDivElement>(null)
   const taglineSectionRef = useRef<HTMLDivElement>(null)
@@ -39,13 +38,11 @@ export default function Home() {
   useEffect(() => {
     const p1Fade = setTimeout(() => setPhase1Fading(true), 6400)
     const p2Show = setTimeout(() => setPhase2Visible(true), 7400)
-    const fade  = setTimeout(() => setHeroFading(true), 11600)
-    const hide  = setTimeout(() => setHeroHidden(true), 13600)
+    const shrink = setTimeout(() => setBandShrunk(true), 11600)
     return () => {
       clearTimeout(p1Fade)
       clearTimeout(p2Show)
-      clearTimeout(fade)
-      clearTimeout(hide)
+      clearTimeout(shrink)
     }
   }, [])
 
@@ -210,90 +207,103 @@ export default function Home() {
         </div>
 
         {/* オーバーレイ全体 */}
-        {!heroHidden && (
+        <div className="hidden md:block absolute inset-0 z-10 pointer-events-none">
+          {/* ボトムバンド */}
           <div
-            className="hidden md:block absolute inset-0 z-10 pointer-events-none transition-opacity duration-1000"
-            style={{ opacity: heroFading ? 0 : 1 }}
+            className="absolute bottom-0 left-0 right-0"
+            style={{ animation: "band-slide-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both" }}
           >
-            {/* ボトムバンド */}
             <div
-              className="absolute bottom-0 left-0 right-0"
-              style={{ animation: "band-slide-up 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both" }}
+              className="relative border-t border-white/20 transition-all duration-1000"
+              style={{
+                paddingTop: bandShrunk ? "12px" : "64px",
+                paddingBottom: bandShrunk ? "12px" : "64px",
+                paddingLeft: "56px",
+                paddingRight: "56px",
+                backgroundColor: "rgba(0,0,0,0.75)",
+                backgroundImage: `
+                  repeating-linear-gradient(-45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 16px),
+                  repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 16px)
+                `,
+              }}
             >
+              {/* コンテンツ領域（高さがトランジション） */}
               <div
-                className="relative px-14 py-16 border-t border-white/20"
-                style={{
-                  backgroundColor: "rgba(0,0,0,0.75)",
-                  backgroundImage: `
-                    repeating-linear-gradient(-45deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 10px),
-                    repeating-linear-gradient(45deg, rgba(255,255,255,0.04) 0px, rgba(255,255,255,0.04) 1px, transparent 1px, transparent 10px)
-                  `,
-                }}
+                className="relative overflow-hidden transition-all duration-1000"
+                style={{ height: bandShrunk ? "32px" : "200px" }}
               >
-                {/* Phase 1 と Phase 2 を重ねる */}
-                <div className="relative min-h-[200px]">
-
-                  {/* ── Phase 1: メインコピー ── */}
-                  <div
-                    className="absolute inset-0 transition-opacity duration-700"
-                    style={{ opacity: phase1Fading ? 0 : 1 }}
+                {/* ── Phase 1: メインコピー ── */}
+                <div
+                  className="absolute top-0 left-0 right-0 transition-opacity duration-700"
+                  style={{ opacity: !phase1Fading && !bandShrunk ? 1 : 0 }}
+                >
+                  <h2
+                    className="text-6xl font-bold text-white tracking-[0.15em] mb-5"
+                    style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 1.8s both" }}
                   >
-                    <h2
-                      className="text-6xl font-bold text-white tracking-[0.15em] mb-5"
-                      style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 1.8s both" }}
-                    >
-                      映像制作はエンリーへ
-                    </h2>
-                    <p
-                      className="text-xl font-light text-gray-300 tracking-[0.45em] mb-8"
-                      style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 2.3s both" }}
-                    >
-                      想いを映像に。
-                    </p>
-                    <div
-                      className="w-full h-px bg-white/25 origin-left"
-                      style={{ animation: "hero-line-expand 0.8s ease-out 3.0s both" }}
-                    />
-                  </div>
-
-                  {/* ── Phase 2: サービス + お見積もり ── */}
-                  <div
-                    className="absolute inset-0 transition-opacity duration-700"
-                    style={{ opacity: phase2Visible ? 1 : 0 }}
+                    映像制作はエンリーへ
+                  </h2>
+                  <p
+                    className="text-xl font-light text-gray-300 tracking-[0.45em] mb-8"
+                    style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 2.3s both" }}
                   >
-                    {phase2Visible && (
-                      <>
-                        <h2
-                          className="text-5xl font-bold text-white tracking-[0.12em] mb-8"
-                          style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 0s both" }}
-                        >
-                          映画・ドラマ&nbsp;&nbsp;/&nbsp;&nbsp;MV&nbsp;&nbsp;/&nbsp;&nbsp;CM&nbsp;&nbsp;/&nbsp;&nbsp;企業PR
-                        </h2>
-                        <div
-                          className="w-full h-px bg-white/25 mb-8 origin-left"
-                          style={{ animation: "hero-line-expand 0.8s ease-out 1.4s both" }}
-                        />
-                        <div
-                          className="flex items-center gap-5"
-                          style={{ animation: "slide-in-left 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.8s both" }}
-                        >
-                          <div className="w-1 h-10 bg-white/50" />
-                          <div className="flex flex-col">
-                            <span className="text-[11px] tracking-[0.5em] text-gray-400 font-light mb-1 uppercase">Estimate</span>
-                            <span className="text-2xl text-white tracking-[0.25em] font-light">
-                              お見積もり&nbsp;<span className="font-bold">無料</span>
-                            </span>
-                          </div>
+                    想いを映像に。
+                  </p>
+                  <div
+                    className="w-full h-px bg-white/25 origin-left"
+                    style={{ animation: "hero-line-expand 0.8s ease-out 3.0s both" }}
+                  />
+                </div>
+
+                {/* ── Phase 2: サービス + お見積もり ── */}
+                <div
+                  className="absolute top-0 left-0 right-0 transition-opacity duration-700"
+                  style={{ opacity: phase2Visible && !bandShrunk ? 1 : 0 }}
+                >
+                  {phase2Visible && (
+                    <>
+                      <h2
+                        className="text-5xl font-bold text-white tracking-[0.12em] mb-8"
+                        style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 0s both" }}
+                      >
+                        映画・ドラマ&nbsp;&nbsp;/&nbsp;&nbsp;MV&nbsp;&nbsp;/&nbsp;&nbsp;CM&nbsp;&nbsp;/&nbsp;&nbsp;企業PR
+                      </h2>
+                      <div
+                        className="w-full h-px bg-white/25 mb-8 origin-left"
+                        style={{ animation: "hero-line-expand 0.8s ease-out 1.4s both" }}
+                      />
+                      <div
+                        className="flex items-center gap-5"
+                        style={{ animation: "slide-in-left 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.8s both" }}
+                      >
+                        <div className="w-1 h-10 bg-white/50" />
+                        <div className="flex flex-col">
+                          <span className="text-[11px] tracking-[0.5em] text-gray-400 font-light mb-1 uppercase">Estimate</span>
+                          <span className="text-2xl text-white tracking-[0.25em] font-light">
+                            お見積もり&nbsp;<span className="font-bold">無料</span>
+                          </span>
                         </div>
-                      </>
-                    )}
-                  </div>
+                      </div>
+                    </>
+                  )}
+                </div>
 
+                {/* ── Phase 3: コンパクトバー ── */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 flex items-center justify-between transition-opacity duration-700"
+                  style={{ opacity: bandShrunk ? 1 : 0 }}
+                >
+                  <span className="text-sm font-bold text-white tracking-[0.12em]">
+                    映像制作はエンリーへ&nbsp;&nbsp;|&nbsp;&nbsp;映画・ドラマ&nbsp;/&nbsp;MV&nbsp;/&nbsp;CM&nbsp;/&nbsp;企業PR
+                  </span>
+                  <span className="text-sm text-white/70 tracking-[0.2em]">
+                    お見積もり&nbsp;<span className="font-bold text-white">無料</span>
+                  </span>
                 </div>
               </div>
             </div>
           </div>
-        )}
+        </div>
 
         <button
           onClick={toggleMute}
