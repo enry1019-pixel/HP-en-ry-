@@ -84,7 +84,7 @@ export default function NewsSection() {
               key={item.id}
               className="relative z-20 bg-white px-5 py-3 rounded-lg border border-[#e0d8ce] hover:border-[#c9a96e] hover:shadow-md transition-all duration-300"
             >
-              <div className="flex flex-col md:flex-row md:items-center gap-3">
+              <div className="flex flex-col md:flex-row md:items-center gap-6">
                 <div className="flex items-center gap-3 shrink-0">
                   <time className="text-xs text-gray-500 font-medium whitespace-nowrap">{item.date}</time>
                   <span className={`inline-block text-white text-xs px-2 py-0.5 rounded-full whitespace-nowrap ${item.category === "WORKS" ? "bg-[#7a1a24]" : "bg-gray-800"}`}>
