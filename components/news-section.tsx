@@ -92,7 +92,7 @@ export default function NewsSection() {
                   </span>
                 </div>
                 <div className="md:w-2/3 min-w-0">
-                  <h3 className="text-base font-bold text-gray-900 mb-1 truncate">{item.title}</h3>
+                  <h3 className="text-lg font-bold text-gray-900 mb-1">{item.title}</h3>
                   <p className="text-gray-600 text-sm mb-2 truncate">{item.description}</p>
                   {item.detailUrl && (
                     <a
