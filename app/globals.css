@@ -100,17 +100,74 @@
   }
 }
 
+/* セクション本体：浮き上がり + 影 */
 .section-reveal {
   opacity: 0;
-  transform: translateY(48px);
+  transform: translateY(40px);
   box-shadow: none;
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.5s ease,
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 1s ease;
 }
-
 .section-reveal.visible {
   opacity: 1;
   transform: translateY(0);
   box-shadow: 0 -4px 24px rgba(0, 0, 0, 0.04), 0 12px 40px rgba(0, 0, 0, 0.07);
+}
+
+/* 左の糸：左端から中央に向かって伸びる */
+.section-reveal .sec-line-l {
+  transform: scaleX(0);
+  transform-origin: left;
+  filter: drop-shadow(0 0 0px rgba(122, 26, 36, 0));
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.5s,
+              filter 0.5s ease 0.5s;
+}
+.section-reveal.visible .sec-line-l {
+  transform: scaleX(1);
+  filter: drop-shadow(0 0 4px rgba(122, 26, 36, 0.35));
+}
+
+/* 右の糸：右端から中央に向かって伸びる */
+.section-reveal .sec-line-r {
+  transform: scaleX(0);
+  transform-origin: right;
+  filter: drop-shadow(0 0 0px rgba(122, 26, 36, 0));
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) 0.5s,
+              filter 0.5s ease 0.5s;
+}
+.section-reveal.visible .sec-line-r {
+  transform: scaleX(1);
+  filter: drop-shadow(0 0 4px rgba(122, 26, 36, 0.35));
+}
+
+/* タイトル：糸が触れた後にブラーが晴れて現れる */
+.section-reveal .sec-title {
+  opacity: 0;
+  filter: blur(6px);
+  transition: opacity 0.5s ease 0.85s, filter 0.5s ease 0.85s;
+}
+.section-reveal.visible .sec-title {
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* サブタイトル */
+.section-reveal .sec-subtitle {
+  opacity: 0;
+  transition: opacity 0.4s ease 1.1s;
+}
+.section-reveal.visible .sec-subtitle {
+  opacity: 1;
+}
+
+/* セクションコンテンツ：タイトルの後にスライドイン */
+.section-reveal .sec-body {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s ease 1.05s, transform 0.6s ease 1.05s;
+}
+.section-reveal.visible .sec-body {
+  opacity: 1;
+  transform: translateY(0);
 }

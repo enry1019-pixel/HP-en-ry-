@@ -470,23 +470,24 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-4 mb-3">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 sec-line-l">
                 <div className="w-16 h-px bg-gradient-to-r from-transparent to-[#7a1a24]/55" />
                 <div className="w-1.5 h-1.5 rotate-45 bg-[#7a1a24]/55 shrink-0" />
               </div>
-              <h2 className="text-3xl font-bold tracking-widest">SERVICES</h2>
-              <div className="flex items-center gap-2">
+              <h2 className="text-3xl font-bold tracking-widest sec-title">SERVICES</h2>
+              <div className="flex items-center gap-2 sec-line-r">
                 <div className="w-1.5 h-1.5 rotate-45 bg-[#7a1a24]/55 shrink-0" />
                 <div className="w-16 h-px bg-gradient-to-l from-transparent to-[#7a1a24]/55" />
               </div>
             </div>
-            <p className="text-lg text-gray-500 mb-4">事業内容</p>
-            <p className="text-gray-500 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-500 mb-4 sec-subtitle">事業内容</p>
+            <p className="text-gray-500 max-w-2xl mx-auto sec-subtitle">
               私たちは、映像制作のプロフェッショナルとして、様々なサービスを提供しています。
               お客様のニーズに合わせた最適な映像制作をご提案します。
             </p>
           </div>
 
+          <div className="sec-body">
           <ServiceSlider />
 
           <div className="mt-12 text-center">
@@ -517,6 +518,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+          </div>{/* sec-body end */}
         </div>
       </section>
 
@@ -529,22 +531,23 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <div className="flex items-center justify-center gap-4 mb-3">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 sec-line-l">
                 <div className="w-16 h-px bg-gradient-to-r from-transparent to-[#7a1a24]/55" />
                 <div className="w-1.5 h-1.5 rotate-45 bg-[#7a1a24]/55 shrink-0" />
               </div>
-              <h2 className="text-3xl font-bold tracking-widest">PORTFOLIO</h2>
-              <div className="flex items-center gap-2">
+              <h2 className="text-3xl font-bold tracking-widest sec-title">PORTFOLIO</h2>
+              <div className="flex items-center gap-2 sec-line-r">
                 <div className="w-1.5 h-1.5 rotate-45 bg-[#7a1a24]/55 shrink-0" />
                 <div className="w-16 h-px bg-gradient-to-l from-transparent to-[#7a1a24]/55" />
               </div>
             </div>
-            <p className="text-lg text-gray-500 mb-4">制作実績（田中慎太郎監督作品）</p>
-            <p className="text-gray-500 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-500 mb-4 sec-subtitle">制作実績（田中慎太郎監督作品）</p>
+            <p className="text-gray-500 max-w-2xl mx-auto sec-subtitle">
               これまでに制作した映像作品の一部をご紹介します。 様々な業界のクライアント様と協力して制作した作品です。
             </p>
           </div>
 
+          <div className="sec-body">
           <PortfolioSlider />
 
           <div className="mt-12 text-center">
@@ -556,6 +559,7 @@ export default function Home() {
               <ArrowRight className="ml-2 w-4 h-4" />
             </Link>
           </div>
+          </div>{/* sec-body end */}
         </div>
       </section>
 

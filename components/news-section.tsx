@@ -65,20 +65,20 @@ export default function NewsSection() {
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-4 mb-3">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 sec-line-l">
               <div className="w-16 h-px bg-gradient-to-r from-transparent to-[#7a1a24]/55" />
               <div className="w-1.5 h-1.5 rotate-45 bg-[#7a1a24]/55 shrink-0" />
             </div>
-            <h2 className="text-3xl font-bold tracking-widest">NEWS</h2>
-            <div className="flex items-center gap-2">
+            <h2 className="text-3xl font-bold tracking-widest sec-title">NEWS</h2>
+            <div className="flex items-center gap-2 sec-line-r">
               <div className="w-1.5 h-1.5 rotate-45 bg-[#7a1a24]/55 shrink-0" />
               <div className="w-16 h-px bg-gradient-to-l from-transparent to-[#7a1a24]/55" />
             </div>
           </div>
-          <p className="text-lg text-gray-500">ニュース</p>
+          <p className="text-lg text-gray-500 sec-subtitle">ニュース</p>
         </div>
 
-        <div className="max-w-4xl mx-auto space-y-6">
+        <div className="max-w-4xl mx-auto space-y-6 sec-body">
           {newsItems.map((item) => (
             <div
               key={item.id}
@@ -119,7 +119,7 @@ export default function NewsSection() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-12 text-center sec-body">
           <Link
             href="/news"
             className="inline-flex items-center bg-charcoal-light text-white px-6 py-3 hover:bg-charcoal transition-colors"
