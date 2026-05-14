@@ -222,15 +222,15 @@ export default function Home() {
                 paddingRight: "56px",
                 backgroundColor: "rgba(0,0,0,0.75)",
                 backgroundImage: `
-                  repeating-linear-gradient(-45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 16px),
-                  repeating-linear-gradient(45deg, rgba(255,255,255,0.02) 0px, rgba(255,255,255,0.02) 1px, transparent 1px, transparent 16px)
+                  repeating-linear-gradient(-45deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 22px),
+                  repeating-linear-gradient(45deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 22px)
                 `,
               }}
             >
               {/* コンテンツ領域（高さがトランジション） */}
               <div
                 className="relative overflow-hidden transition-all duration-1000"
-                style={{ height: bandShrunk ? "32px" : "200px" }}
+                style={{ height: bandShrunk ? "32px" : "260px" }}
               >
                 {/* ── Phase 1: メインコピー ── */}
                 <div
@@ -250,9 +250,19 @@ export default function Home() {
                     想いを映像に。
                   </p>
                   <div
-                    className="w-full h-px bg-white/25 origin-left"
+                    className="w-full h-px bg-white/25 origin-left mb-8"
                     style={{ animation: "hero-line-expand 0.8s ease-out 3.0s both" }}
                   />
+                  <div
+                    className="flex items-center gap-5"
+                    style={{ animation: "slide-in-left 0.9s cubic-bezier(0.16, 1, 0.3, 1) 3.5s both" }}
+                  >
+                    <div className="w-1 h-10 bg-white/50" />
+                    <div className="flex flex-col">
+                      <span className="text-lg text-white tracking-[0.1em] font-light mb-1">企画構成から編集まで。</span>
+                      <span className="text-sm text-gray-300 tracking-[0.08em] font-light">ご希望に寄り添った提案をします。</span>
+                    </div>
+                  </div>
                 </div>
 
                 {/* ── Phase 2: サービス + お見積もり ── */}
