@@ -170,11 +170,11 @@ export default function Home() {
                 key={en}
                 href={href}
                 className={`font-bold flex flex-col items-center transition-colors duration-500 ${
-                  isScrolledPastHero ? "text-gray-700 hover:text-[#7a1a24]" : "text-white/90 hover:text-white"
+                  isScrolledPastHero ? "text-black hover:text-[#7a1a24]" : "text-white/90 hover:text-white"
                 }`}
               >
                 <span className="text-sm">{en}</span>
-                <span className={`text-[10px] font-normal tracking-wider transition-colors duration-500 ${isScrolledPastHero ? "text-[#7a1a24]/60" : "text-white/50"}`}>{ja}</span>
+                <span className={`text-[10px] font-normal tracking-wider transition-colors duration-500 ${isScrolledPastHero ? "text-gray-500" : "text-white/50"}`}>{ja}</span>
               </Link>
             ))}
             <a
@@ -182,11 +182,11 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               className={`font-bold flex flex-col items-center transition-colors duration-500 ${
-                isScrolledPastHero ? "text-gray-700 hover:text-[#7a1a24]" : "text-white/90 hover:text-white"
+                isScrolledPastHero ? "text-black hover:text-[#7a1a24]" : "text-white/90 hover:text-white"
               }`}
             >
               <span className="text-sm">CONTACT</span>
-              <span className={`text-[10px] font-normal tracking-wider transition-colors duration-500 ${isScrolledPastHero ? "text-[#7a1a24]/60" : "text-white/50"}`}>お問い合わせ</span>
+              <span className={`text-[10px] font-normal tracking-wider transition-colors duration-500 ${isScrolledPastHero ? "text-gray-500" : "text-white/50"}`}>お問い合わせ</span>
             </a>
           </div>
 
@@ -268,8 +268,8 @@ export default function Home() {
             <div
               className="relative border-t border-white/20 transition-all duration-1000"
               style={{
-                paddingTop: bandShrunk ? "12px" : "36px",
-                paddingBottom: bandShrunk ? "12px" : "36px",
+                paddingTop: bandShrunk ? "12px" : "27px",
+                paddingBottom: bandShrunk ? "12px" : "27px",
                 paddingLeft: "56px",
                 paddingRight: "56px",
                 backgroundColor: "rgba(0,0,0,0.75)",
@@ -282,7 +282,7 @@ export default function Home() {
               {/* コンテンツ領域（高さがトランジション） */}
               <div
                 className="relative overflow-hidden transition-all duration-1000"
-                style={{ height: bandShrunk ? "32px" : "210px" }}
+                style={{ height: bandShrunk ? "32px" : "158px" }}
               >
                 {/* ── Phase 1: メインコピー ── */}
                 <div
@@ -328,7 +328,7 @@ export default function Home() {
                         className="text-5xl font-bold text-white tracking-[0.12em] mb-8"
                         style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 0s both" }}
                       >
-                        映画・ドラマ&nbsp;&nbsp;/&nbsp;&nbsp;MV&nbsp;&nbsp;/&nbsp;&nbsp;CM&nbsp;&nbsp;/&nbsp;&nbsp;企業PR
+                        映画ドラマ、MV（ミュージックビデオ）、CM（コマーシャル）、企業PR
                       </h2>
                       <div
                         className="w-full h-px bg-white/25 mb-8 origin-left"
@@ -356,7 +356,7 @@ export default function Home() {
                   style={{ opacity: bandShrunk ? 1 : 0 }}
                 >
                   <span className="text-sm font-bold text-white tracking-[0.12em]">
-                    映像制作はエンリーへ&nbsp;&nbsp;|&nbsp;&nbsp;映画・ドラマ&nbsp;/&nbsp;MV&nbsp;/&nbsp;CM&nbsp;/&nbsp;企業PR
+                    映像制作はエンリーへ&nbsp;&nbsp;|&nbsp;&nbsp;映画ドラマ・MV・CM・企業PR
                   </span>
                   <a
                     href="https://docs.google.com/forms/d/e/1FAIpQLSdf35MRg59aC8PLeeNP3F7HCldqZF6YkM4cQi8J5jbMedF8EQ/viewform?usp=dialog"
@@ -588,7 +588,9 @@ export default function Home() {
                 <p>代表取締役: 田中 慎太郎</p>
                 <p>取締役: 小楠 啓展</p>
                 <p>事業内容: 映像関連総合事業</p>
-                <p>従業員数: 2名</p>
+                <p>適格請求書発行事業者登録番号: T5011001173408</p>
+                <p>電話番号: 03-6555-3562</p>
+                <p>メール: enry1019@gmail.com</p>
               </div>
             </div>
 
