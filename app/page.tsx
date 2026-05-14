@@ -135,6 +135,21 @@ export default function Home() {
 
   return (
     <div className="min-h-screen flex flex-col relative">
+      {/* Fixed watermark logo */}
+      <div
+        className="fixed inset-0 flex items-center justify-center pointer-events-none z-0 transition-opacity duration-700"
+        style={{ opacity: isScrolledPastHero ? 1 : 0 }}
+      >
+        <div className="relative w-full h-full max-w-4xl mx-auto">
+          <Image
+            src="/logo-final.png"
+            alt=""
+            fill
+            className="object-contain opacity-[0.05]"
+          />
+        </div>
+      </div>
+
       {/* Header */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolledPastHero
@@ -383,17 +398,6 @@ export default function Home() {
 
       {/* New Section - Tagline with Logo */}
       <section id="tagline-section" ref={taglineSectionRef} className="py-12 md:py-20 relative overflow-hidden">
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="relative w-full h-full max-w-4xl mx-auto">
-            <Image
-              src="/logo-final.png"
-              alt="株式会社en-ry（エンリー） background logo"
-              fill
-              className="object-contain opacity-5"
-              priority
-            />
-          </div>
-        </div>
 
         <div className="container mx-auto px-4">
           <div className="flex flex-col items-center justify-center min-h-[400px] md:min-h-[500px] relative">
