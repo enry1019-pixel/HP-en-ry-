@@ -282,7 +282,7 @@ export default function Home() {
               {/* コンテンツ領域（高さがトランジション） */}
               <div
                 className="relative overflow-hidden transition-all duration-1000"
-                style={{ height: bandShrunk ? "32px" : "185px" }}
+                style={{ height: bandShrunk ? "32px" : "210px" }}
               >
                 {/* ── Phase 1: メインコピー ── */}
                 <div
