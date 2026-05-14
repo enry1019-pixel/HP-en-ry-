@@ -216,8 +216,8 @@ export default function Home() {
             <div
               className="relative border-t border-white/20 transition-all duration-1000"
               style={{
-                paddingTop: bandShrunk ? "12px" : "64px",
-                paddingBottom: bandShrunk ? "12px" : "64px",
+                paddingTop: bandShrunk ? "12px" : "36px",
+                paddingBottom: bandShrunk ? "12px" : "36px",
                 paddingLeft: "56px",
                 paddingRight: "56px",
                 backgroundColor: "rgba(0,0,0,0.75)",
@@ -230,7 +230,7 @@ export default function Home() {
               {/* コンテンツ領域（高さがトランジション） */}
               <div
                 className="relative overflow-hidden transition-all duration-1000"
-                style={{ height: bandShrunk ? "32px" : "260px" }}
+                style={{ height: bandShrunk ? "32px" : "210px" }}
               >
                 {/* ── Phase 1: メインコピー ── */}
                 <div
@@ -238,19 +238,19 @@ export default function Home() {
                   style={{ opacity: !phase1Fading && !bandShrunk ? 1 : 0 }}
                 >
                   <h2
-                    className="text-6xl font-bold text-white tracking-[0.15em] mb-5"
+                    className="text-6xl font-bold text-white tracking-[0.15em] mb-3"
                     style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 1.8s both" }}
                   >
                     映像制作はエンリーへ
                   </h2>
                   <p
-                    className="text-xl font-light text-gray-300 tracking-[0.45em] mb-8"
+                    className="text-xl font-light text-gray-300 tracking-[0.45em] mb-5"
                     style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 2.3s both" }}
                   >
                     想いを映像に。
                   </p>
                   <div
-                    className="w-full h-px bg-white/25 origin-left mb-8"
+                    className="w-full h-px bg-white/25 origin-left mb-5"
                     style={{ animation: "hero-line-expand 0.8s ease-out 3.0s both" }}
                   />
                   <div
@@ -306,9 +306,14 @@ export default function Home() {
                   <span className="text-sm font-bold text-white tracking-[0.12em]">
                     映像制作はエンリーへ&nbsp;&nbsp;|&nbsp;&nbsp;映画・ドラマ&nbsp;/&nbsp;MV&nbsp;/&nbsp;CM&nbsp;/&nbsp;企業PR
                   </span>
-                  <span className="text-sm text-white/70 tracking-[0.2em]">
+                  <a
+                    href="https://docs.google.com/forms/d/e/1FAIpQLSdf35MRg59aC8PLeeNP3F7HCldqZF6YkM4cQi8J5jbMedF8EQ/viewform?usp=dialog"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-sm text-white/70 tracking-[0.2em] hover:text-white transition-colors pointer-events-auto underline-offset-4 hover:underline cursor-pointer"
+                  >
                     お見積もり&nbsp;<span className="font-bold text-white">無料</span>
-                  </span>
+                  </a>
                 </div>
               </div>
             </div>
