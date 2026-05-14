@@ -48,12 +48,12 @@ const config: Config = {
           foreground: "hsl(var(--card-foreground))",
         },
         charcoal: {
-          light: "#4e454a",
-          DEFAULT: "#3d3639",
+          light: "#7a1a24",
+          DEFAULT: "#3d0a10",
         },
         lightgray: {
-          DEFAULT: "#F5F5F5",
-          dark: "#E5E5E5",
+          DEFAULT: "#faf7f2",
+          dark: "#ede4d8",
         },
       },
       borderRadius: {
