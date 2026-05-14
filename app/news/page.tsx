@@ -98,7 +98,7 @@ export default function NewsPage() {
   return (
     <div className="min-h-screen flex flex-col bg-background relative">
 
-      <header className="sticky top-0 z-50 bg-[#0d0d0d]/95 backdrop-blur-sm border-b border-white/10">
+      <header className="sticky top-0 z-50 bg-[#faf7f2]/95 backdrop-blur-sm border-b border-[#d9cfc4]">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2">
             <Image
@@ -106,12 +106,12 @@ export default function NewsPage() {
               alt="株式会社en-ry（エンリー）"
               width={32}
               height={32}
-              className="object-contain invert"
+              className="object-contain"
             />
-            <h1 className="text-2xl font-bold text-white">en-ry</h1>
+            <h1 className="text-2xl font-bold text-[#1a1a1a]">en-ry</h1>
           </Link>
 
-          <Link href="/#news" className="inline-flex items-center text-gray-400 hover:text-white transition-colors">
+          <Link href="/#news" className="inline-flex items-center text-gray-600 hover:text-[#7a1a24] transition-colors">
             <ArrowLeft className="w-4 h-4 mr-2" />
             ホームに戻る
           </Link>
@@ -149,11 +149,11 @@ export default function NewsPage() {
             {filteredItems.map((item) => (
               <div
                 key={item.id}
-                className="block bg-[#1a1a1a] rounded-lg border border-white/10 hover:border-white/25 transition-all duration-300 overflow-hidden"
+                className="block bg-white rounded-lg border border-[#e0d8ce] hover:border-[#7a1a24]/40 hover:shadow-md transition-all duration-300 overflow-hidden"
               >
                 <div className="p-6">
                   <div className="flex flex-wrap items-center gap-3 mb-4">
-                    <div className="flex items-center text-gray-400 text-sm">
+                    <div className="flex items-center text-gray-500 text-sm">
                       <Calendar className="w-4 h-4 mr-1" />
                       <time>{item.date}</time>
                     </div>
@@ -164,8 +164,8 @@ export default function NewsPage() {
                       </span>
                     </div>
                   </div>
-                  <h2 className="text-xl font-bold text-white mb-3">{item.title}</h2>
-                  <p className="text-gray-400 leading-relaxed mb-3">{item.description}</p>
+                  <h2 className="text-xl font-bold text-[#1a1a1a] mb-3">{item.title}</h2>
+                  <p className="text-gray-600 leading-relaxed mb-3">{item.description}</p>
                   {item.detailUrl && (
                     <div className="mt-4">
                       <a
@@ -202,7 +202,7 @@ export default function NewsPage() {
         </div>
       </main>
 
-      <footer className="bg-[#080808] text-white py-12 mt-auto border-t border-white/10 relative z-10">
+      <footer className="bg-[#3d0a10] text-white py-12 mt-auto relative z-10">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <div className="flex items-center justify-center gap-2 mb-4">

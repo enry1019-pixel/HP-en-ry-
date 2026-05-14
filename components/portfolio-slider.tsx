@@ -299,10 +299,10 @@ export default function PortfolioSlider() {
         <button
           onClick={handlePrev}
           disabled={isTransitioning}
-          className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 rounded-full p-2 border border-white/20 transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white hover:bg-[#faf7f2] rounded-full p-2 border border-[#d9cfc4] shadow-sm transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="前へ"
         >
-          <ChevronLeft className="w-5 h-5 text-white" />
+          <ChevronLeft className="w-5 h-5 text-charcoal-light" />
         </button>
 
         <div
@@ -324,10 +324,10 @@ export default function PortfolioSlider() {
               return (
                 <div
                   key={`${item.title}-${index}`}
-                  className={`bg-[#1a1a1a] border rounded-lg overflow-hidden transition-all duration-700 ease-out cursor-pointer ${
+                  className={`bg-white border rounded-lg overflow-hidden transition-all duration-700 ease-out cursor-pointer ${
                     isCenter
-                      ? "border-white/25 shadow-xl transform scale-105 z-10"
-                      : "border-white/8 opacity-75 transform scale-95 hover:opacity-90"
+                      ? "border-[#7a1a24]/30 shadow-xl transform scale-105 z-10"
+                      : "border-[#e0d8ce] opacity-75 transform scale-95 hover:opacity-90"
                   }`}
                   style={{
                     minWidth: "80%",
@@ -355,11 +355,11 @@ export default function PortfolioSlider() {
                   </div>
                   <div className="p-4">
                     <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                    <p className="text-gray-400 mb-1">
+                    <p className="text-gray-600 mb-1">
                       {item.category} / {item.year}
                     </p>
-                    {item.description && <p className="text-xs text-gray-400 mb-1">{item.description}</p>}
-                    <p className="text-sm text-gray-400">{item.role}</p>
+                    {item.description && <p className="text-xs text-gray-500 mb-1">{item.description}</p>}
+                    <p className="text-sm text-gray-500">{item.role}</p>
                   </div>
                 </div>
               )
@@ -370,10 +370,10 @@ export default function PortfolioSlider() {
         <button
           onClick={handleNext}
           disabled={isTransitioning}
-          className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 rounded-full p-2 border border-white/20 transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white hover:bg-[#faf7f2] rounded-full p-2 border border-[#d9cfc4] shadow-sm transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="次へ"
         >
-          <ChevronRight className="w-5 h-5 text-white" />
+          <ChevronRight className="w-5 h-5 text-charcoal-light" />
         </button>
 
         <div className="flex justify-center mt-6 gap-2">
@@ -389,7 +389,7 @@ export default function PortfolioSlider() {
               className={`w-2 h-2 rounded-full transition-all duration-500 ${
                 actualIndex === index
                   ? "bg-charcoal-light scale-125"
-                  : "bg-white/30 hover:bg-white/50 scale-100"
+                  : "bg-[#d9cfc4] hover:bg-[#c9b8aa] scale-100"
               }`}
               aria-label={`スライド ${index + 1} に移動`}
             />

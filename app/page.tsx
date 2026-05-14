@@ -111,8 +111,8 @@ export default function Home() {
       {/* Header */}
       <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolledPastHero
-          ? "bg-[#0d0d0d]/95 backdrop-blur-sm border-b border-white/10"
-          : "bg-white/5 backdrop-blur-sm border-b border-white/10"
+          ? "bg-[#faf7f2]/95 backdrop-blur-sm border-b border-[#d9cfc4]"
+          : "bg-white/5 backdrop-blur-sm border-b border-white/15"
       }`}>
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-3">
@@ -121,13 +121,13 @@ export default function Home() {
               alt="株式会社en-ry（エンリー）"
               width={32}
               height={32}
-              className="object-contain invert"
+              className={`object-contain transition-all duration-500 ${isScrolledPastHero ? "" : "invert"}`}
             />
             <div className="flex flex-col leading-none">
-              <h1 className="text-2xl font-bold text-white">
+              <h1 className={`text-2xl font-bold transition-colors duration-500 ${isScrolledPastHero ? "text-[#1a1a1a]" : "text-white"}`}>
                 en-ry
               </h1>
-              <span className="text-[10px] tracking-[0.35em] text-white/60">
+              <span className={`text-[10px] tracking-[0.35em] transition-colors duration-500 ${isScrolledPastHero ? "text-[#7a1a24]/70" : "text-white/60"}`}>
                 エンリー
               </span>
             </div>
@@ -142,34 +142,40 @@ export default function Home() {
               <Link
                 key={en}
                 href={href}
-                className="font-bold flex flex-col items-center text-white/80 hover:text-white transition-colors duration-300"
+                className={`font-bold flex flex-col items-center transition-colors duration-500 ${
+                  isScrolledPastHero ? "text-gray-700 hover:text-[#7a1a24]" : "text-white/90 hover:text-white"
+                }`}
               >
                 <span className="text-sm">{en}</span>
-                <span className="text-[10px] font-normal tracking-wider text-white/50">{ja}</span>
+                <span className={`text-[10px] font-normal tracking-wider transition-colors duration-500 ${isScrolledPastHero ? "text-[#7a1a24]/60" : "text-white/50"}`}>{ja}</span>
               </Link>
             ))}
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSdf35MRg59aC8PLeeNP3F7HCldqZF6YkM4cQi8J5jbMedF8EQ/viewform?usp=dialog"
               target="_blank"
               rel="noopener noreferrer"
-              className="font-bold flex flex-col items-center text-white/80 hover:text-white transition-colors duration-300"
+              className={`font-bold flex flex-col items-center transition-colors duration-500 ${
+                isScrolledPastHero ? "text-gray-700 hover:text-[#7a1a24]" : "text-white/90 hover:text-white"
+              }`}
             >
               <span className="text-sm">CONTACT</span>
-              <span className="text-[10px] font-normal tracking-wider text-white/50">お問い合わせ</span>
+              <span className={`text-[10px] font-normal tracking-wider transition-colors duration-500 ${isScrolledPastHero ? "text-[#7a1a24]/60" : "text-white/50"}`}>お問い合わせ</span>
             </a>
           </div>
 
           <button className="md:hidden z-50 relative" onClick={toggleMobileMenu}>
             {isMobileMenuOpen
-              ? <X className="w-6 h-6 text-white" />
-              : <Menu className="w-6 h-6 text-white" />
+              ? <X className={`w-6 h-6 transition-colors duration-500 ${isScrolledPastHero ? "text-[#1a1a1a]" : "text-white"}`} />
+              : <Menu className={`w-6 h-6 transition-colors duration-500 ${isScrolledPastHero ? "text-[#1a1a1a]" : "text-white"}`} />
             }
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 border-t bg-[#0d0d0d]/95 backdrop-blur-sm border-white/10 shadow-lg z-40">
+          <div className={`md:hidden absolute top-full left-0 right-0 border-t shadow-lg z-40 ${
+            isScrolledPastHero ? "bg-[#faf7f2] border-[#d9cfc4]" : "bg-black/75 backdrop-blur-sm border-white/20"
+          }`}>
             <div className="container mx-auto px-4 py-4">
               <nav className="flex flex-col space-y-4">
                 {[
@@ -180,12 +186,14 @@ export default function Home() {
                   <Link
                     key={en}
                     href={href}
-                    className="font-bold py-3 border-b border-white/10 text-white/80 hover:text-white transition-colors"
+                    className={`font-bold py-3 border-b transition-colors ${
+                      isScrolledPastHero ? "text-gray-700 border-[#d9cfc4]" : "text-white border-white/10"
+                    }`}
                     onClick={closeMobileMenu}
                   >
                     <div className="flex flex-col">
                       <span className="text-base">{en}</span>
-                      <span className="text-sm font-normal text-white/50">{ja}</span>
+                      <span className={`text-sm font-normal ${isScrolledPastHero ? "text-[#7a1a24]/60" : "text-white/50"}`}>{ja}</span>
                     </div>
                   </Link>
                 ))}
@@ -193,12 +201,14 @@ export default function Home() {
                   href="https://docs.google.com/forms/d/e/1FAIpQLSdf35MRg59aC8PLeeNP3F7HCldqZF6YkM4cQi8J5jbMedF8EQ/viewform?usp=dialog"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="font-bold py-3 text-white/80 hover:text-white transition-colors"
+                  className={`font-bold py-3 transition-colors ${
+                    isScrolledPastHero ? "text-gray-700" : "text-white"
+                  }`}
                   onClick={closeMobileMenu}
                 >
                   <div className="flex flex-col">
                     <span className="text-base">CONTACT</span>
-                    <span className="text-sm font-normal text-white/50">お問い合わせ</span>
+                    <span className={`text-sm font-normal ${isScrolledPastHero ? "text-[#7a1a24]/60" : "text-white/50"}`}>お問い合わせ</span>
                   </div>
                 </a>
               </nav>
@@ -396,13 +406,13 @@ export default function Home() {
             </div>
 
             <div className="text-center max-w-3xl px-4 mt-16 md:mt-20 relative z-10">
-              <p className="text-gray-300 leading-relaxed text-base md:text-lg mb-8">
+              <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-8">
                 株式会社en-ryは、「縁(en)」と「memory(メモリー)」を掛け合わせた社名のもと、
                 <br className="hidden md:block" />
                 人と人の出会いや大切な瞬間を、永遠に残る物語として映像に刻み、未来へと紡いでいくことを使命としています。
               </p>
 
-              <p className="text-gray-300 leading-relaxed text-base md:text-lg">
+              <p className="text-gray-600 leading-relaxed text-base md:text-lg">
                 映像は単なる記録ではなく、心を動かし、人をつなぐ力を持っています。
                 <br className="hidden md:block" />
                 現役映画監督による確かな表現力と幅広い経験を活かし、
@@ -424,8 +434,8 @@ export default function Home() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-2">SERVICES</h2>
-            <p className="text-lg text-gray-400 mb-4">サービス</p>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-500 mb-4">サービス</p>
+            <p className="text-gray-500 max-w-2xl mx-auto">
               私たちは、映像制作のプロフェッショナルとして、様々なサービスを提供しています。
               お客様のニーズに合わせた最適な映像制作をご提案します。
             </p>
@@ -445,8 +455,8 @@ export default function Home() {
 
           <div className="text-center mt-16">
             <div className="bg-lightgray p-8 rounded-lg border border-white/10 max-w-2xl mx-auto">
-              <h3 className="text-xl font-bold mb-4 text-white">サービス内容についてご質問がございましたら</h3>
-              <p className="text-gray-400 mb-6">
+              <h3 className="text-xl font-bold mb-4 text-charcoal-light">サービス内容についてご質問がございましたら</h3>
+              <p className="text-gray-600 mb-6">
                 詳しい制作プロセスや、お客様のプロジェクトに最適なプランについて、お気軽にご相談ください。お見積りは無料です。お客様のご要望に合わせた最適なプランをご提案させていただきます。
               </p>
               <div className="flex justify-center">
@@ -469,8 +479,8 @@ export default function Home() {
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-2">PORTFOLIO</h2>
-            <p className="text-lg text-gray-400 mb-4">制作実績（田中慎太郎監督作品）</p>
-            <p className="text-gray-400 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-500 mb-4">制作実績（田中慎太郎監督作品）</p>
+            <p className="text-gray-500 max-w-2xl mx-auto">
               これまでに制作した映像作品の一部をご紹介します。 様々な業界のクライアント様と協力して制作した作品です。
             </p>
           </div>
@@ -490,7 +500,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer id="footer" className="bg-[#080808] text-white py-12 border-t border-white/10">
+      <footer id="footer" className="bg-[#3d0a10] text-white py-12 border-t border-white/10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-10">
             {/* Company Info */}

@@ -72,18 +72,18 @@ export default function NewsSection() {
           {newsItems.map((item) => (
             <div
               key={item.id}
-              className="relative z-20 bg-card p-6 rounded-lg border border-white/10 hover:border-white/20 transition-all duration-300"
+              className="relative z-20 bg-white p-6 rounded-lg border border-[#e0d8ce] hover:border-[#c9a96e] hover:shadow-md transition-all duration-300"
             >
               <div className="flex flex-col md:flex-row md:items-center gap-4">
                 <div className="flex items-center gap-4 md:w-1/3">
-                  <time className="text-sm text-gray-400 font-medium whitespace-nowrap">{item.date}</time>
+                  <time className="text-sm text-gray-500 font-medium whitespace-nowrap">{item.date}</time>
                   <span className="inline-block bg-charcoal-light text-white text-xs px-3 py-1 rounded-full whitespace-nowrap">
                     {item.category}
                   </span>
                 </div>
                 <div className="md:w-2/3">
                   <h3 className="text-lg font-bold text-charcoal-light mb-2">{item.title}</h3>
-                  <p className="text-gray-400 text-sm mb-2">{item.description}</p>
+                  <p className="text-gray-600 text-sm mb-2">{item.description}</p>
                   {item.detailUrl && (
                     <a
                       href={item.detailUrl}
