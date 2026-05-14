@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight, Menu, X, Volume2, VolumeX, Instagram, Youtube } from "lucide-react"
-import ServiceSlider from "@/components/service-slider"
+import ServiceFilm from "@/components/service-film"
 import PortfolioSlider from "@/components/portfolio-slider"
 import NewsSection from "@/components/news-section"
 
@@ -492,7 +492,7 @@ export default function Home() {
           </div>
 
           <div className="sec-body">
-          <ServiceSlider />
+          <ServiceFilm />
 
           <div className="mt-12 text-center">
             <Link
