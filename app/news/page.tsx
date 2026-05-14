@@ -159,7 +159,7 @@ export default function NewsPage() {
                     </div>
                     <div className="flex items-center">
                       <Tag className="w-4 h-4 mr-1 text-charcoal-light" />
-                      <span className="inline-block bg-charcoal-light text-white text-xs px-3 py-1 rounded-full">
+                      <span className="inline-block bg-gray-800 text-white text-xs px-3 py-1 rounded-full">
                         {item.category}
                       </span>
                     </div>

@@ -105,11 +105,9 @@ export default function Home() {
 
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          if (entry.target === newsSectionRef.current) setIsNewsSectionVisible(true)
-          if (entry.target === servicesSectionRef.current) setIsServicesSectionVisible(true)
-          if (entry.target === portfolioSectionRef.current) setIsPortfolioSectionVisible(true)
-        }
+        if (entry.target === newsSectionRef.current) setIsNewsSectionVisible(entry.isIntersecting)
+        if (entry.target === servicesSectionRef.current) setIsServicesSectionVisible(entry.isIntersecting)
+        if (entry.target === portfolioSectionRef.current) setIsPortfolioSectionVisible(entry.isIntersecting)
       })
     }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" })
 
@@ -455,7 +453,7 @@ export default function Home() {
       <section
         id="services"
         ref={servicesSectionRef}
-        className={`py-20 relative overflow-hidden border-t border-[#7a1a24]/15 section-reveal ${isServicesSectionVisible ? "visible" : ""}`}
+        className={`py-20 relative overflow-hidden section-reveal ${isServicesSectionVisible ? "visible" : ""}`}
       >
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
@@ -484,7 +482,7 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-16">
-            <div className="bg-lightgray p-8 rounded-lg border border-white/10 max-w-2xl mx-auto">
+            <div className="bg-white p-8 rounded-lg border border-[#e0d8ce] shadow-sm max-w-2xl mx-auto">
               <h3 className="text-xl font-bold mb-4 text-charcoal-light">サービス内容についてご質問がございましたら</h3>
               <p className="text-gray-600 mb-6">
                 詳しい制作プロセスや、お客様のプロジェクトに最適なプランについて、お気軽にご相談ください。お見積りは無料です。お客様のご要望に合わせた最適なプランをご提案させていただきます。
@@ -508,7 +506,7 @@ export default function Home() {
       <section
         id="works"
         ref={portfolioSectionRef}
-        className={`py-20 bg-lightgray relative overflow-hidden border-t border-[#7a1a24]/15 section-reveal ${isPortfolioSectionVisible ? "visible" : ""}`}
+        className={`py-20 bg-lightgray relative overflow-hidden section-reveal ${isPortfolioSectionVisible ? "visible" : ""}`}
       >
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">

@@ -61,7 +61,7 @@ const newsItems: NewsItem[] = [
 
 export default function NewsSection() {
   return (
-    <section id="news" className="py-20 bg-lightgray relative overflow-hidden border-t border-[#7a1a24]/15">
+    <section id="news" className="py-20 bg-lightgray relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <div className="flex items-center justify-center gap-5 mb-3">
@@ -81,12 +81,12 @@ export default function NewsSection() {
               <div className="flex flex-col md:flex-row md:items-center gap-4">
                 <div className="flex items-center gap-4 md:w-1/3">
                   <time className="text-sm text-gray-500 font-medium whitespace-nowrap">{item.date}</time>
-                  <span className="inline-block bg-charcoal-light text-white text-xs px-3 py-1 rounded-full whitespace-nowrap">
+                  <span className="inline-block bg-gray-800 text-white text-xs px-3 py-1 rounded-full whitespace-nowrap">
                     {item.category}
                   </span>
                 </div>
                 <div className="md:w-2/3">
-                  <h3 className="text-lg font-bold text-charcoal-light mb-2">{item.title}</h3>
+                  <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
                   <p className="text-gray-600 text-sm mb-2">{item.description}</p>
                   {item.detailUrl && (
                     <a
