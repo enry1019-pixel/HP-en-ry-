@@ -9,25 +9,29 @@ const services = [
     id: "01",
     title: "映画・ドラマ",
     description: "現役映画監督が手がける本格的な映像表現。あなたの物語を銀幕に刻みます。",
-    image: "/film-director-back-view-cinema-camera.jpg",
+    image: "/service-film-drama.jpg",
+    grade: "contrast(1.2) brightness(0.72) saturate(0.75) hue-rotate(185deg)",
   },
   {
     id: "02",
     title: "CM",
     description: "ブランドの核心を一瞬に凝縮。視聴者の記憶に刻まれるコマーシャルを制作します。",
-    image: "/corporate-business-presentation-office-professiona.jpg",
+    image: "/service-cm.jpg",
+    grade: "contrast(1.15) brightness(0.68) saturate(1.1) sepia(0.25)",
   },
   {
     id: "03",
     title: "企業PR",
     description: "企業の想いと実績を力強く伝える、戦略的なプロモーション映像をお届けします。",
-    image: "/fukui-pr-thumbnail.jpg",
+    image: "/service-pr.jpg",
+    grade: "contrast(1.25) brightness(0.65) saturate(0.6) hue-rotate(200deg)",
   },
   {
     id: "04",
     title: "MV",
     description: "アーティストの世界観を最大限に引き出す、唯一無二のミュージックビデオを。",
-    image: "/mv-production-female-artist-filming.jpg",
+    image: "/service-mv.jpg",
+    grade: "contrast(1.1) brightness(0.75) saturate(1.35) sepia(0.15)",
   },
 ]
 
@@ -103,7 +107,7 @@ export default function ServiceFilm() {
                 fill
                 className="object-cover"
                 style={{
-                  filter: "contrast(1.15) brightness(0.7) saturate(0.8)",
+                  filter: service.grade,
                 }}
               />
             </div>
