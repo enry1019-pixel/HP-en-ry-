@@ -61,11 +61,15 @@ const newsItems: NewsItem[] = [
 
 export default function NewsSection() {
   return (
-    <section id="news" className="py-20 bg-lightgray relative overflow-hidden">
+    <section id="news" className="py-20 bg-lightgray relative overflow-hidden border-t border-[#7a1a24]/15">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-2">NEWS</h2>
-          <p className="text-lg text-gray-500 mb-4">ニュース</p>
+          <div className="flex items-center justify-center gap-5 mb-3">
+            <div className="w-14 h-px bg-[#7a1a24]/50" />
+            <h2 className="text-3xl font-bold tracking-widest">NEWS</h2>
+            <div className="w-14 h-px bg-[#7a1a24]/50" />
+          </div>
+          <p className="text-lg text-gray-500">ニュース</p>
         </div>
 
         <div className="max-w-4xl mx-auto space-y-6">

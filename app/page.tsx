@@ -455,12 +455,16 @@ export default function Home() {
       <section
         id="services"
         ref={servicesSectionRef}
-        className={`py-20 relative overflow-hidden section-reveal ${isServicesSectionVisible ? "visible" : ""}`}
+        className={`py-20 relative overflow-hidden border-t border-[#7a1a24]/15 section-reveal ${isServicesSectionVisible ? "visible" : ""}`}
       >
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-2">SERVICES</h2>
-            <p className="text-lg text-gray-500 mb-4">サービス</p>
+            <div className="flex items-center justify-center gap-5 mb-3">
+              <div className="w-14 h-px bg-[#7a1a24]/50" />
+              <h2 className="text-3xl font-bold tracking-widest">SERVICES</h2>
+              <div className="w-14 h-px bg-[#7a1a24]/50" />
+            </div>
+            <p className="text-lg text-gray-500 mb-4">事業内容</p>
             <p className="text-gray-500 max-w-2xl mx-auto">
               私たちは、映像制作のプロフェッショナルとして、様々なサービスを提供しています。
               お客様のニーズに合わせた最適な映像制作をご提案します。
@@ -504,11 +508,15 @@ export default function Home() {
       <section
         id="works"
         ref={portfolioSectionRef}
-        className={`py-20 bg-lightgray relative overflow-hidden section-reveal ${isPortfolioSectionVisible ? "visible" : ""}`}
+        className={`py-20 bg-lightgray relative overflow-hidden border-t border-[#7a1a24]/15 section-reveal ${isPortfolioSectionVisible ? "visible" : ""}`}
       >
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold mb-2">PORTFOLIO</h2>
+            <div className="flex items-center justify-center gap-5 mb-3">
+              <div className="w-14 h-px bg-[#7a1a24]/50" />
+              <h2 className="text-3xl font-bold tracking-widest">PORTFOLIO</h2>
+              <div className="w-14 h-px bg-[#7a1a24]/50" />
+            </div>
             <p className="text-lg text-gray-500 mb-4">制作実績（田中慎太郎監督作品）</p>
             <p className="text-gray-500 max-w-2xl mx-auto">
               これまでに制作した映像作品の一部をご紹介します。 様々な業界のクライアント様と協力して制作した作品です。
