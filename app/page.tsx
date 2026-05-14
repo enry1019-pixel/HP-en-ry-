@@ -192,9 +192,23 @@ export default function Home() {
           />
         </div>
 
+        {/* グラデーションオーバーレイ */}
+        <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent z-10 pointer-events-none" />
+
+        {/* オーバーレイテキスト */}
+        <div className="hidden md:flex absolute bottom-16 left-12 z-20 flex-col text-white">
+          <p className="text-xs tracking-[0.5em] text-gray-300 font-light mb-4 uppercase">
+            映像制作&nbsp;&nbsp;/&nbsp;&nbsp;MV&nbsp;&nbsp;/&nbsp;&nbsp;企業VP&nbsp;&nbsp;/&nbsp;&nbsp;俳優リール
+          </p>
+          <div className="w-10 h-px bg-white/50 mb-5" />
+          <h2 className="text-5xl font-bold tracking-widest leading-tight drop-shadow-lg">
+            映像で、<br />記憶を残す。
+          </h2>
+        </div>
+
         <button
           onClick={toggleMute}
-          className="absolute bottom-4 right-4 md:bottom-8 md:right-8 z-10 bg-black/30 backdrop-blur-sm hover:bg-black/50 text-white p-2 md:p-4 rounded-full transition-all duration-300 hover:scale-110"
+          className="absolute bottom-4 right-4 md:bottom-8 md:right-8 z-30 bg-black/30 backdrop-blur-sm hover:bg-black/50 text-white p-2 md:p-4 rounded-full transition-all duration-300 hover:scale-110"
           aria-label={isMuted ? "音声をオンにする" : "音声をオフにする"}
         >
           {isMuted ? <VolumeX className="w-4 h-4 md:w-6 md:h-6" /> : <Volume2 className="w-4 h-4 md:w-6 md:h-6" />}
