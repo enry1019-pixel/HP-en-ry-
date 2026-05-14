@@ -37,10 +37,10 @@ export default function Home() {
   }
 
   useEffect(() => {
-    const p1Fade = setTimeout(() => setPhase1Fading(true), 3200)
-    const p2Show = setTimeout(() => setPhase2Visible(true), 3700)
-    const fade  = setTimeout(() => setHeroFading(true), 5800)
-    const hide  = setTimeout(() => setHeroHidden(true), 6800)
+    const p1Fade = setTimeout(() => setPhase1Fading(true), 6400)
+    const p2Show = setTimeout(() => setPhase2Visible(true), 7400)
+    const fade  = setTimeout(() => setHeroFading(true), 11600)
+    const hide  = setTimeout(() => setHeroHidden(true), 13600)
     return () => {
       clearTimeout(p1Fade)
       clearTimeout(p2Show)
@@ -240,19 +240,19 @@ export default function Home() {
                   >
                     <h2
                       className="text-6xl font-bold text-white tracking-[0.15em] mb-5"
-                      style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both" }}
+                      style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 1.8s both" }}
                     >
                       映像制作はエンリーへ
                     </h2>
                     <p
                       className="text-xl font-light text-gray-300 tracking-[0.45em] mb-8"
-                      style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 1.15s both" }}
+                      style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 2.3s both" }}
                     >
                       想いを映像に。
                     </p>
                     <div
                       className="w-full h-px bg-white/25 origin-left"
-                      style={{ animation: "hero-line-expand 0.8s ease-out 1.5s both" }}
+                      style={{ animation: "hero-line-expand 0.8s ease-out 3.0s both" }}
                     />
                   </div>
 
@@ -271,11 +271,11 @@ export default function Home() {
                         </h2>
                         <div
                           className="w-full h-px bg-white/25 mb-8 origin-left"
-                          style={{ animation: "hero-line-expand 0.8s ease-out 0.7s both" }}
+                          style={{ animation: "hero-line-expand 0.8s ease-out 1.4s both" }}
                         />
                         <div
                           className="flex items-center gap-5"
-                          style={{ animation: "slide-in-left 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.9s both" }}
+                          style={{ animation: "slide-in-left 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.8s both" }}
                         >
                           <div className="w-1 h-10 bg-white/50" />
                           <div className="flex flex-col">
