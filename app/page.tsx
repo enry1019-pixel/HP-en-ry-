@@ -105,11 +105,23 @@ export default function Home() {
 
     const sectionObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
-        if (entry.target === newsSectionRef.current) setIsNewsSectionVisible(entry.isIntersecting)
-        if (entry.target === servicesSectionRef.current) setIsServicesSectionVisible(entry.isIntersecting)
-        if (entry.target === portfolioSectionRef.current) setIsPortfolioSectionVisible(entry.isIntersecting)
+        const aboveViewport = entry.boundingClientRect.top < 0
+        const show = entry.isIntersecting
+        const hide = !entry.isIntersecting && !aboveViewport
+        if (entry.target === newsSectionRef.current) {
+          if (show) setIsNewsSectionVisible(true)
+          else if (hide) setIsNewsSectionVisible(false)
+        }
+        if (entry.target === servicesSectionRef.current) {
+          if (show) setIsServicesSectionVisible(true)
+          else if (hide) setIsServicesSectionVisible(false)
+        }
+        if (entry.target === portfolioSectionRef.current) {
+          if (show) setIsPortfolioSectionVisible(true)
+          else if (hide) setIsPortfolioSectionVisible(false)
+        }
       })
-    }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" })
+    }, { threshold: 0.08 })
 
     if (newsSectionRef.current) sectionObserver.observe(newsSectionRef.current)
     if (servicesSectionRef.current) sectionObserver.observe(servicesSectionRef.current)
@@ -457,10 +469,16 @@ export default function Home() {
       >
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-5 mb-3">
-              <div className="w-14 h-px bg-[#7a1a24]/50" />
+            <div className="flex items-center justify-center gap-4 mb-3">
+              <div className="flex items-center gap-2">
+                <div className="w-16 h-px bg-gradient-to-r from-transparent to-[#7a1a24]/55" />
+                <div className="w-1.5 h-1.5 rotate-45 bg-[#7a1a24]/55 shrink-0" />
+              </div>
               <h2 className="text-3xl font-bold tracking-widest">SERVICES</h2>
-              <div className="w-14 h-px bg-[#7a1a24]/50" />
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rotate-45 bg-[#7a1a24]/55 shrink-0" />
+                <div className="w-16 h-px bg-gradient-to-l from-transparent to-[#7a1a24]/55" />
+              </div>
             </div>
             <p className="text-lg text-gray-500 mb-4">事業内容</p>
             <p className="text-gray-500 max-w-2xl mx-auto">
@@ -510,10 +528,16 @@ export default function Home() {
       >
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <div className="flex items-center justify-center gap-5 mb-3">
-              <div className="w-14 h-px bg-[#7a1a24]/50" />
+            <div className="flex items-center justify-center gap-4 mb-3">
+              <div className="flex items-center gap-2">
+                <div className="w-16 h-px bg-gradient-to-r from-transparent to-[#7a1a24]/55" />
+                <div className="w-1.5 h-1.5 rotate-45 bg-[#7a1a24]/55 shrink-0" />
+              </div>
               <h2 className="text-3xl font-bold tracking-widest">PORTFOLIO</h2>
-              <div className="w-14 h-px bg-[#7a1a24]/50" />
+              <div className="flex items-center gap-2">
+                <div className="w-1.5 h-1.5 rotate-45 bg-[#7a1a24]/55 shrink-0" />
+                <div className="w-16 h-px bg-gradient-to-l from-transparent to-[#7a1a24]/55" />
+              </div>
             </div>
             <p className="text-lg text-gray-500 mb-4">制作実績（田中慎太郎監督作品）</p>
             <p className="text-gray-500 max-w-2xl mx-auto">

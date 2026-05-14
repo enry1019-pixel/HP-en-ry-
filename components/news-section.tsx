@@ -64,10 +64,16 @@ export default function NewsSection() {
     <section id="news" className="py-20 bg-lightgray relative overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <div className="flex items-center justify-center gap-5 mb-3">
-            <div className="w-14 h-px bg-[#7a1a24]/50" />
+          <div className="flex items-center justify-center gap-4 mb-3">
+            <div className="flex items-center gap-2">
+              <div className="w-16 h-px bg-gradient-to-r from-transparent to-[#7a1a24]/55" />
+              <div className="w-1.5 h-1.5 rotate-45 bg-[#7a1a24]/55 shrink-0" />
+            </div>
             <h2 className="text-3xl font-bold tracking-widest">NEWS</h2>
-            <div className="w-14 h-px bg-[#7a1a24]/50" />
+            <div className="flex items-center gap-2">
+              <div className="w-1.5 h-1.5 rotate-45 bg-[#7a1a24]/55 shrink-0" />
+              <div className="w-16 h-px bg-gradient-to-l from-transparent to-[#7a1a24]/55" />
+            </div>
           </div>
           <p className="text-lg text-gray-500">ニュース</p>
         </div>
