@@ -14,6 +14,7 @@ export default function Home() {
   const [phase1Fading, setPhase1Fading] = useState(false)
   const [phase2Visible, setPhase2Visible] = useState(false)
   const [bandShrunk, setBandShrunk] = useState(false)
+  const [isScrolledPastHero, setIsScrolledPastHero] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
   const handwrittenTextRef = useRef<HTMLDivElement>(null)
   const taglineSectionRef = useRef<HTMLDivElement>(null)
@@ -44,6 +45,15 @@ export default function Home() {
       clearTimeout(p2Show)
       clearTimeout(shrink)
     }
+  }, [])
+
+  useEffect(() => {
+    const handleHeroScroll = () => {
+      setIsScrolledPastHero(window.scrollY > window.innerHeight * 0.85)
+    }
+    handleHeroScroll()
+    window.addEventListener("scroll", handleHeroScroll)
+    return () => window.removeEventListener("scroll", handleHeroScroll)
   }, [])
 
   useEffect(() => {
@@ -99,91 +109,106 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col relative">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white">
+      <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolledPastHero
+          ? "bg-white border-b border-gray-200"
+          : "bg-white/10 backdrop-blur-sm border-b border-white/15"
+      }`}>
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="flex items-center">
-              <Image
-                src="/logo-final.png"
-                alt="株式会社en-ry（エンリー）"
-                width={32}
-                height={32}
-                className="object-contain"
-              />
+          <Link href="/" className="flex items-center gap-3">
+            <Image
+              src="/logo-final.png"
+              alt="株式会社en-ry（エンリー）"
+              width={32}
+              height={32}
+              className={`object-contain transition-all duration-500 ${isScrolledPastHero ? "" : "invert"}`}
+            />
+            <div className="flex flex-col leading-none">
+              <h1 className={`text-2xl font-bold transition-colors duration-500 ${isScrolledPastHero ? "text-black" : "text-white"}`}>
+                en-ry
+              </h1>
+              <span className={`text-[10px] tracking-[0.35em] transition-colors duration-500 ${isScrolledPastHero ? "text-gray-400" : "text-white/70"}`}>
+                エンリー
+              </span>
             </div>
-            <h1 className="text-2xl font-bold">en-ry</h1>
           </Link>
 
           <div className="hidden md:flex items-center space-x-8">
-            <Link href="#news" className="text-gray-700 hover:text-black font-bold">
-              NEWS
-            </Link>
-            <Link href="#services" className="text-gray-700 hover:text-black font-bold">
-              SERVICES
-            </Link>
-            <Link href="#works" className="text-gray-700 hover:text-black font-bold">
-              PORTFOLIO
-            </Link>
+            {[
+              { href: "#news", en: "NEWS", ja: "お知らせ" },
+              { href: "#services", en: "SERVICES", ja: "事業内容" },
+              { href: "#works", en: "PORTFOLIO", ja: "実績" },
+            ].map(({ href, en, ja }) => (
+              <Link
+                key={en}
+                href={href}
+                className={`font-bold transition-colors duration-500 flex flex-col items-center ${
+                  isScrolledPastHero ? "text-gray-700 hover:text-black" : "text-white/90 hover:text-white"
+                }`}
+              >
+                <span className="text-sm">{en}</span>
+                <span className={`text-[10px] font-normal tracking-wider transition-colors duration-500 ${isScrolledPastHero ? "text-gray-400" : "text-white/60"}`}>{ja}</span>
+              </Link>
+            ))}
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSdf35MRg59aC8PLeeNP3F7HCldqZF6YkM4cQi8J5jbMedF8EQ/viewform?usp=dialog"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-700 hover:text-black font-bold"
+              className={`font-bold transition-colors duration-500 flex flex-col items-center ${
+                isScrolledPastHero ? "text-gray-700 hover:text-black" : "text-white/90 hover:text-white"
+              }`}
             >
-              CONTACT
+              <span className="text-sm">CONTACT</span>
+              <span className={`text-[10px] font-normal tracking-wider transition-colors duration-500 ${isScrolledPastHero ? "text-gray-400" : "text-white/60"}`}>お問い合わせ</span>
             </a>
           </div>
 
           <button className="md:hidden z-50 relative" onClick={toggleMobileMenu}>
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {isMobileMenuOpen
+              ? <X className={`w-6 h-6 transition-colors duration-500 ${isScrolledPastHero ? "text-black" : "text-white"}`} />
+              : <Menu className={`w-6 h-6 transition-colors duration-500 ${isScrolledPastHero ? "text-black" : "text-white"}`} />
+            }
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t border-gray-200 shadow-lg z-40">
+          <div className={`md:hidden absolute top-full left-0 right-0 border-t shadow-lg z-40 ${
+            isScrolledPastHero ? "bg-white border-gray-200" : "bg-black/75 backdrop-blur-sm border-white/20"
+          }`}>
             <div className="container mx-auto px-4 py-4">
               <nav className="flex flex-col space-y-4">
-                <Link
-                  href="#news"
-                  className="text-gray-700 hover:text-black font-bold py-3 border-b border-gray-100"
-                  onClick={closeMobileMenu}
-                >
-                  <div className="flex flex-col">
-                    <span className="text-base">NEWS</span>
-                    <span className="text-sm text-gray-500 font-normal">ニュース</span>
-                  </div>
-                </Link>
-                <Link
-                  href="#services"
-                  className="text-gray-700 hover:text-black font-bold py-3 border-b border-gray-100"
-                  onClick={closeMobileMenu}
-                >
-                  <div className="flex flex-col">
-                    <span className="text-base">SERVICES</span>
-                    <span className="text-sm text-gray-500 font-normal">サービス</span>
-                  </div>
-                </Link>
-                <Link
-                  href="#works"
-                  className="text-gray-700 hover:text-black font-bold py-3 border-b border-gray-100"
-                  onClick={closeMobileMenu}
-                >
-                  <div className="flex flex-col">
-                    <span className="text-base">PORTFOLIO</span>
-                    <span className="text-sm text-gray-500 font-normal">制作実績</span>
-                  </div>
-                </Link>
+                {[
+                  { href: "#news", en: "NEWS", ja: "お知らせ" },
+                  { href: "#services", en: "SERVICES", ja: "事業内容" },
+                  { href: "#works", en: "PORTFOLIO", ja: "実績" },
+                ].map(({ href, en, ja }) => (
+                  <Link
+                    key={en}
+                    href={href}
+                    className={`font-bold py-3 border-b transition-colors duration-500 ${
+                      isScrolledPastHero ? "text-gray-700 hover:text-black border-gray-100" : "text-white border-white/10"
+                    }`}
+                    onClick={closeMobileMenu}
+                  >
+                    <div className="flex flex-col">
+                      <span className="text-base">{en}</span>
+                      <span className={`text-sm font-normal ${isScrolledPastHero ? "text-gray-500" : "text-white/60"}`}>{ja}</span>
+                    </div>
+                  </Link>
+                ))}
                 <a
                   href="https://docs.google.com/forms/d/e/1FAIpQLSdf35MRg59aC8PLeeNP3F7HCldqZF6YkM4cQi8J5jbMedF8EQ/viewform?usp=dialog"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-700 hover:text-black font-bold py-3"
+                  className={`font-bold py-3 transition-colors duration-500 ${
+                    isScrolledPastHero ? "text-gray-700 hover:text-black" : "text-white"
+                  }`}
                   onClick={closeMobileMenu}
                 >
                   <div className="flex flex-col">
                     <span className="text-base">CONTACT</span>
-                    <span className="text-sm text-gray-500 font-normal">お問い合わせ</span>
+                    <span className={`text-sm font-normal ${isScrolledPastHero ? "text-gray-500" : "text-white/60"}`}>お問い合わせ</span>
                   </div>
                 </a>
               </nav>
