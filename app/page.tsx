@@ -486,8 +486,9 @@ export default function Home() {
             </div>
             <p className="text-lg text-gray-500 mb-4 sec-subtitle">事業内容</p>
             <p className="text-gray-500 max-w-2xl mx-auto sec-subtitle">
-              私たちは、映像制作のプロフェッショナルとして、様々なサービスを提供しています。
               お客様のニーズに合わせた最適な映像制作をご提案します。
+              <br />
+              企画段階からお気軽にご相談下さい。
             </p>
           </div>
 
