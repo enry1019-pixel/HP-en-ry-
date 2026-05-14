@@ -11,6 +11,8 @@ import NewsSection from "@/components/news-section"
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [isMuted, setIsMuted] = useState(true)
+  const [heroFading, setHeroFading] = useState(false)
+  const [heroHidden, setHeroHidden] = useState(false)
   const videoRef = useRef<HTMLVideoElement>(null)
   const handwrittenTextRef = useRef<HTMLDivElement>(null)
   const taglineSectionRef = useRef<HTMLDivElement>(null)
@@ -31,6 +33,15 @@ export default function Home() {
       setIsMuted(!isMuted)
     }
   }
+
+  useEffect(() => {
+    const fadeTimer = setTimeout(() => setHeroFading(true), 5500)
+    const hideTimer = setTimeout(() => setHeroHidden(true), 6500)
+    return () => {
+      clearTimeout(fadeTimer)
+      clearTimeout(hideTimer)
+    }
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
@@ -192,19 +203,44 @@ export default function Home() {
           />
         </div>
 
-        {/* グラデーションオーバーレイ */}
-        <div className="hidden md:block absolute inset-0 bg-gradient-to-t from-black/65 via-black/10 to-transparent z-10 pointer-events-none" />
+        {/* オーバーレイ全体 */}
+        {!heroHidden && (
+          <div
+            className="hidden md:block absolute inset-0 z-10 pointer-events-none transition-opacity duration-1000"
+            style={{ opacity: heroFading ? 0 : 1 }}
+          >
+            {/* グラデーション */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/20 to-transparent" />
 
-        {/* オーバーレイテキスト */}
-        <div className="hidden md:flex absolute bottom-16 left-12 z-20 flex-col text-white">
-          <p className="text-xs tracking-[0.5em] text-gray-300 font-light mb-4 uppercase">
-            映像制作&nbsp;&nbsp;/&nbsp;&nbsp;MV&nbsp;&nbsp;/&nbsp;&nbsp;企業VP&nbsp;&nbsp;/&nbsp;&nbsp;俳優リール
-          </p>
-          <div className="w-10 h-px bg-white/50 mb-5" />
-          <h2 className="text-5xl font-bold tracking-widest leading-tight drop-shadow-lg">
-            映像で、<br />記憶を残す。
-          </h2>
-        </div>
+            {/* テキスト */}
+            <div className="absolute bottom-16 left-14 flex flex-col text-white">
+              <p
+                className="text-[11px] tracking-[0.65em] font-light text-gray-300 mb-6 uppercase"
+                style={{ animation: "hero-slide-up 1s ease-out 0.4s both" }}
+              >
+                Film &amp; Video Production
+              </p>
+              <div
+                className="w-20 h-px bg-white/50 mb-7 origin-left"
+                style={{ animation: "hero-line-expand 0.9s ease-out 1s both" }}
+              />
+              <h2 className="font-serif leading-[1.2]">
+                <span
+                  className="block text-5xl font-bold tracking-[0.2em] drop-shadow-lg"
+                  style={{ animation: "hero-slide-up 1s ease-out 1.2s both" }}
+                >
+                  映像で、
+                </span>
+                <span
+                  className="block text-5xl font-bold tracking-[0.2em] drop-shadow-lg"
+                  style={{ animation: "hero-slide-up 1s ease-out 1.6s both" }}
+                >
+                  記憶を残す。
+                </span>
+              </h2>
+            </div>
+          </div>
+        )}
 
         <button
           onClick={toggleMute}
