@@ -163,10 +163,10 @@ export default function ServiceSlider() {
       <button
         onClick={handlePrev}
         disabled={isTransitioning}
-        className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="absolute left-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 rounded-full p-2 border border-white/20 transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="前へ"
       >
-        <ChevronLeft className="w-5 h-5 text-charcoal-light" />
+        <ChevronLeft className="w-5 h-5 text-white" />
       </button>
 
       <div
@@ -190,10 +190,10 @@ export default function ServiceSlider() {
               <div
                 key={`${service.title}-${index}`}
                 onClick={() => handleCardClick(index)}
-                className={`bg-white border border-gray-200 p-5 hover:shadow-xl transition-all duration-700 ease-out rounded-lg cursor-pointer ${
+                className={`bg-[#1a1a1a] border p-5 transition-all duration-700 ease-out rounded-lg cursor-pointer ${
                   isCenter
-                    ? "ring-2 ring-charcoal-light ring-opacity-30 shadow-xl transform scale-105 z-10"
-                    : "opacity-75 transform scale-95 hover:opacity-90"
+                    ? "border-white/25 shadow-xl transform scale-105 z-10"
+                    : "border-white/8 opacity-75 transform scale-95 hover:opacity-90"
                 }`}
                 style={{
                   minWidth: isMobile ? "80%" : "260px",
@@ -204,7 +204,7 @@ export default function ServiceSlider() {
                 }}
               >
                 <div
-                  className={`bg-gray-100 mb-4 relative transition-all duration-700 ease-out rounded overflow-hidden ${isCenter ? "h-44" : "h-36"}`}
+                  className={`bg-[#0d0d0d] mb-4 relative transition-all duration-700 ease-out rounded overflow-hidden ${isCenter ? "h-44" : "h-36"}`}
                 >
                   <Image
                     src={service.image || "/placeholder.svg"}
@@ -219,7 +219,7 @@ export default function ServiceSlider() {
                   {service.title}
                 </h3>
                 <p
-                  className={`text-gray-600 mb-4 transition-all duration-700 ease-out leading-relaxed line-clamp-4 ${isCenter ? "text-sm" : "text-xs"}`}
+                  className={`text-gray-400 mb-4 transition-all duration-700 ease-out leading-relaxed line-clamp-4 ${isCenter ? "text-sm" : "text-xs"}`}
                 >
                   {service.description}
                 </p>
@@ -242,10 +242,10 @@ export default function ServiceSlider() {
       <button
         onClick={handleNext}
         disabled={isTransitioning}
-        className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/90 hover:bg-white rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
+        className="absolute right-2 top-1/2 transform -translate-y-1/2 z-10 bg-white/10 hover:bg-white/20 rounded-full p-2 border border-white/20 transition-all duration-300 hover:scale-110 disabled:opacity-50 disabled:cursor-not-allowed"
         aria-label="次へ"
       >
-        <ChevronRight className="w-5 h-5 text-charcoal-light" />
+        <ChevronRight className="w-5 h-5 text-white" />
       </button>
 
       <div className="flex justify-center mt-6 gap-2">
@@ -260,8 +260,8 @@ export default function ServiceSlider() {
             }}
             className={`w-2 h-2 rounded-full transition-all duration-500 ${
               actualIndex === index
-                ? "bg-charcoal-light scale-125 shadow-md"
-                : "bg-gray-300 hover:bg-gray-400 scale-100"
+                ? "bg-charcoal-light scale-125"
+                : "bg-white/30 hover:bg-white/50 scale-100"
             }`}
             aria-label={`スライド ${index + 1} に移動`}
           />
