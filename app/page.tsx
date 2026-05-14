@@ -282,7 +282,7 @@ export default function Home() {
               {/* コンテンツ領域（高さがトランジション） */}
               <div
                 className="relative overflow-hidden transition-all duration-1000"
-                style={{ height: bandShrunk ? "32px" : "158px" }}
+                style={{ height: bandShrunk ? "32px" : "185px" }}
               >
                 {/* ── Phase 1: メインコピー ── */}
                 <div
@@ -299,7 +299,7 @@ export default function Home() {
                     className="text-xl font-light text-gray-300 tracking-[0.45em] mb-5"
                     style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 2.3s both" }}
                   >
-                    想いを映像に。
+                    想いを映像に
                   </p>
                   <div
                     className="w-full h-px bg-white/25 origin-left mb-5"
@@ -311,8 +311,8 @@ export default function Home() {
                   >
                     <div className="w-1 h-10 bg-white/50" />
                     <div className="flex flex-col">
-                      <span className="text-lg text-white tracking-[0.1em] font-light mb-1">企画構成から編集まで。</span>
-                      <span className="text-sm text-gray-300 tracking-[0.08em] font-light">ご希望に寄り添った提案をします。</span>
+                      <span className="text-lg text-white tracking-[0.1em] font-light mb-1">企画構成から編集まで</span>
+                      <span className="text-sm text-gray-300 tracking-[0.08em] font-light">ご希望に寄り添った提案をします</span>
                     </div>
                   </div>
                 </div>
@@ -328,7 +328,7 @@ export default function Home() {
                         className="text-5xl font-bold text-white tracking-[0.12em] mb-8"
                         style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 0s both" }}
                       >
-                        映画ドラマ、MV（ミュージックビデオ）、CM（コマーシャル）、企業PR
+                        映画・ドラマ&nbsp;&nbsp;/&nbsp;&nbsp;MV&nbsp;&nbsp;/&nbsp;&nbsp;CM&nbsp;&nbsp;/&nbsp;&nbsp;企業PR
                       </h2>
                       <div
                         className="w-full h-px bg-white/25 mb-8 origin-left"
@@ -356,7 +356,7 @@ export default function Home() {
                   style={{ opacity: bandShrunk ? 1 : 0 }}
                 >
                   <span className="text-sm font-bold text-white tracking-[0.12em]">
-                    映像制作はエンリーへ&nbsp;&nbsp;|&nbsp;&nbsp;映画ドラマ・MV・CM・企業PR
+                    映像制作はエンリーへ&nbsp;&nbsp;|&nbsp;&nbsp;映画・ドラマ&nbsp;/&nbsp;MV&nbsp;/&nbsp;CM&nbsp;/&nbsp;企業PR
                   </span>
                   <a
                     href="https://docs.google.com/forms/d/e/1FAIpQLSdf35MRg59aC8PLeeNP3F7HCldqZF6YkM4cQi8J5jbMedF8EQ/viewform?usp=dialog"
