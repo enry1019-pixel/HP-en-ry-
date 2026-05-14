@@ -18,8 +18,14 @@ export default function Home() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const handwrittenTextRef = useRef<HTMLDivElement>(null)
   const taglineSectionRef = useRef<HTMLDivElement>(null)
+  const newsSectionRef = useRef<HTMLDivElement>(null)
+  const servicesSectionRef = useRef<HTMLElement>(null)
+  const portfolioSectionRef = useRef<HTMLElement>(null)
   const [isHandwrittenVisible, setIsHandwrittenVisible] = useState(false)
   const [isTaglineVisible, setIsTaglineVisible] = useState(false)
+  const [isNewsSectionVisible, setIsNewsSectionVisible] = useState(false)
+  const [isServicesSectionVisible, setIsServicesSectionVisible] = useState(false)
+  const [isPortfolioSectionVisible, setIsPortfolioSectionVisible] = useState(false)
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
@@ -84,12 +90,8 @@ export default function Home() {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          if (entry.target === handwrittenTextRef.current) {
-            setIsHandwrittenVisible(true)
-          }
-          if (entry.target === taglineSectionRef.current) {
-            setIsTaglineVisible(true)
-          }
+          if (entry.target === handwrittenTextRef.current) setIsHandwrittenVisible(true)
+          if (entry.target === taglineSectionRef.current) setIsTaglineVisible(true)
         }
       })
     }, observerOptions)
@@ -101,8 +103,23 @@ export default function Home() {
       observer.observe(taglineSectionRef.current)
     }
 
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          if (entry.target === newsSectionRef.current) setIsNewsSectionVisible(true)
+          if (entry.target === servicesSectionRef.current) setIsServicesSectionVisible(true)
+          if (entry.target === portfolioSectionRef.current) setIsPortfolioSectionVisible(true)
+        }
+      })
+    }, { threshold: 0.08, rootMargin: "0px 0px -40px 0px" })
+
+    if (newsSectionRef.current) sectionObserver.observe(newsSectionRef.current)
+    if (servicesSectionRef.current) sectionObserver.observe(servicesSectionRef.current)
+    if (portfolioSectionRef.current) sectionObserver.observe(portfolioSectionRef.current)
+
     return () => {
       observer.disconnect()
+      sectionObserver.disconnect()
     }
   }, [])
 
@@ -427,10 +444,19 @@ export default function Home() {
       </section>
 
       {/* News Section */}
-      <NewsSection />
+      <div
+        ref={newsSectionRef}
+        className={`section-reveal ${isNewsSectionVisible ? "visible" : ""}`}
+      >
+        <NewsSection />
+      </div>
 
       {/* Services Section with Auto-scrolling Images */}
-      <section id="services" className="py-20 relative overflow-hidden">
+      <section
+        id="services"
+        ref={servicesSectionRef}
+        className={`py-20 relative overflow-hidden section-reveal ${isServicesSectionVisible ? "visible" : ""}`}
+      >
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-2">SERVICES</h2>
@@ -475,7 +501,11 @@ export default function Home() {
       </section>
 
       {/* Portfolio Section */}
-      <section id="works" className="py-20 bg-lightgray relative overflow-hidden">
+      <section
+        id="works"
+        ref={portfolioSectionRef}
+        className={`py-20 bg-lightgray relative overflow-hidden section-reveal ${isPortfolioSectionVisible ? "visible" : ""}`}
+      >
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold mb-2">PORTFOLIO</h2>
