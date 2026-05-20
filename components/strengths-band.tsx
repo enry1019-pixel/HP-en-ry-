@@ -10,7 +10,7 @@ const items = [
     desc: "最新のトレンドや機材、編集技術を駆使し、ターゲットのエンゲージメントを最大化する「魅せる映像」",
   },
   {
-    title: "短尺でもストーリー性",
+    title: "ストーリー性",
     desc: "多彩なジャンルや緻密な構成力で深いストーリーを構築し、記憶に残る映像へ",
   },
   {
@@ -32,7 +32,7 @@ function enterAnim(
 function lineAnim(delay: number, visible: boolean, origin: "left" | "right"): React.CSSProperties {
   if (!visible) return { transform: "scaleX(0)", transformOrigin: origin }
   return {
-    animation: `sb-line 0.65s cubic-bezier(0.16,1,0.3,1) ${delay.toFixed(2)}s both`,
+    animation: `sb-line 0.7s cubic-bezier(0.16,1,0.3,1) ${delay.toFixed(2)}s both`,
     transformOrigin: origin,
   }
 }
@@ -52,92 +52,89 @@ export default function StrengthsBand() {
     return () => obs.disconnect()
   }, [visible])
 
-  const n0 = TITLE_LINES[0].length // 5 chars
+  const n0 = TITLE_LINES[0].length
 
   return (
-    <div ref={ref} className="max-w-5xl mx-auto px-4 my-8">
+    <div ref={ref} className="max-w-5xl mx-auto px-4 my-10">
 
-      {/* Main panel — 淡いクリーム系 + shadow */}
+      {/* Top hairline */}
       <div
-        className="relative overflow-hidden border border-[#d9cfc4]"
+        className="h-px mb-10"
         style={{
-          background: "linear-gradient(110deg, #f8f0e8 0%, #fdf7f2 55%, #f8f0e8 100%)",
-          borderLeft: "3px solid #7a1a24",
-          boxShadow: "0 4px 28px rgba(0,0,0,0.09), 0 1px 4px rgba(0,0,0,0.05)",
+          background: "linear-gradient(to right, #7a1a24, rgba(122,26,36,0.25), transparent)",
+          ...lineAnim(0.0, visible, "left"),
         }}
-      >
-        {/* Warm diagonal texture */}
+      />
+
+      <div className="flex flex-col md:flex-row gap-10 md:gap-14">
+
+        {/* ── Left: THE REASON ── */}
         <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(-45deg, rgba(122,26,36,0.022) 0px, rgba(122,26,36,0.022) 1px, transparent 1px, transparent 24px)",
-          }}
-        />
-
-        <div className="relative flex flex-col md:flex-row items-stretch">
-
-          {/* ── Left: THE REASON ── */}
+          className="md:w-44 shrink-0"
+          style={enterAnim("sb-right", "0.5s", 0.05, visible)}
+        >
+          <p className="text-[9px] tracking-[0.65em] text-[#7a1a24] font-bold uppercase mb-3">
+            The Reason
+          </p>
           <div
-            className="md:w-60 shrink-0 px-8 py-7 flex flex-col justify-center border-b border-[#d9cfc4] md:border-b-0 md:border-r md:border-[#d9cfc4]"
-            style={enterAnim("sb-right", "0.5s", 0.05, visible)}
-          >
-            <div className="flex items-center gap-2 mb-3">
-              <div
-                className="h-px bg-[#7a1a24]"
-                style={{ width: "16px", ...lineAnim(0.35, visible, "left") }}
-              />
-              <p className="text-[10px] tracking-[0.55em] text-[#7a1a24] font-bold uppercase">
-                The Reason
+            className="w-6 h-px bg-[#7a1a24]/60 mb-5"
+            style={lineAnim(0.25, visible, "left")}
+          />
+          {/* Typewriter title */}
+          <p className="text-[#1a1a1a] text-[18px] font-bold tracking-wide leading-snug">
+            {TITLE_LINES.map((line, li) => (
+              <span key={li} className="block whitespace-nowrap">
+                {line.split("").map((char, ci) => (
+                  <span
+                    key={ci}
+                    className="inline-block"
+                    style={enterAnim("sb-char", "0.35s", 0.1 + (li * n0 + ci) * 0.05, visible)}
+                  >
+                    {char}
+                  </span>
+                ))}
+              </span>
+            ))}
+          </p>
+        </div>
+
+        {/* ── Right: 3 items ── */}
+        <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-8">
+          {items.map((item, i) => (
+            <div
+              key={i}
+              style={enterAnim("sb-left", "0.45s", 0.1 + i * 0.14, visible)}
+            >
+              {/* Number + line header */}
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-[10px] text-[#7a1a24]/55 tracking-[0.35em] font-light tabular-nums">
+                  0{i + 1}
+                </span>
+                <div
+                  className="flex-1 h-px bg-[#d9cfc4] origin-left"
+                  style={lineAnim(0.15 + i * 0.14, visible, "left")}
+                />
+              </div>
+              <h4 className="text-[13px] font-bold text-[#1a1a1a] tracking-wider leading-snug mb-3">
+                {item.title}
+              </h4>
+              <p className="text-[11px] text-[#666] leading-relaxed tracking-wide">
+                {item.desc}
               </p>
             </div>
-
-            {/* Typewriter title */}
-            <p className="text-[#1a1a1a] text-[18px] font-bold tracking-wide leading-snug">
-              {TITLE_LINES.map((line, li) => (
-                <span key={li} className="block whitespace-nowrap">
-                  {line.split("").map((char, ci) => (
-                    <span
-                      key={ci}
-                      className="inline-block"
-                      style={enterAnim("sb-char", "0.38s", 0.12 + (li * n0 + ci) * 0.05, visible)}
-                    >
-                      {char}
-                    </span>
-                  ))}
-                </span>
-              ))}
-            </p>
-
-            <div
-              className="w-10 h-px bg-[#7a1a24]/40 mt-4"
-              style={lineAnim(0.9, visible, "left")}
-            />
-          </div>
-
-          {/* ── Right: 3 strengths ── */}
-          <div className="flex-1 flex flex-col md:flex-row divide-y divide-[#d9cfc4] md:divide-y-0 md:divide-x md:divide-[#d9cfc4]">
-            {items.map((item, i) => (
-              <div
-                key={i}
-                className="flex-1 flex items-start gap-3 px-6 py-6"
-                style={enterAnim("sb-left", "0.45s", 0.08 + i * 0.13, visible)}
-              >
-                <span className="text-[#7a1a24] text-[13px] shrink-0 leading-none mt-0.5">▸</span>
-                <div>
-                  <p className="text-[#1a1a1a] text-[13px] font-bold tracking-wider leading-snug mb-1.5">
-                    {item.title}
-                  </p>
-                  <p className="text-[#5a5a5a] text-[11px] leading-relaxed tracking-wide">
-                    {item.desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
+          ))}
         </div>
+
       </div>
+
+      {/* Bottom hairline */}
+      <div
+        className="h-px mt-10"
+        style={{
+          background: "linear-gradient(to right, transparent, rgba(122,26,36,0.18), transparent)",
+          ...lineAnim(0.05, visible, "left"),
+        }}
+      />
 
     </div>
   )
