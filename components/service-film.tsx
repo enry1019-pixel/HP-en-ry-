@@ -38,156 +38,39 @@ const VW = 640
 const VH = 360
 const PERIMETER = 2 * (VW + VH)
 const SPROCKET_COUNT = 10
-
-function ServiceCard({
-  service,
-  index,
-  framesDrawing,
-  photosVisible,
-  contentVisible,
-  frameDelay,
-  drawDuration,
-}: {
-  service: typeof services[0]
-  index: number
-  framesDrawing: boolean
-  photosVisible: boolean
-  contentVisible: boolean
-  frameDelay: number
-  drawDuration: number
-}) {
-  return (
-    <div className="relative w-full h-full overflow-hidden">
-      {/* Photo */}
-      <div
-        className="absolute inset-0"
-        style={{
-          opacity: photosVisible ? 1 : 0,
-          transform: photosVisible ? "scale(1)" : "scale(1.05)",
-          transitionDelay: `${index * frameDelay}s`,
-          transitionDuration: "1000ms",
-          transitionProperty: "opacity, transform",
-          transitionTimingFunction: "ease",
-        }}
-      >
-        <Image
-          src={service.image}
-          alt={service.title}
-          fill
-          className="object-cover"
-          style={{ filter: service.grade }}
-        />
-      </div>
-
-      {/* Cinematic gradient overlay */}
-      <div
-        className="absolute inset-0"
-        style={{
-          background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.45) 45%, rgba(0,0,0,0.15) 100%)",
-          opacity: photosVisible ? 1 : 0,
-          transition: `opacity 1s ease ${index * frameDelay}s`,
-        }}
-      />
-
-      {/* Letterbox bars */}
-      <div className="absolute top-0 left-0 right-0 h-5 bg-black/70 z-10" />
-      <div className="absolute bottom-0 left-0 right-0 h-5 bg-black/70 z-10" />
-
-      {/* SVG Film Frame */}
-      <svg
-        className="absolute inset-0 w-full h-full z-20"
-        viewBox={`0 0 ${VW} ${VH}`}
-        preserveAspectRatio="none"
-      >
-        <rect
-          x={1.5} y={1.5}
-          width={VW - 3} height={VH - 3}
-          rx={2} fill="none"
-          stroke="rgba(255,255,255,0.55)"
-          strokeWidth={1.5}
-          strokeDasharray={PERIMETER}
-          strokeDashoffset={framesDrawing ? 0 : PERIMETER}
-          style={{ transition: `stroke-dashoffset ${drawDuration}s cubic-bezier(0.4, 0, 0.2, 1) ${index * frameDelay}s` }}
-        />
-        <rect
-          x={20} y={20}
-          width={VW - 40} height={VH - 40}
-          rx={1} fill="none"
-          stroke="rgba(255,255,255,0.15)"
-          strokeWidth={0.8}
-          strokeDasharray={PERIMETER - 120}
-          strokeDashoffset={framesDrawing ? 0 : PERIMETER - 120}
-          style={{ transition: `stroke-dashoffset ${drawDuration + 0.2}s cubic-bezier(0.4, 0, 0.2, 1) ${index * frameDelay + 0.1}s` }}
-        />
-        {Array.from({ length: SPROCKET_COUNT }).map((_, i) => {
-          const spacing = (VW - 60) / (SPROCKET_COUNT - 1)
-          return (
-            <g key={i} opacity={framesDrawing ? 1 : 0} style={{ transition: `opacity 0.2s ease ${index * frameDelay + drawDuration * 0.7 + i * 0.03}s` }}>
-              <rect x={30 + i * spacing - 8} y={6} width={16} height={9} rx={2} fill="none" stroke="rgba(255,255,255,0.45)" strokeWidth={1} />
-              <rect x={30 + i * spacing - 8} y={VH - 15} width={16} height={9} rx={2} fill="none" stroke="rgba(255,255,255,0.45)" strokeWidth={1} />
-            </g>
-          )
-        })}
-        {[[28, 28], [VW - 28, 28], [28, VH - 28], [VW - 28, VH - 28]].map(([cx, cy], i) => (
-          <g key={`c${i}`} opacity={framesDrawing ? 0.6 : 0} style={{ transition: `opacity 0.4s ease ${index * frameDelay + drawDuration * 0.85}s` }}>
-            <line x1={cx - 10} y1={cy} x2={cx + 10} y2={cy} stroke="rgba(255,255,255,0.6)" strokeWidth={1} />
-            <line x1={cx} y1={cy - 10} x2={cx} y2={cy + 10} stroke="rgba(255,255,255,0.6)" strokeWidth={1} />
-          </g>
-        ))}
-      </svg>
-
-      {/* Text content */}
-      <div className="absolute inset-x-0 bottom-7 px-7 z-30">
-        <div
-          className="flex items-center gap-3 mb-2"
-          style={{ opacity: contentVisible ? 1 : 0, transition: `opacity 0.6s ease ${index * 0.15}s` }}
-        >
-          <span className="text-[11px] text-white/50 tracking-[0.6em] font-light">{service.id}</span>
-          <div className="h-px bg-white/25 w-12" />
-        </div>
-        <h3
-          className="text-2xl md:text-3xl font-bold text-white tracking-widest mb-2"
-          style={{
-            opacity: contentVisible ? 1 : 0,
-            transform: contentVisible ? "translateY(0)" : "translateY(14px)",
-            transition: `opacity 0.7s ease ${index * 0.15 + 0.08}s, transform 0.7s ease ${index * 0.15 + 0.08}s`,
-          }}
-        >
-          {service.title}
-        </h3>
-        <p
-          className="text-[11px] text-gray-300/80 leading-relaxed tracking-wider whitespace-pre-line"
-          style={{
-            opacity: contentVisible ? 1 : 0,
-            transform: contentVisible ? "translateY(0)" : "translateY(10px)",
-            transition: `opacity 0.7s ease ${index * 0.15 + 0.18}s, transform 0.7s ease ${index * 0.15 + 0.18}s`,
-          }}
-        >
-          {service.description}
-        </p>
-      </div>
-    </div>
-  )
-}
+const SLIDE_DURATION = 4800
 
 export default function ServiceFilm() {
+  const [activeIndex, setActiveIndex] = useState(0)
   const [framesDrawing, setFramesDrawing] = useState(false)
   const [photosVisible, setPhotosVisible] = useState(false)
   const [contentVisible, setContentVisible] = useState(false)
+  const [isPaused, setIsPaused] = useState(false)
+  const [progressKey, setProgressKey] = useState(0)
   const sectionRef = useRef<HTMLDivElement>(null)
+  const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
-  const FRAME_DELAY = 0.4
-  const DRAW_DURATION = 0.85
-
+  // Auto-play: restarts when isPaused toggles or thumbnail is clicked
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const entry = entries[0]
-        const aboveViewport = entry.boundingClientRect.top < 0
+    if (intervalRef.current) clearInterval(intervalRef.current)
+    if (!isPaused) {
+      intervalRef.current = setInterval(() => {
+        setActiveIndex((p) => (p + 1) % services.length)
+        setProgressKey((k) => k + 1)
+      }, SLIDE_DURATION)
+    }
+    return () => { if (intervalRef.current) clearInterval(intervalRef.current) }
+  }, [isPaused, progressKey]) // progressKey changes on manual click to reset timer
+
+  // Initial draw animations on intersection
+  useEffect(() => {
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        const above = entry.boundingClientRect.top < 0
         if (entry.isIntersecting) {
           setTimeout(() => { setFramesDrawing(true); setPhotosVisible(true) }, 150)
           setTimeout(() => setContentVisible(true), 1600)
-        } else if (!aboveViewport) {
+        } else if (!above) {
           setFramesDrawing(false)
           setPhotosVisible(false)
           setContentVisible(false)
@@ -195,23 +78,184 @@ export default function ServiceFilm() {
       },
       { threshold: 0.1 }
     )
-    if (sectionRef.current) observer.observe(sectionRef.current)
-    return () => observer.disconnect()
+    if (sectionRef.current) obs.observe(sectionRef.current)
+    return () => obs.disconnect()
   }, [])
 
-  const cardProps = { framesDrawing, photosVisible, contentVisible, frameDelay: FRAME_DELAY, drawDuration: DRAW_DURATION }
+  const handleThumbnailClick = (index: number) => {
+    setActiveIndex(index)
+    setProgressKey((k) => k + 1) // resets autoplay timer via useEffect dependency
+  }
+
+  const corners: [number, number][] = [
+    [28, 28], [VW - 28, 28], [28, VH - 28], [VW - 28, VH - 28],
+  ]
 
   return (
     <div ref={sectionRef}>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto px-4">
-        {services.map((service, index) => (
+      {/* ── Featured panel ── */}
+      <div
+        className="max-w-5xl mx-auto px-4 mb-2"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+      >
+        <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
+
+          {/* Per-service photos (crossfade) */}
+          {services.map((service, i) => (
+            <div
+              key={service.id}
+              className="absolute inset-0"
+              style={{ opacity: i === activeIndex ? 1 : 0, transition: "opacity 0.85s ease" }}
+            >
+              <div
+                className="absolute inset-0"
+                style={{
+                  opacity: photosVisible ? 1 : 0,
+                  transform: photosVisible ? "scale(1)" : "scale(1.04)",
+                  transition: "opacity 1000ms ease, transform 1000ms ease",
+                }}
+              >
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  className="object-cover"
+                  style={{ filter: service.grade }}
+                />
+              </div>
+            </div>
+          ))}
+
+          {/* Gradient overlay */}
           <div
-            key={service.id}
-            className="relative overflow-hidden"
-            style={{ aspectRatio: "16/9" }}
+            className="absolute inset-0 z-10 pointer-events-none"
+            style={{
+              background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 45%, rgba(0,0,0,0.1) 100%)",
+              opacity: photosVisible ? 1 : 0,
+              transition: "opacity 1s ease",
+            }}
+          />
+
+          {/* Letterbox bars */}
+          <div className="absolute top-0 left-0 right-0 h-5 bg-black/70 z-20 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-5 bg-black/70 z-20 pointer-events-none" />
+
+          {/* SVG Film Frame — draws once, stays */}
+          <svg
+            className="absolute inset-0 w-full h-full z-30 pointer-events-none"
+            viewBox={`0 0 ${VW} ${VH}`}
           >
-            <ServiceCard service={service} index={index} {...cardProps} />
+            <rect
+              x={1.5} y={1.5} width={VW - 3} height={VH - 3}
+              rx={2} fill="none" stroke="rgba(255,255,255,0.55)" strokeWidth={1.5}
+              strokeDasharray={PERIMETER}
+              strokeDashoffset={framesDrawing ? 0 : PERIMETER}
+              style={{ transition: "stroke-dashoffset 1.2s cubic-bezier(0.4,0,0.2,1) 0s" }}
+            />
+            <rect
+              x={20} y={20} width={VW - 40} height={VH - 40}
+              rx={1} fill="none" stroke="rgba(255,255,255,0.15)" strokeWidth={0.8}
+              strokeDasharray={PERIMETER - 120}
+              strokeDashoffset={framesDrawing ? 0 : PERIMETER - 120}
+              style={{ transition: "stroke-dashoffset 1.4s cubic-bezier(0.4,0,0.2,1) 0.1s" }}
+            />
+            {Array.from({ length: SPROCKET_COUNT }).map((_, i) => {
+              const sp = (VW - 60) / (SPROCKET_COUNT - 1)
+              return (
+                <g key={i} opacity={framesDrawing ? 1 : 0} style={{ transition: `opacity 0.2s ease ${0.9 + i * 0.03}s` }}>
+                  <rect x={30 + i * sp - 8} y={6} width={16} height={9} rx={2} fill="none" stroke="rgba(255,255,255,0.45)" strokeWidth={1} />
+                  <rect x={30 + i * sp - 8} y={VH - 15} width={16} height={9} rx={2} fill="none" stroke="rgba(255,255,255,0.45)" strokeWidth={1} />
+                </g>
+              )
+            })}
+            {corners.map(([cx, cy], i) => (
+              <g key={`c${i}`} opacity={framesDrawing ? 0.6 : 0} style={{ transition: "opacity 0.4s ease 1.05s" }}>
+                <line x1={cx - 10} y1={cy} x2={cx + 10} y2={cy} stroke="rgba(255,255,255,0.6)" strokeWidth={1} />
+                <line x1={cx} y1={cy - 10} x2={cx} y2={cy + 10} stroke="rgba(255,255,255,0.6)" strokeWidth={1} />
+              </g>
+            ))}
+          </svg>
+
+          {/* Per-service text (fade on switch) */}
+          {services.map((service, i) => (
+            <div
+              key={service.id}
+              className="absolute inset-x-0 bottom-7 px-10 z-40 pointer-events-none"
+              style={{
+                opacity: i === activeIndex && contentVisible ? 1 : 0,
+                transform: i === activeIndex ? "translateY(0)" : "translateY(8px)",
+                transition: "opacity 0.55s ease, transform 0.55s ease",
+              }}
+            >
+              <div className="flex items-center gap-3 mb-2">
+                <span className="text-[11px] text-white/50 tracking-[0.6em] font-light">{service.id}</span>
+                <div className="h-px bg-white/25 w-12" />
+              </div>
+              <h3 className="text-3xl font-bold text-white tracking-widest mb-2">
+                {service.title}
+              </h3>
+              <p className="text-[11px] text-gray-300/80 leading-relaxed tracking-wider whitespace-pre-line max-w-md">
+                {service.description}
+              </p>
+            </div>
+          ))}
+
+          {/* Auto-play progress bar */}
+          <div className="absolute bottom-[19px] left-0 right-0 h-px z-40 overflow-hidden pointer-events-none">
+            <div
+              key={progressKey}
+              className="h-full bg-white/45"
+              style={{
+                animation: `progress-fill ${SLIDE_DURATION}ms linear forwards`,
+                animationPlayState: isPaused ? "paused" : "running",
+              }}
+            />
           </div>
+        </div>
+      </div>
+
+      {/* ── Filmstrip thumbnails ── */}
+      <div className="grid grid-cols-4 gap-2 max-w-5xl mx-auto px-4">
+        {services.map((service, i) => (
+          <button
+            key={service.id}
+            onClick={() => handleThumbnailClick(i)}
+            className="relative overflow-hidden cursor-pointer block"
+            style={{
+              aspectRatio: "16/9",
+              opacity: i === activeIndex ? 1 : 0.42,
+              outline: i === activeIndex ? "1px solid rgba(255,255,255,0.45)" : "none",
+              outlineOffset: "-1px",
+              transition: "opacity 0.3s ease",
+            }}
+          >
+            <Image
+              src={service.image}
+              alt={service.title}
+              fill
+              className="object-cover"
+              style={{ filter: service.grade }}
+            />
+            {/* Overlay */}
+            <div className="absolute inset-0 bg-black/45" />
+            {/* Mini letterbox */}
+            <div className="absolute top-0 left-0 right-0 h-[3px] bg-black/70 z-10" />
+            <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-black/70 z-10" />
+            {/* Label */}
+            <div className="absolute inset-x-0 bottom-1.5 px-1.5 z-20">
+              <span className="hidden sm:block text-[8px] text-white/40 tracking-[0.4em] font-light leading-none mb-0.5">
+                {service.id}
+              </span>
+              <span className="block text-white text-[10px] sm:text-[11px] font-bold tracking-wider leading-tight">
+                {service.title}
+              </span>
+            </div>
+            {/* Active underline */}
+            {i === activeIndex && (
+              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/65 z-30" />
+            )}
+          </button>
         ))}
       </div>
     </div>
