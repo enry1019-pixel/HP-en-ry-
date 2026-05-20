@@ -17,31 +17,32 @@ export default function StrengthsBand() {
   useEffect(() => {
     const obs = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setVisible(true) },
-      { threshold: 0.15 }
+      { threshold: 0.12 }
     )
     if (ref.current) obs.observe(ref.current)
     return () => obs.disconnect()
   }, [])
 
-  const totalChars = TITLE_LINES[0].length
+  const charsLine0 = TITLE_LINES[0].length
 
   return (
     <div
       ref={ref}
       className="max-w-5xl mx-auto px-4 my-6"
       style={{
+        // 親はopacityだけ短く(0.4s)先に終わらせる → 子アニメーションが0.45s以降に開始
         opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(18px)",
-        transition: "opacity 0.65s ease, transform 0.65s cubic-bezier(0.16,1,0.3,1)",
+        transform: visible ? "translateY(0)" : "translateY(16px)",
+        transition: "opacity 0.4s ease, transform 0.4s cubic-bezier(0.16,1,0.3,1)",
       }}
     >
       {/* Top accent line */}
       <div
         className="h-px mb-0 origin-left"
         style={{
-          background: "linear-gradient(to right, #7a1a24, rgba(122,26,36,0.15), transparent)",
+          background: "linear-gradient(to right, #c84058, rgba(200,64,88,0.15), transparent)",
           transform: visible ? "scaleX(1)" : "scaleX(0)",
-          transition: "transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.05s",
+          transition: "transform 0.7s cubic-bezier(0.16,1,0.3,1) 0.45s",
         }}
       />
 
@@ -68,7 +69,8 @@ export default function StrengthsBand() {
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateX(0)" : "translateX(-14px)",
-              transition: "opacity 0.55s ease 0.1s, transform 0.55s cubic-bezier(0.16,1,0.3,1) 0.1s",
+              // 親が0.4sで終わるので0.45s以降に開始
+              transition: "opacity 0.5s ease 0.45s, transform 0.5s cubic-bezier(0.16,1,0.3,1) 0.45s",
             }}
           >
             {/* THE REASON label */}
@@ -78,27 +80,27 @@ export default function StrengthsBand() {
                 style={{
                   width: "14px",
                   transform: visible ? "scaleX(1)" : "scaleX(0)",
-                  transition: "transform 0.4s ease 0.4s",
+                  transition: "transform 0.4s ease 0.75s",
                 }}
               />
-              <p className="text-[9px] tracking-[0.55em] text-[#d45060] font-light uppercase">
+              <p className="text-[11px] tracking-[0.5em] text-[#d45060] font-medium uppercase">
                 The Reason
               </p>
             </div>
 
-            {/* Character-by-character title animation */}
-            <p className="text-white text-[15px] font-bold tracking-wider leading-snug">
+            {/* Character-by-character title animation — starts at 0.55s */}
+            <p className="text-white text-[18px] font-bold tracking-wider leading-snug">
               {TITLE_LINES.map((line, li) => (
                 <span key={li} className="block">
                   {line.split("").map((char, ci) => {
-                    const delay = 0.3 + (li * totalChars + ci) * 0.045
+                    const delay = 0.55 + (li * charsLine0 + ci) * 0.05
                     return (
                       <span
                         key={ci}
                         className="inline-block"
                         style={{
                           opacity: visible ? 1 : 0,
-                          transform: visible ? "translateY(0)" : "translateY(5px)",
+                          transform: visible ? "translateY(0)" : "translateY(6px)",
                           transition: `opacity 0.35s ease ${delay}s, transform 0.35s cubic-bezier(0.16,1,0.3,1) ${delay}s`,
                         }}
                       >
@@ -114,7 +116,7 @@ export default function StrengthsBand() {
               className="w-8 h-px bg-[#7a1a24]/50 mt-3 origin-left"
               style={{
                 transform: visible ? "scaleX(1)" : "scaleX(0)",
-                transition: "transform 0.5s ease 0.85s",
+                transition: "transform 0.5s ease 1.2s",
               }}
             />
           </div>
@@ -128,7 +130,7 @@ export default function StrengthsBand() {
                 style={{
                   opacity: visible ? 1 : 0,
                   transform: visible ? "translateX(0)" : "translateX(12px)",
-                  transition: `opacity 0.5s ease ${0.3 + i * 0.15}s, transform 0.5s cubic-bezier(0.16,1,0.3,1) ${0.3 + i * 0.15}s`,
+                  transition: `opacity 0.5s ease ${0.5 + i * 0.15}s, transform 0.5s cubic-bezier(0.16,1,0.3,1) ${0.5 + i * 0.15}s`,
                 }}
               >
                 <span className="text-[#d45060] text-[13px] shrink-0 leading-none">▸</span>
@@ -151,9 +153,9 @@ export default function StrengthsBand() {
       <div
         className="h-px origin-right"
         style={{
-          background: "linear-gradient(to left, rgba(122,26,36,0.4), rgba(122,26,36,0.08), transparent)",
+          background: "linear-gradient(to left, rgba(200,64,88,0.45), rgba(200,64,88,0.08), transparent)",
           transform: visible ? "scaleX(1)" : "scaleX(0)",
-          transition: "transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s",
+          transition: "transform 0.7s cubic-bezier(0.16,1,0.3,1) 0.5s",
         }}
       />
     </div>

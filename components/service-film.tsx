@@ -200,7 +200,7 @@ export default function ServiceFilm() {
           {services.map((service, i) => (
             <div
               key={service.id}
-              className="absolute inset-x-0 bottom-7 pl-14 pr-8 z-40 pointer-events-none"
+              className="absolute inset-x-0 bottom-7 pl-14 pr-14 z-40 pointer-events-none"
               style={{
                 opacity: i === activeIndex && contentVisible && !videoOpen ? 1 : 0,
                 transform: i === activeIndex ? "translateY(0)" : "translateY(8px)",
@@ -223,7 +223,7 @@ export default function ServiceFilm() {
                 {/* 動画を見るボタン — URL未設定時はフレームのみ表示 */}
                 <button
                   onClick={i === activeIndex && service.videoUrl ? () => setVideoOpen(true) : undefined}
-                  className={`shrink-0 inline-flex items-center gap-2 border px-4 py-2.5 text-[11px] tracking-[0.3em] transition-all pointer-events-auto ${
+                  className={`shrink-0 inline-flex items-center gap-2 border px-5 py-3 text-[12px] tracking-[0.3em] transition-all pointer-events-auto ${
                     service.videoUrl
                       ? "border-white/35 text-white/75 hover:bg-white/10 hover:text-white hover:border-white/55 cursor-pointer"
                       : "border-white/15 text-white/25 cursor-default"
@@ -306,11 +306,12 @@ export default function ServiceFilm() {
               {/* Mini letterbox */}
               <div className="absolute top-0 left-0 right-0 h-[3px] bg-black/70 z-10" />
               <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-black/70 z-10" />
-              {/* Label */}
+              {/* Number badge — top left */}
+              <div className="absolute top-1.5 left-1.5 z-20">
+                <span className="text-[9px] text-white/65 tracking-[0.25em] font-light">{service.id}</span>
+              </div>
+              {/* Label — bottom */}
               <div className="absolute inset-x-0 bottom-1.5 px-1.5 z-20">
-                <span className="hidden sm:block text-[8px] text-white/40 tracking-[0.4em] font-light leading-none mb-0.5">
-                  {service.id}
-                </span>
                 <span className="block text-white text-[10px] sm:text-[11px] font-bold tracking-wider leading-tight">
                   {service.title}
                 </span>
