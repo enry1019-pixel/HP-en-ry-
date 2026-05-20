@@ -544,9 +544,6 @@ export default function Home() {
               </div>
             </div>
             <p className="text-lg text-gray-500 mb-4 sec-subtitle">制作実績</p>
-            <p className="text-gray-500 max-w-2xl mx-auto sec-subtitle">
-              en-ry実績と田中慎太郎監督の実績をご紹介します。
-            </p>
           </div>
 
           <div className="sec-body">

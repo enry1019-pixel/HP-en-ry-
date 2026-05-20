@@ -103,7 +103,7 @@ const directorItems = [
   },
   {
     id: 10,
-    title: "福井弁わかる？",
+    title: "福井県 観光地PR動画",
     category: "CM",
     role: "監督・脚本",
     year: "2021年",
