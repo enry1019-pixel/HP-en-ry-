@@ -65,7 +65,7 @@ export default function StrengthsBand() {
           <span
             className="font-black tracking-[0.1em] whitespace-nowrap"
             style={{
-              fontSize: "clamp(72px, 14vw, 160px)",
+              fontSize: "clamp(80px, 16vw, 180px)",
               color: "rgba(122,26,36,0.08)",
               textShadow: "0 4px 0 rgba(122,26,36,0.04)",
             } as React.CSSProperties}
@@ -75,21 +75,27 @@ export default function StrengthsBand() {
         </div>
 
         {/* ── コンテンツ ── */}
-        <div className="relative z-10 max-w-5xl mx-auto px-8 md:px-12 flex flex-col md:flex-row gap-10 md:gap-14 items-start">
+        <div className="relative z-10 max-w-5xl mx-auto px-8 md:px-12 flex flex-col gap-10 md:gap-12">
 
-          {/* Left: label + typewriter title */}
-          <div
-            className="md:w-52 shrink-0"
-            style={enterAnim("sb-right", "0.55s", 0.1, visible)}
-          >
-            <p className="text-[13px] tracking-[0.5em] text-[#7a1a24] font-bold uppercase mb-4">
-              The Reason
-            </p>
-            <div
-              className="w-8 h-px bg-[#7a1a24]/40 mb-6"
-              style={lineAnim(0.3, visible, "left")}
-            />
-            <p className="text-[#1c1614] text-[26px] font-bold tracking-wide leading-snug">
+          {/* Top: label + emphasized title */}
+          <div style={enterAnim("sb-right", "0.55s", 0.1, visible)}>
+            <div className="flex items-center gap-4 mb-5">
+              <p className="text-[13px] tracking-[0.5em] text-[#7a1a24] font-bold uppercase shrink-0">
+                The Reason
+              </p>
+              <div
+                className="h-px bg-[#7a1a24]/40 w-16"
+                style={lineAnim(0.3, visible, "left")}
+              />
+            </div>
+            <p
+              className="text-[#1c1614] font-black tracking-wide leading-tight"
+              style={{
+                fontSize: "clamp(32px, 5vw, 56px)",
+                textShadow:
+                  "0 2px 0 rgba(255,255,255,0.9), 2px 4px 0 rgba(0,0,0,0.15), 3px 6px 14px rgba(0,0,0,0.09)",
+              }}
+            >
               {TITLE_LINES.map((line, li) => (
                 <span key={li} className="block whitespace-nowrap">
                   {line.split("").map((char, ci) => (
@@ -106,17 +112,16 @@ export default function StrengthsBand() {
             </p>
           </div>
 
-          {/* Right: 3 items */}
-          <div className="flex-1 grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-8">
+          {/* Bottom: 3 items */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-10">
             {items.map((item, i) => (
               <div
                 key={i}
-                style={enterAnim("sb-left", "0.5s", 0.15 + i * 0.14, visible)}
+                style={enterAnim("sb-left", "0.5s", 0.3 + i * 0.14, visible)}
               >
-                {/* 区切りライン */}
                 <div
                   className="h-px bg-[#7a1a24]/30 mb-5 origin-left"
-                  style={lineAnim(0.2 + i * 0.14, visible, "left")}
+                  style={lineAnim(0.4 + i * 0.14, visible, "left")}
                 />
                 <h4
                   className="text-[#1c1614] text-[17px] font-black tracking-wider leading-snug mb-4"
