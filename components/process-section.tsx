@@ -6,30 +6,26 @@ const processSteps = [
   {
     number: "01",
     title: "ヒアリング・打ち合わせ",
-    participant: "お客様",
     description: "ご予算・納期・ご要望を伺い、企画コンセプトを設計",
-    details: ["目的・ターゲットの明確化", "予算・スケジュールの調整", "企画書・絵コンテの作成"],
+    details: ["目的・ターゲットの明確化", "予算の確認", "スケジュール調整"],
   },
   {
     number: "02",
     title: "撮影準備",
-    participant: "弊社",
-    description: "企画・脚本・絵コンテ・ロケハン・キャスティング・スケジュール調整",
-    details: ["ロケーション選定", "スタジオ手配", "キャスティング", "機材調達"],
+    description: "企画・脚本・絵コンテ・ロケハン・キャスティング",
+    details: ["企画書・絵コンテの作成", "ロケーション選定", "スタジオ手配", "キャスティング・機材調達"],
   },
   {
     number: "03",
     title: "撮影・収録",
-    participant: "お客様・弊社",
     description: "映像・音声の収録",
-    details: ["ロケーション撮影", "スタジオ撮影", "インタビュー収録", "ドローン撮影"],
+    details: ["ロケーション撮影", "スタジオ撮影"],
   },
   {
     number: "04",
-    title: "編集・納品",
-    participant: "弊社",
-    description: "映像・音声の編集、テロップ・BGM・効果音の挿入",
-    details: ["映像編集・カラグレ", "音響・BGM調整", "テロップ挿入", "各種フォーマット納品"],
+    title: "編集・修正・納品",
+    description: "映像・音声の編集、テロップ・BGM・効果音の挿入、修正対応の上納品",
+    details: ["映像編集・カラーグレーディング", "テロップ・BGM・効果音挿入", "修正対応", "各種フォーマット納品"],
   },
 ]
 
@@ -64,15 +60,16 @@ export default function ProcessSection() {
     <section
       ref={sectionRef}
       id="process"
-      className="py-20 bg-white relative overflow-hidden"
+      className="py-20 relative overflow-hidden"
       style={{
+        background: "var(--background)" ,
         opacity: sectionVisible ? 1 : 0,
         transform: sectionVisible ? "none" : "translateY(24px)",
         transition: "opacity 0.7s ease, transform 0.7s ease",
       }}
     >
       <div className="container mx-auto px-4 relative z-10">
-        {/* Header — same style as SERVICES / PORTFOLIO */}
+        {/* Header */}
         <div className="text-center mb-16">
           <div
             className="flex items-center justify-center gap-4 mb-3"
@@ -94,35 +91,20 @@ export default function ProcessSection() {
           </div>
           <p
             className="text-lg text-gray-500 mb-4"
-            style={{
-              opacity: sectionVisible ? 1 : 0,
-              transition: "opacity 0.5s ease 0.25s",
-            }}
+            style={{ opacity: sectionVisible ? 1 : 0, transition: "opacity 0.5s ease 0.25s" }}
           >
             制作の流れ
           </p>
           <p
             className="text-gray-500 max-w-2xl mx-auto text-sm"
-            style={{
-              opacity: sectionVisible ? 1 : 0,
-              transition: "opacity 0.5s ease 0.35s",
-            }}
+            style={{ opacity: sectionVisible ? 1 : 0, transition: "opacity 0.5s ease 0.35s" }}
           >
-            お客様のご要望から完成まで、4つのステップで高品質な映像制作を行います。
+            ヒアリングから納品まで、4つのステップで高品質な映像制作を行います。
           </p>
         </div>
 
         {/* Desktop: horizontal 4-column */}
         <div className="hidden md:grid md:grid-cols-4 max-w-5xl mx-auto relative">
-          {/* Connecting line */}
-          <div
-            className="absolute top-[58px] left-[12.5%] right-[12.5%] h-px bg-gradient-to-r from-transparent via-[#7a1a24]/20 to-transparent"
-            style={{
-              opacity: sectionVisible ? 1 : 0,
-              transition: "opacity 0.8s ease 0.5s",
-            }}
-          />
-
           {processSteps.map((step, index) => (
             <div
               key={index}
@@ -145,43 +127,42 @@ export default function ProcessSection() {
                 {step.number}
               </div>
 
-              {/* Arrow connector */}
+              {/* Arrow connector — between numbers */}
               {index < 3 && (
                 <div
-                  className="absolute right-0 top-[58px] translate-x-1/2 z-10"
+                  className="absolute right-0 top-[56px] z-10 flex items-center"
                   style={{
+                    transform: "translateX(50%)",
                     opacity: visibleItems[index] ? 1 : 0,
-                    transition: "opacity 0.4s ease 0.3s",
+                    transition: "opacity 0.5s ease 0.4s",
                   }}
                 >
+                  <div className="w-5 h-px bg-[#7a1a24]/40" />
                   <div
-                    className="w-0 h-0"
                     style={{
+                      width: 0,
+                      height: 0,
                       borderTop: "5px solid transparent",
                       borderBottom: "5px solid transparent",
-                      borderLeft: "7px solid rgba(122,26,36,0.3)",
+                      borderLeft: "8px solid rgba(122,26,36,0.5)",
                     }}
                   />
                 </div>
               )}
 
-              <h3 className="text-[#1a1a1a] font-bold text-sm tracking-wider leading-snug mb-1">
+              <h3 className="text-[#1a1a1a] font-bold text-sm tracking-wider leading-snug mb-3">
                 {step.title}
               </h3>
 
-              <p className="text-[#7a1a24] text-xs tracking-[0.2em] mb-4 font-light">
-                {step.participant}
-              </p>
-
               <div className="w-8 h-px bg-[#d9cfc4] mb-4" />
 
-              <p className="text-gray-500 text-xs leading-relaxed mb-5">
+              <p className="text-gray-600 text-xs leading-relaxed mb-5">
                 {step.description}
               </p>
 
               <ul className="space-y-2">
                 {step.details.map((detail, di) => (
-                  <li key={di} className="flex items-start gap-2 text-gray-400 text-[11px] leading-relaxed">
+                  <li key={di} className="flex items-start gap-2 text-gray-500 text-[11px] leading-relaxed">
                     <span className="mt-0.5 shrink-0 leading-none text-[#7a1a24]/50">▸</span>
                     {detail}
                   </li>
@@ -194,45 +175,63 @@ export default function ProcessSection() {
         {/* Mobile: vertical */}
         <div className="md:hidden max-w-sm mx-auto">
           {processSteps.map((step, index) => (
-            <div
-              key={index}
-              className="flex gap-5 py-7"
-              style={{
-                borderBottom: index < 3 ? "1px solid #e8e0d6" : "none",
-                opacity: visibleItems[index] ? 1 : 0,
-                transform: visibleItems[index] ? "translateX(0)" : "translateX(-14px)",
-                transition: "opacity 0.65s ease, transform 0.65s cubic-bezier(0.16,1,0.3,1)",
-              }}
-            >
+            <div key={index}>
               <div
-                className="text-5xl font-bold leading-none shrink-0 w-14 pt-0.5 select-none"
+                className="flex gap-5 py-7"
                 style={{
-                  color: "transparent",
-                  WebkitTextStroke: "1.5px rgba(122,26,36,0.25)",
-                } as React.CSSProperties}
+                  opacity: visibleItems[index] ? 1 : 0,
+                  transform: visibleItems[index] ? "translateX(0)" : "translateX(-14px)",
+                  transition: "opacity 0.65s ease, transform 0.65s cubic-bezier(0.16,1,0.3,1)",
+                }}
               >
-                {step.number}
+                <div
+                  className="text-5xl font-bold leading-none shrink-0 w-14 pt-0.5 select-none"
+                  style={{
+                    color: "transparent",
+                    WebkitTextStroke: "1.5px rgba(122,26,36,0.25)",
+                  } as React.CSSProperties}
+                >
+                  {step.number}
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-[#1a1a1a] font-bold text-sm tracking-wider leading-snug mb-3">
+                    {step.title}
+                  </h3>
+                  <p className="text-gray-600 text-xs leading-relaxed mb-3">
+                    {step.description}
+                  </p>
+                  <ul className="space-y-1.5">
+                    {step.details.map((detail, di) => (
+                      <li key={di} className="flex items-start gap-2 text-gray-500 text-[11px]">
+                        <span className="mt-0.5 shrink-0 leading-none text-[#7a1a24]/50">▸</span>
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
-
-              <div className="flex-1">
-                <h3 className="text-[#1a1a1a] font-bold text-sm tracking-wider leading-snug mb-0.5">
-                  {step.title}
-                </h3>
-                <p className="text-[#7a1a24] text-xs tracking-[0.2em] mb-3 font-light">
-                  {step.participant}
-                </p>
-                <p className="text-gray-500 text-xs leading-relaxed mb-3">
-                  {step.description}
-                </p>
-                <ul className="space-y-1.5">
-                  {step.details.map((detail, di) => (
-                    <li key={di} className="flex items-start gap-2 text-gray-400 text-[11px]">
-                      <span className="mt-0.5 shrink-0 leading-none text-[#7a1a24]/50">▸</span>
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {/* Downward arrow between mobile steps */}
+              {index < 3 && (
+                <div
+                  className="flex justify-center py-1"
+                  style={{
+                    opacity: visibleItems[index] ? 1 : 0,
+                    transition: "opacity 0.4s ease 0.4s",
+                  }}
+                >
+                  <div className="flex flex-col items-center gap-0.5">
+                    <div className="w-px h-4 bg-[#7a1a24]/35" />
+                    <div
+                      style={{
+                        width: 0, height: 0,
+                        borderLeft: "5px solid transparent",
+                        borderRight: "5px solid transparent",
+                        borderTop: "7px solid rgba(122,26,36,0.45)",
+                      }}
+                    />
+                  </div>
+                </div>
+              )}
             </div>
           ))}
         </div>
@@ -240,21 +239,18 @@ export default function ProcessSection() {
         {/* CTA */}
         <div
           className="text-center mt-16"
-          style={{
-            opacity: sectionVisible ? 1 : 0,
-            transition: "opacity 0.6s ease 1s",
-          }}
+          style={{ opacity: sectionVisible ? 1 : 0, transition: "opacity 0.6s ease 1s" }}
         >
-          <div className="bg-[#faf7f2] p-8 rounded-lg border border-[#e0d8ce] shadow-sm max-w-2xl mx-auto">
-            <h3 className="text-xl font-bold mb-4 text-charcoal-light">制作の流れについてご質問がございましたら</h3>
+          <div className="bg-white p-8 border border-[#e0d8ce] shadow-sm max-w-2xl mx-auto">
+            <h3 className="text-xl font-bold mb-4 text-[#1a1a1a]">制作の流れについてご質問がございましたら</h3>
             <p className="text-gray-600 mb-6 text-sm">
-              詳しい制作プロセスや、お客様のプロジェクトに最適なプランについて、お気軽にご相談ください。お見積りは無料です。
+              詳しい制作プロセスや、最適なプランについて、お気軽にご相談ください。お見積りは無料です。
             </p>
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLSdf35MRg59aC8PLeeNP3F7HCldqZF6YkM4cQi8J5jbMedF8EQ/viewform?usp=dialog"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-charcoal-light text-white px-6 py-3 rounded hover:bg-charcoal transition-colors"
+              className="inline-flex items-center bg-[#7a1a24] text-white px-6 py-3 hover:bg-[#5a1219] transition-colors"
             >
               お問い合わせ
             </a>

@@ -524,9 +524,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Process Section */}
-      <ProcessSection />
-
       {/* Portfolio Section */}
       <section
         id="works"
@@ -567,6 +564,9 @@ export default function Home() {
           </div>{/* sec-body end */}
         </div>
       </section>
+
+      {/* Process Section */}
+      <ProcessSection />
 
       {/* Footer */}
       <footer id="footer" className="bg-[#3d0a10] text-white py-12 border-t border-white/10">
