@@ -114,39 +114,25 @@ export default function StrengthsBand() {
 
           {/* Bottom: 3 items */}
           <div className="relative">
-            {/* スクラッチ塗りテクスチャ */}
-            <svg
-              aria-hidden
+            {/* クレヨン塗りテクスチャ */}
+            <div
               className="absolute pointer-events-none"
               style={{
-                inset: "-1.5rem",
-                width: "calc(100% + 3rem)",
-                height: "calc(100% + 3rem)",
+                inset: "-1rem",
+                backgroundColor: "rgba(122,26,36,0.07)",
+                backgroundImage: `
+                  repeating-linear-gradient(
+                    -55deg,
+                    rgba(255,255,255,0.28) 0px,
+                    rgba(255,255,255,0.28) 1.5px,
+                    transparent 1.5px,
+                    transparent 4px
+                  )
+                `,
                 opacity: visible ? 1 : 0,
                 transition: "opacity 0.8s ease 0.5s",
               }}
-              preserveAspectRatio="xMidYMid slice"
-            >
-              <defs>
-                <filter id="sb-scratch" x="-5%" y="-5%" width="110%" height="110%">
-                  <feTurbulence
-                    type="fractalNoise"
-                    baseFrequency="0.035 0.72"
-                    numOctaves="4"
-                    seed="9"
-                    result="noise"
-                  />
-                  <feColorMatrix
-                    type="matrix"
-                    values="0 0 0 0 0.11
-                            0 0 0 0 0.08
-                            0 0 0 0 0.08
-                            0 0 0 6 -2.2"
-                  />
-                </filter>
-              </defs>
-              <rect width="100%" height="100%" filter="url(#sb-scratch)" />
-            </svg>
+            />
           <div className="relative grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-10">
             {items.map((item, i) => (
               <div
