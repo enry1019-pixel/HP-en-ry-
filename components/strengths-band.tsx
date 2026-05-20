@@ -56,12 +56,7 @@ export default function StrengthsBand() {
 
   return (
     <div ref={ref} className="w-full my-8">
-      <div
-        className="relative overflow-hidden py-12 md:py-16"
-        style={{
-          background: "linear-gradient(135deg, #0d0a0b 0%, #1a0d11 50%, #0d0a0b 100%)",
-        }}
-      >
+      <div className="relative overflow-hidden py-12 md:py-16">
         {/* ── 背景：でかでかと THE REASON ── */}
         <div
           className="absolute inset-0 flex items-center justify-center pointer-events-none select-none overflow-hidden"
@@ -71,22 +66,13 @@ export default function StrengthsBand() {
             className="font-black tracking-[0.25em] whitespace-nowrap"
             style={{
               fontSize: "clamp(72px, 14vw, 160px)",
-              color: "rgba(255,255,255,0.055)",
-              textShadow: "0 4px 0 rgba(0,0,0,0.5), 0 8px 32px rgba(0,0,0,0.25)",
+              color: "rgba(122,26,36,0.07)",
+              textShadow: "0 4px 0 rgba(122,26,36,0.04)",
             } as React.CSSProperties}
           >
             THE REASON
           </span>
         </div>
-
-        {/* ── フィルムグレイン ── */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage:
-              "repeating-linear-gradient(-45deg, rgba(255,255,255,0.008) 0px, rgba(255,255,255,0.008) 1px, transparent 1px, transparent 20px)",
-          }}
-        />
 
         {/* ── コンテンツ ── */}
         <div className="relative z-10 max-w-5xl mx-auto px-8 md:px-12 flex flex-col md:flex-row gap-10 md:gap-14 items-start">
@@ -96,14 +82,14 @@ export default function StrengthsBand() {
             className="md:w-52 shrink-0"
             style={enterAnim("sb-right", "0.55s", 0.1, visible)}
           >
-            <p className="text-[9px] tracking-[0.65em] text-[#d45060] font-bold uppercase mb-3">
+            <p className="text-[9px] tracking-[0.65em] text-[#7a1a24] font-bold uppercase mb-3">
               The Reason
             </p>
             <div
-              className="w-6 h-px bg-[#d45060]/50 mb-5"
+              className="w-6 h-px bg-[#7a1a24]/40 mb-5"
               style={lineAnim(0.3, visible, "left")}
             />
-            <p className="text-white text-[20px] font-bold tracking-wide leading-snug">
+            <p className="text-[#1a1a1a] text-[20px] font-bold tracking-wide leading-snug">
               {TITLE_LINES.map((line, li) => (
                 <span key={li} className="block whitespace-nowrap">
                   {line.split("").map((char, ci) => (
@@ -129,13 +115,13 @@ export default function StrengthsBand() {
               >
                 {/* 区切りライン */}
                 <div
-                  className="h-px bg-white/15 mb-5 origin-left"
+                  className="h-px bg-[#7a1a24]/20 mb-5 origin-left"
                   style={lineAnim(0.2 + i * 0.14, visible, "left")}
                 />
-                <h4 className="text-white text-[13px] font-bold tracking-wider leading-snug mb-3">
+                <h4 className="text-[#1a1a1a] text-[13px] font-bold tracking-wider leading-snug mb-3">
                   {item.title}
                 </h4>
-                <p className="text-gray-400 text-[11px] leading-relaxed tracking-wide">
+                <p className="text-gray-500 text-[11px] leading-relaxed tracking-wide">
                   {item.desc}
                 </p>
               </div>
@@ -145,8 +131,8 @@ export default function StrengthsBand() {
         </div>
 
         {/* ── 上下アクセントライン ── */}
-        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, #7a1a24 30%, #7a1a24 70%, transparent)" }} />
-        <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, #7a1a24 30%, #7a1a24 70%, transparent)" }} />
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(122,26,36,0.25) 30%, rgba(122,26,36,0.25) 70%, transparent)" }} />
+        <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(122,26,36,0.25) 30%, rgba(122,26,36,0.25) 70%, transparent)" }} />
       </div>
     </div>
   )
