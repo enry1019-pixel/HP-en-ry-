@@ -8,6 +8,8 @@ const items = [
   { title: "コストパフォーマンス高", desc: "コストが1/2になるケースも" },
 ]
 
+const TITLE_LINES = ["現役映画監督が", "撮影から編集まで監修"]
+
 export default function StrengthsBand() {
   const ref = useRef<HTMLDivElement>(null)
   const [visible, setVisible] = useState(false)
@@ -20,6 +22,8 @@ export default function StrengthsBand() {
     if (ref.current) obs.observe(ref.current)
     return () => obs.disconnect()
   }, [])
+
+  const totalChars = TITLE_LINES[0].length
 
   return (
     <div
@@ -37,14 +41,14 @@ export default function StrengthsBand() {
         style={{
           background: "linear-gradient(to right, #7a1a24, rgba(122,26,36,0.15), transparent)",
           transform: visible ? "scaleX(1)" : "scaleX(0)",
-          transition: "transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.1s",
+          transition: "transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.05s",
         }}
       />
 
       <div
         className="relative overflow-hidden"
         style={{
-          background: "linear-gradient(110deg, #100c0d 0%, #1a0e11 55%, #120b0e 100%)",
+          background: "linear-gradient(110deg, #1c1416 0%, #271620 55%, #1d1416 100%)",
         }}
       >
         {/* Film-grain texture */}
@@ -52,7 +56,7 @@ export default function StrengthsBand() {
           className="absolute inset-0 pointer-events-none"
           style={{
             backgroundImage:
-              "repeating-linear-gradient(-45deg, rgba(255,255,255,0.007) 0px, rgba(255,255,255,0.007) 1px, transparent 1px, transparent 18px)",
+              "repeating-linear-gradient(-45deg, rgba(255,255,255,0.009) 0px, rgba(255,255,255,0.009) 1px, transparent 1px, transparent 18px)",
           }}
         />
 
@@ -60,31 +64,63 @@ export default function StrengthsBand() {
 
           {/* Left — THE REASON */}
           <div
-            className="md:w-56 shrink-0 px-7 py-6 flex flex-col justify-center border-b border-white/[0.07] md:border-b-0 md:border-r md:border-white/[0.07]"
+            className="md:w-56 shrink-0 px-7 py-6 flex flex-col justify-center border-b border-white/[0.08] md:border-b-0 md:border-r md:border-white/[0.08]"
             style={{
               opacity: visible ? 1 : 0,
               transform: visible ? "translateX(0)" : "translateX(-14px)",
-              transition: "opacity 0.6s ease 0.15s, transform 0.6s cubic-bezier(0.16,1,0.3,1) 0.15s",
+              transition: "opacity 0.55s ease 0.1s, transform 0.55s cubic-bezier(0.16,1,0.3,1) 0.1s",
             }}
           >
-            <p className="text-[8px] tracking-[0.65em] text-[#7a1a24] mb-2.5 font-light uppercase">
-              The Reason
-            </p>
+            {/* THE REASON label */}
+            <div className="flex items-center gap-2 mb-3">
+              <div
+                className="h-px bg-[#c84058] origin-left"
+                style={{
+                  width: "14px",
+                  transform: visible ? "scaleX(1)" : "scaleX(0)",
+                  transition: "transform 0.4s ease 0.4s",
+                }}
+              />
+              <p className="text-[9px] tracking-[0.55em] text-[#d45060] font-light uppercase">
+                The Reason
+              </p>
+            </div>
+
+            {/* Character-by-character title animation */}
             <p className="text-white text-[15px] font-bold tracking-wider leading-snug">
-              現役映画監督が<br />
-              撮影から編集まで監修
+              {TITLE_LINES.map((line, li) => (
+                <span key={li} className="block">
+                  {line.split("").map((char, ci) => {
+                    const delay = 0.3 + (li * totalChars + ci) * 0.045
+                    return (
+                      <span
+                        key={ci}
+                        className="inline-block"
+                        style={{
+                          opacity: visible ? 1 : 0,
+                          transform: visible ? "translateY(0)" : "translateY(5px)",
+                          transition: `opacity 0.35s ease ${delay}s, transform 0.35s cubic-bezier(0.16,1,0.3,1) ${delay}s`,
+                        }}
+                      >
+                        {char}
+                      </span>
+                    )
+                  })}
+                </span>
+              ))}
             </p>
+
             <div
               className="w-8 h-px bg-[#7a1a24]/50 mt-3 origin-left"
               style={{
                 transform: visible ? "scaleX(1)" : "scaleX(0)",
-                transition: "transform 0.5s ease 0.55s",
+                transition: "transform 0.5s ease 0.85s",
               }}
             />
           </div>
 
           {/* Right — 3 strengths */}
-          <div className="flex-1 flex flex-col md:flex-row divide-y divide-white/[0.07] md:divide-y-0 md:divide-x md:divide-white/[0.07]">
+          <div className="flex-1 flex flex-col md:flex-row divide-y divide-white/[0.08] md:divide-y-0 md:divide-x md:divide-white/[0.08]">
             {items.map((item, i) => (
               <div
                 key={i}
@@ -92,10 +128,10 @@ export default function StrengthsBand() {
                 style={{
                   opacity: visible ? 1 : 0,
                   transform: visible ? "translateX(0)" : "translateX(12px)",
-                  transition: `opacity 0.55s ease ${0.25 + i * 0.13}s, transform 0.55s cubic-bezier(0.16,1,0.3,1) ${0.25 + i * 0.13}s`,
+                  transition: `opacity 0.5s ease ${0.3 + i * 0.15}s, transform 0.5s cubic-bezier(0.16,1,0.3,1) ${0.3 + i * 0.15}s`,
                 }}
               >
-                <span className="text-[#7a1a24] text-[13px] shrink-0 leading-none">▸</span>
+                <span className="text-[#d45060] text-[13px] shrink-0 leading-none">▸</span>
                 <div>
                   <p className="text-white text-[13px] font-bold tracking-wider leading-snug">
                     {item.title}
@@ -115,9 +151,9 @@ export default function StrengthsBand() {
       <div
         className="h-px origin-right"
         style={{
-          background: "linear-gradient(to left, rgba(122,26,36,0.35), rgba(122,26,36,0.05), transparent)",
+          background: "linear-gradient(to left, rgba(122,26,36,0.4), rgba(122,26,36,0.08), transparent)",
           transform: visible ? "scaleX(1)" : "scaleX(0)",
-          transition: "transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.35s",
+          transition: "transform 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s",
         }}
       />
     </div>

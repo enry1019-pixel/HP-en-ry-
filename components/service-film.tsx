@@ -8,7 +8,7 @@ const services = [
   {
     id: "01",
     title: "映画・ドラマ",
-    description: "企画・脚本から編集まで制作。\n映画、テレビドラマ、企業タイアップやPRドラマなど",
+    description: "企画・脚本から撮影・編集まで一貫制作。\n映画・テレビドラマ・企業タイアップ、\nPRドラマなど幅広く対応。",
     image: "/service-film-drama.jpg",
     grade: "brightness(0.78)",
     videoUrl: "", // TODO: 動画URLを指定
@@ -16,7 +16,7 @@ const services = [
   {
     id: "02",
     title: "CM",
-    description: "ブランドの真髄を凝縮する。テレビCMからWeb動画広告まで対応。\nテレビCM・Web広告、ブランデッドムービーなど",
+    description: "ブランドの真髄を短尺に凝縮する。\nテレビCM・Web動画広告・\nブランデッドムービーなど全方位対応。",
     image: "/service-cm.jpg",
     grade: "contrast(1.15) brightness(0.68) saturate(1.1) sepia(0.25)",
     videoUrl: "", // TODO: 動画URLを指定
@@ -24,7 +24,7 @@ const services = [
   {
     id: "03",
     title: "企業PR",
-    description: "ブランドの想いを届けるプロモーションから採用・Web広告まで幅広く対応。年間サブスク制プランも。\n採用募集、インナーブランディング、サービス紹介、SNSショート動画など",
+    description: "採用・インナーブランディングから\nSNSショート動画まで幅広く対応。\n年間サブスク制プランもご用意。",
     image: "/service-pr.jpg",
     grade: "brightness(0.72)",
     videoUrl: "", // TODO: 動画URLを指定
@@ -32,7 +32,7 @@ const services = [
   {
     id: "04",
     title: "MV",
-    description: "楽曲の世界観を最大限に表現。\nアーティスト、アイドル、パフォーマンス撮影、SNS縦型動画など",
+    description: "楽曲の世界観を最大限に表現。\nアーティスト・アイドル・パフォーマンス、\nSNS縦型動画まで対応。",
     image: "/service-mv.jpg",
     grade: "contrast(1.1) brightness(0.75) saturate(1.35) sepia(0.15)",
     videoUrl: "", // TODO: 動画URLを指定
@@ -207,7 +207,7 @@ export default function ServiceFilm() {
                 transition: "opacity 0.55s ease, transform 0.55s ease",
               }}
             >
-              <div className="flex items-end justify-between gap-4">
+              <div className="flex items-center justify-between gap-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-[12px] text-white/50 tracking-[0.6em] font-light">{service.id}</span>
@@ -223,7 +223,7 @@ export default function ServiceFilm() {
                 {/* 動画を見るボタン — URL未設定時はフレームのみ表示 */}
                 <button
                   onClick={i === activeIndex && service.videoUrl ? () => setVideoOpen(true) : undefined}
-                  className={`shrink-0 inline-flex items-center gap-2 border px-4 py-2.5 text-[11px] tracking-[0.3em] transition-all pointer-events-auto mb-1 ${
+                  className={`shrink-0 inline-flex items-center gap-2 border px-4 py-2.5 text-[11px] tracking-[0.3em] transition-all pointer-events-auto ${
                     service.videoUrl
                       ? "border-white/35 text-white/75 hover:bg-white/10 hover:text-white hover:border-white/55 cursor-pointer"
                       : "border-white/15 text-white/25 cursor-default"
