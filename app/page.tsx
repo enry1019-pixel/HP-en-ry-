@@ -8,6 +8,7 @@ import ServiceFilm from "@/components/service-film"
 import PortfolioSlider from "@/components/portfolio-slider"
 import NewsSection from "@/components/news-section"
 import ProcessSection from "@/components/process-section"
+import OtherServicesSection from "@/components/other-services-section"
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -496,15 +497,7 @@ export default function Home() {
           <div className="sec-body">
           <ServiceFilm />
 
-          <div className="mt-12 text-center">
-            <Link
-              href="/services/promotion-pr"
-              className="inline-flex items-center bg-charcoal-light text-white px-6 py-3 hover:bg-charcoal transition-colors"
-            >
-              すべてのサービスを見る
-              <ArrowRight className="ml-2 w-4 h-4" />
-            </Link>
-          </div>
+          <OtherServicesSection />
 
           <div className="text-center mt-16">
             <div className="bg-white p-8 rounded-lg border border-[#e0d8ce] shadow-sm max-w-2xl mx-auto">
@@ -632,28 +625,28 @@ export default function Home() {
               <h4 className="font-bold mb-4">SERVICES</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link href="/services/promotion-pr" className="hover:underline">
+                  <Link href="/#services" className="hover:underline">
                     企業PR映像
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/promotion-pr" className="hover:underline">
-                    商品プロモーション
+                  <Link href="/#services" className="hover:underline">
+                    CM制作
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/memorial-movie" className="hover:underline">
-                    メモリアル映像
+                  <Link href="/#services" className="hover:underline">
+                    映画・ドラマ制作
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/music-video" className="hover:underline">
+                  <Link href="/#services" className="hover:underline">
                     MV制作
                   </Link>
                 </li>
                 <li>
-                  <Link href="/services/film-drama" className="hover:underline">
-                    映画・ドラマ制作
+                  <Link href="/#services" className="hover:underline">
+                    EN-REEL
                   </Link>
                 </li>
               </ul>
