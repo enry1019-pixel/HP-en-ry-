@@ -114,13 +114,14 @@ export default function StrengthsBand() {
 
           {/* Bottom: 3 items */}
           <div className="relative">
-            {/* ハッチングテクスチャ */}
+            {/* スクラッチテクスチャ */}
             <div
               className="absolute -inset-4 pointer-events-none"
               style={{
                 backgroundImage: `
-                  repeating-linear-gradient(45deg, rgba(122,26,36,0.045) 0px, rgba(122,26,36,0.045) 1px, transparent 1px, transparent 10px),
-                  repeating-linear-gradient(-45deg, rgba(122,26,36,0.045) 0px, rgba(122,26,36,0.045) 1px, transparent 1px, transparent 10px)
+                  repeating-linear-gradient(-68deg, transparent 0px, transparent 12px, rgba(0,0,0,0.045) 12px, rgba(0,0,0,0.045) 13px),
+                  repeating-linear-gradient(-71deg, transparent 0px, transparent 21px, rgba(0,0,0,0.03)  21px, rgba(0,0,0,0.03)  22px),
+                  repeating-linear-gradient(-65deg, transparent 0px, transparent 7px,  rgba(0,0,0,0.025) 7px,  rgba(0,0,0,0.025) 8px)
                 `,
                 opacity: visible ? 1 : 0,
                 transition: "opacity 0.6s ease 0.5s",
