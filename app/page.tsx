@@ -330,7 +330,7 @@ export default function Home() {
                     <div className="w-1 h-10 bg-white/50" />
                     <div className="flex flex-col">
                       <span className="text-lg text-white tracking-[0.1em] font-light mb-1">企画構成から編集まで</span>
-                      <span className="text-sm text-gray-300 tracking-[0.08em] font-light">ご希望に寄り添った提案をします</span>
+                      <span className="text-sm text-gray-300 tracking-[0.08em] font-light">ご希望に寄り添ったご提案をします</span>
                     </div>
                   </div>
                 </div>
@@ -346,7 +346,7 @@ export default function Home() {
                         className="text-5xl font-bold text-white tracking-[0.12em] mb-8"
                         style={{ animation: "slide-in-left 1s cubic-bezier(0.16, 1, 0.3, 1) 0s both" }}
                       >
-                        映画・ドラマ&nbsp;&nbsp;/&nbsp;&nbsp;MV&nbsp;&nbsp;/&nbsp;&nbsp;CM&nbsp;&nbsp;/&nbsp;&nbsp;企業PR
+                        映画・ドラマ&nbsp;&nbsp;/&nbsp;&nbsp;CM&nbsp;&nbsp;/&nbsp;&nbsp;企業PR&nbsp;&nbsp;/&nbsp;&nbsp;MV
                       </h2>
                       <div
                         className="w-full h-px bg-white/25 mb-8 origin-left"
@@ -374,7 +374,7 @@ export default function Home() {
                   style={{ opacity: bandShrunk ? 1 : 0 }}
                 >
                   <span className="text-sm font-bold text-white tracking-[0.12em]">
-                    映像制作はエンリーへ&nbsp;&nbsp;|&nbsp;&nbsp;映画・ドラマ&nbsp;/&nbsp;MV&nbsp;/&nbsp;CM&nbsp;/&nbsp;企業PR
+                    映像制作はエンリーへ&nbsp;&nbsp;|&nbsp;&nbsp;映画・ドラマ&nbsp;/&nbsp;CM&nbsp;/&nbsp;企業PR&nbsp;/&nbsp;MV
                   </span>
                   <a
                     href="https://docs.google.com/forms/d/e/1FAIpQLSdf35MRg59aC8PLeeNP3F7HCldqZF6YkM4cQi8J5jbMedF8EQ/viewform?usp=dialog"
@@ -440,13 +440,45 @@ export default function Home() {
             </div>
 
             <div className="text-center max-w-3xl px-4 mt-16 md:mt-20 relative z-10">
-              <p className="text-gray-600 leading-relaxed text-base md:text-lg mb-8">
-                株式会社en-ryは、「縁(en)」と「memory(メモリー)」を掛け合わせた社名のもと、
-                <br className="hidden md:block" />
-                人と人の出会いや大切な瞬間を、永遠に残る物語として映像に刻み、未来へと紡いでいくことを使命としています。
-              </p>
+              {/* 企業理念 – 3行 */}
+              <div className="font-serif text-base md:text-xl leading-[2.4] tracking-wide mb-10">
+                {([
+                  <span key="l1">株式会社en-ryは、<span className="text-[#7a1a24]">&ldquo;縁(en)&rdquo;</span>と<span className="text-[#7a1a24]">&ldquo;memory(メモリー)&rdquo;</span>を掛け合わせた社名のもと、</span>,
+                  <span key="l2">人と人の出会いや大切な瞬間や想いを、永遠に残る物語として映像に刻み、</span>,
+                  <span key="l3">未来へと紡いでいくことを使命としています。</span>,
+                ] as React.ReactNode[]).map((line, i) => (
+                  <p
+                    key={i}
+                    className="text-[#2a2218]"
+                    style={{
+                      opacity: isTaglineVisible ? 1 : 0,
+                      transform: isTaglineVisible ? "none" : "translateY(14px)",
+                      transition: `opacity 0.75s ease ${1.3 + i * 0.28}s, transform 0.75s cubic-bezier(0.16,1,0.3,1) ${1.3 + i * 0.28}s`,
+                    }}
+                  >
+                    {line}
+                  </p>
+                ))}
+              </div>
 
-              <p className="text-gray-600 leading-relaxed text-base md:text-lg">
+              {/* 区切り線 */}
+              <div
+                className="w-px h-10 bg-[#7a1a24]/30 mx-auto mb-10"
+                style={{
+                  opacity: isTaglineVisible ? 1 : 0,
+                  transition: "opacity 0.6s ease 2.2s",
+                }}
+              />
+
+              {/* 補足文 */}
+              <p
+                className="text-gray-500 leading-relaxed text-sm md:text-base"
+                style={{
+                  opacity: isTaglineVisible ? 1 : 0,
+                  transform: isTaglineVisible ? "none" : "translateY(8px)",
+                  transition: "opacity 0.7s ease 2.4s, transform 0.7s ease 2.4s",
+                }}
+              >
                 映像は単なる記録ではなく、心を動かし、人をつなぐ力を持っています。
                 <br className="hidden md:block" />
                 現役映画監督による確かな表現力と幅広い経験を活かし、
