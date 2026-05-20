@@ -10,7 +10,7 @@ const otherServices = [
     tagline: "唯一無二の映像名刺を。",
     subtitle: "俳優のためのショーリール",
     description:
-      "映像名刺必須の時代に、あなただけのプロフィール動画を制作いたします。現役映画監督の演出力で、俳優としての個性・魅力・演技力を凝縮した唯一無二のショーリールを。",
+      "映像名刺必須の時代に、あなただけのプロフィール動画を制作いたします。",
     youtubeId: "5qP8O-gpfdw",
     youtubeUrl: "https://youtu.be/5qP8O-gpfdw",
     pdfUrl: "/en-reel-service.pdf",
@@ -39,7 +39,7 @@ export default function OtherServicesSection() {
                 href={service.youtubeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative block shrink-0 md:w-72 lg:w-80 overflow-hidden group"
+                className="relative block shrink-0 md:w-52 lg:w-60 overflow-hidden group"
                 style={{ aspectRatio: "16/9" }}
               >
                 {/* YouTube thumbnail via img tag (external URL) */}
@@ -63,10 +63,10 @@ export default function OtherServicesSection() {
               </a>
 
               {/* Content */}
-              <div className="flex-1 p-6 md:p-8 flex flex-col justify-between">
+              <div className="flex-1 p-4 md:p-6 flex flex-col justify-between">
                 <div>
                   {/* Brand name */}
-                  <div className="flex items-baseline gap-3 mb-2">
+                  <div className="flex items-baseline gap-3 mb-1.5">
                     <h3 className="text-2xl font-bold tracking-[0.2em] text-[#1a1a1a]">
                       {service.brand}
                     </h3>
@@ -86,7 +86,7 @@ export default function OtherServicesSection() {
                   </p>
 
                   {/* Divider */}
-                  <div className="w-10 h-px bg-[#d9cfc4] mb-4" />
+                  <div className="w-10 h-px bg-[#d9cfc4] mb-3" />
 
                   {/* Description */}
                   <p className="text-sm text-gray-600 leading-relaxed">
@@ -95,7 +95,7 @@ export default function OtherServicesSection() {
                 </div>
 
                 {/* Links */}
-                <div className="flex flex-wrap gap-3 mt-6">
+                <div className="flex flex-wrap gap-3 mt-4">
                   <a
                     href={service.pdfUrl}
                     download

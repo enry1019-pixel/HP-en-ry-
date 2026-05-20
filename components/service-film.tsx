@@ -187,7 +187,7 @@ export default function ServiceFilm() {
           {services.map((service, i) => (
             <div
               key={service.id}
-              className="absolute inset-x-0 bottom-7 px-8 z-40 pointer-events-none"
+              className="absolute inset-x-0 bottom-7 pl-14 pr-8 z-40 pointer-events-none"
               style={{
                 opacity: i === activeIndex && contentVisible ? 1 : 0,
                 transform: i === activeIndex ? "translateY(0)" : "translateY(8px)",
@@ -198,7 +198,7 @@ export default function ServiceFilm() {
                 <span className="text-[12px] text-white/50 tracking-[0.6em] font-light">{service.id}</span>
                 <div className="h-px bg-white/25 w-12" />
               </div>
-              <h3 className="text-[32px] font-bold text-white tracking-widest mb-2 leading-tight">
+              <h3 className="text-[36px] font-bold text-white tracking-widest mb-2 leading-tight">
                 {service.title}
               </h3>
               <p className="text-[12px] text-gray-300/80 leading-relaxed tracking-wider whitespace-pre-line max-w-md">
