@@ -574,28 +574,41 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-10">
             {/* Company Info */}
             <div>
-              <div className="flex items-center gap-2 mb-4">
-                <div className="flex items-center">
-                  <Image
-                    src="/logo-final.png"
-                    alt="株式会社en-ry（エンリー） logo"
-                    width={28}
-                    height={28}
-                    className="object-contain invert"
-                  />
-                </div>
+              <div className="flex items-center gap-2 mb-5">
+                <Image
+                  src="/logo-final.png"
+                  alt="株式会社en-ry（エンリー） logo"
+                  width={28}
+                  height={28}
+                  className="object-contain invert"
+                />
                 <h3 className="text-xl font-bold">en-ry</h3>
               </div>
-              <div className="space-y-2 text-sm">
-                <p className="font-semibold">会社概要</p>
-                <p>会社名: 株式会社 en-ry</p>
-                <p>設立: 2025.10.23</p>
-                <p>代表取締役: 田中 慎太郎</p>
-                <p>取締役: 小楠 啓展</p>
-                <p>事業内容: 映像関連総合事業</p>
-                <p>適格請求書発行事業者登録番号: T5011001173408</p>
-                <p>電話番号: 03-6555-3562</p>
-                <p>メール: enry1019@gmail.com</p>
+              <p className="text-[10px] tracking-[0.4em] text-white/50 uppercase mb-3">会社概要</p>
+              <div className="space-y-2.5 text-sm">
+                {[
+                  ["会社名", "株式会社 en-ry"],
+                  ["設立", "2025.10.23"],
+                  ["代表取締役", "田中 慎太郎"],
+                  ["取締役", "小楠 啓展"],
+                  ["事業内容", "映像関連総合事業"],
+                  ["登録番号", "T5011001173408"],
+                ].map(([label, value]) => (
+                  <div key={label} className="flex gap-2">
+                    <span className="text-white/45 shrink-0 w-20 text-[11px] leading-relaxed">{label}</span>
+                    <span className="text-white/85 text-[11px] leading-relaxed">{value}</span>
+                  </div>
+                ))}
+                <div className="pt-1 space-y-1.5">
+                  <a href="tel:0365553562" className="flex items-center gap-2 text-[11px] text-white/85 hover:text-white transition-colors group">
+                    <span className="text-white/45 w-20 shrink-0">電話</span>
+                    <span className="group-hover:underline underline-offset-2">03-6555-3562</span>
+                  </a>
+                  <a href="mailto:enry1019@gmail.com" className="flex items-center gap-2 text-[11px] text-white/85 hover:text-white transition-colors group">
+                    <span className="text-white/45 w-20 shrink-0">メール</span>
+                    <span className="group-hover:underline underline-offset-2">enry1019@gmail.com</span>
+                  </a>
+                </div>
               </div>
             </div>
 
@@ -626,92 +639,35 @@ export default function Home() {
             {/* Services Section */}
             <div>
               <h4 className="font-bold mb-4">SERVICES</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/#services" className="hover:underline">
-                    企業PR映像
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#services" className="hover:underline">
-                    CM制作
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#services" className="hover:underline">
-                    映画・ドラマ制作
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#services" className="hover:underline">
-                    MV制作
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/#services" className="hover:underline">
-                    EN-REEL
-                  </Link>
-                </li>
+              <ul className="space-y-2 text-sm">
+                {["映画・ドラマ制作", "CM制作", "企業PR映像", "MV制作", "EN-REEL"].map((s) => (
+                  <li key={s}>
+                    <Link href="/#services" className="hover:underline text-white/85 hover:text-white transition-colors">
+                      {s}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
             {/* Portfolio Section */}
             <div>
               <h4 className="font-bold mb-4">PORTFOLIO</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/portfolio" className="hover:underline">
-                    企業PR映像
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/portfolio" className="hover:underline">
-                    商品プロモーション
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/portfolio" className="hover:underline">
-                    イベント記録
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/portfolio" className="hover:underline">
-                    MV制作
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/portfolio" className="hover:underline">
-                    ドラマ制作
-                  </Link>
-                </li>
+              <ul className="space-y-2 text-sm">
+                {["映画・ドラマ", "CM", "企業PR映像", "MV", "ドキュメンタリー"].map((s) => (
+                  <li key={s}>
+                    <Link href="/portfolio" className="hover:underline text-white/85 hover:text-white transition-colors">
+                      {s}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
             {/* Apparel Section */}
             <div>
               <h4 className="font-bold mb-4">APPAREL</h4>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/apparel?category=tshirt" className="hover:underline">
-                    Tシャツ
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/apparel?category=cap" className="hover:underline">
-                    キャップ
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/apparel?category=handbag" className="hover:underline">
-                    ハンドバッグ
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/apparel?category=shoulder-bag" className="hover:underline">
-                    ショルダーバッグ
-                  </Link>
-                </li>
-              </ul>
+              <p className="text-[11px] tracking-[0.3em] text-white/40 uppercase">Coming Soon</p>
             </div>
           </div>
 
