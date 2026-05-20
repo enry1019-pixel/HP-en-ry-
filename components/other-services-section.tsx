@@ -39,7 +39,7 @@ export default function OtherServicesSection() {
                 href={service.youtubeUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="relative block shrink-0 md:w-52 lg:w-60 overflow-hidden group"
+                className="relative block shrink-0 md:w-40 lg:w-48 overflow-hidden group"
                 style={{ aspectRatio: "16/9" }}
               >
                 {/* YouTube thumbnail via img tag (external URL) */}
@@ -63,39 +63,39 @@ export default function OtherServicesSection() {
               </a>
 
               {/* Content */}
-              <div className="flex-1 p-4 md:p-6 flex flex-col justify-between">
+              <div className="flex-1 p-3 md:p-4 flex flex-col justify-between">
                 <div>
                   {/* Brand name */}
-                  <div className="flex items-baseline gap-3 mb-1.5">
-                    <h3 className="text-2xl font-bold tracking-[0.2em] text-[#1a1a1a]">
+                  <div className="flex items-baseline gap-2.5 mb-1">
+                    <h3 className="text-lg font-bold tracking-[0.2em] text-[#1a1a1a]">
                       {service.brand}
                     </h3>
-                    <span className="text-xs text-gray-400 tracking-[0.3em] font-light">
+                    <span className="text-[10px] text-gray-400 tracking-[0.3em] font-light">
                       {service.brandReading}
                     </span>
                   </div>
 
                   {/* Tagline */}
-                  <p className="text-[#7a1a24] text-sm tracking-[0.15em] mb-1 font-medium">
+                  <p className="text-[#7a1a24] text-xs tracking-[0.15em] mb-0.5 font-medium">
                     {service.tagline}
                   </p>
 
                   {/* Subtitle */}
-                  <p className="text-xs text-gray-500 tracking-[0.3em] mb-4 font-light">
+                  <p className="text-[10px] text-gray-500 tracking-[0.3em] mb-2.5 font-light">
                     {service.subtitle}
                   </p>
 
                   {/* Divider */}
-                  <div className="w-10 h-px bg-[#d9cfc4] mb-3" />
+                  <div className="w-8 h-px bg-[#d9cfc4] mb-2" />
 
                   {/* Description */}
-                  <p className="text-sm text-gray-600 leading-relaxed">
+                  <p className="text-xs text-gray-600 leading-relaxed">
                     {service.description}
                   </p>
                 </div>
 
                 {/* Links */}
-                <div className="flex flex-wrap gap-3 mt-4">
+                <div className="flex flex-wrap gap-2 mt-3">
                   <a
                     href={service.pdfUrl}
                     download

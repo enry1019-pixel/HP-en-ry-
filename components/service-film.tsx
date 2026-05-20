@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Image from "next/image"
+import { X } from "lucide-react"
 
 const services = [
   {
@@ -44,6 +45,12 @@ const PERIMETER = 2 * (VW + VH)
 const SPROCKET_COUNT = 10
 const SLIDE_DURATION = 4800
 
+function toEmbedUrl(url: string): string {
+  const m = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/))([^&?/]+)/)
+  if (m) return `https://www.youtube.com/embed/${m[1]}?autoplay=1&rel=0`
+  return url
+}
+
 export default function ServiceFilm() {
   const [activeIndex, setActiveIndex] = useState(0)
   const [framesDrawing, setFramesDrawing] = useState(false)
@@ -51,19 +58,20 @@ export default function ServiceFilm() {
   const [contentVisible, setContentVisible] = useState(false)
   const [isPaused, setIsPaused] = useState(false)
   const [progressKey, setProgressKey] = useState(0)
+  const [videoOpen, setVideoOpen] = useState(false)
   const sectionRef = useRef<HTMLDivElement>(null)
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
   useEffect(() => {
     if (intervalRef.current) clearInterval(intervalRef.current)
-    if (!isPaused) {
+    if (!isPaused && !videoOpen) {
       intervalRef.current = setInterval(() => {
         setActiveIndex((p) => (p + 1) % services.length)
         setProgressKey((k) => k + 1)
       }, SLIDE_DURATION)
     }
     return () => { if (intervalRef.current) clearInterval(intervalRef.current) }
-  }, [isPaused, progressKey])
+  }, [isPaused, progressKey, videoOpen])
 
   useEffect(() => {
     const obs = new IntersectionObserver(
@@ -76,6 +84,7 @@ export default function ServiceFilm() {
           setFramesDrawing(false)
           setPhotosVisible(false)
           setContentVisible(false)
+          setVideoOpen(false)
         }
       },
       { threshold: 0.1 }
@@ -87,7 +96,11 @@ export default function ServiceFilm() {
   const handleThumbnailClick = (index: number) => {
     setActiveIndex(index)
     setProgressKey((k) => k + 1)
+    setVideoOpen(false)
   }
+
+  const activeService = services[activeIndex]
+  const hasVideo = Boolean(activeService.videoUrl)
 
   const corners: [number, number][] = [
     [28, 28], [VW - 28, 28], [28, VH - 28], [VW - 28, VH - 28],
@@ -100,10 +113,6 @@ export default function ServiceFilm() {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/*
-        Mobile:  featured panel (full width) → thumbnails below as 4-column grid
-        Desktop: featured panel (flex-1)     + thumbnails strip on the right (vertical)
-      */}
       <div className="flex flex-col md:flex-row gap-2">
 
         {/* ── Featured panel ── */}
@@ -193,7 +202,7 @@ export default function ServiceFilm() {
               key={service.id}
               className="absolute inset-x-0 bottom-7 pl-14 pr-8 z-40 pointer-events-none"
               style={{
-                opacity: i === activeIndex && contentVisible ? 1 : 0,
+                opacity: i === activeIndex && contentVisible && !videoOpen ? 1 : 0,
                 transform: i === activeIndex ? "translateY(0)" : "translateY(8px)",
                 transition: "opacity 0.55s ease, transform 0.55s ease",
               }}
@@ -211,20 +220,53 @@ export default function ServiceFilm() {
                     {service.description}
                   </p>
                 </div>
-                {service.videoUrl && (
-                  <a
-                    href={service.videoUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="shrink-0 inline-flex items-center gap-2 border border-white/30 text-white/75 px-4 py-2.5 text-[11px] tracking-[0.3em] hover:bg-white/10 hover:text-white transition-all pointer-events-auto mb-1"
-                  >
-                    <span className="text-[9px]">▶</span>
-                    動画を見る
-                  </a>
-                )}
+                {/* 動画を見るボタン — URL未設定時はフレームのみ表示 */}
+                <button
+                  onClick={i === activeIndex && service.videoUrl ? () => setVideoOpen(true) : undefined}
+                  className={`shrink-0 inline-flex items-center gap-2 border px-4 py-2.5 text-[11px] tracking-[0.3em] transition-all pointer-events-auto mb-1 ${
+                    service.videoUrl
+                      ? "border-white/35 text-white/75 hover:bg-white/10 hover:text-white hover:border-white/55 cursor-pointer"
+                      : "border-white/15 text-white/25 cursor-default"
+                  }`}
+                >
+                  <span className="text-[9px]">▶</span>
+                  動画を見る
+                </button>
               </div>
             </div>
           ))}
+
+          {/* Video overlay */}
+          <div
+            className="absolute inset-0 z-50 bg-black flex flex-col"
+            style={{
+              opacity: videoOpen ? 1 : 0,
+              pointerEvents: videoOpen ? "auto" : "none",
+              transition: "opacity 0.35s ease",
+            }}
+          >
+            {videoOpen && hasVideo && (
+              <iframe
+                src={toEmbedUrl(activeService.videoUrl)}
+                className="w-full flex-1"
+                allow="autoplay; encrypted-media; fullscreen"
+                allowFullScreen
+              />
+            )}
+            {/* Close button */}
+            <button
+              onClick={() => setVideoOpen(false)}
+              className="absolute top-2 right-2 z-10 w-8 h-8 flex items-center justify-center bg-black/60 text-white/80 hover:bg-black hover:text-white transition-colors"
+            >
+              <X className="w-4 h-4" />
+            </button>
+            {/* Service label */}
+            <div className="absolute top-2 left-3 flex items-center gap-2 pointer-events-none">
+              <span className="text-[10px] text-white/40 tracking-[0.5em] font-light">{activeService.id}</span>
+              <div className="h-px bg-white/15 w-8" />
+              <span className="text-[10px] text-white/40 tracking-widest font-light">{activeService.title}</span>
+            </div>
+          </div>
 
           {/* Progress bar */}
           <div className="absolute bottom-[19px] left-0 right-0 h-px z-40 overflow-hidden pointer-events-none">
@@ -233,16 +275,13 @@ export default function ServiceFilm() {
               className="h-full bg-white/45"
               style={{
                 animation: `progress-fill ${SLIDE_DURATION}ms linear forwards`,
-                animationPlayState: isPaused ? "paused" : "running",
+                animationPlayState: isPaused || videoOpen ? "paused" : "running",
               }}
             />
           </div>
         </div>
 
-        {/* ── Thumbnails strip ──
-              Mobile:  4-column grid (aspect-video each)
-              Desktop: vertical flex, each fills equal height
-        */}
+        {/* ── Thumbnails strip ── */}
         <div className="grid grid-cols-4 gap-1.5 md:flex md:flex-col md:gap-1.5 md:w-32 lg:w-36 md:shrink-0">
           {services.map((service, i) => (
             <button
