@@ -471,22 +471,26 @@ export default function Home() {
               />
 
               {/* 補足文 */}
-              <p
-                className="text-gray-500 leading-relaxed text-sm md:text-base"
-                style={{
-                  opacity: isTaglineVisible ? 1 : 0,
-                  transform: isTaglineVisible ? "none" : "translateY(8px)",
-                  transition: "opacity 0.7s ease 2.4s, transform 0.7s ease 2.4s",
-                }}
-              >
-                映像は単なる記録ではなく、心を動かし、人をつなぐ力を持っています。
-                <br className="hidden md:block" />
-                現役映画監督による確かな表現力と幅広い経験を活かし、
-                <br className="hidden md:block" />
-                映画・ドラマからメモリアル動画、企業PRやMVまで、
-                <br className="hidden md:block" />
-                ジャンルを超えて"想いを映像として"提供します。
-              </p>
+              <div className="font-serif text-sm md:text-lg leading-[2.4] tracking-wide">
+                {([
+                  "映像は単なる記録ではなく、心を動かし、人をつなぐ力を持っています。",
+                  "現役映画監督による確かな表現力と幅広い経験を活かし、",
+                  "映画・ドラマからメモリアル動画、企業PRやMVまで、",
+                  <>ジャンルを超えて<span className="text-[#7a1a24]">&ldquo;想いを映像として&rdquo;</span>提供します。</>,
+                ] as React.ReactNode[]).map((line, i) => (
+                  <p
+                    key={i}
+                    className="text-gray-500"
+                    style={{
+                      opacity: isTaglineVisible ? 1 : 0,
+                      transform: isTaglineVisible ? "none" : "translateY(14px)",
+                      transition: `opacity 0.75s ease ${2.5 + i * 0.22}s, transform 0.75s cubic-bezier(0.16,1,0.3,1) ${2.5 + i * 0.22}s`,
+                    }}
+                  >
+                    {line}
+                  </p>
+                ))}
+              </div>
             </div>
           </div>
         </div>
