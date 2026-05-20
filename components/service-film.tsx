@@ -11,7 +11,7 @@ const services = [
     description: "企画・脚本から撮影・編集まで一貫制作。\n映画・テレビドラマ・企業タイアップ、\nPRドラマなど幅広く対応。",
     image: "/service-film-drama.jpg",
     grade: "brightness(0.78)",
-    videoUrl: "", // TODO: 動画URLを指定
+    videoUrl: "https://www.youtube.com/watch?v=mUIHsU9DUAY",
   },
   {
     id: "02",
@@ -27,7 +27,7 @@ const services = [
     description: "採用・インナーブランディングから\nSNSショート動画まで幅広く対応。\n年間サブスク制プランもご用意。",
     image: "/service-pr.jpg",
     grade: "brightness(0.72)",
-    videoUrl: "", // TODO: 動画URLを指定
+    videoUrl: "https://www.youtube.com/watch?v=Wi0mrLzSN5o",
   },
   {
     id: "04",
@@ -35,7 +35,7 @@ const services = [
     description: "楽曲の世界観を最大限に表現。\nアーティスト・アイドル・パフォーマンス、\nSNS縦型動画まで対応。",
     image: "/service-mv.jpg",
     grade: "contrast(1.1) brightness(0.75) saturate(1.35) sepia(0.15)",
-    videoUrl: "", // TODO: 動画URLを指定
+    videoUrl: "https://www.youtube.com/watch?v=8AO0rZnAdqw",
   },
 ]
 
