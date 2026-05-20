@@ -50,7 +50,6 @@ export default function ServiceFilm() {
   const sectionRef = useRef<HTMLDivElement>(null)
   const intervalRef = useRef<ReturnType<typeof setInterval> | null>(null)
 
-  // Auto-play: restarts when isPaused toggles or thumbnail is clicked
   useEffect(() => {
     if (intervalRef.current) clearInterval(intervalRef.current)
     if (!isPaused) {
@@ -60,9 +59,8 @@ export default function ServiceFilm() {
       }, SLIDE_DURATION)
     }
     return () => { if (intervalRef.current) clearInterval(intervalRef.current) }
-  }, [isPaused, progressKey]) // progressKey changes on manual click to reset timer
+  }, [isPaused, progressKey])
 
-  // Initial draw animations on intersection
   useEffect(() => {
     const obs = new IntersectionObserver(
       ([entry]) => {
@@ -84,7 +82,7 @@ export default function ServiceFilm() {
 
   const handleThumbnailClick = (index: number) => {
     setActiveIndex(index)
-    setProgressKey((k) => k + 1) // resets autoplay timer via useEffect dependency
+    setProgressKey((k) => k + 1)
   }
 
   const corners: [number, number][] = [
@@ -92,16 +90,24 @@ export default function ServiceFilm() {
   ]
 
   return (
-    <div ref={sectionRef}>
-      {/* ── Featured panel ── */}
-      <div
-        className="max-w-5xl mx-auto px-4 mb-2"
-        onMouseEnter={() => setIsPaused(true)}
-        onMouseLeave={() => setIsPaused(false)}
-      >
-        <div className="relative overflow-hidden" style={{ aspectRatio: "16/9" }}>
+    <div
+      ref={sectionRef}
+      className="max-w-5xl mx-auto px-4"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+    >
+      {/*
+        Mobile:  featured panel (full width) → thumbnails below as 4-column grid
+        Desktop: featured panel (flex-1)     + thumbnails strip on the right (vertical)
+      */}
+      <div className="flex flex-col md:flex-row gap-2">
 
-          {/* Per-service photos (crossfade) */}
+        {/* ── Featured panel ── */}
+        <div
+          className="relative overflow-hidden w-full md:flex-1"
+          style={{ aspectRatio: "16/9" }}
+        >
+          {/* Per-service photos */}
           {services.map((service, i) => (
             <div
               key={service.id}
@@ -127,7 +133,7 @@ export default function ServiceFilm() {
             </div>
           ))}
 
-          {/* Gradient overlay */}
+          {/* Gradient */}
           <div
             className="absolute inset-0 z-10 pointer-events-none"
             style={{
@@ -141,7 +147,7 @@ export default function ServiceFilm() {
           <div className="absolute top-0 left-0 right-0 h-5 bg-black/70 z-20 pointer-events-none" />
           <div className="absolute bottom-0 left-0 right-0 h-5 bg-black/70 z-20 pointer-events-none" />
 
-          {/* SVG Film Frame — draws once, stays */}
+          {/* SVG Film Frame */}
           <svg
             className="absolute inset-0 w-full h-full z-30 pointer-events-none"
             viewBox={`0 0 ${VW} ${VH}`}
@@ -177,11 +183,11 @@ export default function ServiceFilm() {
             ))}
           </svg>
 
-          {/* Per-service text (fade on switch) */}
+          {/* Per-service text */}
           {services.map((service, i) => (
             <div
               key={service.id}
-              className="absolute inset-x-0 bottom-7 px-10 z-40 pointer-events-none"
+              className="absolute inset-x-0 bottom-7 px-8 z-40 pointer-events-none"
               style={{
                 opacity: i === activeIndex && contentVisible ? 1 : 0,
                 transform: i === activeIndex ? "translateY(0)" : "translateY(8px)",
@@ -189,19 +195,19 @@ export default function ServiceFilm() {
               }}
             >
               <div className="flex items-center gap-3 mb-2">
-                <span className="text-[11px] text-white/50 tracking-[0.6em] font-light">{service.id}</span>
+                <span className="text-[12px] text-white/50 tracking-[0.6em] font-light">{service.id}</span>
                 <div className="h-px bg-white/25 w-12" />
               </div>
-              <h3 className="text-3xl font-bold text-white tracking-widest mb-2">
+              <h3 className="text-[32px] font-bold text-white tracking-widest mb-2 leading-tight">
                 {service.title}
               </h3>
-              <p className="text-[11px] text-gray-300/80 leading-relaxed tracking-wider whitespace-pre-line max-w-md">
+              <p className="text-[12px] text-gray-300/80 leading-relaxed tracking-wider whitespace-pre-line max-w-md">
                 {service.description}
               </p>
             </div>
           ))}
 
-          {/* Auto-play progress bar */}
+          {/* Progress bar */}
           <div className="absolute bottom-[19px] left-0 right-0 h-px z-40 overflow-hidden pointer-events-none">
             <div
               key={progressKey}
@@ -213,50 +219,52 @@ export default function ServiceFilm() {
             />
           </div>
         </div>
-      </div>
 
-      {/* ── Filmstrip thumbnails ── */}
-      <div className="grid grid-cols-4 gap-2 max-w-5xl mx-auto px-4">
-        {services.map((service, i) => (
-          <button
-            key={service.id}
-            onClick={() => handleThumbnailClick(i)}
-            className="relative overflow-hidden cursor-pointer block"
-            style={{
-              aspectRatio: "16/9",
-              opacity: i === activeIndex ? 1 : 0.42,
-              outline: i === activeIndex ? "1px solid rgba(255,255,255,0.45)" : "none",
-              outlineOffset: "-1px",
-              transition: "opacity 0.3s ease",
-            }}
-          >
-            <Image
-              src={service.image}
-              alt={service.title}
-              fill
-              className="object-cover"
-              style={{ filter: service.grade }}
-            />
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-black/45" />
-            {/* Mini letterbox */}
-            <div className="absolute top-0 left-0 right-0 h-[3px] bg-black/70 z-10" />
-            <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-black/70 z-10" />
-            {/* Label */}
-            <div className="absolute inset-x-0 bottom-1.5 px-1.5 z-20">
-              <span className="hidden sm:block text-[8px] text-white/40 tracking-[0.4em] font-light leading-none mb-0.5">
-                {service.id}
-              </span>
-              <span className="block text-white text-[10px] sm:text-[11px] font-bold tracking-wider leading-tight">
-                {service.title}
-              </span>
-            </div>
-            {/* Active underline */}
-            {i === activeIndex && (
-              <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/65 z-30" />
-            )}
-          </button>
-        ))}
+        {/* ── Thumbnails strip ──
+              Mobile:  4-column grid (aspect-video each)
+              Desktop: vertical flex, each fills equal height
+        */}
+        <div className="grid grid-cols-4 gap-1.5 md:flex md:flex-col md:gap-1.5 md:w-32 lg:w-36 md:shrink-0">
+          {services.map((service, i) => (
+            <button
+              key={service.id}
+              onClick={() => handleThumbnailClick(i)}
+              className="relative overflow-hidden cursor-pointer [aspect-ratio:16/9] md:[aspect-ratio:auto] md:flex-1"
+              style={{
+                opacity: i === activeIndex ? 1 : 0.42,
+                outline: i === activeIndex ? "1px solid rgba(255,255,255,0.45)" : "none",
+                outlineOffset: "-1px",
+                transition: "opacity 0.3s ease",
+              }}
+            >
+              <Image
+                src={service.image}
+                alt={service.title}
+                fill
+                className="object-cover"
+                style={{ filter: service.grade }}
+              />
+              <div className="absolute inset-0 bg-black/45" />
+              {/* Mini letterbox */}
+              <div className="absolute top-0 left-0 right-0 h-[3px] bg-black/70 z-10" />
+              <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-black/70 z-10" />
+              {/* Label */}
+              <div className="absolute inset-x-0 bottom-1.5 px-1.5 z-20">
+                <span className="hidden sm:block text-[8px] text-white/40 tracking-[0.4em] font-light leading-none mb-0.5">
+                  {service.id}
+                </span>
+                <span className="block text-white text-[10px] sm:text-[11px] font-bold tracking-wider leading-tight">
+                  {service.title}
+                </span>
+              </div>
+              {/* Active underline */}
+              {i === activeIndex && (
+                <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-white/65 z-30" />
+              )}
+            </button>
+          ))}
+        </div>
+
       </div>
     </div>
   )
