@@ -169,11 +169,10 @@ function VideoCard({ item, size = "sm" }: { item: Item; size?: "sm" | "md" }) {
   )
 }
 
-function SectionLabel({ children, sub }: { children: React.ReactNode; sub?: string }) {
+function SectionLabel({ sub }: { sub?: string }) {
   return (
     <div className="mb-4 pb-3 border-b border-[#e8e0d6]">
-      <p className="text-[9px] tracking-[0.55em] text-[#7a1a24] font-bold uppercase mb-0.5">{children}</p>
-      {sub && <p className="text-[11px] text-gray-400 tracking-wider">{sub}</p>}
+      {sub && <p className="text-[11px] text-[#7a1a24] tracking-wider font-bold">{sub}</p>}
     </div>
   )
 }
@@ -193,7 +192,7 @@ export default function PortfolioSlider() {
       <div className="space-y-10">
         {/* en-ry実績 */}
         <div>
-          <SectionLabel sub="en-ry 実績">EN-RY</SectionLabel>
+          <SectionLabel sub="en-ry 実績" />
           <div className="grid grid-cols-2 gap-3">
             {enryItems.map((item) => (
               <VideoCard key={item.id} item={item} size="md" />
@@ -202,7 +201,7 @@ export default function PortfolioSlider() {
         </div>
         {/* 田中監督実績 */}
         <div>
-          <SectionLabel sub="田中慎太郎監督 実績">DIRECTOR</SectionLabel>
+          <SectionLabel sub="田中慎太郎監督 実績" />
           <div className="grid grid-cols-2 gap-3">
             {directorItems.map((item) => (
               <VideoCard key={item.id} item={item} />
@@ -217,7 +216,7 @@ export default function PortfolioSlider() {
     <div className="flex gap-6 items-start">
       {/* Left: en-ry実績 */}
       <div className="w-[36%] shrink-0">
-        <SectionLabel sub="en-ry 実績">EN-RY</SectionLabel>
+        <SectionLabel sub="en-ry 実績" />
         <div className="grid grid-cols-2 gap-3">
           {enryItems.map((item) => (
             <VideoCard key={item.id} item={item} size="md" />
@@ -230,7 +229,7 @@ export default function PortfolioSlider() {
 
       {/* Right: 田中監督実績 */}
       <div className="flex-1">
-        <SectionLabel sub="田中慎太郎監督 実績">DIRECTOR</SectionLabel>
+        <SectionLabel sub="田中慎太郎監督 実績" />
         <div className="grid grid-cols-4 gap-3">
           {directorItems.map((item) => (
             <VideoCard key={item.id} item={item} />

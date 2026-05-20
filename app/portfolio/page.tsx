@@ -6,7 +6,19 @@ import Link from "next/link"
 import { ArrowLeft, Play, X } from "lucide-react"
 import { RedThreadBackground } from "@/components/red-thread-background"
 
-const portfolioItems = [
+const enryItems = [
+  {
+    id: 1,
+    title: "Ma'Scar'Piece 12th Single「Showtime Ignition」",
+    category: "MV",
+    role: "企画構成・監督・撮影・編集",
+    year: "2026/03/29",
+    videoId: "8AO0rZnAdqw",
+    thumbnail: "https://img.youtube.com/vi/8AO0rZnAdqw/maxresdefault.jpg",
+  },
+]
+
+const directorItems = [
   {
     id: 1,
     title: "私たちの東京ストーリー",
@@ -14,7 +26,7 @@ const portfolioItems = [
     role: "現場執行監督",
     year: "2025年",
     videoId: "mUIHsU9DUAY",
-    thumbnail: `https://img.youtube.com/vi/mUIHsU9DUAY/hqdefault.jpg`,
+    thumbnail: "https://img.youtube.com/vi/mUIHsU9DUAY/hqdefault.jpg",
   },
   {
     id: 2,
@@ -24,7 +36,7 @@ const portfolioItems = [
     year: "2025年",
     description: "U-NEXTにて配信中",
     videoId: "Xk6PZaU43JE",
-    thumbnail: `https://img.youtube.com/vi/Xk6PZaU43JE/maxresdefault.jpg`,
+    thumbnail: "https://img.youtube.com/vi/Xk6PZaU43JE/maxresdefault.jpg",
   },
   {
     id: 3,
@@ -33,7 +45,7 @@ const portfolioItems = [
     role: "監督・脚本・編集",
     year: "2025年",
     videoId: "vnwuWPM-JVw",
-    thumbnail: `https://img.youtube.com/vi/vnwuWPM-JVw/maxresdefault.jpg`,
+    thumbnail: "https://img.youtube.com/vi/vnwuWPM-JVw/maxresdefault.jpg",
   },
   {
     id: 4,
@@ -42,7 +54,7 @@ const portfolioItems = [
     role: "構成・演出・編集",
     year: "2021年",
     videoId: "EADBDIOrMX0",
-    thumbnail: `https://img.youtube.com/vi/EADBDIOrMX0/hqdefault.jpg`,
+    thumbnail: "https://img.youtube.com/vi/EADBDIOrMX0/hqdefault.jpg",
   },
   {
     id: 5,
@@ -51,7 +63,7 @@ const portfolioItems = [
     role: "監督",
     year: "2023年",
     videoId: "fhbUDHyBVW8",
-    thumbnail: `https://img.youtube.com/vi/fhbUDHyBVW8/maxresdefault.jpg`,
+    thumbnail: "https://img.youtube.com/vi/fhbUDHyBVW8/maxresdefault.jpg",
   },
   {
     id: 6,
@@ -60,7 +72,7 @@ const portfolioItems = [
     role: "監督・脚本・編集",
     year: "2023年",
     videoId: "SPX7k8DsnIk",
-    thumbnail: `https://img.youtube.com/vi/SPX7k8DsnIk/maxresdefault.jpg`,
+    thumbnail: "https://img.youtube.com/vi/SPX7k8DsnIk/maxresdefault.jpg",
   },
   {
     id: 7,
@@ -69,7 +81,7 @@ const portfolioItems = [
     role: "監督・脚本・撮影・編集",
     year: "2022年",
     videoId: "Wt7nqe5ACIA",
-    thumbnail: `https://img.youtube.com/vi/Wt7nqe5ACIA/maxresdefault.jpg`,
+    thumbnail: "https://img.youtube.com/vi/Wt7nqe5ACIA/maxresdefault.jpg",
   },
   {
     id: 8,
@@ -78,16 +90,16 @@ const portfolioItems = [
     role: "監督",
     year: "2022年",
     videoId: "6C7P_0Qv3pc",
-    thumbnail: `https://img.youtube.com/vi/6C7P_0Qv3pc/maxresdefault.jpg`,
+    thumbnail: "https://img.youtube.com/vi/6C7P_0Qv3pc/maxresdefault.jpg",
   },
   {
     id: 9,
     title: "劇薬",
     category: "映画",
     role: "監督・脚本・撮影・編集",
-    year: "2024年",
+    year: "2022年",
     videoId: "CtSvHCdXivk",
-    thumbnail: `https://img.youtube.com/vi/CtSvHCdXivk/maxresdefault.jpg`,
+    thumbnail: "https://img.youtube.com/vi/CtSvHCdXivk/maxresdefault.jpg",
   },
   {
     id: 10,
@@ -96,34 +108,34 @@ const portfolioItems = [
     role: "監督・脚本",
     year: "2024年",
     videoId: "OuF0gG07TKk",
-    thumbnail: `https://img.youtube.com/vi/OuF0gG07TKk/maxresdefault.jpg`,
+    thumbnail: "https://img.youtube.com/vi/OuF0gG07TKk/maxresdefault.jpg",
   },
   {
     id: 11,
     title: "夏恋バケーション/花いろは",
     category: "MV",
     role: "監督・編集",
-    year: "2024年",
+    year: "2022年",
     videoId: "MCGkxEmxJWQ",
-    thumbnail: `https://img.youtube.com/vi/MCGkxEmxJWQ/maxresdefault.jpg`,
+    thumbnail: "https://img.youtube.com/vi/MCGkxEmxJWQ/maxresdefault.jpg",
   },
   {
     id: 12,
     title: "桃色ジュテーム/花いろは",
     category: "MV",
     role: "監督",
-    year: "2024年",
+    year: "2025年",
     videoId: "8DLmTeGNtlE",
-    thumbnail: `https://img.youtube.com/vi/8DLmTeGNtlE/maxresdefault.jpg`,
+    thumbnail: "https://img.youtube.com/vi/8DLmTeGNtlE/maxresdefault.jpg",
   },
   {
     id: 13,
     title: "BIRTHDAY feat.掌幻/TONEMANIA",
     category: "MV",
     role: "監督",
-    year: "2024年",
+    year: "2023年",
     videoId: "fIwdf8M9X0M",
-    thumbnail: `https://img.youtube.com/vi/fIwdf8M9X0M/maxresdefault.jpg`,
+    thumbnail: "https://img.youtube.com/vi/fIwdf8M9X0M/maxresdefault.jpg",
   },
   {
     id: 14,
@@ -132,7 +144,7 @@ const portfolioItems = [
     role: "監督",
     year: "2024年",
     videoId: "81eV5XW62Ww",
-    thumbnail: `https://img.youtube.com/vi/81eV5XW62Ww/maxresdefault.jpg`,
+    thumbnail: "https://img.youtube.com/vi/81eV5XW62Ww/maxresdefault.jpg",
   },
   {
     id: 15,
@@ -141,7 +153,7 @@ const portfolioItems = [
     role: "監督・脚本・編集",
     year: "2025年",
     videoId: "vlBvWlyZ75I",
-    thumbnail: `https://img.youtube.com/vi/vlBvWlyZ75I/maxresdefault.jpg`,
+    thumbnail: "https://img.youtube.com/vi/vlBvWlyZ75I/maxresdefault.jpg",
   },
   {
     id: 16,
@@ -150,134 +162,149 @@ const portfolioItems = [
     role: "監督・脚本・編集",
     year: "2025年",
     videoId: "TF-l_F6VXg0",
-    thumbnail: `https://img.youtube.com/vi/TF-l_F6VXg0/maxresdefault.jpg`,
+    thumbnail: "https://img.youtube.com/vi/TF-l_F6VXg0/maxresdefault.jpg",
   },
   {
     id: 17,
-    title: "株式会社en-ry　PV（long ver.）",
+    title: "株式会社en-ry PV（long ver.）",
     category: "企業PR",
     role: "監督・編集",
     year: "2025年",
     videoId: "Wi0mrLzSN5o",
-    thumbnail: `https://img.youtube.com/vi/Wi0mrLzSN5o/maxresdefault.jpg`,
+    thumbnail: "https://img.youtube.com/vi/Wi0mrLzSN5o/maxresdefault.jpg",
   },
 ]
 
+type Item = {
+  id: number
+  title: string
+  category: string
+  role: string
+  year: string
+  videoId: string
+  thumbnail: string
+  description?: string
+}
+
+function PortfolioCard({ item, onOpen }: { item: Item; onOpen: (item: Item) => void }) {
+  return (
+    <div
+      className="bg-white overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer group border border-[#e8e0d6]"
+      onClick={() => onOpen(item)}
+    >
+      <div className="h-48 bg-gray-900 relative overflow-hidden">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src={item.thumbnail}
+          alt={item.title}
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+        />
+        <div className="absolute inset-0 bg-black/25 group-hover:bg-black/50 transition-colors duration-300 flex items-center justify-center">
+          <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-11 h-11 rounded-full bg-white/20 border border-white/50 flex items-center justify-center">
+            <Play className="w-5 h-5 text-white fill-white ml-0.5" />
+          </div>
+        </div>
+        <div className="absolute top-2.5 left-2.5">
+          <span className="bg-[#7a1a24]/85 text-white text-[10px] px-2.5 py-1 tracking-wider">{item.category}</span>
+        </div>
+      </div>
+      <div className="p-4">
+        <h3 className="font-bold text-sm mb-1.5 leading-snug line-clamp-2 text-[#1a1a1a]">{item.title}</h3>
+        <p className="text-[11px] text-gray-500 mb-0.5">{item.year}</p>
+        <p className="text-[11px] text-gray-400">{item.role}</p>
+        {item.description && <p className="text-[11px] text-[#7a1a24] mt-1">{item.description}</p>}
+      </div>
+    </div>
+  )
+}
+
+function SectionHeading({ label, title }: { label: string; title: string }) {
+  return (
+    <div className="flex items-center gap-4 mb-8">
+      <div className="flex items-center gap-2">
+        <div className="w-12 h-px bg-gradient-to-r from-transparent to-[#7a1a24]/55" />
+        <div className="w-1.5 h-1.5 rotate-45 bg-[#7a1a24]/55 shrink-0" />
+      </div>
+      <div>
+        <p className="text-[10px] tracking-[0.5em] text-[#7a1a24] font-bold uppercase mb-0.5">{label}</p>
+        <h2 className="text-xl font-bold tracking-widest text-[#1a1a1a]">{title}</h2>
+      </div>
+      <div className="flex items-center gap-2">
+        <div className="w-1.5 h-1.5 rotate-45 bg-[#7a1a24]/55 shrink-0" />
+        <div className="h-px bg-gradient-to-l from-transparent to-[#7a1a24]/55 flex-1 w-12" />
+      </div>
+    </div>
+  )
+}
+
 export default function PortfolioPage() {
-  const [selectedVideo, setSelectedVideo] = useState<(typeof portfolioItems)[0] | null>(null)
-  const [selectedCategory, setSelectedCategory] = useState<string>("すべて")
+  const [selectedVideo, setSelectedVideo] = useState<Item | null>(null)
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
 
-  const categories = ["すべて", ...Array.from(new Set(portfolioItems.map((item) => item.category)))]
-
-  const filteredItems =
-    selectedCategory === "すべて" ? portfolioItems : portfolioItems.filter((item) => item.category === selectedCategory)
-
-  const openVideoModal = (item: (typeof portfolioItems)[0]) => {
-    setSelectedVideo(item)
-  }
-
-  const closeVideoModal = () => {
-    setSelectedVideo(null)
-  }
+  useEffect(() => {
+    if (selectedVideo) {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "unset"
+    }
+    return () => { document.body.style.overflow = "unset" }
+  }, [selectedVideo])
 
   return (
-    <div className="min-h-screen flex flex-col bg-lightgray relative">
+    <div className="min-h-screen flex flex-col bg-[#faf7f2] relative">
       <RedThreadBackground />
 
-      <header className="sticky top-0 z-40 bg-white border-b border-gray-200">
+      <header className="sticky top-0 z-40 bg-[#faf7f2]/95 backdrop-blur-sm border-b border-[#d9cfc4]">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/logo-final.png"
-              alt="株式会社en-ry（エンリー）"
-              width={32}
-              height={32}
-              className="object-contain"
-            />
+            <Image src="/logo-final.png" alt="株式会社en-ry（エンリー）" width={32} height={32} className="object-contain" />
             <h1 className="text-2xl font-bold">en-ry</h1>
           </Link>
-
-          <Link href="/#works" className="inline-flex items-center text-gray-600 hover:text-black transition-colors">
-            <ArrowLeft className="w-4 h-4 mr-2" />
+          <Link href="/#works" className="inline-flex items-center text-gray-600 hover:text-[#7a1a24] transition-colors text-sm">
+            <ArrowLeft className="w-4 h-4 mr-1.5" />
             ホームに戻る
           </Link>
         </div>
       </header>
 
-      {/* Main Content */}
       <main className="flex-1 py-12">
-        <div className="container mx-auto px-4">
-          {/* Page Title */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold mb-4">制作実績一覧</h1>
-            <p className="text-lg text-gray-600">これまでに制作した映像作品をご覧いただけます</p>
+        <div className="container mx-auto px-4 max-w-6xl">
+          <div className="text-center mb-14">
+            <h1 className="text-4xl font-bold mb-3 tracking-widest">制作実績一覧</h1>
+            <p className="text-gray-500">これまでに制作した映像作品をご覧いただけます</p>
           </div>
 
-          {/* Category Filter */}
-          <div className="flex flex-wrap justify-center gap-3 mb-12">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-2 rounded-full transition-all ${
-                  selectedCategory === category
-                    ? "bg-charcoal-light text-white shadow-lg"
-                    : "bg-white text-gray-700 hover:bg-gray-100"
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-
-          {/* Portfolio Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {filteredItems.map((item) => (
-              <div
-                key={item.id}
-                className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group"
-                onClick={() => openVideoModal(item)}
-              >
-                <div className="h-64 bg-gray-100 relative">
-                  <Image src={item.thumbnail || "/placeholder.svg"} alt={item.title} fill className="object-cover" />
-                  <div className="absolute inset-0 bg-black/30 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
-                    <div className="bg-white/90 rounded-full p-4">
-                      <Play className="w-8 h-8 text-charcoal-light" fill="currentColor" />
-                    </div>
-                  </div>
-                  <div className="absolute top-3 left-3">
-                    <span className="bg-charcoal-light text-white text-xs px-3 py-1 rounded-full">{item.category}</span>
-                  </div>
-                </div>
-                <div className="p-5">
-                  <h3 className="text-xl font-bold mb-2 line-clamp-2">{item.title}</h3>
-                  <p className="text-gray-600 mb-1">{item.year}</p>
-                  <p className="text-sm text-gray-500">{item.role}</p>
-                  {item.description && <p className="text-sm text-gray-500 mt-2">{item.description}</p>}
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {filteredItems.length === 0 && (
-            <div className="text-center py-20">
-              <p className="text-gray-500 text-lg">該当する作品がありません</p>
+          {/* 会社実績 */}
+          <section className="mb-16">
+            <SectionHeading label="Company Works" title="会社実績" />
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {enryItems.map((item) => (
+                <PortfolioCard key={item.id} item={item} onOpen={setSelectedVideo} />
+              ))}
             </div>
-          )}
+          </section>
+
+          {/* 田中慎太郎監督 実績 */}
+          <section>
+            <SectionHeading label="Director Works" title="田中慎太郎監督 実績" />
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              {directorItems.map((item) => (
+                <PortfolioCard key={item.id} item={item} onOpen={setSelectedVideo} />
+              ))}
+            </div>
+          </section>
         </div>
       </main>
 
       {/* Video Modal */}
       {selectedVideo && (
-        <div className="fixed inset-0 bg-black/95 z-50 flex items-center justify-center p-4" onClick={closeVideoModal}>
+        <div className="fixed inset-0 bg-black/92 z-50 flex items-center justify-center p-4" onClick={() => setSelectedVideo(null)}>
           <button
-            onClick={closeVideoModal}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
-            aria-label="閉じる"
+            onClick={() => setSelectedVideo(null)}
+            className="absolute top-4 right-4 text-white hover:text-gray-300 z-10"
           >
             <X className="w-8 h-8" />
           </button>
@@ -292,36 +319,22 @@ export default function PortfolioPage() {
               />
             </div>
             <div className="mt-4 text-white text-center">
-              <h3 className="text-2xl font-bold mb-2">{selectedVideo.title}</h3>
-              <p className="text-gray-300">
-                {selectedVideo.category} / {selectedVideo.role} / {selectedVideo.year}
-              </p>
-              {selectedVideo.description && <p className="text-gray-300 mt-2">{selectedVideo.description}</p>}
+              <h3 className="text-2xl font-bold mb-1">{selectedVideo.title}</h3>
+              <p className="text-gray-400 text-sm">{selectedVideo.category} / {selectedVideo.role} / {selectedVideo.year}</p>
+              {selectedVideo.description && <p className="text-[#d45060] text-sm mt-1">{selectedVideo.description}</p>}
             </div>
           </div>
         </div>
       )}
 
-      <footer className="bg-charcoal-light text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="text-center">
-            <div className="flex items-center justify-center gap-2 mb-4">
-              <div className="flex items-center">
-                <Image
-                  src="/logo-final.png"
-                  alt="株式会社en-ry（エンリー）"
-                  width={28}
-                  height={28}
-                  className="object-contain invert"
-                />
-              </div>
-              <Link href="/" className="text-2xl font-bold">
-                en-ry
-              </Link>
-            </div>
-            <p className="text-gray-300 mb-4">幸せな今を縁"en"が導く─未来の記憶"memory"に</p>
-            <p>&copy; 2025 en-ry All Rights Reserved.</p>
+      <footer className="bg-[#3d0a10] text-white py-8">
+        <div className="container mx-auto px-4 text-center">
+          <div className="flex items-center justify-center gap-2 mb-3">
+            <Image src="/logo-final.png" alt="株式会社en-ry" width={24} height={24} className="object-contain invert" />
+            <Link href="/" className="text-xl font-bold">en-ry</Link>
           </div>
+          <p className="text-gray-400 text-sm mb-2">幸せな今を縁"en"が導く─未来の記憶"memory"に</p>
+          <p className="text-gray-500 text-xs">&copy; 2025 en-ry All Rights Reserved.</p>
         </div>
       </footer>
     </div>
