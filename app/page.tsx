@@ -9,6 +9,7 @@ import PortfolioSlider from "@/components/portfolio-slider"
 import NewsSection from "@/components/news-section"
 import ProcessSection from "@/components/process-section"
 import OtherServicesSection from "@/components/other-services-section"
+import StrengthsSection from "@/components/strengths-section"
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -520,6 +521,9 @@ export default function Home() {
           </div>{/* sec-body end */}
         </div>
       </section>
+
+      {/* Strengths Section */}
+      <StrengthsSection />
 
       {/* Process Section */}
       <ProcessSection />
