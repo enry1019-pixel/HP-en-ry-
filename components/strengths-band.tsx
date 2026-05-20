@@ -115,24 +115,39 @@ export default function StrengthsBand() {
           {/* Bottom: 3 items */}
           <div className="relative">
             {/* クレヨン塗りテクスチャ */}
-            <div
-              className="absolute pointer-events-none"
+            <svg
+              aria-hidden
+              className="absolute pointer-events-none overflow-visible"
               style={{
-                inset: "-1rem",
-                backgroundColor: "rgba(122,26,36,0.07)",
-                backgroundImage: `
-                  repeating-linear-gradient(
-                    -55deg,
-                    rgba(255,255,255,0.28) 0px,
-                    rgba(255,255,255,0.28) 1.5px,
-                    transparent 1.5px,
-                    transparent 4px
-                  )
-                `,
+                inset: "-1.5rem",
+                width: "calc(100% + 3rem)",
+                height: "calc(100% + 3rem)",
                 opacity: visible ? 1 : 0,
-                transition: "opacity 0.8s ease 0.5s",
+                transition: "opacity 0.9s ease 0.5s",
               }}
-            />
+            >
+              <defs>
+                <pattern
+                  id="sb-crayon"
+                  x="0" y="0" width="10" height="10"
+                  patternUnits="userSpaceOnUse"
+                  patternTransform="rotate(-52)"
+                >
+                  <rect width="5.5" height="10" fill="rgba(122,26,36,0.13)" />
+                </pattern>
+                <filter id="sb-crayon-f" x="-20%" y="-20%" width="140%" height="140%">
+                  <feTurbulence type="fractalNoise" baseFrequency="0.028" numOctaves="5" seed="6" result="noise" />
+                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="18" xChannelSelector="R" yChannelSelector="G" />
+                </filter>
+              </defs>
+              <rect
+                x="5%" y="10%"
+                width="90%" height="80%"
+                fill="url(#sb-crayon)"
+                filter="url(#sb-crayon-f)"
+                rx="6"
+              />
+            </svg>
           <div className="relative grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-10">
             {items.map((item, i) => (
               <div
