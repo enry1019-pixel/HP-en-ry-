@@ -114,19 +114,39 @@ export default function StrengthsBand() {
 
           {/* Bottom: 3 items */}
           <div className="relative">
-            {/* スクラッチテクスチャ */}
-            <div
-              className="absolute -inset-4 pointer-events-none"
+            {/* スクラッチ塗りテクスチャ */}
+            <svg
+              aria-hidden
+              className="absolute pointer-events-none"
               style={{
-                backgroundImage: `
-                  repeating-linear-gradient(-68deg, transparent 0px, transparent 12px, rgba(0,0,0,0.045) 12px, rgba(0,0,0,0.045) 13px),
-                  repeating-linear-gradient(-71deg, transparent 0px, transparent 21px, rgba(0,0,0,0.03)  21px, rgba(0,0,0,0.03)  22px),
-                  repeating-linear-gradient(-65deg, transparent 0px, transparent 7px,  rgba(0,0,0,0.025) 7px,  rgba(0,0,0,0.025) 8px)
-                `,
+                inset: "-1.5rem",
+                width: "calc(100% + 3rem)",
+                height: "calc(100% + 3rem)",
                 opacity: visible ? 1 : 0,
-                transition: "opacity 0.6s ease 0.5s",
+                transition: "opacity 0.8s ease 0.5s",
               }}
-            />
+              preserveAspectRatio="xMidYMid slice"
+            >
+              <defs>
+                <filter id="sb-scratch" x="-5%" y="-5%" width="110%" height="110%">
+                  <feTurbulence
+                    type="fractalNoise"
+                    baseFrequency="0.035 0.72"
+                    numOctaves="4"
+                    seed="9"
+                    result="noise"
+                  />
+                  <feColorMatrix
+                    type="matrix"
+                    values="0 0 0 0 0.11
+                            0 0 0 0 0.08
+                            0 0 0 0 0.08
+                            0 0 0 6 -2.2"
+                  />
+                </filter>
+              </defs>
+              <rect width="100%" height="100%" filter="url(#sb-scratch)" />
+            </svg>
           <div className="relative grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-10">
             {items.map((item, i) => (
               <div
