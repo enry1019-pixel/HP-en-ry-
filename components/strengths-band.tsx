@@ -55,9 +55,9 @@ export default function StrengthsBand() {
   const n0 = TITLE_LINES[0].length
 
   return (
-    <div ref={ref} className="max-w-5xl mx-auto px-4 my-8">
+    <div ref={ref} className="w-full my-8">
       <div
-        className="relative overflow-hidden px-8 md:px-12 py-12 md:py-14"
+        className="relative overflow-hidden py-12 md:py-16"
         style={{
           background: "linear-gradient(135deg, #0d0a0b 0%, #1a0d11 50%, #0d0a0b 100%)",
         }}
@@ -68,11 +68,11 @@ export default function StrengthsBand() {
           style={{ opacity: visible ? 1 : 0, transition: "opacity 0.8s ease 0.1s" }}
         >
           <span
-            className="font-black tracking-[0.35em] whitespace-nowrap"
+            className="font-black tracking-[0.25em] whitespace-nowrap"
             style={{
-              fontSize: "clamp(52px, 11vw, 118px)",
-              color: "transparent",
-              WebkitTextStroke: "1px rgba(255,255,255,0.065)",
+              fontSize: "clamp(72px, 14vw, 160px)",
+              color: "rgba(255,255,255,0.055)",
+              textShadow: "0 4px 0 rgba(0,0,0,0.5), 0 8px 32px rgba(0,0,0,0.25)",
             } as React.CSSProperties}
           >
             THE REASON
@@ -89,7 +89,7 @@ export default function StrengthsBand() {
         />
 
         {/* ── コンテンツ ── */}
-        <div className="relative z-10 flex flex-col md:flex-row gap-10 md:gap-14 items-start">
+        <div className="relative z-10 max-w-5xl mx-auto px-8 md:px-12 flex flex-col md:flex-row gap-10 md:gap-14 items-start">
 
           {/* Left: label + typewriter title */}
           <div
@@ -144,11 +144,9 @@ export default function StrengthsBand() {
 
         </div>
 
-        {/* ── 下部アクセントライン ── */}
-        <div
-          className="absolute bottom-0 left-0 right-0 h-px"
-          style={{ background: "linear-gradient(to right, #7a1a24, rgba(122,26,36,0.2), transparent)" }}
-        />
+        {/* ── 上下アクセントライン ── */}
+        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, #7a1a24 30%, #7a1a24 70%, transparent)" }} />
+        <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, #7a1a24 30%, #7a1a24 70%, transparent)" }} />
       </div>
     </div>
   )
