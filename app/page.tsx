@@ -7,6 +7,7 @@ import { ArrowRight, Menu, X, Volume2, VolumeX, Instagram, Youtube } from "lucid
 import ServiceFilm from "@/components/service-film"
 import PortfolioSlider from "@/components/portfolio-slider"
 import NewsSection from "@/components/news-section"
+import ProcessSection from "@/components/process-section"
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -526,6 +527,9 @@ export default function Home() {
           </div>{/* sec-body end */}
         </div>
       </section>
+
+      {/* Process Section */}
+      <ProcessSection />
 
       {/* Portfolio Section */}
       <section
