@@ -20,7 +20,7 @@ const directorItems = [
   {
     id: 1,
     title: "私たちの東京ストーリー",
-    category: "TVドラマ",
+    category: "ドラマ",
     role: "現場執行監督",
     year: "2025年",
     videoId: "mUIHsU9DUAY",
@@ -29,7 +29,7 @@ const directorItems = [
   {
     id: 2,
     title: "おっさんの夏休み",
-    category: "短編映画",
+    category: "映画",
     role: "監督・脚本・撮影・編集",
     year: "2025年",
     description: "U-NEXTにて配信中",
@@ -48,7 +48,7 @@ const directorItems = [
   {
     id: 4,
     title: "震災ドキュメンタリー番組",
-    category: "ドキュメンタリー",
+    category: "その他",
     role: "構成・演出・編集",
     year: "2021年",
     videoId: "EADBDIOrMX0",

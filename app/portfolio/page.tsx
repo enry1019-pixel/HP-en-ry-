@@ -22,7 +22,7 @@ const directorItems = [
   {
     id: 1,
     title: "私たちの東京ストーリー",
-    category: "TVドラマ",
+    category: "ドラマ",
     role: "現場執行監督",
     year: "2025年",
     videoId: "mUIHsU9DUAY",
@@ -31,7 +31,7 @@ const directorItems = [
   {
     id: 2,
     title: "おっさんの夏休み",
-    category: "短編映画",
+    category: "映画",
     role: "監督・脚本・撮影・編集",
     year: "2025年",
     description: "U-NEXTにて配信中",
@@ -50,7 +50,7 @@ const directorItems = [
   {
     id: 4,
     title: "震災ドキュメンタリー番組",
-    category: "ドキュメンタリー",
+    category: "その他",
     role: "構成・演出・編集",
     year: "2021年",
     videoId: "EADBDIOrMX0",
@@ -59,7 +59,7 @@ const directorItems = [
   {
     id: 5,
     title: "『絶対零度のオアシス』",
-    category: "違法薬物撲滅ドラマ",
+    category: "ドラマ",
     role: "監督",
     year: "2023年",
     videoId: "fhbUDHyBVW8",
@@ -103,10 +103,10 @@ const directorItems = [
   },
   {
     id: 10,
-    title: "福井県 観光地PR動画",
-    category: "観光地PR",
+    title: "福井弁わかる？",
+    category: "CM",
     role: "監督・脚本",
-    year: "2024年",
+    year: "2021年",
     videoId: "OuF0gG07TKk",
     thumbnail: "https://img.youtube.com/vi/OuF0gG07TKk/maxresdefault.jpg",
   },
@@ -237,12 +237,22 @@ function SectionHeading({ label, title }: { label: string; title: string }) {
   )
 }
 
+const TABS = ["すべて", "映画", "ドラマ", "CM", "企業PR", "MV", "その他"] as const
+type Tab = typeof TABS[number]
+
 export default function PortfolioPage() {
   const [selectedVideo, setSelectedVideo] = useState<Item | null>(null)
+  const [tab, setTab] = useState<Tab>("すべて")
 
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
+
+  const filterItems = (items: Item[]) =>
+    tab === "すべて" ? items : items.filter((i) => i.category === tab)
+
+  const filteredEnry = filterItems(enryItems)
+  const filteredDirector = filterItems(directorItems)
 
   useEffect(() => {
     if (selectedVideo) {
@@ -272,30 +282,57 @@ export default function PortfolioPage() {
 
       <main className="flex-1 py-12">
         <div className="container mx-auto px-4 max-w-6xl">
-          <div className="text-center mb-14">
+          <div className="text-center mb-10">
             <h1 className="text-4xl font-bold mb-3 tracking-widest">制作実績一覧</h1>
             <p className="text-gray-500">これまでに制作した映像作品をご覧いただけます</p>
           </div>
 
+          {/* ジャンルタブ */}
+          <div className="flex flex-wrap justify-center gap-2 mb-12">
+            {TABS.map((t) => (
+              <button
+                key={t}
+                onClick={() => setTab(t)}
+                className={`px-5 py-2 text-sm tracking-wider transition-all ${
+                  tab === t
+                    ? "bg-[#7a1a24] text-white"
+                    : "bg-white text-gray-600 border border-[#d9cfc4] hover:border-[#7a1a24] hover:text-[#7a1a24]"
+                }`}
+              >
+                {t}
+              </button>
+            ))}
+          </div>
+
           {/* 会社実績 */}
-          <section className="mb-16">
-            <SectionHeading label="Company Works" title="会社実績" />
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {enryItems.map((item) => (
-                <PortfolioCard key={item.id} item={item} onOpen={setSelectedVideo} />
-              ))}
-            </div>
-          </section>
+          {filteredEnry.length > 0 && (
+            <section className="mb-16">
+              <SectionHeading label="Company Works" title="会社実績" />
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {filteredEnry.map((item) => (
+                  <PortfolioCard key={item.id} item={item} onOpen={setSelectedVideo} />
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* 田中慎太郎監督 実績 */}
-          <section>
-            <SectionHeading label="Director Works" title="田中慎太郎監督 実績" />
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-              {directorItems.map((item) => (
-                <PortfolioCard key={item.id} item={item} onOpen={setSelectedVideo} />
-              ))}
+          {filteredDirector.length > 0 && (
+            <section>
+              <SectionHeading label="Director Works" title="田中慎太郎監督 実績" />
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {filteredDirector.map((item) => (
+                  <PortfolioCard key={item.id} item={item} onOpen={setSelectedVideo} />
+                ))}
+              </div>
+            </section>
+          )}
+
+          {filteredEnry.length === 0 && filteredDirector.length === 0 && (
+            <div className="text-center py-20">
+              <p className="text-gray-400 tracking-wider">該当する作品がありません</p>
             </div>
-          </section>
+          )}
         </div>
       </main>
 
