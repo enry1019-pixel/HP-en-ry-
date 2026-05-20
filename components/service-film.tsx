@@ -203,28 +203,7 @@ export default function ServiceFilm() {
 
   return (
     <div ref={sectionRef}>
-      {/* Desktop: asymmetric layout — Row1: 01(wide) + 02, Row2: 03 + 04(wide) */}
-      <div className="hidden md:block max-w-5xl mx-auto px-4">
-        <div className="flex gap-3 mb-3" style={{ height: "300px" }}>
-          <div style={{ flex: 3 }}>
-            <ServiceCard service={services[0]} index={0} {...cardProps} />
-          </div>
-          <div style={{ flex: 2 }}>
-            <ServiceCard service={services[1]} index={1} {...cardProps} />
-          </div>
-        </div>
-        <div className="flex gap-3" style={{ height: "300px" }}>
-          <div style={{ flex: 2 }}>
-            <ServiceCard service={services[2]} index={2} {...cardProps} />
-          </div>
-          <div style={{ flex: 3 }}>
-            <ServiceCard service={services[3]} index={3} {...cardProps} />
-          </div>
-        </div>
-      </div>
-
-      {/* Mobile: single column 16/9 */}
-      <div className="md:hidden grid grid-cols-1 gap-3 max-w-5xl mx-auto px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-5xl mx-auto px-4">
         {services.map((service, index) => (
           <div
             key={service.id}
