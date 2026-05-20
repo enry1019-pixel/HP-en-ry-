@@ -9,7 +9,7 @@ import PortfolioSlider from "@/components/portfolio-slider"
 import NewsSection from "@/components/news-section"
 import ProcessSection from "@/components/process-section"
 import OtherServicesSection from "@/components/other-services-section"
-import StrengthsSection from "@/components/strengths-section"
+import StrengthsBand from "@/components/strengths-band"
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -498,6 +498,8 @@ export default function Home() {
           <div className="sec-body">
           <ServiceFilm />
 
+          <StrengthsBand />
+
           <OtherServicesSection />
 
           <div className="text-center mt-16">
@@ -521,9 +523,6 @@ export default function Home() {
           </div>{/* sec-body end */}
         </div>
       </section>
-
-      {/* Strengths Section */}
-      <StrengthsSection />
 
       {/* Process Section */}
       <ProcessSection />

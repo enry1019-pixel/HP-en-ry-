@@ -10,6 +10,7 @@ const services = [
     description: "企画・脚本から編集まで制作。\n映画、テレビドラマ、企業タイアップやPRドラマなど",
     image: "/service-film-drama.jpg",
     grade: "brightness(0.78)",
+    videoUrl: "", // TODO: 動画URLを指定
   },
   {
     id: "02",
@@ -17,6 +18,7 @@ const services = [
     description: "ブランドの真髄を凝縮する。テレビCMからWeb動画広告まで対応。\nテレビCM・Web広告、ブランデッドムービーなど",
     image: "/service-cm.jpg",
     grade: "contrast(1.15) brightness(0.68) saturate(1.1) sepia(0.25)",
+    videoUrl: "", // TODO: 動画URLを指定
   },
   {
     id: "03",
@@ -24,6 +26,7 @@ const services = [
     description: "ブランドの想いを届けるプロモーションから採用・Web広告まで幅広く対応。年間サブスク制プランも。\n採用募集、インナーブランディング、サービス紹介、SNSショート動画など",
     image: "/service-pr.jpg",
     grade: "brightness(0.72)",
+    videoUrl: "", // TODO: 動画URLを指定
   },
   {
     id: "04",
@@ -31,6 +34,7 @@ const services = [
     description: "楽曲の世界観を最大限に表現。\nアーティスト、アイドル、パフォーマンス撮影、SNS縦型動画など",
     image: "/service-mv.jpg",
     grade: "contrast(1.1) brightness(0.75) saturate(1.35) sepia(0.15)",
+    videoUrl: "", // TODO: 動画URLを指定
   },
 ]
 
@@ -194,16 +198,31 @@ export default function ServiceFilm() {
                 transition: "opacity 0.55s ease, transform 0.55s ease",
               }}
             >
-              <div className="flex items-center gap-3 mb-2">
-                <span className="text-[12px] text-white/50 tracking-[0.6em] font-light">{service.id}</span>
-                <div className="h-px bg-white/25 w-12" />
+              <div className="flex items-end justify-between gap-4">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="text-[12px] text-white/50 tracking-[0.6em] font-light">{service.id}</span>
+                    <div className="h-px bg-white/25 w-12" />
+                  </div>
+                  <h3 className="text-[36px] font-bold text-white tracking-widest mb-2 leading-tight">
+                    {service.title}
+                  </h3>
+                  <p className="text-[12px] text-gray-300/80 leading-relaxed tracking-wider whitespace-pre-line max-w-md">
+                    {service.description}
+                  </p>
+                </div>
+                {service.videoUrl && (
+                  <a
+                    href={service.videoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="shrink-0 inline-flex items-center gap-2 border border-white/30 text-white/75 px-4 py-2.5 text-[11px] tracking-[0.3em] hover:bg-white/10 hover:text-white transition-all pointer-events-auto mb-1"
+                  >
+                    <span className="text-[9px]">▶</span>
+                    動画を見る
+                  </a>
+                )}
               </div>
-              <h3 className="text-[36px] font-bold text-white tracking-widest mb-2 leading-tight">
-                {service.title}
-              </h3>
-              <p className="text-[12px] text-gray-300/80 leading-relaxed tracking-wider whitespace-pre-line max-w-md">
-                {service.description}
-              </p>
             </div>
           ))}
 
