@@ -113,42 +113,7 @@ export default function StrengthsBand() {
           </div>
 
           {/* Bottom: 3 items */}
-          <div className="relative">
-            {/* クレヨン塗りテクスチャ */}
-            <svg
-              aria-hidden
-              className="absolute pointer-events-none overflow-visible"
-              style={{
-                inset: "-1.5rem",
-                width: "calc(100% + 3rem)",
-                height: "calc(100% + 3rem)",
-                opacity: visible ? 1 : 0,
-                transition: "opacity 0.9s ease 0.5s",
-              }}
-            >
-              <defs>
-                <pattern
-                  id="sb-crayon"
-                  x="0" y="0" width="10" height="10"
-                  patternUnits="userSpaceOnUse"
-                  patternTransform="rotate(-52)"
-                >
-                  <rect width="5.5" height="10" fill="rgba(122,26,36,0.13)" />
-                </pattern>
-                <filter id="sb-crayon-f" x="-20%" y="-20%" width="140%" height="140%">
-                  <feTurbulence type="fractalNoise" baseFrequency="0.028" numOctaves="5" seed="6" result="noise" />
-                  <feDisplacementMap in="SourceGraphic" in2="noise" scale="18" xChannelSelector="R" yChannelSelector="G" />
-                </filter>
-              </defs>
-              <rect
-                x="5%" y="10%"
-                width="90%" height="80%"
-                fill="url(#sb-crayon)"
-                filter="url(#sb-crayon-f)"
-                rx="6"
-              />
-            </svg>
-          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-10">
             {items.map((item, i) => (
               <div
                 key={i}
@@ -173,13 +138,8 @@ export default function StrengthsBand() {
               </div>
             ))}
           </div>
-          </div>
 
         </div>
-
-        {/* ── 上下アクセントライン ── */}
-        <div className="absolute top-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(122,26,36,0.25) 30%, rgba(122,26,36,0.25) 70%, transparent)" }} />
-        <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: "linear-gradient(to right, transparent, rgba(122,26,36,0.25) 30%, rgba(122,26,36,0.25) 70%, transparent)" }} />
       </div>
     </div>
   )
