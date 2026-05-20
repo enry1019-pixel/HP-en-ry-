@@ -10,8 +10,8 @@ const items = [
     desc: "最新のトレンドや機材、編集技術を駆使し、ターゲットのエンゲージメントを最大化する「魅せる映像」",
   },
   {
-    title: '短尺でも"物語性"',
-    desc: "多彩なジャンルや緻密な構成力で深いストーリーを構築し記憶に残る映像へ",
+    title: "短尺でもストーリー性",
+    desc: "多彩なジャンルや緻密な構成力で深いストーリーを構築し、記憶に残る映像へ",
   },
   {
     title: "コストパフォーマンス高",
@@ -55,31 +55,23 @@ export default function StrengthsBand() {
   const n0 = TITLE_LINES[0].length // 5 chars
 
   return (
-    <div ref={ref} className="max-w-5xl mx-auto px-4 my-6">
+    <div ref={ref} className="max-w-5xl mx-auto px-4 my-8">
 
-      {/* Top accent line */}
+      {/* Main panel — 淡いクリーム系 + shadow */}
       <div
-        className="h-px mb-0"
+        className="relative overflow-hidden border border-[#d9cfc4]"
         style={{
-          background: "linear-gradient(to right, #7a1a24, rgba(122,26,36,0.12), transparent)",
-          ...lineAnim(0.0, visible, "left"),
-        }}
-      />
-
-      {/* Main panel — 淡いクリーム系 */}
-      <div
-        className="relative overflow-hidden border border-[#e0d8ce]"
-        style={{
-          background: "linear-gradient(110deg, #fdf9f6 0%, #fefcf9 55%, #fdf9f6 100%)",
-          borderLeft: "2.5px solid rgba(122,26,36,0.35)",
+          background: "linear-gradient(110deg, #f8f0e8 0%, #fdf7f2 55%, #f8f0e8 100%)",
+          borderLeft: "3px solid #7a1a24",
+          boxShadow: "0 4px 28px rgba(0,0,0,0.09), 0 1px 4px rgba(0,0,0,0.05)",
         }}
       >
-        {/* Subtle warm-diagonal texture */}
+        {/* Warm diagonal texture */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
             backgroundImage:
-              "repeating-linear-gradient(-45deg, rgba(122,26,36,0.018) 0px, rgba(122,26,36,0.018) 1px, transparent 1px, transparent 22px)",
+              "repeating-linear-gradient(-45deg, rgba(122,26,36,0.022) 0px, rgba(122,26,36,0.022) 1px, transparent 1px, transparent 24px)",
           }}
         />
 
@@ -87,21 +79,21 @@ export default function StrengthsBand() {
 
           {/* ── Left: THE REASON ── */}
           <div
-            className="md:w-56 shrink-0 px-7 py-6 flex flex-col justify-center border-b border-[#e0d8ce] md:border-b-0 md:border-r md:border-[#e0d8ce]"
+            className="md:w-60 shrink-0 px-8 py-7 flex flex-col justify-center border-b border-[#d9cfc4] md:border-b-0 md:border-r md:border-[#d9cfc4]"
             style={enterAnim("sb-right", "0.5s", 0.05, visible)}
           >
             <div className="flex items-center gap-2 mb-3">
               <div
                 className="h-px bg-[#7a1a24]"
-                style={{ width: "14px", ...lineAnim(0.35, visible, "left") }}
+                style={{ width: "16px", ...lineAnim(0.35, visible, "left") }}
               />
-              <p className="text-[10px] tracking-[0.55em] text-[#7a1a24] font-medium uppercase">
+              <p className="text-[10px] tracking-[0.55em] text-[#7a1a24] font-bold uppercase">
                 The Reason
               </p>
             </div>
 
             {/* Typewriter title */}
-            <p className="text-[#1a1a1a] text-[16px] font-bold tracking-wide leading-snug">
+            <p className="text-[#1a1a1a] text-[18px] font-bold tracking-wide leading-snug">
               {TITLE_LINES.map((line, li) => (
                 <span key={li} className="block whitespace-nowrap">
                   {line.split("").map((char, ci) => (
@@ -118,25 +110,25 @@ export default function StrengthsBand() {
             </p>
 
             <div
-              className="w-8 h-px bg-[#7a1a24]/30 mt-3"
+              className="w-10 h-px bg-[#7a1a24]/40 mt-4"
               style={lineAnim(0.9, visible, "left")}
             />
           </div>
 
           {/* ── Right: 3 strengths ── */}
-          <div className="flex-1 flex flex-col md:flex-row divide-y divide-[#e0d8ce] md:divide-y-0 md:divide-x md:divide-[#e0d8ce]">
+          <div className="flex-1 flex flex-col md:flex-row divide-y divide-[#d9cfc4] md:divide-y-0 md:divide-x md:divide-[#d9cfc4]">
             {items.map((item, i) => (
               <div
                 key={i}
-                className="flex-1 flex items-start gap-3 px-6 py-5"
+                className="flex-1 flex items-start gap-3 px-6 py-6"
                 style={enterAnim("sb-left", "0.45s", 0.08 + i * 0.13, visible)}
               >
-                <span className="text-[#7a1a24] text-[12px] shrink-0 leading-none mt-0.5">▸</span>
+                <span className="text-[#7a1a24] text-[13px] shrink-0 leading-none mt-0.5">▸</span>
                 <div>
-                  <p className="text-[#1a1a1a] text-[12px] font-bold tracking-wider leading-snug mb-1">
+                  <p className="text-[#1a1a1a] text-[13px] font-bold tracking-wider leading-snug mb-1.5">
                     {item.title}
                   </p>
-                  <p className="text-[#666] text-[11px] leading-relaxed tracking-wide">
+                  <p className="text-[#5a5a5a] text-[11px] leading-relaxed tracking-wide">
                     {item.desc}
                   </p>
                 </div>
@@ -146,15 +138,6 @@ export default function StrengthsBand() {
 
         </div>
       </div>
-
-      {/* Bottom accent line */}
-      <div
-        className="h-px"
-        style={{
-          background: "linear-gradient(to left, rgba(122,26,36,0.3), rgba(122,26,36,0.06), transparent)",
-          ...lineAnim(0.05, visible, "right"),
-        }}
-      />
 
     </div>
   )
