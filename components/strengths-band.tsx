@@ -113,7 +113,20 @@ export default function StrengthsBand() {
           </div>
 
           {/* Bottom: 3 items */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-10">
+          <div className="relative">
+            {/* ハッチングテクスチャ */}
+            <div
+              className="absolute -inset-4 pointer-events-none"
+              style={{
+                backgroundImage: `
+                  repeating-linear-gradient(45deg, rgba(122,26,36,0.045) 0px, rgba(122,26,36,0.045) 1px, transparent 1px, transparent 10px),
+                  repeating-linear-gradient(-45deg, rgba(122,26,36,0.045) 0px, rgba(122,26,36,0.045) 1px, transparent 1px, transparent 10px)
+                `,
+                opacity: visible ? 1 : 0,
+                transition: "opacity 0.6s ease 0.5s",
+              }}
+            />
+          <div className="relative grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-10">
             {items.map((item, i) => (
               <div
                 key={i}
@@ -137,6 +150,7 @@ export default function StrengthsBand() {
                 </p>
               </div>
             ))}
+          </div>
           </div>
 
         </div>
