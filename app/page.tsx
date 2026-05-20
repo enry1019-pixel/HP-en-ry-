@@ -543,9 +543,9 @@ export default function Home() {
                 <div className="w-16 h-px bg-gradient-to-l from-transparent to-[#7a1a24]/55" />
               </div>
             </div>
-            <p className="text-lg text-gray-500 mb-4 sec-subtitle">制作実績（田中慎太郎監督作品）</p>
+            <p className="text-lg text-gray-500 mb-4 sec-subtitle">制作実績</p>
             <p className="text-gray-500 max-w-2xl mx-auto sec-subtitle">
-              これまでに制作した映像作品の一部をご紹介します。 様々な業界のクライアント様と協力して制作した作品です。
+              en-ry実績と田中慎太郎監督の実績をご紹介します。
             </p>
           </div>
 
