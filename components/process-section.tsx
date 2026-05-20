@@ -96,7 +96,7 @@ export default function ProcessSection() {
             制作の流れ
           </p>
           <p
-            className="text-gray-500 max-w-2xl mx-auto text-sm"
+            className="text-gray-500 max-w-2xl mx-auto text-base"
             style={{ opacity: sectionVisible ? 1 : 0, transition: "opacity 0.5s ease 0.35s" }}
           >
             ヒアリングから納品まで、4つのステップで高品質な映像制作を行います。
@@ -118,7 +118,7 @@ export default function ProcessSection() {
             >
               {/* Large outlined number */}
               <div
-                className="text-[68px] font-bold leading-none mb-5 select-none"
+                className="text-[78px] font-bold leading-none mb-5 select-none"
                 style={{
                   color: "transparent",
                   WebkitTextStroke: "1.5px rgba(122,26,36,0.25)",
@@ -150,19 +150,19 @@ export default function ProcessSection() {
                 </div>
               )}
 
-              <h3 className="text-[#1a1a1a] font-bold text-sm tracking-wider leading-snug mb-3">
+              <h3 className="text-[#1a1a1a] font-bold text-base tracking-wider leading-snug mb-3">
                 {step.title}
               </h3>
 
               <div className="w-8 h-px bg-[#d9cfc4] mb-4" />
 
-              <p className="text-gray-600 text-xs leading-relaxed mb-5">
+              <p className="text-gray-600 text-sm leading-relaxed mb-5">
                 {step.description}
               </p>
 
               <ul className="space-y-2">
                 {step.details.map((detail, di) => (
-                  <li key={di} className="flex items-start gap-2 text-gray-500 text-[11px] leading-relaxed">
+                  <li key={di} className="flex items-start gap-2 text-gray-500 text-xs leading-relaxed">
                     <span className="mt-0.5 shrink-0 leading-none text-[#7a1a24]/50">▸</span>
                     {detail}
                   </li>
@@ -185,7 +185,7 @@ export default function ProcessSection() {
                 }}
               >
                 <div
-                  className="text-5xl font-bold leading-none shrink-0 w-14 pt-0.5 select-none"
+                  className="text-6xl font-bold leading-none shrink-0 w-16 pt-0.5 select-none"
                   style={{
                     color: "transparent",
                     WebkitTextStroke: "1.5px rgba(122,26,36,0.25)",
@@ -194,15 +194,15 @@ export default function ProcessSection() {
                   {step.number}
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-[#1a1a1a] font-bold text-sm tracking-wider leading-snug mb-3">
+                  <h3 className="text-[#1a1a1a] font-bold text-base tracking-wider leading-snug mb-3">
                     {step.title}
                   </h3>
-                  <p className="text-gray-600 text-xs leading-relaxed mb-3">
+                  <p className="text-gray-600 text-sm leading-relaxed mb-3">
                     {step.description}
                   </p>
                   <ul className="space-y-1.5">
                     {step.details.map((detail, di) => (
-                      <li key={di} className="flex items-start gap-2 text-gray-500 text-[11px]">
+                      <li key={di} className="flex items-start gap-2 text-gray-500 text-xs">
                         <span className="mt-0.5 shrink-0 leading-none text-[#7a1a24]/50">▸</span>
                         {detail}
                       </li>
