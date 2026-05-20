@@ -89,7 +89,7 @@ export default function StrengthsBand() {
               className="w-8 h-px bg-[#7a1a24]/40 mb-6"
               style={lineAnim(0.3, visible, "left")}
             />
-            <p className="text-[#1c1614] text-[22px] font-bold tracking-wide leading-snug">
+            <p className="text-[#1c1614] text-[26px] font-bold tracking-wide leading-snug">
               {TITLE_LINES.map((line, li) => (
                 <span key={li} className="block whitespace-nowrap">
                   {line.split("").map((char, ci) => (
@@ -118,10 +118,16 @@ export default function StrengthsBand() {
                   className="h-px bg-[#7a1a24]/30 mb-5 origin-left"
                   style={lineAnim(0.2 + i * 0.14, visible, "left")}
                 />
-                <h4 className="text-[#1c1614] text-[15px] font-bold tracking-wider leading-snug mb-3">
+                <h4
+                  className="text-[#1c1614] text-[17px] font-black tracking-wider leading-snug mb-4"
+                  style={{
+                    textShadow:
+                      "0 1px 0 rgba(255,255,255,0.85), 1px 2px 0 rgba(0,0,0,0.12), 2px 3px 6px rgba(0,0,0,0.08)",
+                  }}
+                >
                   {item.title}
                 </h4>
-                <p className="text-[#6b5f5a] text-[12px] leading-relaxed tracking-wide">
+                <p className="text-[#1a1a1a] text-[13px] leading-relaxed tracking-wide">
                   {item.desc}
                 </p>
               </div>
