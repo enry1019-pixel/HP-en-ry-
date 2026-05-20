@@ -196,35 +196,31 @@ export default function ServiceFilm() {
             ))}
           </svg>
 
-          {/* Per-service text */}
-          {services.map((service, i) => (
+          {/* Per-service text — key={activeIndex} でmount/unmount → slide-from-right */}
+          {contentVisible && !videoOpen && (
             <div
-              key={service.id}
+              key={activeIndex}
               className="absolute inset-x-0 bottom-7 pl-14 pr-14 z-40 pointer-events-none"
-              style={{
-                opacity: i === activeIndex && contentVisible && !videoOpen ? 1 : 0,
-                transform: i === activeIndex ? "translateY(0)" : "translateY(8px)",
-                transition: "opacity 0.55s ease, transform 0.55s ease",
-              }}
+              style={{ animation: "slide-from-right 0.55s cubic-bezier(0.16,1,0.3,1) both" }}
             >
               <div className="flex items-center justify-between gap-4">
                 <div className="flex-1">
                   <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[12px] text-white/50 tracking-[0.6em] font-light">{service.id}</span>
+                    <span className="text-[12px] text-white/50 tracking-[0.6em] font-light">{activeService.id}</span>
                     <div className="h-px bg-white/25 w-12" />
                   </div>
                   <h3 className="text-[36px] font-bold text-white tracking-widest mb-2 leading-tight">
-                    {service.title}
+                    {activeService.title}
                   </h3>
                   <p className="text-[12px] text-gray-300/80 leading-relaxed tracking-wider whitespace-pre-line max-w-md">
-                    {service.description}
+                    {activeService.description}
                   </p>
                 </div>
-                {/* 動画を見るボタン — URL未設定時はフレームのみ表示 */}
+                {/* 動画を見るボタン */}
                 <button
-                  onClick={i === activeIndex && service.videoUrl ? () => setVideoOpen(true) : undefined}
+                  onClick={activeService.videoUrl ? () => setVideoOpen(true) : undefined}
                   className={`shrink-0 inline-flex items-center gap-2 border px-5 py-3 text-[12px] tracking-[0.3em] transition-all pointer-events-auto ${
-                    service.videoUrl
+                    activeService.videoUrl
                       ? "border-white/35 text-white/75 hover:bg-white/10 hover:text-white hover:border-white/55 cursor-pointer"
                       : "border-white/15 text-white/25 cursor-default"
                   }`}
@@ -234,7 +230,7 @@ export default function ServiceFilm() {
                 </button>
               </div>
             </div>
-          ))}
+          )}
 
           {/* Video overlay */}
           <div

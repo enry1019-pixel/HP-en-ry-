@@ -107,20 +107,26 @@
 
 /* StrengthsBand entrance animations */
 @keyframes sb-right {
-  from { opacity: 0; transform: translateX(-22px); }
+  from { opacity: 0; transform: translateX(-14px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 @keyframes sb-char {
-  from { opacity: 0; transform: translateY(9px); }
+  from { opacity: 0; transform: translateY(6px); }
   to   { opacity: 1; transform: translateY(0); }
 }
 @keyframes sb-left {
-  from { opacity: 0; transform: translateX(18px); }
+  from { opacity: 0; transform: translateX(12px); }
   to   { opacity: 1; transform: translateX(0); }
 }
 @keyframes sb-line {
   from { transform: scaleX(0); }
   to   { transform: scaleX(1); }
+}
+
+/* Service panel text slide-in */
+@keyframes slide-from-right {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
 }
 
 /* セクション本体：浮き上がり + 影 */
