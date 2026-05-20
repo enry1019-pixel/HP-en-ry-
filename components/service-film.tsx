@@ -200,32 +200,32 @@ export default function ServiceFilm() {
           {contentVisible && !videoOpen && (
             <div
               key={activeIndex}
-              className="absolute inset-x-0 bottom-7 pl-14 pr-14 z-40 pointer-events-none"
+              className="absolute inset-x-0 bottom-5 px-4 md:bottom-7 md:px-14 z-40 pointer-events-none"
               style={{ animation: "slide-from-right 0.55s cubic-bezier(0.16,1,0.3,1) both" }}
             >
-              <div className="flex items-center justify-between gap-4">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-[12px] text-white/50 tracking-[0.6em] font-light">{activeService.id}</span>
-                    <div className="h-px bg-white/25 w-12" />
+              <div className="flex items-end justify-between gap-2 md:gap-4">
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1 md:mb-2">
+                    <span className="text-[10px] md:text-[12px] text-white/50 tracking-[0.6em] font-light">{activeService.id}</span>
+                    <div className="h-px bg-white/25 w-8 md:w-12" />
                   </div>
-                  <h3 className="text-[36px] font-bold text-white tracking-widest mb-2 leading-tight">
+                  <h3 className="text-xl md:text-[36px] font-bold text-white tracking-widest mb-1 md:mb-2 leading-tight truncate">
                     {activeService.title}
                   </h3>
-                  <p className="text-[12px] text-gray-300/80 leading-relaxed tracking-wider whitespace-pre-line max-w-md">
+                  <p className="hidden md:block text-[12px] text-gray-300/80 leading-relaxed tracking-wider whitespace-pre-line max-w-md">
                     {activeService.description}
                   </p>
                 </div>
                 {/* 動画を見るボタン */}
                 <button
                   onClick={activeService.videoUrl ? () => setVideoOpen(true) : undefined}
-                  className={`shrink-0 inline-flex items-center gap-2 border px-5 py-3 text-[12px] tracking-[0.3em] transition-all pointer-events-auto ${
+                  className={`shrink-0 inline-flex items-center gap-1.5 border px-3 py-2 md:px-5 md:py-3 text-[10px] md:text-[12px] tracking-[0.2em] md:tracking-[0.3em] transition-all pointer-events-auto ${
                     activeService.videoUrl
                       ? "border-white/35 text-white/75 hover:bg-white/10 hover:text-white hover:border-white/55 cursor-pointer"
                       : "border-white/15 text-white/25 cursor-default"
                   }`}
                 >
-                  <span className="text-[9px]">▶</span>
+                  <span className="text-[8px] md:text-[9px]">▶</span>
                   動画を見る
                 </button>
               </div>

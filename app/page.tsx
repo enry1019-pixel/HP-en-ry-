@@ -263,7 +263,7 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative w-full overflow-hidden h-auto md:h-screen">
+      <section className="relative w-full overflow-hidden h-auto md:h-screen pt-16 md:pt-0">
         <div className="relative w-full aspect-[16/9] md:aspect-auto md:absolute md:inset-0 z-0">
           <video
             ref={videoRef}
@@ -399,6 +399,40 @@ export default function Home() {
         </button>
       </section>
 
+      {/* Mobile: service info band (below hero video) */}
+      <div
+        className="md:hidden border-t border-white/10"
+        style={{
+          backgroundColor: "rgba(0,0,0,0.84)",
+          backgroundImage: `
+            repeating-linear-gradient(-45deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 22px),
+            repeating-linear-gradient(45deg, rgba(255,255,255,0.012) 0px, rgba(255,255,255,0.012) 1px, transparent 1px, transparent 22px)
+          `,
+        }}
+      >
+        <div className="px-5 py-4">
+          <p className="text-white text-[15px] font-bold tracking-wider mb-1">映像制作はエンリーへ</p>
+          <p className="text-white/50 text-[11px] tracking-[0.2em] mb-3">映画・ドラマ／CM／企業PR／MV</p>
+          <div className="flex items-center justify-between gap-3">
+            <div className="flex items-center gap-2.5">
+              <div className="w-0.5 h-7 bg-white/35 shrink-0" />
+              <div className="flex flex-col">
+                <span className="text-gray-300 text-[11px] tracking-wide leading-snug">企画構成から編集まで</span>
+                <span className="text-gray-400 text-[10px] tracking-wide leading-snug">ご希望に寄り添ったご提案をします</span>
+              </div>
+            </div>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdf35MRg59aC8PLeeNP3F7HCldqZF6YkM4cQi8J5jbMedF8EQ/viewform?usp=dialog"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shrink-0 text-[11px] text-white/55 hover:text-white transition-colors"
+            >
+              見積り <span className="font-bold text-white">無料</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
       {/* New Section - Tagline with Logo */}
       <section id="tagline-section" ref={taglineSectionRef} className="py-12 md:py-20 relative overflow-hidden">
 
@@ -461,17 +495,8 @@ export default function Home() {
                 ))}
               </div>
 
-              {/* 区切り線 */}
-              <div
-                className="w-px h-10 bg-[#7a1a24]/30 mx-auto mb-10"
-                style={{
-                  opacity: isTaglineVisible ? 1 : 0,
-                  transition: "opacity 0.6s ease 2.2s",
-                }}
-              />
-
               {/* 補足文 */}
-              <div className="font-serif text-sm md:text-lg leading-[2.4] tracking-wide">
+              <div className="font-serif text-sm md:text-lg leading-[2.4] tracking-wide mt-2">
                 {([
                   "映像は単なる記録ではなく、心を動かし、人をつなぐ力を持っています。",
                   "現役映画監督による確かな表現力と幅広い経験を活かし、",
@@ -480,7 +505,7 @@ export default function Home() {
                 ] as React.ReactNode[]).map((line, i) => (
                   <p
                     key={i}
-                    className="text-gray-500"
+                    className="text-[#2a2218]"
                     style={{
                       opacity: isTaglineVisible ? 1 : 0,
                       transform: isTaglineVisible ? "none" : "translateY(14px)",
