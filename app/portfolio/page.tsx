@@ -11,7 +11,7 @@ const enryItems = [
     id: 1,
     title: "Ma'Scar'Piece 12th Single「Showtime Ignition」",
     category: "MV",
-    role: "企画構成・監督・撮影・編集",
+    role: "監督・構成・撮影・編集",
     year: "2026/03/29",
     videoId: "8AO0rZnAdqw",
     thumbnail: "https://img.youtube.com/vi/8AO0rZnAdqw/maxresdefault.jpg",
