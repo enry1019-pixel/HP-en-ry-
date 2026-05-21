@@ -355,10 +355,20 @@ export default function PortfolioPage() {
                 allowFullScreen
               />
             </div>
-            <div className="mt-4 text-white text-center">
-              <h3 className="text-2xl font-bold mb-1">{selectedVideo.title}</h3>
-              <p className="text-gray-400 text-sm">{selectedVideo.category} / {selectedVideo.role} / {selectedVideo.year}</p>
-              {selectedVideo.description && <p className="text-[#d45060] text-sm mt-1">{selectedVideo.description}</p>}
+            <div className="mt-3 bg-white/8 border border-white/10 px-5 py-4">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-lg md:text-xl font-bold text-white leading-snug break-words">{selectedVideo.title}</h3>
+                  {selectedVideo.description && (
+                    <p className="text-[#e8a0a8] text-xs mt-1">{selectedVideo.description}</p>
+                  )}
+                </div>
+                <div className="flex items-center gap-3 flex-wrap shrink-0">
+                  <span className="bg-[#7a1a24]/80 text-white text-[10px] px-2.5 py-1 tracking-widest uppercase font-bold">{selectedVideo.category}</span>
+                  <span className="text-white/80 text-sm">{selectedVideo.role}</span>
+                  <span className="text-white/45 text-sm">{selectedVideo.year}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -158,9 +158,15 @@ function VideoCard({ item, size = "sm" }: { item: Item; size?: "sm" | "md" }) {
                 allowFullScreen
               />
             </div>
-            <div className="mt-4 text-white text-center">
-              <h3 className="text-xl font-bold mb-1">{item.title}</h3>
-              <p className="text-gray-400 text-sm">{item.category} / {item.role} / {item.year}</p>
+            <div className="mt-3 bg-white/8 border border-white/10 px-4 py-3">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-4">
+                <h3 className="text-base font-bold text-white leading-snug flex-1">{item.title}</h3>
+                <div className="flex items-center gap-2.5 flex-wrap shrink-0">
+                  <span className="bg-[#7a1a24]/80 text-white text-[9px] px-2 py-0.5 tracking-widest uppercase font-bold">{item.category}</span>
+                  <span className="text-white/80 text-xs">{item.role}</span>
+                  <span className="text-white/45 text-xs">{item.year}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
