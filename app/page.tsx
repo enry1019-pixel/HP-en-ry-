@@ -640,7 +640,9 @@ export default function Home() {
                   height={28}
                   className="object-contain invert"
                 />
-                <h3 className="text-xl font-bold">en-ry</h3>
+                <div className="flex flex-col leading-none gap-1">
+                  <h3 className="text-xl font-bold leading-none">en-ry <span className="text-sm font-normal text-white/60">（エンリー）</span></h3>
+                </div>
               </div>
               <p className="text-[10px] tracking-[0.4em] text-white/50 uppercase mb-3">会社概要</p>
               <div className="space-y-2.5 text-sm">
@@ -670,32 +672,35 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Social Media */}
-            <div className="flex flex-col gap-4">
-              <a
-                href="https://www.instagram.com/en_ry1023/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-                aria-label="Instagram"
-              >
-                <Instagram className="w-8 h-8" />
-                <span className="text-sm font-medium">Instagram</span>
-              </a>
-              <a
-                href="https://www.youtube.com/@en-ry1023"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:opacity-80 transition-opacity"
-                aria-label="YouTube"
-              >
-                <Youtube className="w-8 h-8" />
-                <span className="text-sm font-medium">Youtube</span>
-              </a>
+            {/* SNS */}
+            <div className="md:pt-12">
+              <h4 className="font-bold mb-4">SNS</h4>
+              <div className="flex flex-col gap-4">
+                <a
+                  href="https://www.instagram.com/en_ry1023/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+                  aria-label="Instagram"
+                >
+                  <Instagram className="w-5 h-5" />
+                  <span className="text-sm font-medium">Instagram</span>
+                </a>
+                <a
+                  href="https://www.youtube.com/@en-ry1023"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+                  aria-label="YouTube"
+                >
+                  <Youtube className="w-5 h-5" />
+                  <span className="text-sm font-medium">YouTube</span>
+                </a>
+              </div>
             </div>
 
             {/* Services Section */}
-            <div>
+            <div className="md:pt-12">
               <h4 className="font-bold mb-4">SERVICES</h4>
               <ul className="space-y-2 text-sm">
                 {["映画・ドラマ", "CM", "企業PR映像", "MV"].map((s) => (
@@ -717,7 +722,7 @@ export default function Home() {
             </div>
 
             {/* Portfolio Section */}
-            <div>
+            <div className="md:pt-12">
               <h4 className="font-bold mb-4">PORTFOLIO</h4>
               <ul className="space-y-2 text-sm">
                 {["映画・ドラマ", "CM", "企業PR映像", "MV", "その他"].map((s) => (
@@ -731,7 +736,7 @@ export default function Home() {
             </div>
 
             {/* Apparel Section */}
-            <div>
+            <div className="md:pt-12">
               <h4 className="font-bold mb-4">APPAREL</h4>
               <p className="text-[11px] tracking-[0.3em] text-white/40 uppercase">Coming Soon</p>
             </div>
