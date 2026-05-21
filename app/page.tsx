@@ -698,13 +698,21 @@ export default function Home() {
             <div>
               <h4 className="font-bold mb-4">SERVICES</h4>
               <ul className="space-y-2 text-sm">
-                {["映画・ドラマ制作", "CM制作", "企業PR映像", "MV制作", "EN-REEL"].map((s) => (
+                {["映画・ドラマ", "CM", "企業PR映像", "MV"].map((s) => (
                   <li key={s}>
                     <Link href="/#services" className="hover:underline text-white/85 hover:text-white transition-colors">
                       {s}
                     </Link>
                   </li>
                 ))}
+                <li className="pt-1">
+                  <span className="text-[9px] tracking-[0.45em] text-white/35 uppercase">Other Services</span>
+                </li>
+                <li>
+                  <Link href="/#services" className="hover:underline text-white/85 hover:text-white transition-colors">
+                    EN-REEL
+                  </Link>
+                </li>
               </ul>
             </div>
 
@@ -712,7 +720,7 @@ export default function Home() {
             <div>
               <h4 className="font-bold mb-4">PORTFOLIO</h4>
               <ul className="space-y-2 text-sm">
-                {["映画・ドラマ", "CM", "企業PR映像", "MV", "ドキュメンタリー"].map((s) => (
+                {["映画・ドラマ", "CM", "企業PR映像", "MV", "その他"].map((s) => (
                   <li key={s}>
                     <Link href="/portfolio" className="hover:underline text-white/85 hover:text-white transition-colors">
                       {s}
