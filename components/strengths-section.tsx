@@ -95,7 +95,7 @@ export default function StrengthsSection() {
           <p className="text-xs tracking-[0.55em] text-[#7a1a24] mb-5 font-light">THE REASON</p>
           <h3 className="text-2xl md:text-3xl font-bold leading-relaxed text-[#1a1a1a]">
             現役映画監督が、<br />
-            撮影から編集まで監修。
+            企画構成から編集まで監修。
           </h3>
           <p className="text-gray-500 text-sm leading-relaxed mt-5 max-w-lg mx-auto">
             だから、同価格帯とは"差"が歴然としています。<br />

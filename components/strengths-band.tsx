@@ -2,7 +2,7 @@
 
 import { useRef, useState, useEffect } from "react"
 
-const TITLE_LINES = ["映画監督が", "撮影から編集まで監修"]
+const TITLE_LINES = ["映画監督が", "企画構成から編集まで監修"]
 
 const items = [
   {
