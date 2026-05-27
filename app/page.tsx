@@ -10,6 +10,7 @@ import NewsSection from "@/components/news-section"
 import ProcessSection from "@/components/process-section"
 import OtherServicesSection from "@/components/other-services-section"
 import StrengthsBand from "@/components/strengths-band"
+import InstagramSection from "@/components/instagram-section"
 
 export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
@@ -625,6 +626,9 @@ export default function Home() {
 
       {/* Process Section */}
       <ProcessSection />
+
+      {/* Instagram Section */}
+      <InstagramSection />
 
       {/* Footer */}
       <footer id="footer" className="bg-[#3d0a10] text-white py-12 border-t border-white/10">
