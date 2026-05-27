@@ -112,7 +112,7 @@ export default function InstagramSection() {
               <div className="w-16 h-px bg-gradient-to-r from-transparent to-[#7a1a24]/55" />
               <div className="w-1.5 h-1.5 rotate-45 bg-[#7a1a24]/55 shrink-0" />
             </div>
-            <h2 className="text-3xl font-bold tracking-widest sec-title">INSTAGRAM</h2>
+            <h2 className="text-3xl font-bold tracking-widest sec-title">FOLLOW US</h2>
             <div className="flex items-center gap-2 sec-line-r">
               <div className="w-1.5 h-1.5 rotate-45 bg-[#7a1a24]/55 shrink-0" />
               <div className="w-16 h-px bg-gradient-to-l from-transparent to-[#7a1a24]/55" />
@@ -230,7 +230,7 @@ export default function InstagramSection() {
                 <span className="text-4xl font-bold text-[#7a1a24] mb-2">+</span>
               </div>
               <p className="text-lg font-semibold text-[#1a1a1a] tracking-widest mb-1">フォロワー突破</p>
-              <p className="text-sm text-gray-400 tracking-wide">開設からわずか1ヶ月で</p>
+              <p className="text-sm text-gray-400 tracking-wide">SNS向け映像・動画のご相談も承っています</p>
             </div>
 
             {/* Divider */}
