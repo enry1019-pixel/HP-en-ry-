@@ -34,15 +34,17 @@ function useCountUp(target: number, isVisible: boolean, duration = 1800) {
   const [count, setCount] = useState(0)
   useEffect(() => {
     if (!isVisible) return
+    let rafId: number
     const startTime = performance.now()
     const animate = (currentTime: number) => {
       const elapsed = currentTime - startTime
       const progress = Math.min(elapsed / duration, 1)
       const eased = 1 - Math.pow(1 - progress, 3)
       setCount(Math.floor(eased * target))
-      if (progress < 1) requestAnimationFrame(animate)
+      if (progress < 1) rafId = requestAnimationFrame(animate)
     }
-    requestAnimationFrame(animate)
+    rafId = requestAnimationFrame(animate)
+    return () => cancelAnimationFrame(rafId)
   }, [isVisible, target, duration])
   return count
 }
@@ -75,7 +77,7 @@ export default function InstagramSection() {
   const [loading, setLoading] = useState(true)
   const [isVisible, setIsVisible] = useState(false)
   const sectionRef = useRef<HTMLElement>(null)
-  const count = useCountUp(followerCount, isVisible)
+  const count = useCountUp(followerCount, isVisible && !loading)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
