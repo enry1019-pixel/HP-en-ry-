@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server"
 
-export const revalidate = 3600
+export const dynamic = "force-dynamic"
 
 export async function GET() {
   const feedId = process.env.BEHOLD_FEED_ID
@@ -11,7 +11,7 @@ export async function GET() {
 
   try {
     const res = await fetch(`https://feeds.behold.so/${feedId}`, {
-      next: { revalidate: 3600 },
+      cache: "no-store",
     })
 
     if (!res.ok) {
