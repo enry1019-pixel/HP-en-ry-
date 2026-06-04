@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     default: "en-ry(エンリー)映像関連総合事業",
     template: "%s | en-ry(エンリー)",
   },
-  description: "企業PR、商品プロモーション、イベント記録など、あらゆる映像制作を代行します。",
+  description: "映像制作はエンリーへ。映画・ドラマ、CM、企業PR、MVなど映画監督監修による映像。ご相談、お見積り無料！",
   keywords: ["映像制作", "動画制作", "企業PR", "プロモーション", "MV制作", "メモリアルムービー", "en-ry", "エンリー"],
   authors: [{ name: "株式会社en-ry" }],
   creator: "株式会社en-ry",
@@ -47,13 +47,13 @@ export const metadata: Metadata = {
     locale: "ja_JP",
     url: baseUrl,
     title: "en-ry(エンリー)映像関連総合事業",
-    description: "企業PR、商品プロモーション、イベント記録など、あらゆる映像制作を代行します。",
+    description: "映像制作はエンリーへ。映画・ドラマ、CM、企業PR、MVなど映画監督監修による映像。ご相談、お見積り無料！",
     siteName: "en-ry(エンリー)",
   },
   twitter: {
     card: "summary_large_image",
     title: "en-ry(エンリー)映像関連総合事業",
-    description: "企業PR、商品プロモーション、イベント記録など、あらゆる映像制作を代行します。",
+    description: "映像制作はエンリーへ。映画・ドラマ、CM、企業PR、MVなど映画監督監修による映像。ご相談、お見積り無料！",
   },
   verification: {
     google: "da1yVZzPPO_dR6kuzPj4NI5q7ExR9AYEhRkvUw_egjg",
@@ -73,7 +73,7 @@ export default function RootLayout({
     alternateName: ["en-ry", "エンリー", "えんりー"],
     url: "https://en-ry.vercel.app/",
     logo: "https://en-ry.vercel.app/logo.png",
-    description: "企業PR、商品プロモーション、イベント記録など、あらゆる映像制作を代行します。",
+    description: "映像制作はエンリーへ。映画・ドラマ、CM、企業PR、MVなど映画監督監修による映像。ご相談、お見積り無料！",
   }
 
   return (
