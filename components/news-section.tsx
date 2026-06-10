@@ -16,6 +16,24 @@ interface NewsItem {
 
 const newsItems: NewsItem[] = [
   {
+    id: 9,
+    date: "2026.06.06",
+    category: "WORKS",
+    title: "ショートドラマ『パパはトップスター⁉︎〜未婚シンママの秘密〜』に制作協力",
+    description: "ReelShort配信のショートドラマ『パパはトップスター⁉︎〜未婚シンママの秘密〜』に制作協力・演出助手として参加いたしました。",
+    detailUrl: "https://www.reelshort.com/ja/movie/%E3%83%91%E3%83%91%E3%81%AF%E3%83%88%E3%83%83%E3%83%97%E3%82%B9%E3%82%BF%E3%83%BC-%EF%B8%8E-%E6%9C%AA%E5%A9%9A%E3%82%B7%E3%83%B3%E3%83%9E%E3%83%9E%E3%81%AE%E7%A7%98%E5%AF%86-6a179da4de9211208c080f90",
+    detailUrlText: "作品はこちら",
+  },
+  {
+    id: 8,
+    date: "2026.05.20",
+    category: "WORKS",
+    title: "UtaGe!『すーぱーUtaGe!砲』MVに制作協力",
+    description: "UtaGe!『すーぱーUtaGe!砲』のミュージックビデオに制作協力・ラインプロデューサーとして参加いたしました。",
+    detailUrl: "https://www.youtube.com/watch?v=WQnmozAtck4",
+    detailUrlText: "MVはこちら",
+  },
+  {
     id: 7,
     date: "2026.05.02",
     category: "お知らせ",

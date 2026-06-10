@@ -14,6 +14,34 @@ const enryItems = [
     videoId: "8AO0rZnAdqw",
     thumbnail: "https://img.youtube.com/vi/8AO0rZnAdqw/maxresdefault.jpg",
   },
+  {
+    id: 2,
+    title: "すーぱーUtaGe!砲/UtaGe!",
+    category: "MV",
+    role: "制作協力・ラインプロデューサー",
+    year: "2026/05/20",
+    videoId: "WQnmozAtck4",
+    thumbnail: "https://img.youtube.com/vi/WQnmozAtck4/maxresdefault.jpg",
+  },
+  {
+    id: 3,
+    title: "パパはトップスター⁉︎〜未婚シンママの秘密〜",
+    category: "ショートドラマ",
+    role: "制作協力・演出助手",
+    year: "2026/06/06",
+    videoId: "",
+    thumbnail: "",
+    externalUrl: "https://www.reelshort.com/ja/movie/%E3%83%91%E3%83%91%E3%81%AF%E3%83%88%E3%83%83%E3%83%97%E3%82%B9%E3%82%BF%E3%83%BC-%EF%B8%8E-%E6%9C%AA%E5%A9%9A%E3%82%B7%E3%83%B3%E3%83%9E%E3%83%9E%E3%81%AE%E7%A7%98%E5%AF%86-6a179da4de9211208c080f90",
+  },
+  {
+    id: 4,
+    title: "株式会社en-ry PV（long ver.）",
+    category: "企業PR",
+    role: "監督・編集",
+    year: "2025年",
+    videoId: "Wi0mrLzSN5o",
+    thumbnail: "https://img.youtube.com/vi/Wi0mrLzSN5o/maxresdefault.jpg",
+  },
 ]
 
 const directorItems = [
@@ -32,7 +60,6 @@ const directorItems = [
     category: "映画",
     role: "監督・脚本・撮影・編集",
     year: "2025年",
-    description: "U-NEXTにて配信中",
     videoId: "Xk6PZaU43JE",
     thumbnail: "https://img.youtube.com/vi/Xk6PZaU43JE/maxresdefault.jpg",
   },
@@ -56,15 +83,6 @@ const directorItems = [
   },
   {
     id: 5,
-    title: "株式会社en-ry PV（long ver.）",
-    category: "企業PR",
-    role: "監督・編集",
-    year: "2025年",
-    videoId: "Wi0mrLzSN5o",
-    thumbnail: "https://img.youtube.com/vi/Wi0mrLzSN5o/maxresdefault.jpg",
-  },
-  {
-    id: 6,
     title: "近くて遠い親子",
     category: "映画",
     role: "監督・脚本・編集",
@@ -73,7 +91,7 @@ const directorItems = [
     thumbnail: "https://img.youtube.com/vi/SPX7k8DsnIk/maxresdefault.jpg",
   },
   {
-    id: 7,
+    id: 6,
     title: "いつか黄昏の空で/gusou十色",
     category: "MV",
     role: "監督・脚本・撮影・編集",
@@ -82,13 +100,96 @@ const directorItems = [
     thumbnail: "https://img.youtube.com/vi/Wt7nqe5ACIA/maxresdefault.jpg",
   },
   {
-    id: 8,
+    id: 7,
     title: "『アッパレビバディ』/Appare!",
     category: "MV",
     role: "監督",
     year: "2022年",
     videoId: "6C7P_0Qv3pc",
     thumbnail: "https://img.youtube.com/vi/6C7P_0Qv3pc/maxresdefault.jpg",
+  },
+  {
+    id: 8,
+    title: "てぃだ いつか太陽の下を歩きたい",
+    category: "映画",
+    role: "録音",
+    year: "2022/09/02",
+    videoId: "e1G5dv1ALZc",
+    thumbnail: "https://img.youtube.com/vi/e1G5dv1ALZc/maxresdefault.jpg",
+  },
+  {
+    id: 9,
+    title: "ひとつの空",
+    category: "映画",
+    role: "ラインプロデューサー・録音",
+    year: "2024/06/22",
+    videoId: "MHbk8iscA3w",
+    thumbnail: "https://img.youtube.com/vi/MHbk8iscA3w/maxresdefault.jpg",
+  },
+  {
+    id: 10,
+    title: "消防士の元夫、悔恨の炎に焼かれて",
+    category: "ショートドラマ",
+    role: "撮影監督",
+    year: "2025/07/26",
+    videoId: "",
+    thumbnail: "",
+    externalUrl: "https://www.reelshort.com/ja/movie/%E6%B6%88%E9%98%B2%E5%A3%AB%E3%81%AE%E5%85%83%E5%A4%AB-%E6%82%94%E6%81%A8%E3%81%AE%E7%82%8E%E3%81%AB%E7%84%BC%E3%81%8B%E3%82%8C%E3%81%A6-6861f8128c13fda27006234b",
+  },
+  {
+    id: 11,
+    title: "華麗なる変身後、クールな夫がデレデレに！",
+    category: "ショートドラマ",
+    role: "撮影監督",
+    year: "2025/10/03",
+    videoId: "rhom5WJuY4c",
+    thumbnail: "https://img.youtube.com/vi/rhom5WJuY4c/maxresdefault.jpg",
+  },
+  {
+    id: 12,
+    title: "長全寺",
+    category: "映画",
+    role: "監督補佐・編集",
+    year: "2022/12/24",
+    videoId: "eMj2Q3ISNyg",
+    thumbnail: "https://img.youtube.com/vi/eMj2Q3ISNyg/maxresdefault.jpg",
+  },
+  {
+    id: 13,
+    title: "くそったれ、クリスマス",
+    category: "映画",
+    role: "監督・脚本・編集",
+    year: "2022/09/18",
+    videoId: "",
+    thumbnail: "",
+    externalUrl: "https://japancomedy-filmfes.com/crazy-christmas/",
+  },
+  {
+    id: 14,
+    title: "漆黒の神威",
+    category: "映画",
+    role: "撮影監督・編集",
+    year: "2022/01/14",
+    videoId: "JlukvfjO6gU",
+    thumbnail: "https://img.youtube.com/vi/JlukvfjO6gU/maxresdefault.jpg",
+  },
+  {
+    id: 15,
+    title: "親子未満",
+    category: "映画",
+    role: "監督・脚本・編集",
+    year: "2020年",
+    videoId: "pm_l7bGAMUc",
+    thumbnail: "https://img.youtube.com/vi/pm_l7bGAMUc/maxresdefault.jpg",
+  },
+  {
+    id: 16,
+    title: "地下室に元カレが棲みはじめました",
+    category: "ショートドラマ",
+    role: "撮影",
+    year: "2025/11/17",
+    videoId: "AUwIPx3Q19Q",
+    thumbnail: "https://img.youtube.com/vi/AUwIPx3Q19Q/maxresdefault.jpg",
   },
 ]
 
@@ -101,25 +202,39 @@ type Item = {
   videoId: string
   thumbnail: string
   description?: string
+  externalUrl?: string
 }
 
 function VideoCard({ item, size = "sm" }: { item: Item; size?: "sm" | "md" }) {
   const [open, setOpen] = useState(false)
   const h = size === "md" ? "h-40" : "h-28"
+  const hasVideo = !!item.videoId
+
+  const handleClick = () => {
+    if (hasVideo) {
+      setOpen(true)
+    } else if (item.externalUrl) {
+      window.open(item.externalUrl, "_blank", "noopener,noreferrer")
+    }
+  }
 
   return (
     <>
       <div
         className="group relative overflow-hidden cursor-pointer bg-gray-900"
-        onClick={() => setOpen(true)}
+        onClick={handleClick}
       >
         <div className={`${h} relative overflow-hidden`}>
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={item.thumbnail}
-            alt={item.title}
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-          />
+          {item.thumbnail ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img
+              src={item.thumbnail}
+              alt={item.title}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+          ) : (
+            <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900" />
+          )}
           <div className="absolute inset-0 bg-black/30 group-hover:bg-black/50 transition-colors duration-300" />
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             <div className="w-9 h-9 rounded-full bg-white/25 border border-white/50 flex items-center justify-center">
@@ -137,7 +252,7 @@ function VideoCard({ item, size = "sm" }: { item: Item; size?: "sm" | "md" }) {
         </div>
       </div>
 
-      {open && (
+      {open && hasVideo && (
         <div
           className="fixed inset-0 bg-black/90 z-50 flex items-center justify-center p-4"
           onClick={() => setOpen(false)}
