@@ -14,7 +14,7 @@ const enryItems = [
     role: "監督・構成・撮影・編集",
     year: "2026/03/29",
     videoId: "8AO0rZnAdqw",
-    thumbnail: "https://img.youtube.com/vi/8AO0rZnAdqw/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/8AO0rZnAdqw/hqdefault.jpg",
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ const enryItems = [
     role: "制作協力・ラインプロデューサー",
     year: "2026/05/20",
     videoId: "WQnmozAtck4",
-    thumbnail: "https://img.youtube.com/vi/WQnmozAtck4/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/WQnmozAtck4/hqdefault.jpg",
   },
   {
     id: 3,
@@ -32,7 +32,7 @@ const enryItems = [
     role: "制作協力・演出助手",
     year: "2026/06/06",
     videoId: "",
-    thumbnail: "",
+    thumbnail: "https://v-mps.crazymaplestudios.com/images/96129880-541a-11f1-b0e9-f1e04973cf14.png",
     externalUrl: "https://www.reelshort.com/ja/movie/パパはトップスター-%EF%B8%8E-未婚シンママの秘密-6a179da4de9211208c080f90",
   },
   {
@@ -42,7 +42,7 @@ const enryItems = [
     role: "監督・編集",
     year: "2025年",
     videoId: "Wi0mrLzSN5o",
-    thumbnail: "https://img.youtube.com/vi/Wi0mrLzSN5o/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/Wi0mrLzSN5o/hqdefault.jpg",
   },
 ]
 
@@ -64,7 +64,7 @@ const directorItems = [
     year: "2025年",
     description: "U-NEXTにて配信中",
     videoId: "Xk6PZaU43JE",
-    thumbnail: "https://img.youtube.com/vi/Xk6PZaU43JE/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/Xk6PZaU43JE/hqdefault.jpg",
   },
   {
     id: 3,
@@ -73,7 +73,7 @@ const directorItems = [
     role: "監督・脚本・編集",
     year: "2025年",
     videoId: "vnwuWPM-JVw",
-    thumbnail: "https://img.youtube.com/vi/vnwuWPM-JVw/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/vnwuWPM-JVw/hqdefault.jpg",
   },
   {
     id: 4,
@@ -91,7 +91,7 @@ const directorItems = [
     role: "監督",
     year: "2023年",
     videoId: "fhbUDHyBVW8",
-    thumbnail: "https://img.youtube.com/vi/fhbUDHyBVW8/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/fhbUDHyBVW8/hqdefault.jpg",
   },
   {
     id: 6,
@@ -100,7 +100,7 @@ const directorItems = [
     role: "監督・脚本・編集",
     year: "2023年",
     videoId: "SPX7k8DsnIk",
-    thumbnail: "https://img.youtube.com/vi/SPX7k8DsnIk/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/SPX7k8DsnIk/hqdefault.jpg",
   },
   {
     id: 7,
@@ -109,7 +109,7 @@ const directorItems = [
     role: "監督・脚本・撮影・編集",
     year: "2022年",
     videoId: "Wt7nqe5ACIA",
-    thumbnail: "https://img.youtube.com/vi/Wt7nqe5ACIA/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/Wt7nqe5ACIA/hqdefault.jpg",
   },
   {
     id: 8,
@@ -118,7 +118,7 @@ const directorItems = [
     role: "監督",
     year: "2022年",
     videoId: "6C7P_0Qv3pc",
-    thumbnail: "https://img.youtube.com/vi/6C7P_0Qv3pc/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/6C7P_0Qv3pc/hqdefault.jpg",
   },
   {
     id: 9,
@@ -127,7 +127,7 @@ const directorItems = [
     role: "監督・脚本・撮影・編集",
     year: "2022年",
     videoId: "CtSvHCdXivk",
-    thumbnail: "https://img.youtube.com/vi/CtSvHCdXivk/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/CtSvHCdXivk/hqdefault.jpg",
   },
   {
     id: 10,
@@ -136,7 +136,7 @@ const directorItems = [
     role: "監督・脚本",
     year: "2021年",
     videoId: "OuF0gG07TKk",
-    thumbnail: "https://img.youtube.com/vi/OuF0gG07TKk/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/OuF0gG07TKk/hqdefault.jpg",
   },
   {
     id: 11,
@@ -145,7 +145,7 @@ const directorItems = [
     role: "監督・編集",
     year: "2022年",
     videoId: "MCGkxEmxJWQ",
-    thumbnail: "https://img.youtube.com/vi/MCGkxEmxJWQ/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/MCGkxEmxJWQ/hqdefault.jpg",
   },
   {
     id: 12,
@@ -154,7 +154,7 @@ const directorItems = [
     role: "監督",
     year: "2025年",
     videoId: "8DLmTeGNtlE",
-    thumbnail: "https://img.youtube.com/vi/8DLmTeGNtlE/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/8DLmTeGNtlE/hqdefault.jpg",
   },
   {
     id: 13,
@@ -163,7 +163,7 @@ const directorItems = [
     role: "監督",
     year: "2023年",
     videoId: "fIwdf8M9X0M",
-    thumbnail: "https://img.youtube.com/vi/fIwdf8M9X0M/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/fIwdf8M9X0M/hqdefault.jpg",
   },
   {
     id: 14,
@@ -172,7 +172,7 @@ const directorItems = [
     role: "監督",
     year: "2024年",
     videoId: "81eV5XW62Ww",
-    thumbnail: "https://img.youtube.com/vi/81eV5XW62Ww/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/81eV5XW62Ww/hqdefault.jpg",
   },
   {
     id: 15,
@@ -181,7 +181,7 @@ const directorItems = [
     role: "監督・脚本・編集",
     year: "2025年",
     videoId: "vlBvWlyZ75I",
-    thumbnail: "https://img.youtube.com/vi/vlBvWlyZ75I/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/vlBvWlyZ75I/hqdefault.jpg",
   },
   {
     id: 16,
@@ -190,7 +190,7 @@ const directorItems = [
     role: "監督・脚本・編集",
     year: "2025年",
     videoId: "TF-l_F6VXg0",
-    thumbnail: "https://img.youtube.com/vi/TF-l_F6VXg0/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/TF-l_F6VXg0/hqdefault.jpg",
   },
   {
     id: 17,
@@ -199,7 +199,7 @@ const directorItems = [
     role: "録音",
     year: "2022/09/02",
     videoId: "e1G5dv1ALZc",
-    thumbnail: "https://img.youtube.com/vi/e1G5dv1ALZc/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/e1G5dv1ALZc/hqdefault.jpg",
   },
   {
     id: 18,
@@ -208,7 +208,7 @@ const directorItems = [
     role: "ラインプロデューサー・録音",
     year: "2024/06/22",
     videoId: "MHbk8iscA3w",
-    thumbnail: "https://img.youtube.com/vi/MHbk8iscA3w/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/MHbk8iscA3w/hqdefault.jpg",
   },
   {
     id: 19,
@@ -227,7 +227,7 @@ const directorItems = [
     role: "撮影監督",
     year: "2025/10/03",
     videoId: "rhom5WJuY4c",
-    thumbnail: "https://img.youtube.com/vi/rhom5WJuY4c/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/rhom5WJuY4c/hqdefault.jpg",
   },
   {
     id: 21,
@@ -236,7 +236,7 @@ const directorItems = [
     role: "監督補佐・編集",
     year: "2022/12/24",
     videoId: "eMj2Q3ISNyg",
-    thumbnail: "https://img.youtube.com/vi/eMj2Q3ISNyg/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/eMj2Q3ISNyg/hqdefault.jpg",
   },
   {
     id: 22,
@@ -255,7 +255,7 @@ const directorItems = [
     role: "撮影監督・編集",
     year: "2022/01/14",
     videoId: "JlukvfjO6gU",
-    thumbnail: "https://img.youtube.com/vi/JlukvfjO6gU/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/JlukvfjO6gU/hqdefault.jpg",
   },
   {
     id: 24,
@@ -264,7 +264,7 @@ const directorItems = [
     role: "監督・脚本・編集",
     year: "2020年",
     videoId: "pm_l7bGAMUc",
-    thumbnail: "https://img.youtube.com/vi/pm_l7bGAMUc/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/pm_l7bGAMUc/hqdefault.jpg",
   },
   {
     id: 25,
@@ -273,7 +273,7 @@ const directorItems = [
     role: "撮影",
     year: "2025/11/17",
     videoId: "AUwIPx3Q19Q",
-    thumbnail: "https://img.youtube.com/vi/AUwIPx3Q19Q/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/AUwIPx3Q19Q/hqdefault.jpg",
   },
 ]
 

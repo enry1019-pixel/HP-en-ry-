@@ -12,7 +12,7 @@ const enryItems = [
     role: "監督・構成・撮影・編集",
     year: "2026/03/29",
     videoId: "8AO0rZnAdqw",
-    thumbnail: "https://img.youtube.com/vi/8AO0rZnAdqw/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/8AO0rZnAdqw/hqdefault.jpg",
   },
   {
     id: 2,
@@ -21,7 +21,7 @@ const enryItems = [
     role: "制作協力・ラインプロデューサー",
     year: "2026/05/20",
     videoId: "WQnmozAtck4",
-    thumbnail: "https://img.youtube.com/vi/WQnmozAtck4/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/WQnmozAtck4/hqdefault.jpg",
   },
   {
     id: 3,
@@ -31,6 +31,7 @@ const enryItems = [
     year: "2026/06/06",
     videoId: "",
     thumbnail: "",
+    thumbnail: "https://v-mps.crazymaplestudios.com/images/96129880-541a-11f1-b0e9-f1e04973cf14.png",
     externalUrl: "https://www.reelshort.com/ja/movie/%E3%83%91%E3%83%91%E3%81%AF%E3%83%88%E3%83%83%E3%83%97%E3%82%B9%E3%82%BF%E3%83%BC-%EF%B8%8E-%E6%9C%AA%E5%A9%9A%E3%82%B7%E3%83%B3%E3%83%9E%E3%83%9E%E3%81%AE%E7%A7%98%E5%AF%86-6a179da4de9211208c080f90",
   },
   {
@@ -40,7 +41,7 @@ const enryItems = [
     role: "監督・編集",
     year: "2025年",
     videoId: "Wi0mrLzSN5o",
-    thumbnail: "https://img.youtube.com/vi/Wi0mrLzSN5o/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/Wi0mrLzSN5o/hqdefault.jpg",
   },
 ]
 
@@ -61,7 +62,7 @@ const directorItems = [
     role: "監督・脚本・撮影・編集",
     year: "2025年",
     videoId: "Xk6PZaU43JE",
-    thumbnail: "https://img.youtube.com/vi/Xk6PZaU43JE/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/Xk6PZaU43JE/hqdefault.jpg",
   },
   {
     id: 3,
@@ -70,7 +71,7 @@ const directorItems = [
     role: "監督・脚本・編集",
     year: "2025年",
     videoId: "vnwuWPM-JVw",
-    thumbnail: "https://img.youtube.com/vi/vnwuWPM-JVw/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/vnwuWPM-JVw/hqdefault.jpg",
   },
   {
     id: 4,
@@ -88,7 +89,7 @@ const directorItems = [
     role: "監督・脚本・編集",
     year: "2023年",
     videoId: "SPX7k8DsnIk",
-    thumbnail: "https://img.youtube.com/vi/SPX7k8DsnIk/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/SPX7k8DsnIk/hqdefault.jpg",
   },
   {
     id: 6,
@@ -97,7 +98,7 @@ const directorItems = [
     role: "監督・脚本・撮影・編集",
     year: "2022年",
     videoId: "Wt7nqe5ACIA",
-    thumbnail: "https://img.youtube.com/vi/Wt7nqe5ACIA/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/Wt7nqe5ACIA/hqdefault.jpg",
   },
   {
     id: 7,
@@ -106,7 +107,7 @@ const directorItems = [
     role: "監督",
     year: "2022年",
     videoId: "6C7P_0Qv3pc",
-    thumbnail: "https://img.youtube.com/vi/6C7P_0Qv3pc/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/6C7P_0Qv3pc/hqdefault.jpg",
   },
   {
     id: 8,
@@ -115,7 +116,7 @@ const directorItems = [
     role: "録音",
     year: "2022/09/02",
     videoId: "e1G5dv1ALZc",
-    thumbnail: "https://img.youtube.com/vi/e1G5dv1ALZc/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/e1G5dv1ALZc/hqdefault.jpg",
   },
   {
     id: 9,
@@ -124,7 +125,7 @@ const directorItems = [
     role: "ラインプロデューサー・録音",
     year: "2024/06/22",
     videoId: "MHbk8iscA3w",
-    thumbnail: "https://img.youtube.com/vi/MHbk8iscA3w/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/MHbk8iscA3w/hqdefault.jpg",
   },
   {
     id: 10,
@@ -143,7 +144,7 @@ const directorItems = [
     role: "撮影監督",
     year: "2025/10/03",
     videoId: "rhom5WJuY4c",
-    thumbnail: "https://img.youtube.com/vi/rhom5WJuY4c/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/rhom5WJuY4c/hqdefault.jpg",
   },
   {
     id: 12,
@@ -152,7 +153,7 @@ const directorItems = [
     role: "監督補佐・編集",
     year: "2022/12/24",
     videoId: "eMj2Q3ISNyg",
-    thumbnail: "https://img.youtube.com/vi/eMj2Q3ISNyg/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/eMj2Q3ISNyg/hqdefault.jpg",
   },
   {
     id: 13,
@@ -171,7 +172,7 @@ const directorItems = [
     role: "撮影監督・編集",
     year: "2022/01/14",
     videoId: "JlukvfjO6gU",
-    thumbnail: "https://img.youtube.com/vi/JlukvfjO6gU/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/JlukvfjO6gU/hqdefault.jpg",
   },
   {
     id: 15,
@@ -180,7 +181,7 @@ const directorItems = [
     role: "監督・脚本・編集",
     year: "2020年",
     videoId: "pm_l7bGAMUc",
-    thumbnail: "https://img.youtube.com/vi/pm_l7bGAMUc/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/pm_l7bGAMUc/hqdefault.jpg",
   },
   {
     id: 16,
@@ -189,7 +190,7 @@ const directorItems = [
     role: "撮影",
     year: "2025/11/17",
     videoId: "AUwIPx3Q19Q",
-    thumbnail: "https://img.youtube.com/vi/AUwIPx3Q19Q/maxresdefault.jpg",
+    thumbnail: "https://img.youtube.com/vi/AUwIPx3Q19Q/hqdefault.jpg",
   },
 ]
 
@@ -315,17 +316,17 @@ export default function PortfolioSlider() {
         {/* en-ry実績 */}
         <div>
           <SectionLabel main="en-ry 実績" sub="company works" />
-          <div className="grid grid-cols-2 gap-3">
-            {enryItems.map((item) => (
-              <VideoCard key={item.id} item={item} size="md" />
+          <div className="grid grid-cols-3 gap-2">
+            {enryItems.slice(0, 9).map((item) => (
+              <VideoCard key={item.id} item={item} />
             ))}
           </div>
         </div>
         {/* 田中監督実績 */}
         <div>
           <SectionLabel main="田中慎太郎監督 実績" sub="director works" />
-          <div className="grid grid-cols-2 gap-3">
-            {directorItems.map((item) => (
+          <div className="grid grid-cols-3 gap-2">
+            {directorItems.slice(0, 9).map((item) => (
               <VideoCard key={item.id} item={item} />
             ))}
           </div>
@@ -337,11 +338,11 @@ export default function PortfolioSlider() {
   return (
     <div className="flex gap-6 items-start">
       {/* Left: en-ry実績 */}
-      <div className="w-[36%] shrink-0">
+      <div className="w-1/2">
         <SectionLabel main="en-ry 実績" sub="company works" />
-        <div className="grid grid-cols-2 gap-3">
-          {enryItems.map((item) => (
-            <VideoCard key={item.id} item={item} size="md" />
+        <div className="grid grid-cols-3 gap-3">
+          {enryItems.slice(0, 9).map((item) => (
+            <VideoCard key={item.id} item={item} />
           ))}
         </div>
       </div>
@@ -350,10 +351,10 @@ export default function PortfolioSlider() {
       <div className="w-px self-stretch bg-[#e8e0d6] shrink-0" />
 
       {/* Right: 田中監督実績 */}
-      <div className="flex-1">
+      <div className="w-1/2">
         <SectionLabel main="田中慎太郎監督 実績" sub="director works" />
-        <div className="grid grid-cols-4 gap-3">
-          {directorItems.map((item) => (
+        <div className="grid grid-cols-3 gap-3">
+          {directorItems.slice(0, 9).map((item) => (
             <VideoCard key={item.id} item={item} />
           ))}
         </div>
