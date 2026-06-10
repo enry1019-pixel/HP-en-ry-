@@ -134,7 +134,7 @@ const directorItems = [
     role: "撮影監督",
     year: "2025/07/26",
     videoId: "",
-    thumbnail: "",
+    thumbnail: "https://v-mps.crazymaplestudios.com/images/211d3420-d721-11f0-84ad-6b5693b490dc.png",
     externalUrl: "https://www.reelshort.com/ja/movie/%E6%B6%88%E9%98%B2%E5%A3%AB%E3%81%AE%E5%85%83%E5%A4%AB-%E6%82%94%E6%81%A8%E3%81%AE%E7%82%8E%E3%81%AB%E7%84%BC%E3%81%8B%E3%82%8C%E3%81%A6-6861f8128c13fda27006234b",
   },
   {
@@ -162,7 +162,7 @@ const directorItems = [
     role: "監督・脚本・編集",
     year: "2022/09/18",
     videoId: "",
-    thumbnail: "",
+    thumbnail: "https://japancomedy-filmfes.com/wp-content/uploads/2022/09/%E3%81%8F%E3%81%9D%E3%81%A3%E3%81%9F%E3%82%8C%E3%80%81%E3%82%AF%E3%83%AA%E3%82%B9%E3%83%9E%E3%82%B91-1024x576.png",
     externalUrl: "https://japancomedy-filmfes.com/crazy-christmas/",
   },
   {
