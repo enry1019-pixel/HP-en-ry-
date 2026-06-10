@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowLeft, Play, X } from "lucide-react"
+import { ArrowLeft, Play, X, ExternalLink } from "lucide-react"
 import { RedThreadBackground } from "@/components/red-thread-background"
 
 const enryItems = [
@@ -15,6 +15,34 @@ const enryItems = [
     year: "2026/03/29",
     videoId: "8AO0rZnAdqw",
     thumbnail: "https://img.youtube.com/vi/8AO0rZnAdqw/maxresdefault.jpg",
+  },
+  {
+    id: 2,
+    title: "すーぱーUtaGe!砲/UtaGe!",
+    category: "MV",
+    role: "制作協力・ラインプロデューサー",
+    year: "2026/05/20",
+    videoId: "WQnmozAtck4",
+    thumbnail: "https://img.youtube.com/vi/WQnmozAtck4/maxresdefault.jpg",
+  },
+  {
+    id: 3,
+    title: "パパはトップスター⁉︎〜未婚シンママの秘密〜",
+    category: "ショートドラマ",
+    role: "制作協力・演出助手",
+    year: "2026/06/06",
+    videoId: "",
+    thumbnail: "",
+    externalUrl: "https://www.reelshort.com/ja/movie/パパはトップスター-%EF%B8%8E-未婚シンママの秘密-6a179da4de9211208c080f90",
+  },
+  {
+    id: 4,
+    title: "株式会社en-ry PV（long ver.）",
+    category: "企業PR",
+    role: "監督・編集",
+    year: "2025年",
+    videoId: "Wi0mrLzSN5o",
+    thumbnail: "https://img.youtube.com/vi/Wi0mrLzSN5o/maxresdefault.jpg",
   },
 ]
 
@@ -166,12 +194,86 @@ const directorItems = [
   },
   {
     id: 17,
-    title: "株式会社en-ry PV（long ver.）",
-    category: "企業PR",
-    role: "監督・編集",
-    year: "2025年",
-    videoId: "Wi0mrLzSN5o",
-    thumbnail: "https://img.youtube.com/vi/Wi0mrLzSN5o/maxresdefault.jpg",
+    title: "てぃだ いつか太陽の下を歩きたい",
+    category: "映画",
+    role: "録音",
+    year: "2022/09/02",
+    videoId: "e1G5dv1ALZc",
+    thumbnail: "https://img.youtube.com/vi/e1G5dv1ALZc/maxresdefault.jpg",
+  },
+  {
+    id: 18,
+    title: "ひとつの空",
+    category: "映画",
+    role: "ラインプロデューサー・録音",
+    year: "2024/06/22",
+    videoId: "MHbk8iscA3w",
+    thumbnail: "https://img.youtube.com/vi/MHbk8iscA3w/maxresdefault.jpg",
+  },
+  {
+    id: 19,
+    title: "消防士の元夫、悔恨の炎に焼かれて",
+    category: "ショートドラマ",
+    role: "撮影監督",
+    year: "2025/07/26",
+    videoId: "",
+    thumbnail: "",
+    externalUrl: "https://www.reelshort.com/ja/movie/消防士の元夫-悔恨の炎に焼かれて-6861f8128c13fda27006234b",
+  },
+  {
+    id: 20,
+    title: "華麗なる変身後、クールな夫がデレデレに！",
+    category: "ショートドラマ",
+    role: "撮影監督",
+    year: "2025/10/03",
+    videoId: "rhom5WJuY4c",
+    thumbnail: "https://img.youtube.com/vi/rhom5WJuY4c/maxresdefault.jpg",
+  },
+  {
+    id: 21,
+    title: "長全寺",
+    category: "映画",
+    role: "監督補佐・編集",
+    year: "2022/12/24",
+    videoId: "eMj2Q3ISNyg",
+    thumbnail: "https://img.youtube.com/vi/eMj2Q3ISNyg/maxresdefault.jpg",
+  },
+  {
+    id: 22,
+    title: "くそったれ、クリスマス",
+    category: "映画",
+    role: "監督・脚本・編集",
+    year: "2022/09/18",
+    videoId: "",
+    thumbnail: "",
+    externalUrl: "https://japancomedy-filmfes.com/crazy-christmas/",
+  },
+  {
+    id: 23,
+    title: "漆黒の神威",
+    category: "映画",
+    role: "撮影監督・編集",
+    year: "2022/01/14",
+    videoId: "JlukvfjO6gU",
+    thumbnail: "https://img.youtube.com/vi/JlukvfjO6gU/maxresdefault.jpg",
+  },
+  {
+    id: 24,
+    title: "親子未満",
+    category: "映画",
+    role: "監督・脚本・編集",
+    year: "2020年",
+    videoId: "pm_l7bGAMUc",
+    thumbnail: "https://img.youtube.com/vi/pm_l7bGAMUc/maxresdefault.jpg",
+  },
+  {
+    id: 25,
+    title: "地下室に元カレが棲みはじめました",
+    category: "ショートドラマ",
+    role: "撮影",
+    year: "2025/11/17",
+    videoId: "AUwIPx3Q19Q",
+    thumbnail: "https://img.youtube.com/vi/AUwIPx3Q19Q/maxresdefault.jpg",
   },
 ]
 
@@ -184,24 +286,41 @@ type Item = {
   videoId: string
   thumbnail: string
   description?: string
+  externalUrl?: string
 }
 
 function PortfolioCard({ item, onOpen }: { item: Item; onOpen: (item: Item) => void }) {
+  const handleClick = () => {
+    if (!item.videoId && item.externalUrl) {
+      window.open(item.externalUrl, "_blank", "noopener,noreferrer")
+    } else {
+      onOpen(item)
+    }
+  }
+
   return (
     <div
       className="bg-white overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer group border border-[#e8e0d6]"
-      onClick={() => onOpen(item)}
+      onClick={handleClick}
     >
       <div className="h-48 bg-gray-900 relative overflow-hidden">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={item.thumbnail}
-          alt={item.title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-        />
+        {item.thumbnail ? (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={item.thumbnail}
+            alt={item.title}
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-gray-800 to-gray-900" />
+        )}
         <div className="absolute inset-0 bg-black/25 group-hover:bg-black/50 transition-colors duration-300 flex items-center justify-center">
           <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-11 h-11 rounded-full bg-white/20 border border-white/50 flex items-center justify-center">
-            <Play className="w-5 h-5 text-white fill-white ml-0.5" />
+            {item.videoId ? (
+              <Play className="w-5 h-5 text-white fill-white ml-0.5" />
+            ) : (
+              <ExternalLink className="w-5 h-5 text-white" />
+            )}
           </div>
         </div>
         <div className="absolute top-2.5 left-2.5">
@@ -237,7 +356,7 @@ function SectionHeading({ label, title }: { label: string; title: string }) {
   )
 }
 
-const TABS = ["すべて", "映画", "ドラマ", "CM", "企業PR", "MV", "その他"] as const
+const TABS = ["すべて", "映画", "ドラマ", "ショートドラマ", "CM", "企業PR", "MV", "その他"] as const
 type Tab = typeof TABS[number]
 
 export default function PortfolioPage() {
