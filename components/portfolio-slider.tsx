@@ -29,9 +29,8 @@ const enryItems = [
     category: "ショートドラマ",
     role: "制作協力・演出助手",
     year: "2026/06/06",
-    videoId: "",
-    thumbnail: "",
-    thumbnail: "https://v-mps.crazymaplestudios.com/images/96129880-541a-11f1-b0e9-f1e04973cf14.png",
+    videoId: "_p1F3gT2Quw",
+    thumbnail: "https://img.youtube.com/vi/_p1F3gT2Quw/hqdefault.jpg",
     externalUrl: "https://www.reelshort.com/ja/movie/%E3%83%91%E3%83%91%E3%81%AF%E3%83%88%E3%83%83%E3%83%97%E3%82%B9%E3%82%BF%E3%83%BC-%EF%B8%8E-%E6%9C%AA%E5%A9%9A%E3%82%B7%E3%83%B3%E3%83%9E%E3%83%9E%E3%81%AE%E7%A7%98%E5%AF%86-6a179da4de9211208c080f90",
   },
   {
@@ -134,7 +133,7 @@ const directorItems = [
     role: "撮影監督",
     year: "2025/07/26",
     videoId: "",
-    thumbnail: "https://v-mps.crazymaplestudios.com/images/211d3420-d721-11f0-84ad-6b5693b490dc.png",
+    thumbnail: "",
     externalUrl: "https://www.reelshort.com/ja/movie/%E6%B6%88%E9%98%B2%E5%A3%AB%E3%81%AE%E5%85%83%E5%A4%AB-%E6%82%94%E6%81%A8%E3%81%AE%E7%82%8E%E3%81%AB%E7%84%BC%E3%81%8B%E3%82%8C%E3%81%A6-6861f8128c13fda27006234b",
   },
   {

@@ -31,8 +31,8 @@ const enryItems = [
     category: "ショートドラマ",
     role: "制作協力・演出助手",
     year: "2026/06/06",
-    videoId: "",
-    thumbnail: "https://v-mps.crazymaplestudios.com/images/96129880-541a-11f1-b0e9-f1e04973cf14.png",
+    videoId: "_p1F3gT2Quw",
+    thumbnail: "https://img.youtube.com/vi/_p1F3gT2Quw/hqdefault.jpg",
     externalUrl: "https://www.reelshort.com/ja/movie/パパはトップスター-%EF%B8%8E-未婚シンママの秘密-6a179da4de9211208c080f90",
   },
   {
@@ -217,7 +217,7 @@ const directorItems = [
     role: "撮影監督",
     year: "2025/07/26",
     videoId: "",
-    thumbnail: "https://v-mps.crazymaplestudios.com/images/211d3420-d721-11f0-84ad-6b5693b490dc.png",
+    thumbnail: "",
     externalUrl: "https://www.reelshort.com/ja/movie/消防士の元夫-悔恨の炎に焼かれて-6861f8128c13fda27006234b",
   },
   {
