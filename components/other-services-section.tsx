@@ -28,6 +28,9 @@ const otherServices = [
     instagramUrl: "https://www.instagram.com/p/DUsjJYOE_k1/",
     pdfUrl: null,
     highlights: ["企画構成から対応可能", "月額運用プランあり"],
+    sampleWorks: [
+      { client: "鈴木ユリア", title: "ラヴ上等！Baby！", url: "https://www.instagram.com/p/DUsjJYOE_k1/" },
+    ],
   },
 ]
 
@@ -131,6 +134,29 @@ export default function OtherServicesSection() {
                           {h}
                         </span>
                       ))}
+                    </div>
+                  )}
+
+                  {/* Sample Works */}
+                  {"sampleWorks" in service && service.sampleWorks && (
+                    <div className="mt-3">
+                      <p className="text-[9px] tracking-[0.4em] text-gray-400 uppercase mb-1.5">制作実績</p>
+                      <div className="space-y-1">
+                        {service.sampleWorks.map((work) => (
+                          <a
+                            key={work.title}
+                            href={work.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 text-[11px] text-gray-700 hover:text-[#7a1a24] transition-colors group"
+                          >
+                            <span className="w-1 h-1 rounded-full bg-[#7a1a24]/50 shrink-0" />
+                            <span className="font-medium">{work.client}</span>
+                            <span className="text-gray-400">「{work.title}」</span>
+                            <ExternalLink className="w-2.5 h-2.5 text-gray-300 group-hover:text-[#7a1a24] shrink-0" />
+                          </a>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>
