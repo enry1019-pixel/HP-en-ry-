@@ -217,7 +217,7 @@ const directorItems = [
     role: "撮影監督",
     year: "2025/07/26",
     videoId: "",
-    thumbnail: "",
+    thumbnail: "/shoboushi-thumbnail.jpg",
     externalUrl: "https://www.reelshort.com/ja/movie/消防士の元夫-悔恨の炎に焼かれて-6861f8128c13fda27006234b",
   },
   {
