@@ -50,8 +50,8 @@ export default function OtherServicesSection() {
             <div className="flex flex-col md:flex-row">
               {/* Thumbnail */}
               <div
-                className={`relative shrink-0 overflow-hidden ${service.id === "SNS-SHORT" ? "md:w-20 lg:w-24" : "md:w-40 lg:w-48"}`}
-                style={{ aspectRatio: service.id === "SNS-SHORT" ? "9/16" : "16/9" }}
+                className="relative shrink-0 md:w-40 lg:w-48 overflow-hidden"
+                style={{ aspectRatio: "16/9" }}
               >
                 {service.youtubeId ? (
                   <a
