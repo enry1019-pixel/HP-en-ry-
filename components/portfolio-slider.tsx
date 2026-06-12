@@ -37,7 +37,7 @@ const enryItems = [
     id: 4,
     title: "株式会社en-ry PV（long ver.）",
     category: "企業PR",
-    role: "監督・編集",
+    role: "企画制作・監督・脚本・編集",
     year: "2025年",
     videoId: "Wi0mrLzSN5o",
     thumbnail: "https://img.youtube.com/vi/Wi0mrLzSN5o/hqdefault.jpg",
@@ -103,7 +103,7 @@ const directorItems = [
     id: 7,
     title: "『アッパレビバディ』/Appare!",
     category: "MV",
-    role: "監督",
+    role: "監督・脚本・オフライン編集",
     year: "2022年",
     videoId: "6C7P_0Qv3pc",
     thumbnail: "https://img.youtube.com/vi/6C7P_0Qv3pc/hqdefault.jpg",
@@ -166,12 +166,12 @@ const directorItems = [
   },
   {
     id: 14,
-    title: "漆黒の神威",
+    title: "漆黒の神威ZERO",
     category: "映画",
     role: "撮影監督・編集",
     year: "2022/01/14",
-    videoId: "JlukvfjO6gU",
-    thumbnail: "https://img.youtube.com/vi/JlukvfjO6gU/hqdefault.jpg",
+    videoId: "67oNBwaArIE",
+    thumbnail: "https://img.youtube.com/vi/67oNBwaArIE/hqdefault.jpg",
   },
   {
     id: 15,
@@ -323,7 +323,7 @@ export default function PortfolioSlider() {
         </div>
         {/* 田中監督実績 */}
         <div>
-          <SectionLabel main="田中慎太郎監督 実績" sub="director works" />
+          <SectionLabel main="田中慎太郎実績" sub="director works" />
           <div className="grid grid-cols-3 gap-2">
             {directorItems.slice(0, 9).map((item) => (
               <VideoCard key={item.id} item={item} />
@@ -351,7 +351,7 @@ export default function PortfolioSlider() {
 
       {/* Right: 田中監督実績 */}
       <div className="w-1/2">
-        <SectionLabel main="田中慎太郎監督 実績" sub="director works" />
+        <SectionLabel main="田中慎太郎実績" sub="director works" />
         <div className="grid grid-cols-3 gap-3">
           {directorItems.slice(0, 9).map((item) => (
             <VideoCard key={item.id} item={item} />

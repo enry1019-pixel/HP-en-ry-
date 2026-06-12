@@ -39,7 +39,7 @@ const enryItems = [
     id: 4,
     title: "株式会社en-ry PV（long ver.）",
     category: "企業PR",
-    role: "監督・編集",
+    role: "企画制作・監督・脚本・編集",
     year: "2025年",
     videoId: "Wi0mrLzSN5o",
     thumbnail: "https://img.youtube.com/vi/Wi0mrLzSN5o/hqdefault.jpg",
@@ -115,7 +115,7 @@ const directorItems = [
     id: 8,
     title: "『アッパレビバディ』/Appare!",
     category: "MV",
-    role: "監督",
+    role: "監督・脚本・オフライン編集",
     year: "2022年",
     videoId: "6C7P_0Qv3pc",
     thumbnail: "https://img.youtube.com/vi/6C7P_0Qv3pc/hqdefault.jpg",
@@ -133,7 +133,7 @@ const directorItems = [
     id: 10,
     title: "福井県 観光地PR動画",
     category: "CM",
-    role: "監督・脚本",
+    role: "監督・脚本・編集",
     year: "2021年",
     videoId: "OuF0gG07TKk",
     thumbnail: "https://img.youtube.com/vi/OuF0gG07TKk/hqdefault.jpg",
@@ -151,7 +151,7 @@ const directorItems = [
     id: 12,
     title: "桃色ジュテーム/花いろは",
     category: "MV",
-    role: "監督",
+    role: "監督・脚本・編集",
     year: "2025年",
     videoId: "8DLmTeGNtlE",
     thumbnail: "https://img.youtube.com/vi/8DLmTeGNtlE/hqdefault.jpg",
@@ -160,7 +160,7 @@ const directorItems = [
     id: 13,
     title: "BIRTHDAY feat.掌幻/TONEMANIA",
     category: "MV",
-    role: "監督",
+    role: "監督・脚本・編集",
     year: "2023年",
     videoId: "fIwdf8M9X0M",
     thumbnail: "https://img.youtube.com/vi/fIwdf8M9X0M/hqdefault.jpg",
@@ -169,7 +169,7 @@ const directorItems = [
     id: 14,
     title: "さわげ！うたげーしょん！/UtaGe!",
     category: "MV",
-    role: "監督",
+    role: "監督・編集",
     year: "2024年",
     videoId: "81eV5XW62Ww",
     thumbnail: "https://img.youtube.com/vi/81eV5XW62Ww/hqdefault.jpg",
@@ -250,12 +250,12 @@ const directorItems = [
   },
   {
     id: 23,
-    title: "漆黒の神威",
+    title: "漆黒の神威ZERO",
     category: "映画",
     role: "撮影監督・編集",
     year: "2022/01/14",
-    videoId: "JlukvfjO6gU",
-    thumbnail: "https://img.youtube.com/vi/JlukvfjO6gU/hqdefault.jpg",
+    videoId: "67oNBwaArIE",
+    thumbnail: "https://img.youtube.com/vi/67oNBwaArIE/hqdefault.jpg",
   },
   {
     id: 24,
@@ -274,6 +274,34 @@ const directorItems = [
     year: "2025/11/17",
     videoId: "AUwIPx3Q19Q",
     thumbnail: "https://img.youtube.com/vi/AUwIPx3Q19Q/hqdefault.jpg",
+  },
+  {
+    id: 26,
+    title: "兄が仕事をやめた",
+    category: "映画",
+    role: "監督・脚本・編集",
+    year: "2025年",
+    description: "U-NEXTにて配信中",
+    videoId: "uIzrZ83JMjc",
+    thumbnail: "https://img.youtube.com/vi/uIzrZ83JMjc/hqdefault.jpg",
+  },
+  {
+    id: 27,
+    title: "「極道の門」第六部〜第八部",
+    category: "映画",
+    role: "プロデューサー",
+    year: "2020年",
+    videoId: "aINdfhHE-AU",
+    thumbnail: "https://img.youtube.com/vi/aINdfhHE-AU/hqdefault.jpg",
+  },
+  {
+    id: 28,
+    title: "レディ in ホワイト",
+    category: "映画",
+    role: "制作担当",
+    year: "2018年",
+    videoId: "3OHs1nE32vo",
+    thumbnail: "https://img.youtube.com/vi/3OHs1nE32vo/hqdefault.jpg",
   },
 ]
 
@@ -435,10 +463,10 @@ export default function PortfolioPage() {
             </section>
           )}
 
-          {/* 田中慎太郎監督 実績 */}
+          {/* 田中慎太郎実績 */}
           {filteredDirector.length > 0 && (
             <section>
-              <SectionHeading label="Director Works" title="田中慎太郎監督 実績" />
+              <SectionHeading label="Director Works" title="田中慎太郎実績" />
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {filteredDirector.map((item) => (
                   <PortfolioCard key={item.id} item={item} onOpen={setSelectedVideo} />
