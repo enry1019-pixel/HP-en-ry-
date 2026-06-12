@@ -1,6 +1,6 @@
 "use client"
 
-import { FileText, Play } from "lucide-react"
+import { FileText, Play, Smartphone, ExternalLink } from "lucide-react"
 
 const otherServices = [
   {
@@ -14,6 +14,20 @@ const otherServices = [
     youtubeId: "5qP8O-gpfdw",
     youtubeUrl: "https://youtu.be/5qP8O-gpfdw",
     pdfUrl: "/en-reel-service.pdf",
+  },
+  {
+    id: "SNS-SHORT",
+    brand: "SNSショート動画",
+    brandReading: "企画・制作・運用",
+    tagline: "バズる動画を、戦略から。",
+    subtitle: "TikTok / Instagram Reels / YouTube Shorts",
+    description:
+      "SNSに特化したショート動画を制作いたします。企画・構成の段階からご相談可能。撮影・編集だけでなく、投稿管理・分析を含めた月額運用プランもご用意しています。",
+    youtubeId: "",
+    youtubeUrl: "",
+    instagramUrl: "https://www.instagram.com/p/DUsjJYOE_k1/",
+    pdfUrl: null,
+    highlights: ["企画構成から対応可能", "月額運用プランあり"],
   },
 ]
 
@@ -35,32 +49,38 @@ export default function OtherServicesSection() {
           >
             <div className="flex flex-col md:flex-row">
               {/* Thumbnail */}
-              <a
-                href={service.youtubeUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="relative block shrink-0 md:w-40 lg:w-48 overflow-hidden group"
+              <div
+                className="relative shrink-0 md:w-40 lg:w-48 overflow-hidden"
                 style={{ aspectRatio: "16/9" }}
               >
-                {/* YouTube thumbnail via img tag (external URL) */}
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={`https://img.youtube.com/vi/${service.youtubeId}/maxresdefault.jpg`}
-                  alt={service.brand}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
-                {/* Mini letterbox */}
-                <div className="absolute top-0 left-0 right-0 h-3 bg-black/60" />
-                <div className="absolute bottom-0 left-0 right-0 h-3 bg-black/60" />
-                {/* Play button */}
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/40 flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
-                    <Play className="w-5 h-5 text-white fill-white ml-0.5" />
+                {service.youtubeId ? (
+                  <a
+                    href={service.youtubeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full h-full group"
+                  >
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={`https://img.youtube.com/vi/${service.youtubeId}/hqdefault.jpg`}
+                      alt={service.brand}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 transition-colors duration-300" />
+                    <div className="absolute top-0 left-0 right-0 h-3 bg-black/60" />
+                    <div className="absolute bottom-0 left-0 right-0 h-3 bg-black/60" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/40 flex items-center justify-center group-hover:bg-white/30 transition-colors duration-300">
+                        <Play className="w-5 h-5 text-white fill-white ml-0.5" />
+                      </div>
+                    </div>
+                  </a>
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-[#1a1a2e] to-[#3d0a10] flex items-center justify-center">
+                    <Smartphone className="w-10 h-10 text-white/30" />
                   </div>
-                </div>
-              </a>
+                )}
+              </div>
 
               {/* Content */}
               <div className="flex-1 p-3 md:p-4 flex flex-col justify-between">
@@ -92,27 +112,56 @@ export default function OtherServicesSection() {
                   <p className="text-xs text-gray-600 leading-relaxed">
                     {service.description}
                   </p>
+
+                  {/* Highlights */}
+                  {"highlights" in service && service.highlights && (
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {service.highlights.map((h) => (
+                        <span
+                          key={h}
+                          className="text-[10px] border border-[#7a1a24]/40 text-[#7a1a24] px-2 py-0.5 tracking-wide"
+                        >
+                          {h}
+                        </span>
+                      ))}
+                    </div>
+                  )}
                 </div>
 
                 {/* Links */}
                 <div className="flex flex-wrap gap-2 mt-3">
-                  <a
-                    href={service.pdfUrl}
-                    download
-                    className="inline-flex items-center gap-2 border border-[#d9cfc4] text-gray-600 px-4 py-2 text-xs tracking-wider hover:border-[#7a1a24] hover:text-[#7a1a24] transition-colors"
-                  >
-                    <FileText className="w-3.5 h-3.5" />
-                    サービス資料（PDF）
-                  </a>
-                  <a
-                    href={service.youtubeUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 bg-[#1a1a1a] text-white px-4 py-2 text-xs tracking-wider hover:bg-[#7a1a24] transition-colors"
-                  >
-                    <Play className="w-3.5 h-3.5 fill-white" />
-                    サンプル動画を見る
-                  </a>
+                  {service.pdfUrl && (
+                    <a
+                      href={service.pdfUrl}
+                      download
+                      className="inline-flex items-center gap-2 border border-[#d9cfc4] text-gray-600 px-4 py-2 text-xs tracking-wider hover:border-[#7a1a24] hover:text-[#7a1a24] transition-colors"
+                    >
+                      <FileText className="w-3.5 h-3.5" />
+                      サービス資料（PDF）
+                    </a>
+                  )}
+                  {service.youtubeUrl && (
+                    <a
+                      href={service.youtubeUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-[#1a1a1a] text-white px-4 py-2 text-xs tracking-wider hover:bg-[#7a1a24] transition-colors"
+                    >
+                      <Play className="w-3.5 h-3.5 fill-white" />
+                      サンプル動画を見る
+                    </a>
+                  )}
+                  {"instagramUrl" in service && service.instagramUrl && (
+                    <a
+                      href={service.instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 bg-[#1a1a1a] text-white px-4 py-2 text-xs tracking-wider hover:bg-[#7a1a24] transition-colors"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5" />
+                      サンプルを見る
+                    </a>
+                  )}
                 </div>
               </div>
             </div>
