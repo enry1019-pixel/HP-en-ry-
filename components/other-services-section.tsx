@@ -29,7 +29,7 @@ const otherServices = [
     pdfUrl: null,
     highlights: ["企画構成から対応可能", "月額運用プランあり"],
     sampleWorks: [
-      { client: "鈴木ユリア", title: "ラヴ上等！Baby！", url: "https://www.instagram.com/p/DUsjJYOE_k1/" },
+      { client: "M.O.D【モッズ】", title: "ショート動画編集", url: "https://www.instagram.com/p/DUsjJYOE_k1/" },
     ],
   },
 ]
