@@ -50,8 +50,8 @@ export default function OtherServicesSection() {
             <div className="flex flex-col md:flex-row">
               {/* Thumbnail */}
               <div
-                className="relative shrink-0 md:w-40 lg:w-48 overflow-hidden"
-                style={{ aspectRatio: "16/9" }}
+                className={`relative shrink-0 overflow-hidden ${service.id === "SNS-SHORT" ? "md:w-20 lg:w-24" : "md:w-40 lg:w-48"}`}
+                style={{ aspectRatio: service.id === "SNS-SHORT" ? "9/16" : "16/9" }}
               >
                 {service.youtubeId ? (
                   <a
@@ -75,6 +75,13 @@ export default function OtherServicesSection() {
                       </div>
                     </div>
                   </a>
+                ) : service.id === "SNS-SHORT" ? (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src="/sns-short-sample.png"
+                    alt={service.brand}
+                    className="w-full h-full object-cover object-top"
+                  />
                 ) : (
                   <div className="w-full h-full bg-gradient-to-br from-[#1a1a2e] to-[#3d0a10] flex items-center justify-center">
                     <Smartphone className="w-10 h-10 text-white/30" />
