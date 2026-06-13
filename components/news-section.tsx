@@ -19,7 +19,7 @@ const newsItems: NewsItem[] = [
     id: 9,
     date: "2026.06.06",
     category: "WORKS",
-    title: "ショートドラマ『パパはトップスター⁉︎〜未婚シンママの秘密〜』に制作協力",
+    title: "ReelShort独占配信ドラマ『パパはトップスター⁉︎』に参加しました！",
     description: "ReelShort配信のショートドラマ『パパはトップスター⁉︎〜未婚シンママの秘密〜』に制作協力・演出助手として参加いたしました。",
     detailUrl: "https://www.reelshort.com/ja/movie/%E3%83%91%E3%83%91%E3%81%AF%E3%83%88%E3%83%83%E3%83%97%E3%82%B9%E3%82%BF%E3%83%BC-%EF%B8%8E-%E6%9C%AA%E5%A9%9A%E3%82%B7%E3%83%B3%E3%83%9E%E3%83%9E%E3%81%AE%E7%A7%98%E5%AF%86-6a179da4de9211208c080f90",
     detailUrlText: "作品はこちら",
@@ -28,7 +28,7 @@ const newsItems: NewsItem[] = [
     id: 8,
     date: "2026.05.20",
     category: "WORKS",
-    title: "UtaGe!『すーぱーUtaGe!砲』MVに制作協力",
+    title: "UtaGe! × en-ry 最新MV『すーぱーUtaGe!砲』完成！",
     description: "UtaGe!『すーぱーUtaGe!砲』のミュージックビデオに制作協力・ラインプロデューサーとして参加いたしました。",
     detailUrl: "https://www.youtube.com/watch?v=WQnmozAtck4",
     detailUrlText: "MVはこちら",
@@ -37,7 +37,7 @@ const newsItems: NewsItem[] = [
     id: 7,
     date: "2026.05.02",
     category: "お知らせ",
-    title: "田中監督作「近くて遠い親子」が第24回中之島映画祭にノミネート",
+    title: "ノミネート！田中監督「近くて遠い親子」が中之島映画祭へ",
     description: "田中慎太郎監督作映画「近くて遠い親子」が第24回中之島映画祭にノミネートされました。",
     detailUrl: "https://www.youtube.com/watch?v=SPX7k8DsnIk",
     detailUrlText: "予告編はこちら",
@@ -46,7 +46,7 @@ const newsItems: NewsItem[] = [
     id: 6,
     date: "2026.03.29",
     category: "WORKS",
-    title: "Ma'Scar'Piece『Showtime Ignition』MVを制作",
+    title: "Ma'Scar'Piece 最新MV『Showtime Ignition』をen-ryが手がけました",
     description: "ツインプラネット所属Ma'Scar'Piece 12th Single『Showtime Ignition』のミュージックビデオを弊社にて制作いたしました。",
     detailUrl: "https://www.youtube.com/watch?v=8AO0rZnAdqw",
     detailUrlText: "MVはこちら",
@@ -55,7 +55,7 @@ const newsItems: NewsItem[] = [
     id: 5,
     date: "2026.01.04",
     category: "お知らせ",
-    title: "俳優ショーリール動画サービス「EN-REEL」制作開始",
+    title: "俳優の映像名刺、作ります。新サービス「EN-REEL」スタート！",
     description: "映像名刺必須の時代にあなただけのプロフィール動画を制作いたします。",
     pdfUrl: "/en-reel-service.pdf",
   },
@@ -63,7 +63,7 @@ const newsItems: NewsItem[] = [
     id: 4,
     date: "2025.11.10",
     category: "お知らせ",
-    title: "田中監督作品・短編映画「兄が仕事をやめた」がU-NEXTにて公開",
+    title: "U-NEXTで観られます！短編映画「兄が仕事をやめた」公開",
     description: "田中監督作品・短編映画「兄が仕事をやめた」がU-NEXTにて公開されました。",
     detailUrl: "https://www.youtube.com/watch?v=uIzrZ83JMjc",
   },
@@ -99,11 +99,11 @@ export default function NewsSection() {
               <div className="w-16 h-px bg-gradient-to-l from-transparent to-[#7a1a24]/55" />
             </div>
           </div>
-          <p className="text-lg text-gray-500 sec-subtitle">ニュース</p>
+          <p className="text-lg text-gray-500 sec-subtitle">話題の最新作・お知らせ</p>
         </div>
 
         <div className="max-w-4xl mx-auto space-y-3 sec-body">
-          {newsItems.map((item) => (
+          {newsItems.slice(0, 5).map((item) => (
             <div
               key={item.id}
               className="relative z-20 bg-white px-5 py-3 rounded-lg border border-[#e0d8ce] hover:border-[#c9a96e] hover:shadow-md transition-all duration-300"
