@@ -16,6 +16,15 @@ interface NewsItem {
 
 const newsItems: NewsItem[] = [
   {
+    id: 10,
+    date: "2026.06.18",
+    category: "WORKS",
+    title: "花いろは 新MV『夏色シンデレラ』の監督・制作協力を担当しました",
+    description: "花いろはの最新MV『夏色シンデレラ』を監督・制作協力として手がけました。",
+    detailUrl: "https://www.youtube.com/watch?v=FoHyPMgAVgo",
+    detailUrlText: "MVはこちら",
+  },
+  {
     id: 9,
     date: "2026.06.06",
     category: "WORKS",
