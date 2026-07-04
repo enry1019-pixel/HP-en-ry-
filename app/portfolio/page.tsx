@@ -8,6 +8,15 @@ import { RedThreadBackground } from "@/components/red-thread-background"
 
 const enryItems = [
   {
+    id: 29,
+    title: "この夏の暑さは、きっと君のせいだ。/Tiara Palette",
+    category: "MV",
+    role: "企画・監督・撮影・編集",
+    year: "2026/06/30",
+    videoId: "5tZKhLg4TlU",
+    thumbnail: "https://img.youtube.com/vi/5tZKhLg4TlU/hqdefault.jpg",
+  },
+  {
     id: 1,
     title: "夏色シンデレラ/花いろは",
     category: "MV",

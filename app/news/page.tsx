@@ -20,6 +20,15 @@ interface NewsItem {
 
 const newsItems: NewsItem[] = [
   {
+    id: "11",
+    date: "2026.06.30",
+    category: "WORKS",
+    title: "Tiara Palette 新MV『この夏の暑さは、きっと君のせいだ。』の企画・監督・撮影・編集を担当しました",
+    description: "Tiara Paletteの最新MV『この夏の暑さは、きっと君のせいだ。』を企画・監督・撮影・編集として手がけました。",
+    detailUrl: "https://www.youtube.com/watch?v=5tZKhLg4TlU",
+    detailUrlText: "MVはこちら",
+  },
+  {
     id: "10",
     date: "2026.06.18",
     category: "WORKS",
