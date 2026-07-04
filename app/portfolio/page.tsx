@@ -11,7 +11,7 @@ const enryItems = [
     id: 1,
     title: "夏色シンデレラ/花いろは",
     category: "MV",
-    role: "監督・制作協力",
+    role: "監督・編集・制作協力",
     year: "2026/06/18",
     videoId: "FoHyPMgAVgo",
     thumbnail: "https://img.youtube.com/vi/FoHyPMgAVgo/hqdefault.jpg",
