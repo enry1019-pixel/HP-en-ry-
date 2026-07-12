@@ -16,6 +16,15 @@ interface NewsItem {
 
 const newsItems: NewsItem[] = [
   {
+    id: 12,
+    date: "2026.07.10",
+    category: "WORKS",
+    title: "TVアニメ「乙女ゲー世界はモブに厳しい世界です2」EDテーマ曲『あしたはあしたのけせらせら！』のMVを制作しました",
+    description: "TVアニメ「乙女ゲー世界はモブに厳しい世界です2」のエンディングテーマとなった楽曲『あしたはあしたのけせらせら！』のミュージックビデオの監督・構成・編集を担当いたしました。",
+    detailUrl: "https://www.youtube.com/watch?v=Y0e81M-ADmE",
+    detailUrlText: "MVはこちら",
+  },
+  {
     id: 11,
     date: "2026.06.30",
     category: "WORKS",

@@ -8,6 +8,16 @@ import { RedThreadBackground } from "@/components/red-thread-background"
 
 const enryItems = [
   {
+    id: 30,
+    title: "あしたはあしたのけせらせら！/名称非公開",
+    category: "MV",
+    role: "監督・構成・編集",
+    year: "2026/07/10",
+    videoId: "Y0e81M-ADmE",
+    thumbnail: "https://img.youtube.com/vi/Y0e81M-ADmE/hqdefault.jpg",
+    description: "TVアニメ「乙女ゲー世界はモブに厳しい世界です2」エンディングテーマ",
+  },
+  {
     id: 29,
     title: "この夏の暑さは、きっと君のせいだ。/Tiara Palette",
     category: "MV",
