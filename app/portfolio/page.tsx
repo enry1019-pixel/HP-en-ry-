@@ -452,8 +452,10 @@ export default function PortfolioPage() {
   }, [])
 
   const parseDate = (year: string): number => {
-    const cleaned = year.replace("年", "").replace(/\//g, "")
-    return parseInt(cleaned.padEnd(8, "0"))
+    const cleaned = year.replace(/[年]/g, "").replace(/\//g, "").replace(/-/g, "")
+    const padded = cleaned.padEnd(8, "0")
+    const n = parseInt(padded, 10)
+    return isNaN(n) ? 0 : n
   }
 
   const filterItems = (items: Item[]) => {
