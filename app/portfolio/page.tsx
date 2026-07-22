@@ -451,8 +451,15 @@ export default function PortfolioPage() {
     window.scrollTo(0, 0)
   }, [])
 
-  const filterItems = (items: Item[]) =>
-    tab === "すべて" ? items : items.filter((i) => i.category === tab)
+  const parseDate = (year: string): number => {
+    const cleaned = year.replace("年", "").replace(/\//g, "")
+    return parseInt(cleaned.padEnd(8, "0"))
+  }
+
+  const filterItems = (items: Item[]) => {
+    const filtered = tab === "すべて" ? items : items.filter((i) => i.category === tab)
+    return [...filtered].sort((a, b) => parseDate(b.year) - parseDate(a.year))
+  }
 
   const filteredEnry = filterItems(enryItems)
   const filteredDirector = filterItems(directorItems)
