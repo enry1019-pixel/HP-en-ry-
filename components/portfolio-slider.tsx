@@ -42,6 +42,7 @@ const enryItems = [
     videoId: "_p1F3gT2Quw",
     thumbnail: "https://img.youtube.com/vi/_p1F3gT2Quw/hqdefault.jpg",
     externalUrl: "https://www.reelshort.com/ja/movie/%E3%83%91%E3%83%91%E3%81%AF%E3%83%88%E3%83%83%E3%83%97%E3%82%B9%E3%82%BF%E3%83%BC-%EF%B8%8E-%E6%9C%AA%E5%A9%9A%E3%82%B7%E3%83%B3%E3%83%9E%E3%83%9E%E3%81%AE%E7%A7%98%E5%AF%86-6a179da4de9211208c080f90",
+    streaming: "REELSHORT",
   },
   {
     id: 3,
@@ -81,6 +82,7 @@ const directorItems = [
     year: "2025年",
     videoId: "mUIHsU9DUAY",
     thumbnail: "https://img.youtube.com/vi/mUIHsU9DUAY/hqdefault.jpg",
+    streaming: "Amazon Prime",
   },
   {
     id: 2,
@@ -163,6 +165,7 @@ const directorItems = [
     videoId: "",
     thumbnail: "/shoboushi-thumbnail.jpg",
     externalUrl: "https://www.reelshort.com/ja/movie/%E6%B6%88%E9%98%B2%E5%A3%AB%E3%81%AE%E5%85%83%E5%A4%AB-%E6%82%94%E6%81%A8%E3%81%AE%E7%82%8E%E3%81%AB%E7%84%BC%E3%81%8B%E3%82%8C%E3%81%A6-6861f8128c13fda27006234b",
+    streaming: "REELSHORT",
   },
   {
     id: 11,
@@ -172,6 +175,7 @@ const directorItems = [
     year: "2025/10/03",
     videoId: "rhom5WJuY4c",
     thumbnail: "https://img.youtube.com/vi/rhom5WJuY4c/hqdefault.jpg",
+    streaming: "FODショート",
   },
   {
     id: 12,
@@ -218,6 +222,7 @@ const directorItems = [
     year: "2025/11/17",
     videoId: "AUwIPx3Q19Q",
     thumbnail: "https://img.youtube.com/vi/AUwIPx3Q19Q/hqdefault.jpg",
+    streaming: "BUNP",
   },
 ]
 
@@ -231,6 +236,15 @@ type Item = {
   thumbnail: string
   description?: string
   externalUrl?: string
+  streaming?: string
+}
+
+function streamingColor(platform: string) {
+  if (platform.includes("Amazon")) return "bg-[#00A8E1]"
+  if (platform.includes("REELSHORT")) return "bg-[#FF6B35]"
+  if (platform.includes("FOD")) return "bg-[#E60012]"
+  if (platform.includes("BUNP")) return "bg-[#7B5EA7]"
+  return "bg-gray-700"
 }
 
 function VideoCard({ item, size = "sm" }: { item: Item; size?: "sm" | "md" }) {
@@ -273,6 +287,12 @@ function VideoCard({ item, size = "sm" }: { item: Item; size?: "sm" | "md" }) {
             <p className="text-[9px] text-white/60 tracking-[0.3em] uppercase mb-0.5">{item.category}</p>
             <p className="text-white text-[11px] font-bold leading-tight line-clamp-2">{item.title}</p>
           </div>
+          {item.streaming && (
+            <div className={`absolute top-1.5 right-1.5 ${streamingColor(item.streaming)} text-white text-[8px] font-bold px-1.5 py-0.5 rounded flex items-center gap-1`}>
+              <span className="w-1 h-1 rounded-full bg-white inline-block" />
+              {item.streaming}
+            </div>
+          )}
         </div>
         <div className="px-2.5 py-2 bg-white border-t border-[#e8e0d6]">
           <p className="text-[10px] text-gray-500 leading-relaxed">{item.role}</p>

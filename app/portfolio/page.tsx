@@ -44,6 +44,7 @@ const enryItems = [
     videoId: "_p1F3gT2Quw",
     thumbnail: "https://img.youtube.com/vi/_p1F3gT2Quw/hqdefault.jpg",
     externalUrl: "https://www.reelshort.com/ja/movie/パパはトップスター-%EF%B8%8E-未婚シンママの秘密-6a179da4de9211208c080f90",
+    streaming: "REELSHORT",
   },
   {
     id: 3,
@@ -83,6 +84,7 @@ const directorItems = [
     year: "2025年",
     videoId: "mUIHsU9DUAY",
     thumbnail: "https://img.youtube.com/vi/mUIHsU9DUAY/hqdefault.jpg",
+    streaming: "Amazon Prime",
   },
   {
     id: 2,
@@ -247,6 +249,7 @@ const directorItems = [
     videoId: "",
     thumbnail: "/shoboushi-thumbnail.jpg",
     externalUrl: "https://www.reelshort.com/ja/movie/消防士の元夫-悔恨の炎に焼かれて-6861f8128c13fda27006234b",
+    streaming: "REELSHORT",
   },
   {
     id: 20,
@@ -256,6 +259,7 @@ const directorItems = [
     year: "2025/10/03",
     videoId: "rhom5WJuY4c",
     thumbnail: "https://img.youtube.com/vi/rhom5WJuY4c/hqdefault.jpg",
+    streaming: "FODショート",
   },
   {
     id: 21,
@@ -302,6 +306,7 @@ const directorItems = [
     year: "2025/11/17",
     videoId: "AUwIPx3Q19Q",
     thumbnail: "https://img.youtube.com/vi/AUwIPx3Q19Q/hqdefault.jpg",
+    streaming: "BUNP",
   },
   {
     id: 26,
@@ -343,6 +348,15 @@ type Item = {
   thumbnail: string
   description?: string
   externalUrl?: string
+  streaming?: string
+}
+
+function streamingColor(platform: string) {
+  if (platform.includes("Amazon")) return "bg-[#00A8E1]"
+  if (platform.includes("REELSHORT")) return "bg-[#FF6B35]"
+  if (platform.includes("FOD")) return "bg-[#E60012]"
+  if (platform.includes("BUNP")) return "bg-[#7B5EA7]"
+  return "bg-gray-700"
 }
 
 function PortfolioCard({ item, onOpen }: { item: Item; onOpen: (item: Item) => void }) {
@@ -382,6 +396,12 @@ function PortfolioCard({ item, onOpen }: { item: Item; onOpen: (item: Item) => v
         <div className="absolute top-2.5 left-2.5">
           <span className="bg-[#7a1a24]/85 text-white text-[10px] px-2.5 py-1 tracking-wider">{item.category}</span>
         </div>
+        {item.streaming && (
+          <div className={`absolute top-2.5 right-2.5 ${streamingColor(item.streaming)} text-white text-[9px] font-bold px-2 py-0.5 rounded flex items-center gap-1`}>
+            <span className="w-1 h-1 rounded-full bg-white inline-block" />
+            {item.streaming}
+          </div>
+        )}
       </div>
       <div className="p-4">
         <h3 className="font-bold text-sm mb-1.5 leading-snug line-clamp-2 text-[#1a1a1a]">{item.title}</h3>
