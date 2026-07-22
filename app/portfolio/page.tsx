@@ -45,6 +45,7 @@ const enryItems = [
     thumbnail: "https://img.youtube.com/vi/_p1F3gT2Quw/hqdefault.jpg",
     externalUrl: "https://www.reelshort.com/ja/movie/パパはトップスター-%EF%B8%8E-未婚シンママの秘密-6a179da4de9211208c080f90",
     streaming: "REELSHORT",
+    description: "REELSHORTにて配信中",
   },
   {
     id: 3,
@@ -85,6 +86,7 @@ const directorItems = [
     videoId: "mUIHsU9DUAY",
     thumbnail: "https://img.youtube.com/vi/mUIHsU9DUAY/hqdefault.jpg",
     streaming: "Amazon Prime",
+    description: "Amazon Primeにて配信中",
   },
   {
     id: 2,
@@ -95,6 +97,7 @@ const directorItems = [
     description: "U-NEXTにて配信中",
     videoId: "Xk6PZaU43JE",
     thumbnail: "https://img.youtube.com/vi/Xk6PZaU43JE/hqdefault.jpg",
+    streaming: "U-NEXT",
   },
   {
     id: 3,
@@ -250,6 +253,7 @@ const directorItems = [
     thumbnail: "/shoboushi-thumbnail.jpg",
     externalUrl: "https://www.reelshort.com/ja/movie/消防士の元夫-悔恨の炎に焼かれて-6861f8128c13fda27006234b",
     streaming: "REELSHORT",
+    description: "REELSHORTにて配信中",
   },
   {
     id: 20,
@@ -260,6 +264,7 @@ const directorItems = [
     videoId: "rhom5WJuY4c",
     thumbnail: "https://img.youtube.com/vi/rhom5WJuY4c/hqdefault.jpg",
     streaming: "FODショート",
+    description: "FODショートにて配信中",
   },
   {
     id: 21,
@@ -307,6 +312,7 @@ const directorItems = [
     videoId: "AUwIPx3Q19Q",
     thumbnail: "https://img.youtube.com/vi/AUwIPx3Q19Q/hqdefault.jpg",
     streaming: "BUNP",
+    description: "BUNPにて配信中",
   },
   {
     id: 26,
@@ -317,6 +323,7 @@ const directorItems = [
     description: "U-NEXTにて配信中",
     videoId: "uIzrZ83JMjc",
     thumbnail: "https://img.youtube.com/vi/uIzrZ83JMjc/hqdefault.jpg",
+    streaming: "U-NEXT",
   },
   {
     id: 27,
@@ -356,6 +363,7 @@ function streamingColor(platform: string) {
   if (platform.includes("REELSHORT")) return "bg-[#FF6B35]"
   if (platform.includes("FOD")) return "bg-[#E60012]"
   if (platform.includes("BUNP")) return "bg-[#7B5EA7]"
+  if (platform.includes("U-NEXT")) return "bg-[#1a1a3e]"
   return "bg-gray-700"
 }
 

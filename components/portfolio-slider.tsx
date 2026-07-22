@@ -92,6 +92,7 @@ const directorItems = [
     year: "2025年",
     videoId: "Xk6PZaU43JE",
     thumbnail: "https://img.youtube.com/vi/Xk6PZaU43JE/hqdefault.jpg",
+    streaming: "U-NEXT",
   },
   {
     id: 3,
@@ -244,6 +245,7 @@ function streamingColor(platform: string) {
   if (platform.includes("REELSHORT")) return "bg-[#FF6B35]"
   if (platform.includes("FOD")) return "bg-[#E60012]"
   if (platform.includes("BUNP")) return "bg-[#7B5EA7]"
+  if (platform.includes("U-NEXT")) return "bg-[#1a1a3e]"
   return "bg-gray-700"
 }
 
